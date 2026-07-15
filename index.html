@@ -151,199 +151,77 @@ p{margin:0;}
 .nav-toggle{display:none;background:none;border:none;padding:8px;color:var(--white);}
 
 /* ============================================
-   HERO WITH SLIDER ALIGNED TO THE RIGHT
+   HERO STATIC LEFT ALIGNED (NO SLIDER)
    ============================================ */
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 650px;
-  max-height: 900px;
+  height: 90vh;
+  min-height: 580px;
+  max-height: 840px;
   overflow: hidden;
   color: var(--white);
-  background: var(--brand-navy-dark);
-}
-.hero-slider {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(1.06);
-  transition: opacity 1.2s ease, transform 6s linear, visibility 1.2s ease;
+  background: linear-gradient(180deg, rgba(36,48,77,0.3) 0%, rgba(36,48,77,0.85) 100%), url('images/hero-beach-hd.png') center/cover no-repeat;
   display: flex;
   align-items: center;
+  z-index: 10;
 }
-.hero-slide::before {
+.hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: 
-    linear-gradient(270deg, rgba(36, 48, 77, 0.9) 0%, rgba(36, 48, 77, 0.45) 50%, rgba(36, 48, 77, 0.2) 100%),
-    radial-gradient(circle at 80% 20%, rgba(79, 182, 224, 0.2), transparent 60%);
-  z-index: 2;
+  background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1.4px);
+  background-size: 26px 26px;
+  opacity: 0.3;
+  pointer-events: none;
 }
-.hero-slide.active {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1.0);
-}
-.slide-content {
+.hero-content-left {
+  max-width: 680px;
+  margin-left: 80px; /* Margen amplio libre de wrap restrictivo */
   position: relative;
-  z-index: 3;
-  max-width: 600px;
-  padding: 0 32px;
-  margin-right: max(32px, calc((100% - var(--container)) / 2 + 32px));
-  margin-left: auto; /* Push to the right */
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
-  text-align: right; /* Align text to the right */
+  z-index: 20;
+  text-align: left;
 }
-.hero-slide.active .slide-content {
-  opacity: 1;
-  transform: translateY(0);
-}
-.slide-content .eyebrow {
-  margin-bottom: 16px;
-  justify-content: flex-end;
-}
-.slide-title {
-  font-family: var(--font-display); /* Mayúsculas Bebas Neue en títulos del slider */
-  font-size: clamp(40px, 6vw, 76px);
+.hero-banner-title {
+  font-family: var(--font-display);
+  font-size: clamp(46px, 8vw, 84px);
   font-weight: 900;
-  color: var(--white);
-  margin-bottom: 18px;
   line-height: 0.95;
+  color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
 }
-.slide-desc {
+.hero-banner-subtitle {
+  font-family: var(--font-title);
+  font-size: clamp(22px, 3.8vw, 36px);
+  font-style: italic;
+  color: var(--brand-sky);
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+.hero-banner-text {
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: clamp(14px, 1.8vw, 16.5px);
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 34px;
-  max-width: 480px;
-  margin-left: auto; /* Align box on the right */
+  max-width: 520px;
 }
-.slide-ctas {
-  display: flex;
-  gap: 14px;
-  justify-content: flex-end; /* Align buttons to the right */
+.btn-hero-start {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  padding: 16px 36px;
 }
 
 /* Header & Banner custom buttons */
-.site-header .btn-coral, .slide-ctas .btn-coral, .final-cta .btn-coral {
+.site-header .btn-coral, .hero-content-left .btn-coral, .final-cta .btn-coral {
   background: var(--brand-sky);
   color: var(--brand-navy-dark);
 }
-.site-header .btn-coral:hover, .slide-ctas .btn-coral:hover, .final-cta .btn-coral:hover {
+.site-header .btn-coral:hover, .hero-content-left .btn-coral:hover, .final-cta .btn-coral:hover {
   background: var(--white);
   color: var(--brand-navy-dark);
   box-shadow: 0 8px 24px rgba(97, 185, 209, 0.35);
-}
-
-/* Headline overlay top left */
-.hero-headline-wrap {
-  position: absolute;
-  top: 130px;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  pointer-events: none;
-}
-.hero-main-title {
-  font-size: 13px;
-  color: var(--brand-mint);
-  font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  text-align: left;
-}
-
-/* Thumbnails Navigation Bottom Left */
-.hero-thumbnails-wrap {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  right: 0;
-  z-index: 5;
-}
-.hero-thumbnails {
-  display: flex;
-  justify-content: flex-start; /* Align to the left */
-  gap: 16px;
-}
-.thumbnail {
-  width: 146px;
-  background: rgba(36, 48, 77, 0.72);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  padding: 10px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.3s ease, background 0.3s ease, transform 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  box-shadow: 0 8px 24px rgba(7, 27, 48, 0.2);
-}
-.thumbnail:hover {
-  border-color: rgba(255, 255, 255, 0.35);
-  transform: translateY(-2px);
-}
-.thumbnail.active {
-  border-color: var(--brand-sky);
-  background: rgba(36, 48, 77, 0.95);
-  box-shadow: 0 12px 30px rgba(97, 185, 209, 0.25);
-}
-.thumb-img {
-  height: 64px;
-  border-radius: 8px;
-  background-size: cover;
-  background-position: center;
-}
-.thumb-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  text-align: left;
-}
-.thumb-country {
-  font-family: var(--font-mono);
-  font-size: 8.5px;
-  letter-spacing: 0.05em;
-  color: var(--brand-sky);
-  text-transform: uppercase;
-}
-.thumb-name {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--white);
-}
-.thumb-progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.15);
-}
-.thumb-progress-bar {
-  height: 100%;
-  width: 0;
-  background: var(--brand-sky);
-}
-.thumbnail.active .thumb-progress-bar {
-  width: 100%;
-  transition: width 5s linear;
 }
 
 /* Map Pin Styling Fixes */
@@ -362,34 +240,162 @@ p{margin:0;}
   box-shadow: 0 0 0 4px rgba(97, 185, 209, 0.2) !important;
 }
 
-@media (max-width: 720px) {
-  .hero-headline-wrap {
-    top: 100px;
-    text-align: center;
-  }
-  .hero-main-title {
-    text-align: center;
-  }
-  .slide-content {
+/* ============================================
+   AIRPLANE WINDOWS FOR BENEFITS SECTION
+   ============================================ */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+.airplane-window {
+  position: relative;
+  height: 460px;
+  background: var(--brand-navy-dark);
+  border-radius: 90px; /* Forma de óvalo / cápsula de ventanilla de avión */
+  border: 12px solid #E2E8F0; /* Bisel de la ventana en gris metálico claro */
+  box-shadow: 
+    inset 0 10px 20px rgba(0, 0, 0, 0.3),
+    0 15px 35px rgba(36, 48, 77, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+.airplane-window::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+}
+
+/* Background image views for the windows */
+.window-view-1::before {
+  background-image: url('images/yosemite.png');
+}
+.window-view-2::before {
+  background-image: url('images/santorini.png');
+}
+.window-view-3::before {
+  background-image: url('images/bali.png');
+}
+
+.airplane-window::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(36,48,77,0.1) 0%, rgba(36,48,77,0.85) 100%);
+  z-index: 2;
+}
+
+/* Interactive Airplane Blind */
+.window-blind {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38%; /* Por defecto la persiana está parcialmente cerrada */
+  background: linear-gradient(180deg, #E2E8F0 80%, #CBD5E1 100%);
+  border-bottom: 6px solid #94A3B8;
+  z-index: 3;
+  transition: height 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: inset 0 -4px 8px rgba(0,0,0,0.05);
+}
+.window-blind::before {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 4px;
+  background: #94A3B8;
+  border-radius: 2px; /* Pequeño tirador de la persiana */
+}
+
+/* Window Content Glassmorphism overlay */
+.window-content {
+  position: relative;
+  z-index: 4;
+  padding: 30px 24px 36px;
+  text-align: center;
+  color: var(--white);
+}
+.window-content h3 {
+  font-family: var(--font-title);
+  font-size: 19px;
+  margin-bottom: 10px;
+  color: var(--white);
+  text-shadow: 0 2px 6px rgba(36,48,77,0.4);
+}
+.window-content p {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 20px;
+  text-shadow: 0 1px 4px rgba(36,48,77,0.3);
+}
+.window-stat-badge {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: var(--brand-sky);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Animations on Hover */
+.airplane-window:hover {
+  transform: translateY(-8px);
+  border-color: var(--brand-sky);
+  box-shadow: 
+    inset 0 10px 20px rgba(0, 0, 0, 0.4),
+    0 25px 50px rgba(97, 185, 209, 0.25);
+}
+.airplane-window:hover::before {
+  transform: scale(1.08);
+}
+.airplane-window:hover .window-blind {
+  height: 0%; /* Al pasar el mouse, la persiana se levanta por completo */
+}
+
+@media (max-width: 980px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-left: auto;
     margin-right: auto;
-    max-width: 100%;
-    padding: 0 24px;
+    gap: 36px;
+  }
+  .airplane-window {
+    height: 420px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    height: 70vh;
+    padding-top: 80px;
+    align-items: center;
     text-align: center;
-    margin-top: 50px;
   }
-  .slide-ctas {
-    justify-content: center;
-  }
-  .hero-thumbnails-wrap {
-    bottom: 24px;
-    padding: 0 16px;
-  }
-  .hero-thumbnails {
-    justify-content: center;
-    gap: 8px;
-  }
-  .thumbnail {
-    width: 110px;
+  .hero-content-left {
+    text-align: center;
+    margin: 0 24px;
+    max-width: 100%;
   }
 }
 
@@ -974,122 +980,14 @@ p{margin:0;}
 
 <!-- ============================================ HERO ============================================ -->
 <section class="hero" id="top">
-  <!-- Slides Container -->
-  <div class="hero-slider">
-    <!-- Slide 1: Beach Intro -->
-    <div class="hero-slide active" data-index="0" style="background-image: url('images/hero-beach-hd.png')">
-      <div class="slide-content">
-        <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em; color: var(--brand-sky);">GPS PLANEACIÓN</span>
-        <h1 class="slide-title">VIAJA SIN ATADURAS</h1>
-        <p class="slide-desc">Diseñamos tu ruta de viaje a la medida: vuelos, hospedajes curados y experiencias únicas, todo integrado en un solo link listo en 48 horas.</p>
-        <div class="slide-ctas">
-          <a href="#contacto" class="btn btn-coral">Planear Viaje</a>
-          <a href="#beneficios" class="btn btn-ghost-light">Ver beneficios</a>
-        </div>
-      </div>
-    </div>
-    <!-- Slide 2: Yosemite -->
-    <div class="hero-slide" data-index="1" style="background-image: url('images/yosemite.png')">
-      <div class="slide-content">
-        <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em; color: var(--brand-sky);">EE. UU. · NATURALEZA</span>
-        <h1 class="slide-title">YOSEMITE PARK</h1>
-        <p class="slide-desc">Admira monolitos de granito gigantescos, secuoyas milenarias y cascadas atronadoras en uno de los parques nacionales más imponentes del mundo.</p>
-        <div class="slide-ctas">
-          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
-          <a href="#como-funciona" class="btn btn-ghost-light">Cómo funciona</a>
-        </div>
-      </div>
-    </div>
-    <!-- Slide 3: Capadocia -->
-    <div class="hero-slide" data-index="2" style="background-image: url('images/cappadocia.png')">
-      <div class="slide-content">
-        <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em; color: var(--brand-sky);">TURQUÍA · AVENTURA</span>
-        <h1 class="slide-title">VUELO EN GLOBOS</h1>
-        <p class="slide-desc">Vive el amanecer más mágico del planeta en un paisaje rodeado de chimeneas de hadas y valles históricos esculpidos por el tiempo.</p>
-        <div class="slide-ctas">
-          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
-          <a href="#como-funciona" class="btn btn-ghost-light">Cómo funciona</a>
-        </div>
-      </div>
-    </div>
-    <!-- Slide 4: Santorini -->
-    <div class="hero-slide" data-index="3" style="background-image: url('images/santorini.png')">
-      <div class="slide-content">
-        <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em; color: var(--brand-sky);">GRECIA · ROMANCE</span>
-        <h1 class="slide-title">ATARDECER EN OIA</h1>
-        <p class="slide-desc">Camina entre pintorescas cúpulas azules y calles encaladas con la vista más icónica del mar Egeo en la hermosa isla de Santorini.</p>
-        <div class="slide-ctas">
-          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
-          <a href="#como-funciona" class="btn btn-ghost-light">Cómo funciona</a>
-        </div>
-      </div>
-    </div>
-    <!-- Slide 5: Bali -->
-    <div class="hero-slide" data-index="4" style="background-image: url('images/bali.png')">
-      <div class="slide-content">
-        <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em; color: var(--brand-sky);">INDONESIA · ESPIRITUAL</span>
-        <h1 class="slide-title">TEMPLOS DE BALI</h1>
-        <p class="slide-desc">Desconéctate del mundo exterior y conéctate con la espiritualidad entre arrozales infinitos, templos budistas y playas paradisíacas.</p>
-        <div class="slide-ctas">
-          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
-          <a href="#como-funciona" class="btn btn-ghost-light">Cómo funciona</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Fixed Headline Overlay (Top Left) -->
-  <div class="hero-headline-wrap">
-    <div class="wrap">
-      <h2 class="hero-main-title">GPS · VIAJES SIN ATADURAS</h2>
-    </div>
-  </div>
-
-  <!-- Thumbnails Navigation (Bottom Left) -->
-  <div class="hero-thumbnails-wrap">
-    <div class="wrap">
-      <div class="hero-thumbnails">
-        <div class="thumbnail active" data-slide-to="0">
-          <div class="thumb-img" style="background-image: url('images/hero-beach-hd.png')"></div>
-          <div class="thumb-info">
-            <span class="thumb-country">Inicio</span>
-            <span class="thumb-name">Playa GPS</span>
-          </div>
-          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
-        </div>
-        <div class="thumbnail" data-slide-to="1">
-          <div class="thumb-img" style="background-image: url('images/yosemite.png')"></div>
-          <div class="thumb-info">
-            <span class="thumb-country">EE. UU.</span>
-            <span class="thumb-name">Yosemite</span>
-          </div>
-          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
-        </div>
-        <div class="thumbnail" data-slide-to="2">
-          <div class="thumb-img" style="background-image: url('images/cappadocia.png')"></div>
-          <div class="thumb-info">
-            <span class="thumb-country">Turquía</span>
-            <span class="thumb-name">Capadocia</span>
-          </div>
-          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
-        </div>
-        <div class="thumbnail" data-slide-to="3">
-          <div class="thumb-img" style="background-image: url('images/santorini.png')"></div>
-          <div class="thumb-info">
-            <span class="thumb-country">Grecia</span>
-            <span class="thumb-name">Santorini</span>
-          </div>
-          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
-        </div>
-        <div class="thumbnail" data-slide-to="4">
-          <div class="thumb-img" style="background-image: url('images/bali.png')"></div>
-          <div class="thumb-info">
-            <span class="thumb-country">Indonesia</span>
-            <span class="thumb-name">Bali</span>
-          </div>
-          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
-        </div>
-      </div>
+  <div class="hero-content-left reveal">
+    <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.12em; color: var(--brand-sky);">GPS PLANEACIÓN</span>
+    <h1 class="hero-banner-title">VIAJA SIN ATADURAS</h1>
+    <p class="hero-banner-subtitle">Explora. Sueña. Descubre.</p>
+    <p class="hero-banner-text">Diseñamos tu ruta de viaje a la medida: vuelos, hospedajes curados y experiencias únicas, todo integrado en un solo link listo en 48 horas.</p>
+    <div class="slide-ctas">
+      <a href="#contacto" class="btn btn-coral btn-hero-start">Planear Viaje</a>
+      <a href="#beneficios" class="btn btn-ghost-light">Ver beneficios</a>
     </div>
   </div>
 </section>
@@ -1104,39 +1002,42 @@ p{margin:0;}
     </div>
 
     <div class="benefits-grid">
-      <div class="benefit-card reveal">
-        <div class="benefit-icon">
-          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </div>
-        <h3>Ahorra tiempo real</h3>
-        <p>Olvídate de 40 pestañas comparando vuelos y hoteles. Nuestro equipo arma tu ruta completa mientras tú solo empacas la maleta.</p>
-        <div class="benefit-stat">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          -15 horas de investigación
-        </div>
-      </div>
-
-      <div class="benefit-card reveal">
-        <div class="benefit-icon">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.5 7h7l-5.7 4.2 2.2 7-6-4.4-6 4.4 2.2-7L2.5 9h7L12 2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-        </div>
-        <h3>Un consultor experto</h3>
-        <p>Te asignamos un asesor que conoce el destino, la temporada y los atajos que ningún blog cuenta. Cero adivinar, todo calculado.</p>
-        <div class="benefit-stat">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          +80 países cubiertos
+      <!-- Ventanilla 1: Ahorra tiempo -->
+      <div class="airplane-window window-view-1 reveal">
+        <div class="window-blind"></div>
+        <div class="window-content">
+          <h3>Ahorra tiempo real</h3>
+          <p>Olvídate de 40 pestañas comparando vuelos y hoteles. Nuestro equipo arma tu ruta completa mientras tú solo empacas la maleta.</p>
+          <div class="window-stat-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round"/></svg>
+            &nbsp;-15h Investigación
+          </div>
         </div>
       </div>
 
-      <div class="benefit-card reveal">
-        <div class="benefit-icon">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M9 15L15 9M9 9h6v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.4"/><rect x="13" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.4"/></svg>
+      <!-- Ventanilla 2: Asesor experto -->
+      <div class="airplane-window window-view-2 reveal">
+        <div class="window-blind"></div>
+        <div class="window-content">
+          <h3>Un consultor experto</h3>
+          <p>Te asignamos un asesor que conoce el destino, la temporada y los atajos que ningún blog cuenta. Cero adivinar, todo calculado.</p>
+          <div class="window-stat-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round"/></svg>
+            &nbsp;+80 Países Cubiertos
+          </div>
         </div>
-        <h3>Tu viaje en un link</h3>
-        <p>Itinerario, documentos, reservas y actividades en un solo lugar — disponible en tu teléfono o laptop, incluso sin señal.</p>
-        <div class="benefit-stat">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          1 link, listo en 48h
+      </div>
+
+      <!-- Ventanilla 3: Todo en un link -->
+      <div class="airplane-window window-view-3 reveal">
+        <div class="window-blind"></div>
+        <div class="window-content">
+          <h3>Tu viaje en un link</h3>
+          <p>Itinerario, documentos, reservas y actividades en un solo lugar — disponible en tu teléfono o laptop, incluso sin señal.</p>
+          <div class="window-stat-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round"/></svg>
+            &nbsp;1 Link, listo en 48h
+          </div>
         </div>
       </div>
     </div>
@@ -1877,63 +1778,6 @@ if (boardingPass && contactSuccess) {
     contactSuccess.style.display = 'flex';
   });
 }
-
-// Hero Background Carousel Slider
-const heroSlides = document.querySelectorAll('.hero-slide');
-const heroDots = document.querySelectorAll('#sliderDots .dot');
-const prevBtn = document.getElementById('sliderPrev');
-const nextBtn = document.getElementById('sliderNext');
-let activeHeroIndex = 0;
-let heroInterval;
-
-function showHeroSlide(index) {
-  heroSlides[activeHeroIndex].classList.remove('active');
-  heroDots[activeHeroIndex].classList.remove('active');
-  
-  heroSlides[index].classList.add('active');
-  heroDots[index].classList.add('active');
-  
-  activeHeroIndex = index;
-}
-
-function nextHeroSlide() {
-  let nextIdx = (activeHeroIndex + 1) % heroSlides.length;
-  showHeroSlide(nextIdx);
-}
-
-function prevHeroSlide() {
-  let prevIdx = (activeHeroIndex - 1 + heroSlides.length) % heroSlides.length;
-  showHeroSlide(prevIdx);
-}
-
-function startHeroAutoplay() {
-  heroInterval = setInterval(nextHeroSlide, 5000);
-}
-
-function resetHeroAutoplay() {
-  clearInterval(heroInterval);
-  startHeroAutoplay();
-}
-
-if (prevBtn && nextBtn) {
-  prevBtn.addEventListener('click', () => {
-    prevHeroSlide();
-    resetHeroAutoplay();
-  });
-  nextBtn.addEventListener('click', () => {
-    nextHeroSlide();
-    resetHeroAutoplay();
-  });
-}
-
-heroDots.forEach((dot, idx) => {
-  dot.addEventListener('click', () => {
-    showHeroSlide(idx);
-    resetHeroAutoplay();
-  });
-});
-
-startHeroAutoplay();
 
 // Map pins + cards
 const mapWrap = document.getElementById('mapWrap');
