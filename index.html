@@ -7,33 +7,44 @@
 <meta name="description" content="GPS Planeación de Viajes diseña rutas a la medida: vuelos, hospedaje, actividades y asesoría experta, entregados en un solo link, listo en 48 horas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 <style>
 /* ============================================
    GPS PLANEACIÓN DE VIAJES — DESIGN TOKENS
    ============================================ */
 :root{
-  /* Color */
-  --navy-950:#071B30;
-  --navy-900:#0A2540;
-  --navy-800:#123C5E;
-  --navy-700:#1A4E78;
+  /* Brand Manual Colors */
+  --brand-navy-dark:#24304D;
+  --brand-navy-primary:#004E73;
+  --brand-mint:#a8d7d8;
+  --brand-sky:#61B9D1;
+  --brand-ice-blue:#BADEF7;
+  --brand-coral:#F46C37;
+  --brand-coral-hover:#d95420;
+  --brand-gray:#E5E5E5;
   --white:#FFFFFF;
-  --mist-100:#EEF3F8;
-  --mist-200:#DCE6EF;
-  --ink-600:#4B6479;
-  --coral-500:#FF5D3A;
-  --coral-600:#E8481F;
-  --gold-400:#FFC24B;
-  --sky-400:#4FB6E0;
-  --line-soft:rgba(10,37,64,0.10);
 
-  /* Type */
-  --font-display:'Space Grotesk', sans-serif;
-  --font-body:'Manrope', sans-serif;
-  --font-mono:'JetBrains Mono', monospace;
+  /* Existing Variables Mapped to Brand Manual */
+  --navy-950: var(--brand-navy-dark);
+  --navy-900: var(--brand-navy-dark);
+  --navy-800: var(--brand-navy-primary);
+  --navy-700: var(--brand-navy-primary);
+  --mist-100: var(--brand-gray);
+  --mist-200: var(--brand-ice-blue);
+  --ink-600: var(--brand-navy-primary);
+  --coral-500: var(--brand-coral);
+  --coral-600: var(--brand-coral-hover);
+  --gold-400: var(--brand-sky);
+  --sky-400: var(--brand-mint);
+  --line-soft: rgba(36,48,77,0.10);
 
-  --container:1200px;
+  /* Fonts */
+  --font-title: 'Playfair Display', serif;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Comfortaa', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --container: 1200px;
 }
 
 *,*::before,*::after{box-sizing:border-box;}
@@ -49,7 +60,7 @@ body{
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
 button{font-family:inherit;cursor:pointer;}
-h1,h2,h3,h4{font-family:var(--font-display);margin:0;line-height:1.05;letter-spacing:-0.01em;}
+h1,h2,h3,h4{font-family:var(--font-title);margin:0;line-height:1.15;letter-spacing:-0.01em;}
 p{margin:0;}
 .wrap{max-width:var(--container);margin:0 auto;padding:0 32px;}
 
@@ -142,252 +153,400 @@ p{margin:0;}
 /* ============================================
    HERO
    ============================================ */
-.hero {
+/* ============================================
+   HERO REMODEL (TWO ZONES & PLANNER CARD)
+   ============================================ */
+.hero-remodel {
   position: relative;
-  height: 100vh;
-  min-height: 720px;
-  max-height: 960px;
   overflow: hidden;
-  color: var(--white);
-  background: var(--navy-950);
+  background: var(--brand-navy-dark);
 }
-.hero-slider {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(1.08);
-  transition: opacity 1s ease, transform 6s linear, visibility 1s ease;
+.hero-banner {
+  height: 80vh;
+  min-height: 580px;
+  max-height: 840px;
+  background: linear-gradient(180deg, rgba(36,48,77,0.35) 0%, rgba(36,48,77,0.85) 100%), url('images/hero-beach.png') center/cover no-repeat;
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 10;
 }
-.hero-slide::before {
+.hero-banner::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: 
-    linear-gradient(90deg, rgba(7, 27, 48, 0.92) 0%, rgba(7, 27, 48, 0.5) 50%, rgba(7, 27, 48, 0.3) 100%),
-    radial-gradient(circle at 18% 20%, rgba(79, 182, 224, 0.25), transparent 60%),
-    radial-gradient(circle at 80% 80%, rgba(255, 93, 58, 0.15), transparent 60%);
-  z-index: 2;
-}
-.hero-slide.active {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1.0);
-}
-.slide-content {
-  position: relative;
-  z-index: 3;
-  max-width: 600px;
-  padding: 0 32px;
-  margin-left: max(32px, calc((100% - var(--container)) / 2 + 32px));
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
-}
-.hero-slide.active .slide-content {
-  opacity: 1;
-  transform: translateY(0);
-}
-.slide-content .eyebrow {
-  margin-bottom: 16px;
-}
-.slide-title {
-  font-size: clamp(34px, 5.2vw, 58px);
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 18px;
-}
-.slide-desc {
-  font-size: 16.5px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 34px;
-  max-width: 480px;
-}
-.slide-ctas {
-  display: flex;
-  gap: 14px;
-}
-.hero-headline-wrap {
-  position: absolute;
-  top: 130px;
-  left: 0;
-  right: 0;
-  z-index: 5;
+  background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1.4px);
+  background-size: 26px 26px;
+  opacity: 0.3;
   pointer-events: none;
 }
-.hero-main-title {
-  font-size: 12.5px;
-  color: var(--gold-400);
-  font-family: var(--font-mono);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.hero-thumbnails-wrap {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  right: 0;
-  z-index: 5;
-}
-.hero-thumbnails {
-  display: flex;
-  justify-content: flex-end;
-  gap: 16px;
-}
-.thumbnail {
-  width: 146px;
-  background: rgba(7, 27, 48, 0.72);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 10px;
-  cursor: pointer;
+.hero-banner-content {
+  max-width: 680px;
   position: relative;
-  overflow: hidden;
-  transition: border-color 0.3s ease, background 0.3s ease, transform 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  box-shadow: 0 8px 24px rgba(7, 27, 48, 0.2);
+  z-index: 20;
+  text-align: left;
 }
-.thumbnail:hover {
-  border-color: rgba(255, 255, 255, 0.35);
-  transform: translateY(-2px);
-}
-.thumbnail.active {
-  border-color: var(--coral-500);
-  background: rgba(7, 27, 48, 0.95);
-  box-shadow: 0 12px 30px rgba(255, 93, 58, 0.25);
-}
-.thumb-img {
-  height: 64px;
-  border-radius: 8px;
-  background-size: cover;
-  background-position: center;
-}
-.thumb-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.thumb-country {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.05em;
-  color: var(--sky-400);
-  text-transform: uppercase;
-}
-.thumb-name {
-  font-size: 13px;
-  font-weight: 700;
+.hero-banner-title {
+  font-family: var(--font-display);
+  font-size: clamp(46px, 8vw, 84px);
+  font-weight: 900;
+  line-height: 0.95;
   color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
 }
-.thumb-progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.15);
+.hero-banner-subtitle {
+  font-family: var(--font-title);
+  font-size: clamp(22px, 3.8vw, 36px);
+  font-style: italic;
+  color: var(--brand-sky);
+  margin-bottom: 24px;
+  line-height: 1.1;
 }
-.thumb-progress-bar {
-  height: 100%;
-  width: 0;
-  background: var(--coral-500);
+.hero-banner-text {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.8vw, 16.5px);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 34px;
+  max-width: 520px;
 }
-.thumbnail.active .thumb-progress-bar {
-  width: 100%;
-  transition: width 5s linear;
-}
-@media (max-width: 720px) {
-  .hero-headline-wrap {
-    top: 100px;
-    text-align: center;
-  }
-  .slide-content {
-    margin-left: 0;
-    max-width: 100%;
-    padding: 0 24px;
-    text-align: center;
-    margin-top: 50px;
-  }
-  .slide-ctas {
-    justify-content: center;
-  }
-  .hero-thumbnails-wrap {
-    bottom: 24px;
-    padding: 0 16px;
-  }
-  .hero-thumbnails {
-    justify-content: center;
-    gap: 8px;
-  }
-  .thumbnail {
-    width: 110px;
-  }
+.btn-hero-start {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  padding: 16px 36px;
 }
 
-/* Boarding pass widget */
-.boarding-pass{
-  position:relative;
-  background:var(--white);
-  color:var(--navy-900);
-  border-radius:20px;
-  box-shadow:0 40px 70px -20px rgba(0,0,0,0.55);
-  display:grid;grid-template-columns:1fr auto;
-  transform:rotate(1.2deg);
-  animation:bp-float 6s ease-in-out infinite;
+.hero-search-zone {
+  background: var(--brand-navy-dark);
+  padding: 80px 0 60px;
+  color: var(--white);
+  position: relative;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
-@keyframes bp-float{
-  0%,100%{transform:rotate(1.2deg) translateY(0);}
-  50%{transform:rotate(1.2deg) translateY(-10px);}
+.hero-search-zone .wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
 }
-.bp-main{padding:26px 22px 22px;}
-.bp-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
-.bp-top .bp-label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;color:var(--ink-600);text-transform:uppercase;}
-.bp-top .bp-flight{font-family:var(--font-mono);font-size:11px;color:var(--coral-500);font-weight:500;}
-.bp-title{font-family:var(--font-display);font-weight:700;font-size:19px;margin-bottom:16px;}
-.bp-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;}
-.bp-field{display:flex;flex-direction:column;gap:6px;}
-.bp-field label{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-600);}
-.bp-field input,.bp-field select{
-  border:1.5px solid var(--mist-200);border-radius:10px;padding:10px 12px;
-  font-family:var(--font-body);font-weight:600;font-size:14px;color:var(--navy-900);
-  background:var(--mist-100);
+.hero-search-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: flex-start;
 }
-.bp-field input:focus,.bp-field select:focus{outline:none;border-color:var(--coral-500);background:var(--white);}
-.bp-submit{margin-top:20px;}
-.bp-stub{
-  background:var(--navy-900);color:var(--white);
-  width:118px;padding:22px 14px;
-  display:flex;flex-direction:column;align-items:center;justify-content:space-between;
-  position:relative;
-  border-radius:0 20px 20px 0;
+
+/* Planner form card */
+.planner-card-wrap {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  text-align: left;
 }
-.bp-stub::before{
-  content:"";position:absolute;left:0;top:0;bottom:0;width:0;
-  border-left:2px dashed rgba(255,255,255,0.35);
+.planner-title {
+  font-family: var(--font-title);
+  font-size: clamp(24px, 2.8vw, 32px);
+  color: var(--white);
+  margin-bottom: 8px;
 }
-.bp-stub .bp-code{
-  writing-mode:vertical-rl;transform:rotate(180deg);
-  font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;color:rgba(255,255,255,0.7);
+.planner-desc {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 28px;
+  line-height: 1.5;
 }
-.bp-stub .bp-plane{width:26px;height:26px;color:var(--gold-400);}
-.bp-stub .bp-barcode{
-  width:100%;height:34px;
-  background:repeating-linear-gradient(90deg, rgba(255,255,255,0.8) 0 2px, transparent 2px 5px, rgba(255,255,255,0.5) 5px 6px, transparent 6px 9px);
-  opacity:0.7;
+.planner-tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 12px;
+  margin-bottom: 28px;
+}
+.planner-tab {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  padding: 8px 20px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+.planner-tab:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.05);
+}
+.planner-tab.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--brand-coral);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.boarding-pass-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.bpf-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.bpf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+.bpf-half {
+  width: calc(50% - 8px);
+}
+.bpf-field label {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  color: var(--brand-mint);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.bpf-field input, .bpf-field select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.bpf-field input:focus, .bpf-field select:focus {
+  outline: none;
+  border-color: var(--brand-coral);
+  background: rgba(255, 255, 255, 0.08);
+}
+.bpf-field input::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+.bpf-submit {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  padding: 15px 24px;
+  margin-top: 10px;
+}
+.planner-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  padding: 40px 10px;
+  color: var(--white);
+}
+.planner-success .success-icon {
+  width: 60px;
+  height: 60px;
+  color: var(--brand-mint);
+}
+.planner-success h3 {
+  font-family: var(--font-title);
+  font-size: 22px;
+  color: var(--white);
+}
+.planner-success p {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* Destinations carousel card on the right */
+.destinations-slider-wrap {
+  width: 100%;
+}
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+.dest-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  display: flex;
+  align-items: flex-end;
+}
+.dest-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(36,48,77,0.92) 100%);
+  z-index: 1;
+}
+.dest-slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+.dest-card-info {
+  position: relative;
+  z-index: 3;
+  padding: 40px 32px;
+  width: 100%;
+  text-align: left;
+}
+.dest-rating {
+  background: var(--brand-coral);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: 30px;
+  display: inline-block;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(244, 108, 55, 0.35);
+}
+.dest-name {
+  font-family: var(--font-title);
+  font-size: clamp(26px, 3.2vw, 34px);
+  color: var(--white);
+  margin-bottom: 6px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.dest-price {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--brand-sky);
+  font-weight: 600;
+  display: block;
+}
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(36, 48, 77, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+.slider-btn:hover {
+  background: var(--brand-coral);
+  border-color: var(--brand-coral);
+  transform: translateY(-50%) scale(1.05);
+}
+.prev-btn {
+  left: 20px;
+}
+.next-btn {
+  right: 20px;
+}
+.slider-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.slider-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.slider-dots .dot.active {
+  background: var(--brand-coral);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Trust badges bar */
+.hero-badges-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 40px;
+}
+.badge-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  text-align: left;
+}
+.badge-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--brand-coral);
+  flex-shrink: 0;
+}
+.badge-text h4 {
+  font-family: var(--font-title);
+  font-size: 16px;
+  color: var(--white);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.badge-text p {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.4;
+}
+
+@media (max-width: 980px) {
+  .hero-search-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .hero-badges-bar {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+@media (max-width: 720px) {
+  .hero-banner {
+    height: 70vh;
+    padding-top: 80px;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-banner-content {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .hero-badges-bar {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .slider-container {
+    height: 380px;
+  }
 }
 
 /* ============================================
@@ -789,16 +948,13 @@ p{margin:0;}
 <header class="site-header" id="siteHeader">
   <div class="wrap">
     <a href="#top" class="brand">
-      <span class="brand-mark">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8 2 5 5.2 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.8-3-7-7-7z" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="9" r="2.4" stroke="#fff" stroke-width="1.6"/></svg>
-      </span>
-      <span class="brand-text">GPS<span>Planeación de Viajes</span></span>
+      <img src="images/logo-horizontal.png" alt="GPS Planeación de Viajes" style="height: 48px; width: auto; display: block;">
     </a>
     <nav class="main-nav" id="mainNav">
-      <a href="#beneficios">Beneficios</a>
-      <a href="#mapa">Viajeros GPS</a>
-      <a href="#como-funciona">Cómo funciona</a>
-      <a href="#contacto" class="btn btn-coral">Habla con nosotros</a>
+      <a href="#beneficios" style="font-family: var(--font-display); font-size: 15px; letter-spacing: 0.05em;">Beneficios</a>
+      <a href="#mapa" style="font-family: var(--font-display); font-size: 15px; letter-spacing: 0.05em;">Viajeros GPS</a>
+      <a href="#como-funciona" style="font-family: var(--font-display); font-size: 15px; letter-spacing: 0.05em;">Cómo funciona</a>
+      <a href="#travel-planner" class="btn btn-coral" style="font-family: var(--font-display); font-size: 14px; letter-spacing: 0.05em; padding: 10px 22px;">Planear Viaje</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -807,103 +963,156 @@ p{margin:0;}
 </header>
 
 <!-- ============================================ HERO ============================================ -->
-<section class="hero" id="top">
-  <!-- Slides Container -->
-  <div class="hero-slider">
-    <!-- Slide 1: Yosemite -->
-    <div class="hero-slide active" data-index="0" style="background-image: url('images/yosemite.png')">
-      <div class="slide-content">
-        <span class="eyebrow">Yosemite - EE. UU.</span>
-        <h1 class="slide-title">Yosemite National Park</h1>
-        <p class="slide-desc">Yosemite National Park is a showcase of the American wilderness, revered for its towering granite monoliths, ancient giant sequoias, and thundering waterfalls.</p>
-        <div class="slide-ctas">
-          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
-          <a href="#como-funciona" class="btn btn-ghost-light">Ver cómo funciona</a>
-        </div>
-      </div>
-    </div>
-    <!-- Slide 2: Capadocia -->
-    <div class="hero-slide" data-index="1" style="background-image: url('images/cappadocia.png')">
-      <div class="slide-content">
-        <span class="eyebrow">Turquía - Capadocia</span>
-        <h1 class="slide-title">Valle de Göreme</h1>
-        <p class="slide-desc">Descubre un paisaje de otro mundo famoso por sus chimeneas de hadas, viviendas rupestres del siglo IV y el mágico despegue de cientos de globos al amanecer.</p>
-        <div class="slide-ctas">
-          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
-          <a href="#como-funciona" class="btn btn-ghost-light">Ver cómo funciona</a>
-        </div>
-      </div>
-    </div>
-    <!-- Slide 3: Santorini -->
-    <div class="hero-slide" data-index="2" style="background-image: url('images/santorini.png')">
-      <div class="slide-content">
-        <span class="eyebrow">Grecia - Cícladas</span>
-        <h1 class="slide-title">Atardecer en Oia</h1>
-        <p class="slide-desc">Explora las famosas fachadas encaladas del color del yeso y las cúpulas azules que miran al mar Egeo, enclavadas en los espectaculares acantilados de la caldera.</p>
-        <div class="slide-ctas">
-          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
-          <a href="#como-funciona" class="btn btn-ghost-light">Ver cómo funciona</a>
-        </div>
-      </div>
-    </div>
-    <!-- Slide 4: Bali -->
-    <div class="hero-slide" data-index="3" style="background-image: url('images/bali.png')">
-      <div class="slide-content">
-        <span class="eyebrow">Indonesia - Isla de Dioses</span>
-        <h1 class="slide-title">Templos de Bali</h1>
-        <p class="slide-desc">Conéctate con la espiritualidad balinesa a través de portales de piedra ancestrales, arrozales infinitos y el sonido relajante del mar Índico.</p>
-        <div class="slide-ctas">
-          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
-          <a href="#como-funciona" class="btn btn-ghost-light">Ver cómo funciona</a>
-        </div>
+<section class="hero-remodel" id="top">
+  <!-- Zone 1: Top Hero Banner -->
+  <div class="hero-banner">
+    <div class="wrap">
+      <div class="hero-banner-content">
+        <h1 class="hero-banner-title">VIAJA SIN ATADURAS</h1>
+        <p class="hero-banner-subtitle">Explora. Sueña. Descubre.</p>
+        <p class="hero-banner-text">Diseñamos tu ruta a la medida —vuelos, hospedaje, actividades y consultoría experta— entregados en un solo link, listo en 48 horas.</p>
+        <a href="#travel-planner" class="btn btn-coral btn-hero-start">EMPEZAR A PLANEAR</a>
       </div>
     </div>
   </div>
 
-  <!-- Fixed Headline Overlay -->
-  <div class="hero-headline-wrap">
+  <!-- Zone 2: Bottom Search & Carousel -->
+  <div class="hero-search-zone" id="travel-planner">
     <div class="wrap">
-      <h2 class="hero-main-title">GPS · VIAJES SIN ATADURAS</h2>
-    </div>
-  </div>
+      <div class="hero-search-grid">
+        
+        <!-- Left Column: Travel Planner Form -->
+        <div class="planner-card-wrap">
+          <div class="planner-header">
+            <h2 class="planner-title">Tu viaje comienza aquí</h2>
+            <p class="planner-desc">Completa tus datos y un consultor experto diseñará la ruta ideal para ti.</p>
+          </div>
+          
+          <div class="planner-tabs">
+            <button class="planner-tab active" data-tab="trips">Viajes</button>
+            <button class="planner-tab" data-tab="flights" onclick="alert('Esta sección estará disponible próximamente.')">Vuelos</button>
+            <button class="planner-tab" data-tab="hotels" onclick="alert('Esta sección estará disponible próximamente.')">Hoteles</button>
+          </div>
 
-  <!-- Thumbnails Navigation -->
-  <div class="hero-thumbnails-wrap">
-    <div class="wrap">
-      <div class="hero-thumbnails">
-        <div class="thumbnail active" data-slide-to="0">
-          <div class="thumb-img" style="background-image: url('images/yosemite.png')"></div>
-          <div class="thumb-info">
-            <span class="thumb-country">EE. UU.</span>
-            <span class="thumb-name">Yosemite</span>
+          <div class="planner-tab-content">
+            <form class="boarding-pass-form" id="boardingPass">
+              <div class="bpf-fields">
+                <div class="bpf-field">
+                  <label for="bpDestino">¿A dónde vas? (Destino)</label>
+                  <input id="bpDestino" type="text" placeholder="Ej: París, Santorini, Bali..." required>
+                </div>
+                <div class="bpf-field">
+                  <label for="bpFechas">Fechas de viaje</label>
+                  <input id="bpFechas" type="text" placeholder="Ej: dd/mm — dd/mm o flexible">
+                </div>
+                <div class="bpf-field bpf-half">
+                  <label for="bpViajeros">Viajeros</label>
+                  <input id="bpViajeros" type="number" min="1" placeholder="2" value="2">
+                </div>
+                <div class="bpf-field bpf-half">
+                  <label for="bpPresupuesto">Presupuesto</label>
+                  <select id="bpPresupuesto">
+                    <option>$ (Económico)</option>
+                    <option selected>$$ (Moderado)</option>
+                    <option>$$$ (Premium)</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-coral btn-block bpf-submit">SOLICITAR MI PLAN DE VIAJE</button>
+            </form>
+
+            <div id="contactSuccess" class="planner-success" style="display: none;">
+              <svg class="success-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <h3>¡Pase de abordar confirmado!</h3>
+              <p>Tu solicitud ha sido recibida con éxito. Un consultor experto comenzará a diseñar tu ruta al detalle. Te enviaremos tu plan en menos de 48 horas.</p>
+            </div>
           </div>
-          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
         </div>
-        <div class="thumbnail" data-slide-to="1">
-          <div class="thumb-img" style="background-image: url('images/cappadocia.png')"></div>
-          <div class="thumb-info">
-            <span class="thumb-country">Turquía</span>
-            <span class="thumb-name">Capadocia</span>
+
+        <!-- Right Column: Premium Destinations Slider -->
+        <div class="destinations-slider-wrap">
+          <div class="slider-container">
+            <!-- Slide 1: Yosemite -->
+            <div class="dest-slide active" style="background-image: url('images/yosemite.png');">
+              <div class="dest-card-info">
+                <span class="dest-rating">4.8 ★</span>
+                <h3 class="dest-name">Yosemite, EE. UU.</h3>
+                <span class="dest-price">Desde $599 / Persona</span>
+              </div>
+            </div>
+            <!-- Slide 2: Capadocia -->
+            <div class="dest-slide" style="background-image: url('images/cappadocia.png');">
+              <div class="dest-card-info">
+                <span class="dest-rating">4.9 ★</span>
+                <h3 class="dest-name">Goreme, Turquía</h3>
+                <span class="dest-price">Desde $749 / Persona</span>
+              </div>
+            </div>
+            <!-- Slide 3: Santorini -->
+            <div class="dest-slide" style="background-image: url('images/santorini.png');">
+              <div class="dest-card-info">
+                <span class="dest-rating">4.9 ★</span>
+                <h3 class="dest-name">Oia, Grecia</h3>
+                <span class="dest-price">Desde $899 / Persona</span>
+              </div>
+            </div>
+            <!-- Slide 4: Bali -->
+            <div class="dest-slide" style="background-image: url('images/bali.png');">
+              <div class="dest-card-info">
+                <span class="dest-rating">4.7 ★</span>
+                <h3 class="dest-name">Ubud, Indonesia</h3>
+                <span class="dest-price">Desde $649 / Persona</span>
+              </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <button class="slider-btn prev-btn" id="sliderPrev" aria-label="Anterior">&larr;</button>
+            <button class="slider-btn next-btn" id="sliderNext" aria-label="Siguiente">&rarr;</button>
+
+            <!-- Slider Dots -->
+            <div class="slider-dots" id="sliderDots">
+              <span class="dot active" data-index="0"></span>
+              <span class="dot" data-index="1"></span>
+              <span class="dot" data-index="2"></span>
+              <span class="dot" data-index="3"></span>
+            </div>
           </div>
-          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
         </div>
-        <div class="thumbnail" data-slide-to="2">
-          <div class="thumb-img" style="background-image: url('images/santorini.png')"></div>
-          <div class="thumb-info">
-            <span class="thumb-country">Grecia</span>
-            <span class="thumb-name">Santorini</span>
+
+      </div>
+
+      <!-- Trust Badges Bar -->
+      <div class="hero-badges-bar">
+        <div class="badge-item">
+          <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div class="badge-text">
+            <h4>Garantía de Seguridad</h4>
+            <p>Tus datos protegidos al 100%</p>
           </div>
-          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
         </div>
-        <div class="thumbnail" data-slide-to="3">
-          <div class="thumb-img" style="background-image: url('images/bali.png')"></div>
-          <div class="thumb-info">
-            <span class="thumb-country">Indonesia</span>
-            <span class="thumb-name">Bali</span>
+        <div class="badge-item">
+          <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="badge-text">
+            <h4>Hospedajes Curados</h4>
+            <p>Selección estricta de hoteles</p>
           </div>
-          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
+        </div>
+        <div class="badge-item">
+          <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div class="badge-text">
+            <h4>Soporte 24/7</h4>
+            <p>Acompañamiento en tu viaje</p>
+          </div>
+        </div>
+        <div class="badge-item">
+          <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <div class="badge-text">
+            <h4>Reservas Seguras</h4>
+            <p>Confirmaciones al instante</p>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1534,64 +1743,15 @@ p{margin:0;}
 
 <!-- ============================================ FINAL CTA ============================================ -->
 <!-- ============================================ FINAL CTA / CONTACTO ============================================ -->
-<section class="section" id="contacto" style="background: var(--navy-950); color: var(--white); padding: 100px 0;">
+<section class="section" id="contacto" style="padding-top:0;">
   <div class="wrap">
-    <div class="contact-split reveal">
-      <div class="contact-info">
-        <span class="eyebrow">Pase de abordar</span>
-        <h2>¿Qué esperas para viajar sin ataduras?</h2>
-        <p>Cuéntanos tu destino ideal, fechas estimadas y presupuesto. Diseñamos tu ruta a la medida —vuelos, hospedaje, actividades y la asesoría de un experto— entregada en un solo link listo en 48 horas.</p>
-        <div class="contact-stats">
-          <div class="contact-stat"><b>48h</b><span>Plan listo</span></div>
-          <div class="contact-stat"><b>+80</b><span>Países cubiertos</span></div>
-          <div class="contact-stat"><b>1 link</b><span>Todo tu viaje</span></div>
-        </div>
-      </div>
-
-      <div style="position: relative;">
-        <form class="boarding-pass" id="boardingPass">
-          <div class="bp-main">
-            <div class="bp-top">
-              <span class="bp-label">Boarding Pass · GPS</span>
-              <span class="bp-flight">RUTA-001</span>
-            </div>
-            <div class="bp-title">Arma tu viaje</div>
-            <div class="bp-fields">
-              <div class="bp-field">
-                <label for="bpDestino">Destino</label>
-                <input id="bpDestino" type="text" placeholder="¿A dónde vas?" required>
-              </div>
-              <div class="bp-field">
-                <label for="bpFechas">Fechas</label>
-                <input id="bpFechas" type="text" placeholder="dd/mm — dd/mm">
-              </div>
-              <div class="bp-field">
-                <label for="bpViajeros">Viajeros</label>
-                <input id="bpViajeros" type="number" min="1" placeholder="2">
-              </div>
-              <div class="bp-field">
-                <label for="bpPresupuesto">Presupuesto</label>
-                <select id="bpPresupuesto">
-                  <option>$</option>
-                  <option>$$</option>
-                  <option>$$$</option>
-                </select>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-navy btn-block bp-submit">Solicitar mi plan →</button>
-          </div>
-          <div class="bp-stub">
-            <span class="bp-code">GPS</span>
-            <svg class="bp-plane" viewBox="0 0 24 24" fill="none"><path d="M10.5 3.5L4 14l4 -1 2 4 3 -12.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-            <div class="bp-barcode"></div>
-          </div>
-        </form>
-
-        <div id="contactSuccess" class="contact-success-card" style="display:none;">
-          <svg class="success-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3>¡Pase de abordar confirmado!</h3>
-          <p>Tu solicitud ha sido recibida con éxito. Uno de nuestros consultores expertos empezará a planear tu ruta. En menos de 48 horas tendrás tu plan a la medida listo en un solo link.</p>
-        </div>
+    <div class="final-cta reveal">
+      <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em;">Coordenadas listas</span>
+      <h2 style="font-family: var(--font-title);">¿Listo para tu próxima coordenada?</h2>
+      <p style="font-family: var(--font-body);">Cuéntanos a dónde quieres ir. Diseñamos tu ruta a la medida y en 48 horas tendrás tu plan listo para despegar.</p>
+      <div class="final-cta-ctas">
+        <a href="#travel-planner" class="btn btn-coral">¡Comenzar ahora!</a>
+        <a href="https://wa.me/573000000000" target="_blank" class="btn btn-ghost-light">WhatsApp directo</a>
       </div>
     </div>
   </div>
@@ -1668,57 +1828,73 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 revealEls.forEach(el => revealObserver.observe(el));
 
-// Boarding pass submit -> show success card
+// Boarding pass form submit inside planner card
 const boardingPass = document.getElementById('boardingPass');
 const contactSuccess = document.getElementById('contactSuccess');
 if (boardingPass && contactSuccess) {
   boardingPass.addEventListener('submit', (e) => {
     e.preventDefault();
     boardingPass.style.display = 'none';
-    contactSuccess.style.display = 'flex';
+    contactSuccess.style.display = 'block';
   });
 }
 
-// Hero Slider autoplay and navigation
-const slides = document.querySelectorAll('.hero-slide');
-const thumbs = document.querySelectorAll('.thumbnail');
-let currentSlide = 0;
-let slideInterval;
+// Destinations Carousel Slider
+const destSlides = document.querySelectorAll('.dest-slide');
+const destDots = document.querySelectorAll('#sliderDots .dot');
+const prevBtn = document.getElementById('sliderPrev');
+const nextBtn = document.getElementById('sliderNext');
+let activeDestIndex = 0;
+let destInterval;
 
-function showSlide(index) {
-  if (index === currentSlide) return;
+function showDestSlide(index) {
+  destSlides[activeDestIndex].classList.remove('active');
+  destDots[activeDestIndex].classList.remove('active');
   
-  slides[currentSlide].classList.remove('active');
-  thumbs[currentSlide].classList.remove('active');
+  destSlides[index].classList.add('active');
+  destDots[index].classList.add('active');
   
-  slides[index].classList.add('active');
-  thumbs[index].classList.add('active');
-  
-  currentSlide = index;
+  activeDestIndex = index;
 }
 
-function nextSlide() {
-  let next = (currentSlide + 1) % slides.length;
-  showSlide(next);
+function nextDestSlide() {
+  let nextIdx = (activeDestIndex + 1) % destSlides.length;
+  showDestSlide(nextIdx);
 }
 
-function startAutoplay() {
-  slideInterval = setInterval(nextSlide, 5000);
+function prevDestSlide() {
+  let prevIdx = (activeDestIndex - 1 + destSlides.length) % destSlides.length;
+  showDestSlide(prevIdx);
 }
 
-function resetAutoplay() {
-  clearInterval(slideInterval);
-  startAutoplay();
+function startDestAutoplay() {
+  destInterval = setInterval(nextDestSlide, 5000);
 }
 
-thumbs.forEach((thumb, idx) => {
-  thumb.addEventListener('click', () => {
-    showSlide(idx);
-    resetAutoplay();
+function resetDestAutoplay() {
+  clearInterval(destInterval);
+  startDestAutoplay();
+}
+
+if (prevBtn && nextBtn) {
+  prevBtn.addEventListener('click', () => {
+    prevDestSlide();
+    resetDestAutoplay();
+  });
+  nextBtn.addEventListener('click', () => {
+    nextDestSlide();
+    resetDestAutoplay();
+  });
+}
+
+destDots.forEach((dot, idx) => {
+  dot.addEventListener('click', () => {
+    showDestSlide(idx);
+    resetDestAutoplay();
   });
 });
 
-startAutoplay();
+startDestAutoplay();
 
 // Map pins + cards
 const mapWrap = document.getElementById('mapWrap');
