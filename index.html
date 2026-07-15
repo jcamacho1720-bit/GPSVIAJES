@@ -32,8 +32,8 @@
   --mist-100: var(--brand-gray);
   --mist-200: var(--brand-ice-blue);
   --ink-600: var(--brand-navy-primary);
-  --coral-500: var(--brand-coral);
-  --coral-600: var(--brand-coral-hover);
+  --coral-500: var(--brand-navy-primary); /* Map action buttons to Brand Navy Primary */
+  --coral-600: var(--brand-sky);          /* Map hover/secondary to Sky Blue */
   --gold-400: var(--brand-sky);
   --sky-400: var(--brand-mint);
   --line-soft: rgba(36,48,77,0.10);
@@ -151,401 +151,245 @@ p{margin:0;}
 .nav-toggle{display:none;background:none;border:none;padding:8px;color:var(--white);}
 
 /* ============================================
-   HERO
+   HERO WITH SLIDER ALIGNED TO THE RIGHT
    ============================================ */
-/* ============================================
-   HERO REMODEL (TWO ZONES & PLANNER CARD)
-   ============================================ */
-.hero-remodel {
+.hero {
   position: relative;
+  height: 100vh;
+  min-height: 650px;
+  max-height: 900px;
   overflow: hidden;
+  color: var(--white);
   background: var(--brand-navy-dark);
 }
-.hero-banner {
-  height: 80vh;
-  min-height: 580px;
-  max-height: 840px;
-  background: linear-gradient(180deg, rgba(36,48,77,0.35) 0%, rgba(36,48,77,0.85) 100%), url('images/hero-beach.png') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  position: relative;
-  z-index: 10;
-}
-.hero-banner::before {
-  content: "";
+.hero-slider {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1.4px);
-  background-size: 26px 26px;
-  opacity: 0.3;
-  pointer-events: none;
+  z-index: 1;
 }
-.hero-banner-content {
-  max-width: 680px;
-  position: relative;
-  z-index: 20;
-  text-align: left;
-}
-.hero-banner-title {
-  font-family: var(--font-display);
-  font-size: clamp(46px, 8vw, 84px);
-  font-weight: 900;
-  line-height: 0.95;
-  color: var(--white);
-  margin-bottom: 12px;
-  letter-spacing: -0.01em;
-}
-.hero-banner-subtitle {
-  font-family: var(--font-title);
-  font-size: clamp(22px, 3.8vw, 36px);
-  font-style: italic;
-  color: var(--brand-sky);
-  margin-bottom: 24px;
-  line-height: 1.1;
-}
-.hero-banner-text {
-  font-family: var(--font-body);
-  font-size: clamp(14px, 1.8vw, 16.5px);
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 34px;
-  max-width: 520px;
-}
-.btn-hero-start {
-  font-family: var(--font-display);
-  font-size: 15px;
-  letter-spacing: 0.08em;
-  padding: 16px 36px;
-}
-
-.hero-search-zone {
-  background: var(--brand-navy-dark);
-  padding: 80px 0 60px;
-  color: var(--white);
-  position: relative;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-.hero-search-zone .wrap {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 32px;
-}
-.hero-search-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 48px;
-  align-items: flex-start;
-}
-
-/* Planner form card */
-.planner-card-wrap {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 40px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
-  text-align: left;
-}
-.planner-title {
-  font-family: var(--font-title);
-  font-size: clamp(24px, 2.8vw, 32px);
-  color: var(--white);
-  margin-bottom: 8px;
-}
-.planner-desc {
-  font-family: var(--font-body);
-  font-size: 14.5px;
-  color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 28px;
-  line-height: 1.5;
-}
-.planner-tabs {
-  display: flex;
-  gap: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  padding-bottom: 12px;
-  margin-bottom: 28px;
-}
-.planner-tab {
-  background: none;
-  border: none;
-  color: rgba(255, 255, 255, 0.55);
-  font-family: var(--font-display);
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  padding: 8px 20px;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-}
-.planner-tab:hover {
-  color: var(--white);
-  background: rgba(255,255,255,0.05);
-}
-.planner-tab.active {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--brand-coral);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-.boarding-pass-form {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-.bpf-fields {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-.bpf-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  width: 100%;
-}
-.bpf-half {
-  width: calc(50% - 8px);
-}
-.bpf-field label {
-  font-family: var(--font-body);
-  font-size: 11.5px;
-  color: var(--brand-mint);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-.bpf-field input, .bpf-field select {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  padding: 12px 14px;
-  color: var(--white);
-  font-family: var(--font-body);
-  font-size: 14.5px;
-  transition: border-color 0.3s ease, background 0.3s ease;
-}
-.bpf-field input:focus, .bpf-field select:focus {
-  outline: none;
-  border-color: var(--brand-coral);
-  background: rgba(255, 255, 255, 0.08);
-}
-.bpf-field input::placeholder {
-  color: rgba(255,255,255,0.3);
-}
-.bpf-submit {
-  font-family: var(--font-display);
-  font-size: 15px;
-  letter-spacing: 0.05em;
-  padding: 15px 24px;
-  margin-top: 10px;
-}
-.planner-success {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 18px;
-  padding: 40px 10px;
-  color: var(--white);
-}
-.planner-success .success-icon {
-  width: 60px;
-  height: 60px;
-  color: var(--brand-mint);
-}
-.planner-success h3 {
-  font-family: var(--font-title);
-  font-size: 22px;
-  color: var(--white);
-}
-.planner-success p {
-  font-family: var(--font-body);
-  font-size: 14.5px;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
-}
-
-/* Destinations carousel card on the right */
-.destinations-slider-wrap {
-  width: 100%;
-}
-.slider-container {
-  position: relative;
-  width: 100%;
-  height: 480px;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-}
-.dest-slide {
+.hero-slide {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 0.8s ease;
+  visibility: hidden;
+  transform: scale(1.06);
+  transition: opacity 1.2s ease, transform 6s linear, visibility 1.2s ease;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
-.dest-slide::before {
+.hero-slide::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(36,48,77,0.92) 100%);
-  z-index: 1;
-}
-.dest-slide.active {
-  opacity: 1;
+  background: 
+    linear-gradient(270deg, rgba(36, 48, 77, 0.9) 0%, rgba(36, 48, 77, 0.45) 50%, rgba(36, 48, 77, 0.2) 100%),
+    radial-gradient(circle at 80% 20%, rgba(79, 182, 224, 0.2), transparent 60%);
   z-index: 2;
 }
-.dest-card-info {
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.0);
+}
+.slide-content {
   position: relative;
   z-index: 3;
-  padding: 40px 32px;
-  width: 100%;
-  text-align: left;
+  max-width: 600px;
+  padding: 0 32px;
+  margin-right: max(32px, calc((100% - var(--container)) / 2 + 32px));
+  margin-left: auto; /* Push to the right */
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+  text-align: right; /* Align text to the right */
 }
-.dest-rating {
-  background: var(--brand-coral);
+.hero-slide.active .slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+.slide-content .eyebrow {
+  margin-bottom: 16px;
+  justify-content: flex-end;
+}
+.slide-title {
+  font-family: var(--font-display); /* Mayúsculas Bebas Neue en títulos del slider */
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 900;
   color: var(--white);
-  font-family: var(--font-display);
-  font-size: 12px;
-  letter-spacing: 0.05em;
-  padding: 4px 12px;
-  border-radius: 30px;
-  display: inline-block;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 12px rgba(244, 108, 55, 0.35);
+  margin-bottom: 18px;
+  line-height: 0.95;
 }
-.dest-name {
-  font-family: var(--font-title);
-  font-size: clamp(26px, 3.2vw, 34px);
-  color: var(--white);
-  margin-bottom: 6px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-.dest-price {
+.slide-desc {
   font-family: var(--font-body);
-  font-size: 15px;
-  color: var(--brand-sky);
-  font-weight: 600;
-  display: block;
-}
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: rgba(36, 48, 77, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--white);
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(4px);
-}
-.slider-btn:hover {
-  background: var(--brand-coral);
-  border-color: var(--brand-coral);
-  transform: translateY(-50%) scale(1.05);
-}
-.prev-btn {
-  left: 20px;
-}
-.next-btn {
-  right: 20px;
-}
-.slider-dots {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 10;
-}
-.slider-dots .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.slider-dots .dot.active {
-  background: var(--brand-coral);
-  width: 24px;
-  border-radius: 4px;
-}
-
-/* Trust badges bar */
-.hero-badges-bar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 60px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 40px;
-}
-.badge-item {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  text-align: left;
-}
-.badge-icon {
-  width: 32px;
-  height: 32px;
-  color: var(--brand-coral);
-  flex-shrink: 0;
-}
-.badge-text h4 {
-  font-family: var(--font-title);
   font-size: 16px;
-  color: var(--white);
-  margin-bottom: 4px;
-  line-height: 1.2;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 34px;
+  max-width: 480px;
+  margin-left: auto; /* Align box on the right */
 }
-.badge-text p {
-  font-family: var(--font-body);
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.4;
+.slide-ctas {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end; /* Align buttons to the right */
 }
 
-@media (max-width: 980px) {
-  .hero-search-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-  .hero-badges-bar {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
+/* Header & Banner custom buttons */
+.site-header .btn-coral, .slide-ctas .btn-coral, .final-cta .btn-coral {
+  background: var(--brand-sky);
+  color: var(--brand-navy-dark);
 }
+.site-header .btn-coral:hover, .slide-ctas .btn-coral:hover, .final-cta .btn-coral:hover {
+  background: var(--white);
+  color: var(--brand-navy-dark);
+  box-shadow: 0 8px 24px rgba(97, 185, 209, 0.35);
+}
+
+/* Headline overlay top left */
+.hero-headline-wrap {
+  position: absolute;
+  top: 130px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.hero-main-title {
+  font-size: 13px;
+  color: var(--brand-mint);
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+/* Thumbnails Navigation Bottom Left */
+.hero-thumbnails-wrap {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+.hero-thumbnails {
+  display: flex;
+  justify-content: flex-start; /* Align to the left */
+  gap: 16px;
+}
+.thumbnail {
+  width: 146px;
+  background: rgba(36, 48, 77, 0.72);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(7, 27, 48, 0.2);
+}
+.thumbnail:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+.thumbnail.active {
+  border-color: var(--brand-sky);
+  background: rgba(36, 48, 77, 0.95);
+  box-shadow: 0 12px 30px rgba(97, 185, 209, 0.25);
+}
+.thumb-img {
+  height: 64px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+}
+.thumb-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+.thumb-country {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.05em;
+  color: var(--brand-sky);
+  text-transform: uppercase;
+}
+.thumb-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+}
+.thumb-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+}
+.thumb-progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--brand-sky);
+}
+.thumbnail.active .thumb-progress-bar {
+  width: 100%;
+  transition: width 5s linear;
+}
+
+/* Map Pin Styling Fixes */
+.pin-dot {
+  fill: var(--brand-sky) !important;
+  stroke: var(--brand-navy-dark) !important;
+}
+.pin-pulse {
+  stroke: var(--brand-sky) !important;
+}
+.eyebrow {
+  color: var(--brand-sky) !important;
+}
+.eyebrow::before {
+  background: var(--brand-sky) !important;
+  box-shadow: 0 0 0 4px rgba(97, 185, 209, 0.2) !important;
+}
+
 @media (max-width: 720px) {
-  .hero-banner {
-    height: 70vh;
-    padding-top: 80px;
-    align-items: center;
+  .hero-headline-wrap {
+    top: 100px;
     text-align: center;
   }
-  .hero-banner-content {
+  .hero-main-title {
     text-align: center;
-    margin: 0 auto;
   }
-  .hero-badges-bar {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .slide-content {
+    margin-right: auto;
+    max-width: 100%;
+    padding: 0 24px;
+    text-align: center;
+    margin-top: 50px;
   }
-  .slider-container {
-    height: 380px;
+  .slide-ctas {
+    justify-content: center;
+  }
+  .hero-thumbnails-wrap {
+    bottom: 24px;
+    padding: 0 16px;
+  }
+  .hero-thumbnails {
+    justify-content: center;
+    gap: 8px;
+  }
+  .thumbnail {
+    width: 110px;
   }
 }
 
@@ -850,57 +694,195 @@ p{margin:0;}
 /* ============================================
    SPLIT CONTACT & SUCCESS WIDGET
    ============================================ */
-.contact-split {
+/* ============================================
+   CONTACT BOARDING PASS CARD
+   ============================================ */
+.contact-section-split {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
   text-align: left;
 }
-.contact-info {
+.contact-cta-info {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
-.contact-info h2 {
-  font-size: clamp(26px, 3.6vw, 44px);
-  color: var(--white);
-  line-height: 1.1;
+.contact-cta-info h2 {
+  font-family: var(--font-title);
+  font-size: clamp(28px, 3.5vw, 44px);
+  color: var(--brand-navy-dark);
 }
-.contact-info p {
+.contact-cta-info p {
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.78);
-  margin-bottom: 12px;
+  color: var(--brand-navy-primary);
 }
-.contact-stats {
+.contact-cta-stats {
   display: flex;
   gap: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(0,78,115,0.15);
   padding-top: 24px;
 }
-.contact-stat b {
+.contact-cta-stat b {
   display: block;
   font-family: var(--font-display);
   font-size: 26px;
-  color: var(--gold-400);
+  color: var(--brand-navy-primary);
 }
-.contact-stat span {
+.contact-cta-stat span {
   display: block;
   font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  color: rgba(36,48,77,0.6);
   text-transform: uppercase;
-  margin-top: 2px;
 }
-.contact-success-card {
+
+/* Styled physical Boarding Pass ticket */
+.contact-boarding-pass {
+  position: relative;
   background: var(--white);
-  color: var(--navy-900);
+  color: var(--brand-navy-dark);
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(36, 48, 77, 0.18);
+  border: 1px solid var(--brand-ice-blue);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  transform: rotate(1deg);
+  animation: bp-float 6s ease-in-out infinite;
+}
+.contact-bp-main {
+  padding: 30px 24px;
+}
+.contact-bp-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed var(--brand-ice-blue);
+  padding-bottom: 10px;
+}
+.contact-bp-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--brand-navy-primary);
+  text-transform: uppercase;
+}
+.contact-bp-flight {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--brand-sky);
+  font-weight: 600;
+}
+.contact-bp-title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--brand-navy-dark);
+  margin-bottom: 20px;
+}
+.contact-bp-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 16px;
+}
+.contact-bp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.contact-bp-field-full {
+  grid-column: span 2;
+}
+.contact-bp-field label {
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  color: var(--brand-navy-primary);
+  font-weight: 600;
+}
+.contact-bp-field input, .contact-bp-field select {
+  border: 1.5px solid var(--brand-ice-blue);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--brand-navy-dark);
+  background: var(--white);
+}
+.contact-bp-field input:focus, .contact-bp-field select:focus {
+  outline: none;
+  border-color: var(--brand-sky);
+  background: var(--white);
+}
+.contact-bp-submit {
+  margin-top: 20px;
+  background: var(--brand-navy-primary);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+}
+.contact-bp-submit:hover {
+  background: var(--brand-sky);
+  color: var(--brand-navy-dark);
+  box-shadow: 0 8px 20px rgba(97, 185, 209, 0.3);
+}
+.contact-bp-stub {
+  background: var(--brand-navy-dark);
+  color: var(--white);
+  width: 100px;
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border-radius: 0 20px 20px 0;
+}
+.contact-bp-stub::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 2px dashed rgba(255, 255, 255, 0.25);
+}
+.contact-bp-code {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.6);
+}
+.contact-bp-plane {
+  width: 24px;
+  height: 24px;
+  color: var(--brand-sky);
+}
+.contact-bp-barcode {
+  width: 100%;
+  height: 36px;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.8) 0 2px, transparent 2px 5px, rgba(255, 255, 255, 0.5) 5px 6px, transparent 6px 9px);
+  opacity: 0.7;
+}
+
+/* Success Card */
+.contact-bp-success {
+  background: var(--white);
+  color: var(--brand-navy-dark);
   border-radius: 20px;
   padding: 48px 32px;
   text-align: center;
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 30px 60px rgba(36, 48, 77, 0.18);
+  border: 1px solid var(--brand-ice-blue);
   animation: bp-float 6s ease-in-out infinite;
   display: flex;
   flex-direction: column;
@@ -908,36 +890,64 @@ p{margin:0;}
   justify-content: center;
   gap: 18px;
 }
-.contact-success-card h3 {
-  font-family: var(--font-display);
+.contact-bp-success h3 {
+  font-family: var(--font-title);
   font-size: 22px;
-  color: var(--navy-950);
+  color: var(--brand-navy-dark);
 }
-.contact-success-card p {
+.contact-bp-success p {
+  font-family: var(--font-body);
   font-size: 14.5px;
   line-height: 1.6;
-  color: var(--ink-600);
+  color: var(--brand-navy-primary);
 }
-.success-icon {
-  width: 64px;
-  height: 64px;
-  color: var(--coral-500);
+.contact-bp-success .success-icon {
+  width: 60px;
+  height: 60px;
+  color: var(--brand-sky);
 }
+
 @media (max-width: 980px) {
-  .contact-split {
+  .contact-section-split {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .contact-info {
+  .contact-cta-info {
     text-align: center;
   }
-  .contact-stats {
+  .contact-cta-stats {
     justify-content: center;
   }
-  .boarding-pass {
+  .contact-boarding-pass {
     margin-left: auto;
     margin-right: auto;
-    max-width: 520px;
+    max-width: 500px;
+  }
+}
+@media (max-width: 520px) {
+  .contact-boarding-pass {
+    grid-template-columns: 1fr;
+    transform: none;
+  }
+  .contact-bp-stub {
+    flex-direction: row;
+    border-radius: 0 0 20px 20px;
+    width: auto;
+    height: 70px;
+    padding: 12px 24px;
+  }
+  .contact-bp-stub::before {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    height: 0;
+    border-left: none;
+    border-top: 2px dashed rgba(255, 255, 255, 0.25);
+  }
+  .contact-bp-code {
+    writing-mode: horizontal-tb;
+    transform: none;
   }
 }
 </style>
@@ -954,7 +964,7 @@ p{margin:0;}
       <a href="#beneficios" style="font-family: var(--font-display); font-size: 15px; letter-spacing: 0.05em;">Beneficios</a>
       <a href="#mapa" style="font-family: var(--font-display); font-size: 15px; letter-spacing: 0.05em;">Viajeros GPS</a>
       <a href="#como-funciona" style="font-family: var(--font-display); font-size: 15px; letter-spacing: 0.05em;">Cómo funciona</a>
-      <a href="#travel-planner" class="btn btn-coral" style="font-family: var(--font-display); font-size: 14px; letter-spacing: 0.05em; padding: 10px 22px;">Planear Viaje</a>
+      <a href="#contacto" class="btn btn-coral" style="font-family: var(--font-display); font-size: 14px; letter-spacing: 0.05em; padding: 10px 22px;">Planear Viaje</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -963,156 +973,123 @@ p{margin:0;}
 </header>
 
 <!-- ============================================ HERO ============================================ -->
-<section class="hero-remodel" id="top">
-  <!-- Zone 1: Top Hero Banner -->
-  <div class="hero-banner">
-    <div class="wrap">
-      <div class="hero-banner-content">
-        <h1 class="hero-banner-title">VIAJA SIN ATADURAS</h1>
-        <p class="hero-banner-subtitle">Explora. Sueña. Descubre.</p>
-        <p class="hero-banner-text">Diseñamos tu ruta a la medida —vuelos, hospedaje, actividades y consultoría experta— entregados en un solo link, listo en 48 horas.</p>
-        <a href="#travel-planner" class="btn btn-coral btn-hero-start">EMPEZAR A PLANEAR</a>
+<section class="hero" id="top">
+  <!-- Slides Container -->
+  <div class="hero-slider">
+    <!-- Slide 1: Beach Intro -->
+    <div class="hero-slide active" data-index="0" style="background-image: url('images/hero-beach-hd.png')">
+      <div class="slide-content">
+        <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em; color: var(--brand-sky);">GPS PLANEACIÓN</span>
+        <h1 class="slide-title">VIAJA SIN ATADURAS</h1>
+        <p class="slide-desc">Diseñamos tu ruta de viaje a la medida: vuelos, hospedajes curados y experiencias únicas, todo integrado en un solo link listo en 48 horas.</p>
+        <div class="slide-ctas">
+          <a href="#contacto" class="btn btn-coral">Planear Viaje</a>
+          <a href="#beneficios" class="btn btn-ghost-light">Ver beneficios</a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 2: Yosemite -->
+    <div class="hero-slide" data-index="1" style="background-image: url('images/yosemite.png')">
+      <div class="slide-content">
+        <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em; color: var(--brand-sky);">EE. UU. · NATURALEZA</span>
+        <h1 class="slide-title">YOSEMITE PARK</h1>
+        <p class="slide-desc">Admira monolitos de granito gigantescos, secuoyas milenarias y cascadas atronadoras en uno de los parques nacionales más imponentes del mundo.</p>
+        <div class="slide-ctas">
+          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
+          <a href="#como-funciona" class="btn btn-ghost-light">Cómo funciona</a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 3: Capadocia -->
+    <div class="hero-slide" data-index="2" style="background-image: url('images/cappadocia.png')">
+      <div class="slide-content">
+        <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em; color: var(--brand-sky);">TURQUÍA · AVENTURA</span>
+        <h1 class="slide-title">VUELO EN GLOBOS</h1>
+        <p class="slide-desc">Vive el amanecer más mágico del planeta en un paisaje rodeado de chimeneas de hadas y valles históricos esculpidos por el tiempo.</p>
+        <div class="slide-ctas">
+          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
+          <a href="#como-funciona" class="btn btn-ghost-light">Cómo funciona</a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 4: Santorini -->
+    <div class="hero-slide" data-index="3" style="background-image: url('images/santorini.png')">
+      <div class="slide-content">
+        <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em; color: var(--brand-sky);">GRECIA · ROMANCE</span>
+        <h1 class="slide-title">ATARDECER EN OIA</h1>
+        <p class="slide-desc">Camina entre pintorescas cúpulas azules y calles encaladas con la vista más icónica del mar Egeo en la hermosa isla de Santorini.</p>
+        <div class="slide-ctas">
+          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
+          <a href="#como-funciona" class="btn btn-ghost-light">Cómo funciona</a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 5: Bali -->
+    <div class="hero-slide" data-index="4" style="background-image: url('images/bali.png')">
+      <div class="slide-content">
+        <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em; color: var(--brand-sky);">INDONESIA · ESPIRITUAL</span>
+        <h1 class="slide-title">TEMPLOS DE BALI</h1>
+        <p class="slide-desc">Desconéctate del mundo exterior y conéctate con la espiritualidad entre arrozales infinitos, templos budistas y playas paradisíacas.</p>
+        <div class="slide-ctas">
+          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
+          <a href="#como-funciona" class="btn btn-ghost-light">Cómo funciona</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Zone 2: Bottom Search & Carousel -->
-  <div class="hero-search-zone" id="travel-planner">
+  <!-- Fixed Headline Overlay (Top Left) -->
+  <div class="hero-headline-wrap">
     <div class="wrap">
-      <div class="hero-search-grid">
-        
-        <!-- Left Column: Travel Planner Form -->
-        <div class="planner-card-wrap">
-          <div class="planner-header">
-            <h2 class="planner-title">Tu viaje comienza aquí</h2>
-            <p class="planner-desc">Completa tus datos y un consultor experto diseñará la ruta ideal para ti.</p>
-          </div>
-          
-          <div class="planner-tabs">
-            <button class="planner-tab active" data-tab="trips">Viajes</button>
-            <button class="planner-tab" data-tab="flights" onclick="alert('Esta sección estará disponible próximamente.')">Vuelos</button>
-            <button class="planner-tab" data-tab="hotels" onclick="alert('Esta sección estará disponible próximamente.')">Hoteles</button>
-          </div>
+      <h2 class="hero-main-title">GPS · VIAJES SIN ATADURAS</h2>
+    </div>
+  </div>
 
-          <div class="planner-tab-content">
-            <form class="boarding-pass-form" id="boardingPass">
-              <div class="bpf-fields">
-                <div class="bpf-field">
-                  <label for="bpDestino">¿A dónde vas? (Destino)</label>
-                  <input id="bpDestino" type="text" placeholder="Ej: París, Santorini, Bali..." required>
-                </div>
-                <div class="bpf-field">
-                  <label for="bpFechas">Fechas de viaje</label>
-                  <input id="bpFechas" type="text" placeholder="Ej: dd/mm — dd/mm o flexible">
-                </div>
-                <div class="bpf-field bpf-half">
-                  <label for="bpViajeros">Viajeros</label>
-                  <input id="bpViajeros" type="number" min="1" placeholder="2" value="2">
-                </div>
-                <div class="bpf-field bpf-half">
-                  <label for="bpPresupuesto">Presupuesto</label>
-                  <select id="bpPresupuesto">
-                    <option>$ (Económico)</option>
-                    <option selected>$$ (Moderado)</option>
-                    <option>$$$ (Premium)</option>
-                  </select>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-coral btn-block bpf-submit">SOLICITAR MI PLAN DE VIAJE</button>
-            </form>
-
-            <div id="contactSuccess" class="planner-success" style="display: none;">
-              <svg class="success-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <h3>¡Pase de abordar confirmado!</h3>
-              <p>Tu solicitud ha sido recibida con éxito. Un consultor experto comenzará a diseñar tu ruta al detalle. Te enviaremos tu plan en menos de 48 horas.</p>
-            </div>
+  <!-- Thumbnails Navigation (Bottom Left) -->
+  <div class="hero-thumbnails-wrap">
+    <div class="wrap">
+      <div class="hero-thumbnails">
+        <div class="thumbnail active" data-slide-to="0">
+          <div class="thumb-img" style="background-image: url('images/hero-beach-hd.png')"></div>
+          <div class="thumb-info">
+            <span class="thumb-country">Inicio</span>
+            <span class="thumb-name">Playa GPS</span>
           </div>
+          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
         </div>
-
-        <!-- Right Column: Premium Destinations Slider -->
-        <div class="destinations-slider-wrap">
-          <div class="slider-container">
-            <!-- Slide 1: Yosemite -->
-            <div class="dest-slide active" style="background-image: url('images/yosemite.png');">
-              <div class="dest-card-info">
-                <span class="dest-rating">4.8 ★</span>
-                <h3 class="dest-name">Yosemite, EE. UU.</h3>
-                <span class="dest-price">Desde $599 / Persona</span>
-              </div>
-            </div>
-            <!-- Slide 2: Capadocia -->
-            <div class="dest-slide" style="background-image: url('images/cappadocia.png');">
-              <div class="dest-card-info">
-                <span class="dest-rating">4.9 ★</span>
-                <h3 class="dest-name">Goreme, Turquía</h3>
-                <span class="dest-price">Desde $749 / Persona</span>
-              </div>
-            </div>
-            <!-- Slide 3: Santorini -->
-            <div class="dest-slide" style="background-image: url('images/santorini.png');">
-              <div class="dest-card-info">
-                <span class="dest-rating">4.9 ★</span>
-                <h3 class="dest-name">Oia, Grecia</h3>
-                <span class="dest-price">Desde $899 / Persona</span>
-              </div>
-            </div>
-            <!-- Slide 4: Bali -->
-            <div class="dest-slide" style="background-image: url('images/bali.png');">
-              <div class="dest-card-info">
-                <span class="dest-rating">4.7 ★</span>
-                <h3 class="dest-name">Ubud, Indonesia</h3>
-                <span class="dest-price">Desde $649 / Persona</span>
-              </div>
-            </div>
-
-            <!-- Slider Controls -->
-            <button class="slider-btn prev-btn" id="sliderPrev" aria-label="Anterior">&larr;</button>
-            <button class="slider-btn next-btn" id="sliderNext" aria-label="Siguiente">&rarr;</button>
-
-            <!-- Slider Dots -->
-            <div class="slider-dots" id="sliderDots">
-              <span class="dot active" data-index="0"></span>
-              <span class="dot" data-index="1"></span>
-              <span class="dot" data-index="2"></span>
-              <span class="dot" data-index="3"></span>
-            </div>
+        <div class="thumbnail" data-slide-to="1">
+          <div class="thumb-img" style="background-image: url('images/yosemite.png')"></div>
+          <div class="thumb-info">
+            <span class="thumb-country">EE. UU.</span>
+            <span class="thumb-name">Yosemite</span>
           </div>
+          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
         </div>
-
-      </div>
-
-      <!-- Trust Badges Bar -->
-      <div class="hero-badges-bar">
-        <div class="badge-item">
-          <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <div class="badge-text">
-            <h4>Garantía de Seguridad</h4>
-            <p>Tus datos protegidos al 100%</p>
+        <div class="thumbnail" data-slide-to="2">
+          <div class="thumb-img" style="background-image: url('images/cappadocia.png')"></div>
+          <div class="thumb-info">
+            <span class="thumb-country">Turquía</span>
+            <span class="thumb-name">Capadocia</span>
           </div>
+          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
         </div>
-        <div class="badge-item">
-          <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <div class="badge-text">
-            <h4>Hospedajes Curados</h4>
-            <p>Selección estricta de hoteles</p>
+        <div class="thumbnail" data-slide-to="3">
+          <div class="thumb-img" style="background-image: url('images/santorini.png')"></div>
+          <div class="thumb-info">
+            <span class="thumb-country">Grecia</span>
+            <span class="thumb-name">Santorini</span>
           </div>
+          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
         </div>
-        <div class="badge-item">
-          <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <div class="badge-text">
-            <h4>Soporte 24/7</h4>
-            <p>Acompañamiento en tu viaje</p>
+        <div class="thumbnail" data-slide-to="4">
+          <div class="thumb-img" style="background-image: url('images/bali.png')"></div>
+          <div class="thumb-info">
+            <span class="thumb-country">Indonesia</span>
+            <span class="thumb-name">Bali</span>
           </div>
-        </div>
-        <div class="badge-item">
-          <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <div class="badge-text">
-            <h4>Reservas Seguras</h4>
-            <p>Confirmaciones al instante</p>
-          </div>
+          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1719,7 +1696,7 @@ p{margin:0;}
         <div class="step">
           <div class="step-num">01</div>
           <h3>Cuéntanos tu viaje ideal</h3>
-          <p>Destino, fechas, presupuesto y estilo de viaje. Así de simple, directo desde el boarding pass de arriba.</p>
+          <p>Destino, fechas, presupuesto y estilo de viaje. Así de simple, directo desde el boarding pass de abajo.</p>
         </div>
         <div class="step">
           <div class="step-num">02</div>
@@ -1743,16 +1720,78 @@ p{margin:0;}
 
 <!-- ============================================ FINAL CTA ============================================ -->
 <!-- ============================================ FINAL CTA / CONTACTO ============================================ -->
-<section class="section" id="contacto" style="padding-top:0;">
+<section class="section" id="contacto" style="background: var(--brand-gray); color: var(--brand-navy-dark); padding: 104px 0;">
   <div class="wrap">
-    <div class="final-cta reveal">
-      <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em;">Coordenadas listas</span>
-      <h2 style="font-family: var(--font-title);">¿Listo para tu próxima coordenada?</h2>
-      <p style="font-family: var(--font-body);">Cuéntanos a dónde quieres ir. Diseñamos tu ruta a la medida y en 48 horas tendrás tu plan listo para despegar.</p>
-      <div class="final-cta-ctas">
-        <a href="#travel-planner" class="btn btn-coral">¡Comenzar ahora!</a>
-        <a href="https://wa.me/573000000000" target="_blank" class="btn btn-ghost-light">WhatsApp directo</a>
+    <div class="contact-section-split reveal">
+      
+      <!-- Left Column: CTA Info -->
+      <div class="contact-cta-info">
+        <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.1em; color: var(--brand-navy-primary);">Check-in en tu aventura</span>
+        <h2>¿Qué esperas para viajar sin ataduras?</h2>
+        <p>Cuéntanos a dónde quieres ir y tu estilo de viaje. Nuestro equipo de consultores expertos diseñará el itinerario ideal a la medida de tu presupuesto.</p>
+        <div class="contact-cta-stats">
+          <div class="contact-cta-stat">
+            <b>48h</b>
+            <span>Plan listo</span>
+          </div>
+          <div class="contact-cta-stat">
+            <b>+80</b>
+            <span>Países cubiertos</span>
+          </div>
+          <div class="contact-cta-stat">
+            <b>1 link</b>
+            <span>Todo tu viaje</span>
+          </div>
+        </div>
       </div>
+
+      <!-- Right Column: Interactive Boarding Pass Card -->
+      <div style="position: relative;">
+        <form class="contact-boarding-pass" id="boardingPass">
+          <div class="contact-bp-main">
+            <div class="contact-bp-top">
+              <span class="contact-bp-label">Boarding Pass · GPS</span>
+              <span class="contact-bp-flight">RUTA-001</span>
+            </div>
+            <div class="contact-bp-title">Arma tu viaje</div>
+            <div class="contact-bp-fields">
+              <div class="contact-bp-field contact-bp-field-full">
+                <label for="bpDestino">¿A dónde vas? (Destino)</label>
+                <input id="bpDestino" type="text" placeholder="Ej: París, Santorini, Bali..." required>
+              </div>
+              <div class="contact-bp-field contact-bp-field-full">
+                <label for="bpFechas">Fechas de viaje</label>
+                <input id="bpFechas" type="text" placeholder="Ej: Flexible, dd/mm — dd/mm">
+              </div>
+              <div class="contact-bp-field">
+                <label for="bpViajeros">Viajeros</label>
+                <input id="bpViajeros" type="number" min="1" placeholder="2" value="2">
+              </div>
+              <div class="contact-bp-field">
+                <label for="bpPresupuesto">Presupuesto</label>
+                <select id="bpPresupuesto">
+                  <option>$ (Económico)</option>
+                  <option selected>$$ (Moderado)</option>
+                  <option>$$$ (Premium)</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-navy btn-block contact-bp-submit">SOLICITAR MI PLAN →</button>
+          </div>
+          <div class="contact-bp-stub">
+            <span class="contact-bp-code">GPS VIAJES</span>
+            <svg class="contact-bp-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L2 22l10-6 10 6L12 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="contact-bp-barcode"></div>
+          </div>
+        </form>
+
+        <div id="contactSuccess" class="contact-bp-success" style="display:none;">
+          <svg class="success-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>¡Pase de abordar confirmado!</h3>
+          <p>Tu solicitud ha sido recibida con éxito. Uno de nuestros asesores expertos comenzará a diseñar tu ruta personalizada de inmediato. En menos de 48 horas tendrás tu plan a la medida en un solo link.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1828,73 +1867,73 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 revealEls.forEach(el => revealObserver.observe(el));
 
-// Boarding pass form submit inside planner card
+// Boarding pass form submit inside contact section
 const boardingPass = document.getElementById('boardingPass');
 const contactSuccess = document.getElementById('contactSuccess');
 if (boardingPass && contactSuccess) {
   boardingPass.addEventListener('submit', (e) => {
     e.preventDefault();
     boardingPass.style.display = 'none';
-    contactSuccess.style.display = 'block';
+    contactSuccess.style.display = 'flex';
   });
 }
 
-// Destinations Carousel Slider
-const destSlides = document.querySelectorAll('.dest-slide');
-const destDots = document.querySelectorAll('#sliderDots .dot');
+// Hero Background Carousel Slider
+const heroSlides = document.querySelectorAll('.hero-slide');
+const heroDots = document.querySelectorAll('#sliderDots .dot');
 const prevBtn = document.getElementById('sliderPrev');
 const nextBtn = document.getElementById('sliderNext');
-let activeDestIndex = 0;
-let destInterval;
+let activeHeroIndex = 0;
+let heroInterval;
 
-function showDestSlide(index) {
-  destSlides[activeDestIndex].classList.remove('active');
-  destDots[activeDestIndex].classList.remove('active');
+function showHeroSlide(index) {
+  heroSlides[activeHeroIndex].classList.remove('active');
+  heroDots[activeHeroIndex].classList.remove('active');
   
-  destSlides[index].classList.add('active');
-  destDots[index].classList.add('active');
+  heroSlides[index].classList.add('active');
+  heroDots[index].classList.add('active');
   
-  activeDestIndex = index;
+  activeHeroIndex = index;
 }
 
-function nextDestSlide() {
-  let nextIdx = (activeDestIndex + 1) % destSlides.length;
-  showDestSlide(nextIdx);
+function nextHeroSlide() {
+  let nextIdx = (activeHeroIndex + 1) % heroSlides.length;
+  showHeroSlide(nextIdx);
 }
 
-function prevDestSlide() {
-  let prevIdx = (activeDestIndex - 1 + destSlides.length) % destSlides.length;
-  showDestSlide(prevIdx);
+function prevHeroSlide() {
+  let prevIdx = (activeHeroIndex - 1 + heroSlides.length) % heroSlides.length;
+  showHeroSlide(prevIdx);
 }
 
-function startDestAutoplay() {
-  destInterval = setInterval(nextDestSlide, 5000);
+function startHeroAutoplay() {
+  heroInterval = setInterval(nextHeroSlide, 5000);
 }
 
-function resetDestAutoplay() {
-  clearInterval(destInterval);
-  startDestAutoplay();
+function resetHeroAutoplay() {
+  clearInterval(heroInterval);
+  startHeroAutoplay();
 }
 
 if (prevBtn && nextBtn) {
   prevBtn.addEventListener('click', () => {
-    prevDestSlide();
-    resetDestAutoplay();
+    prevHeroSlide();
+    resetHeroAutoplay();
   });
   nextBtn.addEventListener('click', () => {
-    nextDestSlide();
-    resetDestAutoplay();
+    nextHeroSlide();
+    resetHeroAutoplay();
   });
 }
 
-destDots.forEach((dot, idx) => {
+heroDots.forEach((dot, idx) => {
   dot.addEventListener('click', () => {
-    showDestSlide(idx);
-    resetDestAutoplay();
+    showHeroSlide(idx);
+    resetHeroAutoplay();
   });
 });
 
-startDestAutoplay();
+startHeroAutoplay();
 
 // Map pins + cards
 const mapWrap = document.getElementById('mapWrap');
