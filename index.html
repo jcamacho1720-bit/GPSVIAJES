@@ -142,41 +142,201 @@ p{margin:0;}
 /* ============================================
    HERO
    ============================================ */
-.hero{
-  position:relative;
-  background:
-    radial-gradient(ellipse 90% 60% at 18% -10%, rgba(79,182,224,0.35), transparent 60%),
-    radial-gradient(ellipse 70% 50% at 100% 0%, rgba(255,93,58,0.20), transparent 55%),
-    linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 60%, var(--navy-800) 100%);
-  padding:150px 0 110px;
-  overflow:hidden;
-  color:var(--white);
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 720px;
+  max-height: 960px;
+  overflow: hidden;
+  color: var(--white);
+  background: var(--navy-950);
 }
-.hero::before{
-  /* dotted route texture */
-  content:"";position:absolute;inset:0;pointer-events:none;opacity:0.35;
-  background-image:radial-gradient(rgba(255,255,255,0.14) 1px, transparent 1.4px);
-  background-size:26px 26px;
-  mask-image:radial-gradient(ellipse 80% 70% at 70% 30%, black 10%, transparent 70%);
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
-.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
-.hero-copy .eyebrow{margin-bottom:22px;}
-.hero-copy h1{
-  font-size:clamp(34px, 4.6vw, 58px);
-  font-weight:700;
-  color:var(--white);
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.08);
+  transition: opacity 1s ease, transform 6s linear, visibility 1s ease;
+  display: flex;
+  align-items: center;
 }
-.hero-copy h1 em{
-  font-style:normal;color:var(--gold-400);
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(90deg, rgba(7, 27, 48, 0.92) 0%, rgba(7, 27, 48, 0.5) 50%, rgba(7, 27, 48, 0.3) 100%),
+    radial-gradient(circle at 18% 20%, rgba(79, 182, 224, 0.25), transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(255, 93, 58, 0.15), transparent 60%);
+  z-index: 2;
 }
-.hero-copy p.lede{
-  margin-top:22px;font-size:17.5px;line-height:1.6;color:rgba(255,255,255,0.82);max-width:480px;
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.0);
 }
-.hero-ctas{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
-
-.hero-stats{display:flex;gap:30px;margin-top:46px;flex-wrap:wrap;}
-.hero-stat b{display:block;font-family:var(--font-display);font-size:26px;color:var(--white);}
-.hero-stat span{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;color:rgba(255,255,255,0.55);text-transform:uppercase;margin-top:2px;}
+.slide-content {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+  padding: 0 32px;
+  margin-left: max(32px, calc((100% - var(--container)) / 2 + 32px));
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+.hero-slide.active .slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+.slide-content .eyebrow {
+  margin-bottom: 16px;
+}
+.slide-title {
+  font-size: clamp(34px, 5.2vw, 58px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+.slide-desc {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 34px;
+  max-width: 480px;
+}
+.slide-ctas {
+  display: flex;
+  gap: 14px;
+}
+.hero-headline-wrap {
+  position: absolute;
+  top: 130px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.hero-main-title {
+  font-size: 12.5px;
+  color: var(--gold-400);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.hero-thumbnails-wrap {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+.hero-thumbnails {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+.thumbnail {
+  width: 146px;
+  background: rgba(7, 27, 48, 0.72);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(7, 27, 48, 0.2);
+}
+.thumbnail:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+.thumbnail.active {
+  border-color: var(--coral-500);
+  background: rgba(7, 27, 48, 0.95);
+  box-shadow: 0 12px 30px rgba(255, 93, 58, 0.25);
+}
+.thumb-img {
+  height: 64px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+}
+.thumb-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.thumb-country {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  color: var(--sky-400);
+  text-transform: uppercase;
+}
+.thumb-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+}
+.thumb-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+}
+.thumb-progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--coral-500);
+}
+.thumbnail.active .thumb-progress-bar {
+  width: 100%;
+  transition: width 5s linear;
+}
+@media (max-width: 720px) {
+  .hero-headline-wrap {
+    top: 100px;
+    text-align: center;
+  }
+  .slide-content {
+    margin-left: 0;
+    max-width: 100%;
+    padding: 0 24px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .slide-ctas {
+    justify-content: center;
+  }
+  .hero-thumbnails-wrap {
+    bottom: 24px;
+    padding: 0 16px;
+  }
+  .hero-thumbnails {
+    justify-content: center;
+    gap: 8px;
+  }
+  .thumbnail {
+    width: 110px;
+  }
+}
 
 /* Boarding pass widget */
 .boarding-pass{
@@ -527,6 +687,100 @@ p{margin:0;}
   .footer-bottom{flex-direction:column;align-items:flex-start;}
   .section{padding:72px 0;}
 }
+
+/* ============================================
+   SPLIT CONTACT & SUCCESS WIDGET
+   ============================================ */
+.contact-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+  text-align: left;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact-info h2 {
+  font-size: clamp(26px, 3.6vw, 44px);
+  color: var(--white);
+  line-height: 1.1;
+}
+.contact-info p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 12px;
+}
+.contact-stats {
+  display: flex;
+  gap: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 24px;
+}
+.contact-stat b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--gold-400);
+}
+.contact-stat span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.contact-success-card {
+  background: var(--white);
+  color: var(--navy-900);
+  border-radius: 20px;
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.45);
+  animation: bp-float 6s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+.contact-success-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--navy-950);
+}
+.contact-success-card p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-600);
+}
+.success-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--coral-500);
+}
+@media (max-width: 980px) {
+  .contact-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .contact-info {
+    text-align: center;
+  }
+  .contact-stats {
+    justify-content: center;
+  }
+  .boarding-pass {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 520px;
+  }
+}
 </style>
 </head>
 <body>
@@ -554,59 +808,103 @@ p{margin:0;}
 
 <!-- ============================================ HERO ============================================ -->
 <section class="hero" id="top">
-  <div class="wrap">
-    <div class="hero-copy reveal">
-      <span class="eyebrow">GPS · +80 países recorridos</span>
-      <h1>Tu próximo viaje, <em>calculado</em> al detalle.</h1>
-      <p class="lede">Diseñamos tu ruta a la medida —vuelos, hospedaje, actividades y un consultor experto— y te la entregamos en un solo link, lista para vivir.</p>
-      <div class="hero-ctas">
-        <a href="#contacto" class="btn btn-coral">¡Pagar ahora!</a>
-        <a href="#como-funciona" class="btn btn-ghost-light">Cómo funciona</a>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><b>48h</b><span>Plan listo</span></div>
-        <div class="hero-stat"><b>+80</b><span>Países cubiertos</span></div>
-        <div class="hero-stat"><b>1 link</b><span>Todo tu viaje</span></div>
+  <!-- Slides Container -->
+  <div class="hero-slider">
+    <!-- Slide 1: Yosemite -->
+    <div class="hero-slide active" data-index="0" style="background-image: url('images/yosemite.png')">
+      <div class="slide-content">
+        <span class="eyebrow">Yosemite - EE. UU.</span>
+        <h1 class="slide-title">Yosemite National Park</h1>
+        <p class="slide-desc">Yosemite National Park is a showcase of the American wilderness, revered for its towering granite monoliths, ancient giant sequoias, and thundering waterfalls.</p>
+        <div class="slide-ctas">
+          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
+          <a href="#como-funciona" class="btn btn-ghost-light">Ver cómo funciona</a>
+        </div>
       </div>
     </div>
+    <!-- Slide 2: Capadocia -->
+    <div class="hero-slide" data-index="1" style="background-image: url('images/cappadocia.png')">
+      <div class="slide-content">
+        <span class="eyebrow">Turquía - Capadocia</span>
+        <h1 class="slide-title">Valle de Göreme</h1>
+        <p class="slide-desc">Descubre un paisaje de otro mundo famoso por sus chimeneas de hadas, viviendas rupestres del siglo IV y el mágico despegue de cientos de globos al amanecer.</p>
+        <div class="slide-ctas">
+          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
+          <a href="#como-funciona" class="btn btn-ghost-light">Ver cómo funciona</a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 3: Santorini -->
+    <div class="hero-slide" data-index="2" style="background-image: url('images/santorini.png')">
+      <div class="slide-content">
+        <span class="eyebrow">Grecia - Cícladas</span>
+        <h1 class="slide-title">Atardecer en Oia</h1>
+        <p class="slide-desc">Explora las famosas fachadas encaladas del color del yeso y las cúpulas azules que miran al mar Egeo, enclavadas en los espectaculares acantilados de la caldera.</p>
+        <div class="slide-ctas">
+          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
+          <a href="#como-funciona" class="btn btn-ghost-light">Ver cómo funciona</a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 4: Bali -->
+    <div class="hero-slide" data-index="3" style="background-image: url('images/bali.png')">
+      <div class="slide-content">
+        <span class="eyebrow">Indonesia - Isla de Dioses</span>
+        <h1 class="slide-title">Templos de Bali</h1>
+        <p class="slide-desc">Conéctate con la espiritualidad balinesa a través de portales de piedra ancestrales, arrozales infinitos y el sonido relajante del mar Índico.</p>
+        <div class="slide-ctas">
+          <a href="#contacto" class="btn btn-coral">Diseñar mi ruta</a>
+          <a href="#como-funciona" class="btn btn-ghost-light">Ver cómo funciona</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <form class="boarding-pass reveal" id="boardingPass">
-      <div class="bp-main">
-        <div class="bp-top">
-          <span class="bp-label">Boarding Pass · GPS</span>
-          <span class="bp-flight">RUTA-001</span>
+  <!-- Fixed Headline Overlay -->
+  <div class="hero-headline-wrap">
+    <div class="wrap">
+      <h2 class="hero-main-title">GPS · VIAJES SIN ATADURAS</h2>
+    </div>
+  </div>
+
+  <!-- Thumbnails Navigation -->
+  <div class="hero-thumbnails-wrap">
+    <div class="wrap">
+      <div class="hero-thumbnails">
+        <div class="thumbnail active" data-slide-to="0">
+          <div class="thumb-img" style="background-image: url('images/yosemite.png')"></div>
+          <div class="thumb-info">
+            <span class="thumb-country">EE. UU.</span>
+            <span class="thumb-name">Yosemite</span>
+          </div>
+          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
         </div>
-        <div class="bp-title">Arma tu viaje</div>
-        <div class="bp-fields">
-          <div class="bp-field">
-            <label for="bpDestino">Destino</label>
-            <input id="bpDestino" type="text" placeholder="¿A dónde vas?" required>
+        <div class="thumbnail" data-slide-to="1">
+          <div class="thumb-img" style="background-image: url('images/cappadocia.png')"></div>
+          <div class="thumb-info">
+            <span class="thumb-country">Turquía</span>
+            <span class="thumb-name">Capadocia</span>
           </div>
-          <div class="bp-field">
-            <label for="bpFechas">Fechas</label>
-            <input id="bpFechas" type="text" placeholder="dd/mm — dd/mm">
-          </div>
-          <div class="bp-field">
-            <label for="bpViajeros">Viajeros</label>
-            <input id="bpViajeros" type="number" min="1" placeholder="2">
-          </div>
-          <div class="bp-field">
-            <label for="bpPresupuesto">Presupuesto</label>
-            <select id="bpPresupuesto">
-              <option>$</option>
-              <option>$$</option>
-              <option>$$$</option>
-            </select>
-          </div>
+          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
         </div>
-        <button type="submit" class="btn btn-navy btn-block bp-submit">Solicitar mi plan →</button>
+        <div class="thumbnail" data-slide-to="2">
+          <div class="thumb-img" style="background-image: url('images/santorini.png')"></div>
+          <div class="thumb-info">
+            <span class="thumb-country">Grecia</span>
+            <span class="thumb-name">Santorini</span>
+          </div>
+          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
+        </div>
+        <div class="thumbnail" data-slide-to="3">
+          <div class="thumb-img" style="background-image: url('images/bali.png')"></div>
+          <div class="thumb-info">
+            <span class="thumb-country">Indonesia</span>
+            <span class="thumb-name">Bali</span>
+          </div>
+          <div class="thumb-progress"><div class="thumb-progress-bar"></div></div>
+        </div>
       </div>
-      <div class="bp-stub">
-        <span class="bp-code">GPS</span>
-        <svg class="bp-plane" viewBox="0 0 24 24" fill="none"><path d="M10.5 3.5L4 14l4 -1 2 4 3 -12.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-        <div class="bp-barcode"></div>
-      </div>
-    </form>
+    </div>
   </div>
 </section>
 
@@ -1235,15 +1533,65 @@ p{margin:0;}
 </section>
 
 <!-- ============================================ FINAL CTA ============================================ -->
-<section class="section" id="contacto" style="padding-top:0;">
+<!-- ============================================ FINAL CTA / CONTACTO ============================================ -->
+<section class="section" id="contacto" style="background: var(--navy-950); color: var(--white); padding: 100px 0;">
   <div class="wrap">
-    <div class="final-cta reveal">
-      <span class="eyebrow">Coordenadas listas</span>
-      <h2>¿Listo para tu próxima coordenada?</h2>
-      <p>Cuéntanos a dónde quieres ir. En 48 horas tienes un plan a tu medida, listo para reservar.</p>
-      <div class="final-cta-ctas">
-        <a href="#top" class="btn btn-coral">¡Pagar ahora!</a>
-        <a href="#top" class="btn btn-ghost-light">Habla con nosotros</a>
+    <div class="contact-split reveal">
+      <div class="contact-info">
+        <span class="eyebrow">Pase de abordar</span>
+        <h2>¿Qué esperas para viajar sin ataduras?</h2>
+        <p>Cuéntanos tu destino ideal, fechas estimadas y presupuesto. Diseñamos tu ruta a la medida —vuelos, hospedaje, actividades y la asesoría de un experto— entregada en un solo link listo en 48 horas.</p>
+        <div class="contact-stats">
+          <div class="contact-stat"><b>48h</b><span>Plan listo</span></div>
+          <div class="contact-stat"><b>+80</b><span>Países cubiertos</span></div>
+          <div class="contact-stat"><b>1 link</b><span>Todo tu viaje</span></div>
+        </div>
+      </div>
+
+      <div style="position: relative;">
+        <form class="boarding-pass" id="boardingPass">
+          <div class="bp-main">
+            <div class="bp-top">
+              <span class="bp-label">Boarding Pass · GPS</span>
+              <span class="bp-flight">RUTA-001</span>
+            </div>
+            <div class="bp-title">Arma tu viaje</div>
+            <div class="bp-fields">
+              <div class="bp-field">
+                <label for="bpDestino">Destino</label>
+                <input id="bpDestino" type="text" placeholder="¿A dónde vas?" required>
+              </div>
+              <div class="bp-field">
+                <label for="bpFechas">Fechas</label>
+                <input id="bpFechas" type="text" placeholder="dd/mm — dd/mm">
+              </div>
+              <div class="bp-field">
+                <label for="bpViajeros">Viajeros</label>
+                <input id="bpViajeros" type="number" min="1" placeholder="2">
+              </div>
+              <div class="bp-field">
+                <label for="bpPresupuesto">Presupuesto</label>
+                <select id="bpPresupuesto">
+                  <option>$</option>
+                  <option>$$</option>
+                  <option>$$$</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-navy btn-block bp-submit">Solicitar mi plan →</button>
+          </div>
+          <div class="bp-stub">
+            <span class="bp-code">GPS</span>
+            <svg class="bp-plane" viewBox="0 0 24 24" fill="none"><path d="M10.5 3.5L4 14l4 -1 2 4 3 -12.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            <div class="bp-barcode"></div>
+          </div>
+        </form>
+
+        <div id="contactSuccess" class="contact-success-card" style="display:none;">
+          <svg class="success-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>¡Pase de abordar confirmado!</h3>
+          <p>Tu solicitud ha sido recibida con éxito. Uno de nuestros consultores expertos empezará a planear tu ruta. En menos de 48 horas tendrás tu plan a la medida listo en un solo link.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1320,15 +1668,57 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 revealEls.forEach(el => revealObserver.observe(el));
 
-// Boarding pass submit -> scroll to contact
+// Boarding pass submit -> show success card
 const boardingPass = document.getElementById('boardingPass');
-if (boardingPass) {
+const contactSuccess = document.getElementById('contactSuccess');
+if (boardingPass && contactSuccess) {
   boardingPass.addEventListener('submit', (e) => {
     e.preventDefault();
-    const target = document.getElementById('contacto');
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    boardingPass.style.display = 'none';
+    contactSuccess.style.display = 'flex';
   });
 }
+
+// Hero Slider autoplay and navigation
+const slides = document.querySelectorAll('.hero-slide');
+const thumbs = document.querySelectorAll('.thumbnail');
+let currentSlide = 0;
+let slideInterval;
+
+function showSlide(index) {
+  if (index === currentSlide) return;
+  
+  slides[currentSlide].classList.remove('active');
+  thumbs[currentSlide].classList.remove('active');
+  
+  slides[index].classList.add('active');
+  thumbs[index].classList.add('active');
+  
+  currentSlide = index;
+}
+
+function nextSlide() {
+  let next = (currentSlide + 1) % slides.length;
+  showSlide(next);
+}
+
+function startAutoplay() {
+  slideInterval = setInterval(nextSlide, 5000);
+}
+
+function resetAutoplay() {
+  clearInterval(slideInterval);
+  startAutoplay();
+}
+
+thumbs.forEach((thumb, idx) => {
+  thumb.addEventListener('click', () => {
+    showSlide(idx);
+    resetAutoplay();
+  });
+});
+
+startAutoplay();
 
 // Map pins + cards
 const mapWrap = document.getElementById('mapWrap');
