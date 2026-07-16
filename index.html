@@ -486,6 +486,27 @@
       }
     }
 
+    /* Elementos internos del Badge */
+    .badge-status {
+      color: var(--brand-coral);
+      font-weight: 800;
+      margin-left: 4px;
+      margin-right: 8px;
+    }
+
+    .badge-separator {
+      width: 1px;
+      height: 10px;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin-right: 8px;
+    }
+
+    .badge-text {
+      color: #ffffff; /* Letras en blanco */
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
     .split-flap-board {
       display: flex;
       align-items: center;
@@ -2367,7 +2388,9 @@
       <div class="hero-content-left reveal">
         <span class="hero-eyebrow-badge">
           <span class="pulse-dot"></span>
-          Es tiempo de viajar a tu manera
+          <span class="badge-status">Last Call</span>
+          <span class="badge-separator"></span>
+          <span class="badge-text">Es hora de viajar a tu manera</span>
         </span>
         <h1 class="hero-banner-title">
           Creamos viajes
