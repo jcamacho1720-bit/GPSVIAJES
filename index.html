@@ -437,14 +437,7 @@
       padding-top: 15px;
     }
 
-    /* Brackets and Changing word */
-    .changing-word-wrap {
-      position: relative;
-      display: inline-block;
-      padding: 0 16px;
-      color: #badef7;
-    }
-
+    /* Split-flap container and board */
     .split-flap-container {
       display: inline-block;
       vertical-align: middle;
@@ -467,7 +460,7 @@
       width: 32px;
       height: 48px;
       background: linear-gradient(to bottom, #162035 0%, #111a2d 48%, #000 49%, #000 51%, #0c1525 52%, #0f1a2e 100%);
-      color: var(--brand-sky);
+      color: #ffffff; /* Letras en blanco */
       font-family: var(--font-mono);
       font-size: 28px;
       font-weight: 700;
@@ -477,6 +470,19 @@
       overflow: hidden;
       user-select: none;
       margin: 0 1px;
+      /* Transiciones suaves para contracción/expansión dinámica */
+      transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), margin 0.3s ease, opacity 0.25s ease, box-shadow 0.3s ease;
+      opacity: 1;
+    }
+
+    /* Solapas inactivas colapsadas */
+    .flap-slot.inactive {
+      width: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      opacity: 0 !important;
+      box-shadow: none !important;
+      pointer-events: none;
     }
 
     /* Muescas laterales físicas */
@@ -560,41 +566,6 @@
       .split-flap-board {
         gap: 1.5px;
       }
-    }
-
-    .corner-bracket {
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      border: 2px solid var(--brand-sky);
-    }
-
-    .corner-bracket.top-left {
-      top: -4px;
-      left: 0;
-      border-right: none;
-      border-bottom: none;
-    }
-
-    .corner-bracket.top-right {
-      top: -4px;
-      right: 0;
-      border-left: none;
-      border-bottom: none;
-    }
-
-    .corner-bracket.bottom-left {
-      bottom: -4px;
-      left: 0;
-      border-right: none;
-      border-top: none;
-    }
-
-    .corner-bracket.bottom-right {
-      bottom: -4px;
-      right: 0;
-      border-left: none;
-      border-top: none;
     }
 
     /* Button variants */
@@ -2352,17 +2323,11 @@
   <section class="hero" id="top">
     <div class="wrap">
       <div class="hero-content-left reveal">
-
+        <span class="hero-eyebrow">Es tiempo de viajar a tu manera.</span>
         <h1 class="hero-banner-title">
           Creamos viajes
           <div class="split-flap-container">
-            <span class="changing-word-wrap">
-              <span class="corner-bracket top-left"></span>
-              <span class="corner-bracket top-right"></span>
-              <span class="corner-bracket bottom-left"></span>
-              <span class="corner-bracket bottom-right"></span>
-              <div id="split-flap-board" class="split-flap-board"></div>
-            </span>
+            <div id="split-flap-board" class="split-flap-board"></div>
           </div>
         </h1>
         <div class="slide-ctas">
@@ -3723,15 +3688,22 @@
         nextStep();
       }
       
-      // 3. Función para actualizar la palabra completa en la pizarra
+      // 3. Función para actualizar la palabra completa en la pizarra de forma dinámica
       function updateBoard(word) {
-        // Rellenar con espacios hasta completar 15
-        const paddedWord = word.padEnd(maxFlaps, ' ');
+        const wordLength = word.length;
         
         for (let i = 0; i < maxFlaps; i++) {
-          setTimeout(() => {
-            spinFlap(flapChars[i], paddedWord[i]);
-          }, i * 35); // Efecto cascada de izquierda a derecha (35ms por letra)
+          if (i < wordLength) {
+            // Activar solapa y girar a la letra correspondiente
+            flapSlots[i].classList.remove('inactive');
+            setTimeout(() => {
+              spinFlap(flapChars[i], word[i]);
+            }, i * 35); // Efecto cascada
+          } else {
+            // Desactivar solapa sobrante (se encoge y oculta)
+            flapSlots[i].classList.add('inactive');
+            spinFlap(flapChars[i], ' ');
+          }
         }
       }
       
