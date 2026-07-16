@@ -492,6 +492,19 @@
       font-weight: 800;
       margin-left: 4px;
       margin-right: 8px;
+      /* Animación de parpadeo estilo aeropuerto */
+      animation: alert-blink 1.4s infinite ease-in-out;
+    }
+
+    @keyframes alert-blink {
+      0%, 100% {
+        opacity: 1;
+        filter: drop-shadow(0 0 2px rgba(244, 108, 55, 0.5));
+      }
+      50% {
+        opacity: 0.35;
+        filter: drop-shadow(0 0 0 transparent);
+      }
     }
 
     .badge-separator {
@@ -2390,7 +2403,7 @@
           <span class="pulse-dot"></span>
           <span class="badge-status">Last Call</span>
           <span class="badge-separator"></span>
-          <span class="badge-text">Es hora de viajar a tu manera</span>
+          <span class="badge-text">Hora de viajar a tu manera</span>
         </span>
         <h1 class="hero-banner-title">
           Creamos viajes
