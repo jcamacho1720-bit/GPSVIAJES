@@ -122,8 +122,11 @@ p{margin:0;}
 
 .main-nav{display:flex;align-items:center;gap:36px;}
 .main-nav a {
-  font-size: 14.5px;
-  font-weight: 500;
+  font-family: var(--font-title); /* Playfair Display */
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: rgba(255, 255, 255, 0.82);
   position: relative;
   padding: 4px 0;
@@ -201,7 +204,7 @@ p{margin:0;}
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(36,48,77,0.35) 0%, rgba(36,48,77,0.8) 100%), url('images/traveler-airport-window.png') center/cover no-repeat;
+  background: linear-gradient(180deg, rgba(36,48,77,0.35) 0%, rgba(36,48,77,0.8) 100%), url('images/flight-view-maldives.png') center/cover no-repeat;
   transform: scaleX(-1); /* Flips background image horizontally */
   z-index: 1;
   pointer-events: none;
@@ -221,17 +224,17 @@ p{margin:0;}
   text-align: left;
 }
 .hero-eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-display); /* Plus Jakarta Sans */
   font-size: 13px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.85);
-  text-transform: uppercase;
+  text-transform: none; /* mixed/lowercase */
   margin-bottom: 24px;
   display: block;
 }
 .hero-banner-title {
   font-family: var(--font-display);
-  font-size: clamp(38px, 5.5vw, 68px);
+  font-size: 48px; /* Fixed 48px */
   font-weight: 900;
   line-height: 1.1;
   color: var(--white);
@@ -1294,10 +1297,9 @@ p{margin:0;}
       <img src="images/logo-horizontal.png" alt="GPS Planeación de Viajes" style="height: 48px; width: auto; display: block;">
     </a>
     <nav class="main-nav" id="mainNav">
-      <a href="#beneficios" style="font-family: var(--font-display); font-size: 15px; letter-spacing: 0.05em;">Beneficios</a>
-      <a href="#mapa" style="font-family: var(--font-display); font-size: 15px; letter-spacing: 0.05em;">Viajeros GPS</a>
-      <a href="#como-funciona" style="font-family: var(--font-display); font-size: 15px; letter-spacing: 0.05em;">Cómo funciona</a>
-      <a href="#contacto" class="btn btn-coral" style="font-family: var(--font-display); font-size: 14px; letter-spacing: 0.05em; padding: 10px 22px;">Planear Viaje</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#mapa">Viajeros GPS</a>
+      <a href="#como-funciona">Cómo funciona</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -1305,11 +1307,10 @@ p{margin:0;}
   </div>
 </header>
 
-<!-- ============================================ HERO ============================================ -->
 <section class="hero" id="top">
   <div class="wrap">
     <div class="hero-content-left reveal">
-      <span class="hero-eyebrow">Viajes a la medida</span>
+      <span class="hero-eyebrow">viajes a la medida</span>
       <h1 class="hero-banner-title">
         Creamos viajes 
         <span class="changing-word-wrap">
