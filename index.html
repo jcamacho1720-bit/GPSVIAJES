@@ -7,7 +7,7 @@
 <meta name="description" content="GPS Planeación de Viajes diseña rutas a la medida: vuelos, hospedaje, actividades y asesoría experta, entregados en un solo link, listo en 48 horas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Comfortaa:wght@300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 <style>
 /* ============================================
    GPS PLANEACIÓN DE VIAJES — DESIGN TOKENS
@@ -40,7 +40,7 @@
 
   /* Fonts */
   --font-title: 'Playfair Display', serif;
-  --font-display: 'Bebas Neue', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
   --font-body: 'Comfortaa', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
@@ -165,6 +165,9 @@ p{margin:0;}
   align-items: center;
   z-index: 10;
 }
+.hero .wrap {
+  width: 100%;
+}
 .hero::before {
   content: "";
   position: absolute;
@@ -193,7 +196,7 @@ p{margin:0;}
   font-family: var(--font-title);
   font-size: clamp(22px, 3.8vw, 36px);
   font-style: italic;
-  color: var(--brand-sky);
+  color: var(--white);
   margin-bottom: 24px;
   line-height: 1.1;
 }
@@ -1092,7 +1095,6 @@ p{margin:0;}
 <section class="hero" id="top">
   <div class="wrap">
     <div class="hero-content-left reveal">
-      <span class="eyebrow" style="font-family: var(--font-display); letter-spacing: 0.12em; color: var(--brand-sky);">GPS PLANEACIÓN</span>
       <h1 class="hero-banner-title">VIAJA SIN ATADURAS</h1>
       <p class="hero-banner-subtitle">Explora. Sueña. Descubre.</p>
       <p class="hero-banner-text">Diseñamos tu ruta de viaje a la medida: vuelos, hospedajes curados y experiencias únicas, todo integrado en un solo link listo en 48 horas.</p>
