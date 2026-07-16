@@ -389,7 +389,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.85) 100%), url('images/flight-view-maldives.png') center/cover no-repeat;
+      background: linear-gradient(180deg, rgb(53 53 53 / 60%) 0%, rgba(0, 0, 0, 0.85) 100%), url(images/flight-view-maldives.png) center / cover no-repeat;
       transform: scaleX(-1);
       /* Flips background image horizontally */
       z-index: 1;
@@ -524,7 +524,7 @@
       display: flex;
       align-items: center;
       justify-content: center; /* Centered */
-      gap: 3px;
+      gap: 0; /* Remove gap to prevent layout shifting on inactive slots */
     }
 
     /* Solapa individual */
@@ -546,7 +546,7 @@
       text-transform: uppercase;
       overflow: hidden;
       user-select: none;
-      margin: 0 1px;
+      margin: 0 1.5px; /* Margin instead of gap */
       /* Transiciones suaves para contracción/expansión dinámica */
       transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), margin 0.3s ease, opacity 0.25s ease, box-shadow 0.3s ease;
       opacity: 1;
@@ -634,15 +634,14 @@
         height: 28px;
         font-size: 15px;
         border-radius: 3px;
+        margin: 0 0.75px; /* Reduced margins on mobile */
       }
       .flap-slot::before,
       .flap-slot::after {
         width: 1.5px;
         height: 3px;
       }
-      .split-flap-board {
-        gap: 1.5px;
-      }
+      /* Remove gap for mobile */
     }
 
     /* Button variants */
@@ -688,6 +687,16 @@
       color: rgba(255, 255, 255, 0.7);
       line-height: 1.6;
       max-width: 600px;
+      margin: 0 auto; /* Centered */
+      text-align: center; /* Centered */
+    }
+
+    .slide-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
     }
 
     /* Scroll mouse indicator */
