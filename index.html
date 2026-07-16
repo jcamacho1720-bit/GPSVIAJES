@@ -123,34 +123,20 @@ p{margin:0;}
 .main-nav{display:flex;align-items:center;gap:36px;}
 .main-nav a {
   font-family: var(--font-mono); /* JetBrains Mono */
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: none; /* mixed-case / no uppercase */
+  letter-spacing: 0.08em;
+  text-transform: uppercase; /* Uppercase navigation links */
   color: rgba(255, 255, 255, 0.82);
   position: relative;
   padding: 4px 0;
   display: inline-flex;
   align-items: center;
 }
-.main-nav a::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--brand-sky);
-  margin-right: 8px;
-  opacity: 0.7;
-  transition: opacity 0.25s ease, background 0.25s ease;
-}
-.main-nav a:hover::before {
-  opacity: 1;
-  background: var(--white);
-}
 .main-nav a::after {
   content: "";
   position: absolute;
-  left: 13px; /* Shift to align after the dot */
+  left: 0;
   bottom: 0;
   width: 0;
   height: 1.5px;
@@ -158,7 +144,7 @@ p{margin:0;}
   transition: width 0.25s ease;
 }
 .main-nav a:hover { color: var(--white); }
-.main-nav a:hover::after { width: calc(100% - 13px); }
+.main-nav a:hover::after { width: 100%; }
 
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -1301,6 +1287,7 @@ p{margin:0;}
       <a href="#beneficios">Beneficios</a>
       <a href="#mapa">Viajeros GPS</a>
       <a href="#como-funciona">Cómo funciona</a>
+      <a href="#contacto" class="btn btn-coral" style="font-family: var(--font-display); font-size: 14px; letter-spacing: 0.05em; padding: 10px 22px; margin-left: 12px;">Planea ahora</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
