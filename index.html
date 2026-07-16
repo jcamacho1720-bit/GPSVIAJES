@@ -102,10 +102,16 @@ p{margin:0;}
   padding:22px 0;
 }
 .site-header.is-scrolled{
-  background:rgba(7,27,48,0.92);
-  backdrop-filter:blur(10px);
   padding:14px 0;
   box-shadow:0 8px 30px rgba(7,27,48,0.18);
+}
+.site-header.is-scrolled::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(7,27,48,0.92);
+  backdrop-filter: blur(10px);
+  z-index: -1;
 }
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;}
 .brand{display:flex;align-items:center;gap:11px;}
@@ -991,10 +997,9 @@ p{margin:0;}
 @media (max-width:720px){
   .main-nav{
     position:fixed;top:0;right:0;bottom:0;width:78%;max-width:320px;
-    background:rgba(36, 48, 77, 0.98) !important;
-    backdrop-filter:blur(12px) !important;
-    border-left:1px solid rgba(186, 222, 247, 0.15) !important;
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3) !important;
+    background:var(--white) !important; /* White background for mobile menu */
+    border-left:1px solid var(--brand-ice-blue) !important;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15) !important;
     flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:6px;
     padding:100px 28px 28px;
     transform:translateX(100%);transition:transform .35s ease;
@@ -1007,10 +1012,10 @@ p{margin:0;}
     letter-spacing: 0.1em !important;
     text-transform: uppercase !important;
     padding: 16px 0 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-bottom: 1px solid rgba(36, 48, 77, 0.08) !important;
     width: 100% !important;
     display: block !important;
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: var(--brand-navy-dark) !important; /* Dark text for mobile links */
     transition: color 0.3s ease, padding-left 0.3s ease !important;
   }
   .main-nav a:hover {
@@ -1029,18 +1034,11 @@ p{margin:0;}
     z-index: 201; /* Layer toggle on top of open mobile menu */
     position: relative;
   }
+  /* Color-toggle hamburger button to dark navy when menu is open on white background */
+  .main-nav.is-open ~ .nav-toggle {
+    color: var(--brand-navy-dark) !important;
+  }
   
-  /* Benefits Windows Mobile adjustments */
-  .airplane-window {
-    height: 190px !important;
-  }
-  .airplane-window .window-blind {
-    height: 0% !important; /* Landscapes always fixed and visible */
-  }
-  .airplane-window .window-content {
-    background: rgba(36, 48, 77, 0.55) !important; /* Dark overlay for text readability */
-  }
-
   /* Boarding Pass Mobile responsiveness (Smaller ticket) */
   .contact-section-split {
     grid-template-columns: 1fr;
@@ -1069,6 +1067,8 @@ p{margin:0;}
     padding: 8px 10px !important;
     font-size: 13px !important;
     height: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .contact-bp-submit {
     padding: 12px 20px !important;
