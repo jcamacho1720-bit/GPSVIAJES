@@ -445,12 +445,121 @@
       color: #badef7;
     }
 
-    #dynamic-word {
+    .split-flap-container {
       display: inline-block;
-      font-weight: 300;
-      transition: opacity 0.35s ease, transform 0.35s ease;
-      opacity: 1;
-      transform: translateY(0);
+      vertical-align: middle;
+      margin-top: 10px;
+    }
+
+    .split-flap-board {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 3px;
+    }
+
+    /* Solapa individual */
+    .flap-slot {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 48px;
+      background: linear-gradient(to bottom, #162035 0%, #111a2d 48%, #000 49%, #000 51%, #0c1525 52%, #0f1a2e 100%);
+      color: var(--brand-sky);
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 700;
+      border-radius: 4px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      text-transform: uppercase;
+      overflow: hidden;
+      user-select: none;
+      margin: 0 1px;
+    }
+
+    /* Muescas laterales físicas */
+    .flap-slot::before,
+    .flap-slot::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 2.5px;
+      height: 5px;
+      background-color: var(--brand-navy-dark);
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .flap-slot::before {
+      left: 0;
+      border-radius: 0 1.5px 1.5px 0;
+    }
+
+    .flap-slot::after {
+      right: 0;
+      border-radius: 1.5px 0 0 1.5px;
+    }
+
+    .flap-char {
+      display: inline-block;
+      line-height: 1;
+      transform-origin: center center;
+    }
+
+    /* Animación de rotación */
+    .flap-char.flipping {
+      animation: flap-tick 0.08s ease-in-out;
+    }
+
+    @keyframes flap-tick {
+      0% {
+        transform: scaleY(1);
+        filter: brightness(1);
+      }
+      50% {
+        transform: scaleY(0);
+        filter: brightness(0.3);
+      }
+      100% {
+        transform: scaleY(1);
+        filter: brightness(1.2);
+      }
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .split-flap-board {
+        justify-content: center;
+      }
+      .flap-slot {
+        width: 24px;
+        height: 36px;
+        font-size: 20px;
+      }
+      .flap-slot::before,
+      .flap-slot::after {
+        width: 2px;
+        height: 4px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .flap-slot {
+        width: 18px;
+        height: 28px;
+        font-size: 15px;
+        border-radius: 3px;
+      }
+      .flap-slot::before,
+      .flap-slot::after {
+        width: 1.5px;
+        height: 3px;
+      }
+      .split-flap-board {
+        gap: 1.5px;
+      }
     }
 
     .corner-bracket {
@@ -2246,13 +2355,15 @@
 
         <h1 class="hero-banner-title">
           Creamos viajes
-          <span class="changing-word-wrap">
-            <span class="corner-bracket top-left"></span>
-            <span class="corner-bracket top-right"></span>
-            <span class="corner-bracket bottom-left"></span>
-            <span class="corner-bracket bottom-right"></span>
-            <span id="dynamic-word">de experiencias únicas.</span>
-          </span>
+          <div class="split-flap-container">
+            <span class="changing-word-wrap">
+              <span class="corner-bracket top-left"></span>
+              <span class="corner-bracket top-right"></span>
+              <span class="corner-bracket bottom-left"></span>
+              <span class="corner-bracket bottom-right"></span>
+              <div id="split-flap-board" class="split-flap-board"></div>
+            </span>
+          </div>
         </h1>
         <div class="slide-ctas">
           <a href="#contacto" class="btn btn-white-solid">Planear Viaje</a>
@@ -3539,27 +3650,101 @@
       }, 3400);
       ticker.style.transition = 'opacity .3s ease';
     }
-    // Dynamic changing words for Hero
+    // Solari / Split-Flap Board for Hero Title
     const dynamicWords = [
-      "de experiencias únicas.",
-      "diseñados para ti.",
-      "irrepetibles.",
-      "inolvidables."
+      "INOLVIDABLES",
+      "IRREPETIBLES",
+      "ÚNICOS",
+      "MEMORABLES",
+      "EXTRAORDINARIOS"
     ];
+    
     let currentWordIndex = 0;
-    const dynamicWordEl = document.getElementById('dynamic-word');
-
-    if (dynamicWordEl) {
+    const maxFlaps = 15;
+    const boardEl = document.getElementById('split-flap-board');
+    
+    if (boardEl) {
+      // 1. Inicializar las 15 solapas vacías
+      const flapSlots = [];
+      const flapChars = [];
+      
+      for (let i = 0; i < maxFlaps; i++) {
+        const slot = document.createElement('div');
+        slot.className = 'flap-slot';
+        
+        const charSpan = document.createElement('span');
+        charSpan.className = 'flap-char';
+        charSpan.textContent = ' ';
+        
+        slot.appendChild(charSpan);
+        boardEl.appendChild(slot);
+        
+        flapSlots.push(slot);
+        flapChars.push(charSpan);
+      }
+      
+      // 2. Función de animación para un solo flap
+      function spinFlap(charSpan, targetChar) {
+        const currentChar = charSpan.textContent || ' ';
+        if (currentChar === targetChar) return;
+        
+        const alphabet = " ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÑ";
+        const steps = [];
+        const totalSteps = 5; // Cantidad de "flips" rápidos
+        
+        for (let s = 0; s < totalSteps; s++) {
+          if (s === totalSteps - 1) {
+            steps.push(targetChar);
+          } else {
+            // Letras aleatorias intermedias para simular giro
+            steps.push(alphabet[Math.floor(Math.random() * alphabet.length)]);
+          }
+        }
+        
+        let stepIdx = 0;
+        function nextStep() {
+          if (stepIdx < steps.length) {
+            const nextChar = steps[stepIdx];
+            
+            // Reiniciar animación CSS de flip
+            charSpan.classList.remove('flipping');
+            void charSpan.offsetWidth; // Forzar reflow
+            charSpan.classList.add('flipping');
+            
+            // Cambiar el carácter en el punto de colapso de la solapa (mitad de la animación, 40ms)
+            setTimeout(() => {
+              charSpan.textContent = nextChar;
+            }, 40);
+            
+            stepIdx++;
+            setTimeout(nextStep, 80); // Velocidad del giro
+          }
+        }
+        nextStep();
+      }
+      
+      // 3. Función para actualizar la palabra completa en la pizarra
+      function updateBoard(word) {
+        // Rellenar con espacios hasta completar 15
+        const paddedWord = word.padEnd(maxFlaps, ' ');
+        
+        for (let i = 0; i < maxFlaps; i++) {
+          setTimeout(() => {
+            spinFlap(flapChars[i], paddedWord[i]);
+          }, i * 35); // Efecto cascada de izquierda a derecha (35ms por letra)
+        }
+      }
+      
+      // Mostrar la primera palabra al inicio
+      setTimeout(() => {
+        updateBoard(dynamicWords[currentWordIndex]);
+      }, 500);
+      
+      // Ciclo repetitivo cada 4.5 segundos
       setInterval(() => {
-        dynamicWordEl.style.opacity = 0;
-        dynamicWordEl.style.transform = 'translateY(8px)';
-        setTimeout(() => {
-          currentWordIndex = (currentWordIndex + 1) % dynamicWords.length;
-          dynamicWordEl.textContent = dynamicWords[currentWordIndex];
-          dynamicWordEl.style.opacity = 1;
-          dynamicWordEl.style.transform = 'translateY(0)';
-        }, 350);
-      }, 3000);
+        currentWordIndex = (currentWordIndex + 1) % dynamicWords.length;
+        updateBoard(dynamicWords[currentWordIndex]);
+      }, 4500);
     }
   </script>
 </body>
