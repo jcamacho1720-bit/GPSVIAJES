@@ -124,6 +124,15 @@ p{margin:0;}
 }
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;}
 .brand{display:flex;align-items:center;gap:11px;}
+.brand-logo-img {
+  width: 183px; /* Default white logo size */
+  height: auto;
+  display: block;
+  transition: width 0.35s ease;
+}
+.site-header.is-scrolled .brand-logo-img {
+  width: 75px; /* Scrolled blue logo size */
+}
 .brand-mark{
   width:38px;height:38px;border-radius:50%;
   background:radial-gradient(circle at 32% 28%, var(--sky-400), var(--navy-800) 70%);
@@ -1435,7 +1444,7 @@ p{margin:0;}
 <header class="site-header" id="siteHeader">
   <div class="wrap">
     <a href="#top" class="brand">
-      <img src="images/logo-horizontal-white.png" alt="GPS Planeación de Viajes" style="height: 48px; width: auto; display: block;">
+      <img src="images/logo-horizontal-white.png" alt="GPS Planeación de Viajes" class="brand-logo-img">
     </a>
     <nav class="main-nav" id="mainNav">
       <a href="#beneficios">Beneficios</a>
