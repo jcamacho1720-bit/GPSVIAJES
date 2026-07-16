@@ -160,7 +160,6 @@ p{margin:0;}
   max-height: 840px;
   overflow: hidden;
   color: var(--white);
-  background: linear-gradient(180deg, rgba(36,48,77,0.3) 0%, rgba(36,48,77,0.75) 100%), url('images/traveler-airport-window.png') center/cover no-repeat;
   display: flex;
   align-items: center;
   z-index: 10;
@@ -172,10 +171,20 @@ p{margin:0;}
   content: "";
   position: absolute;
   inset: 0;
+  background: linear-gradient(180deg, rgba(36,48,77,0.2) 0%, rgba(36,48,77,0.75) 100%), url('images/traveler-airport-window.png') center/cover no-repeat;
+  transform: scaleX(-1); /* Flips background image horizontally */
+  z-index: 1;
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1.4px);
   background-size: 26px 26px;
   opacity: 0.3;
   pointer-events: none;
+  z-index: 2;
 }
 .hero-content-left {
   max-width: 680px;
@@ -191,6 +200,7 @@ p{margin:0;}
   color: var(--white);
   margin-bottom: 12px;
   letter-spacing: -0.01em;
+  padding-top: 15px; /* Added 15px top padding */
 }
 .hero-banner-subtitle {
   font-family: var(--font-title);
@@ -699,30 +709,81 @@ p{margin:0;}
 }
 
 /* ============================================
-   HOW IT WORKS
+   HOW IT WORKS (animated & dynamic)
    ============================================ */
-.steps{position:relative;}
-.steps-track{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
-  position:relative;
+.steps { position: relative; }
+.steps-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  position: relative;
+  padding-top: 10px;
 }
-.steps-track::before{
-  content:"";position:absolute;top:27px;left:6%;right:6%;height:0;
-  border-top:2px dashed var(--mist-200);
-  z-index:0;
+.steps-track::before {
+  content: "";
+  position: absolute;
+  top: 51px; /* Aligned with the center of the step-num */
+  left: 8%;
+  right: 8%;
+  height: 0;
+  border-top: 2px dashed var(--brand-ice-blue);
+  z-index: 0;
 }
-.step{position:relative;z-index:1;}
-.step-num{
-  width:54px;height:54px;border-radius:50%;
-  background:var(--white);border:2px solid var(--navy-900);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--navy-900);
-  margin-bottom:22px;
-  transition:background .3s ease, color .3s ease, border-color .3s ease;
+.step {
+  position: relative;
+  z-index: 1;
+  padding: 24px 20px;
+  border-radius: 20px;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
-.step:hover .step-num{background:var(--coral-500);border-color:var(--coral-500);color:var(--white);}
-.step h3{font-size:17px;margin-bottom:9px;}
-.step p{font-size:14px;line-height:1.6;color:var(--ink-600);}
+.step:hover {
+  transform: translateY(-8px);
+  background: var(--white);
+  border-color: rgba(186, 222, 247, 0.45);
+  box-shadow: 0 16px 36px rgba(0, 78, 115, 0.05);
+}
+.step-num {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--brand-navy-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--brand-navy-primary);
+  margin-bottom: 22px;
+  box-shadow: 0 4px 12px rgba(0, 78, 115, 0.06);
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+}
+.step:hover .step-num {
+  background: var(--brand-navy-primary);
+  border-color: var(--brand-navy-primary);
+  color: var(--white);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(0, 78, 115, 0.2);
+}
+.step h3 {
+  font-family: var(--font-title);
+  font-size: 17px;
+  margin-bottom: 10px;
+  color: var(--brand-navy-dark);
+  transition: color 0.3s ease;
+}
+.step:hover h3 {
+  color: var(--brand-navy-primary);
+}
+.step p {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(36, 48, 77, 0.8);
+}
 
 /* ============================================
    FINAL CTA
@@ -1125,10 +1186,6 @@ p{margin:0;}
           </div>
           <h3>Ahorra tiempo real</h3>
           <p>Olvídate de 40 pestañas comparando vuelos y hoteles. Nuestro equipo arma tu ruta completa mientras tú solo empacas la maleta.</p>
-          <div class="window-stat-badge">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round"/></svg>
-            &nbsp;-15h Investigación
-          </div>
         </div>
       </div>
 
@@ -1141,10 +1198,6 @@ p{margin:0;}
           </div>
           <h3>Un consultor experto</h3>
           <p>Te asignamos un asesor que conoce el destino, la temporada y los atajos que ningún blog cuenta. Cero adivinar, todo calculado.</p>
-          <div class="window-stat-badge">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round"/></svg>
-            &nbsp;+80 Países Cubiertos
-          </div>
         </div>
       </div>
 
@@ -1157,10 +1210,6 @@ p{margin:0;}
           </div>
           <h3>Tu viaje en un link</h3>
           <p>Itinerario, documentos, reservas y actividades en un solo lugar — disponible en tu teléfono o laptop, incluso sin señal.</p>
-          <div class="window-stat-badge">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round"/></svg>
-            &nbsp;1 Link, listo en 48h
-          </div>
         </div>
       </div>
     </div>
