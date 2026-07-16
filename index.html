@@ -1441,7 +1441,7 @@
     }
 
     .map-card .mc-photo {
-      height: 88px;
+      height: 121px; /* Hace que el contenedor de la foto sea un cuadrado perfecto */
       border-radius: 9px;
       margin-bottom: 9px;
       background-size: cover;
@@ -1470,10 +1470,12 @@
     }
 
     .map-card .mc-cap {
-      font-size: 12.5px;
+      font-family: var(--font-mono); /* Estilo de coordenadas de aeropuerto */
+      font-size: 10px;
       line-height: 1.4;
       color: var(--brand-navy-primary);
       font-weight: 600;
+      letter-spacing: 0.02em;
     }
 
     .map-card::after {
@@ -2653,7 +2655,7 @@
                 d="M241.717,649.833l-1.115,1.686l0.562,2.932l1.115,0.112l0.562-3.718L241.717,649.833L241.717,649.833z" />
               <path class="country" id="cm"
                 d="M428.031,519.428l2.783,2.561l-0.199,3.959l15.266-0.354l1.245-1.399l-4.375-4.711l-0.648-1.703l2.784-5.212l-1.893-3.458l-1.591-0.855v-1.755l1.841-1.202l0.104-5.463l-1.46-0.164l-0.024,2.87l-6.414,11.972l-3.925,0.199l-2.688,1.85L428.031,519.428L428.031,519.428z" />
-              <path class="country" class="mainland"
+              <path class="country mainland" id="cn"
                 d="M594.498,386.128l-2.99,7.521l-4.124-0.217l-4.349,9.518l3.691,4.701l-7.606,10.504l-3.907-0.658l-2.611,3.285l0.648,1.971l3.043,0.217l1.521,3.5l3.044,0.658l9.344,12.04v6.129l4.563,2.844l4.996-0.873l6.303,3.719l7.605,2.187l3.691-0.439l4.132-0.441l8.687-5.688l2.828,0.44l1.08,2.567l2.396,0.718l3.26,4.813l-2.17,4.814l1.306,3.285l3.69,1.312l0.647,3.942l4.35,0.439l0.647-1.971l6.302-3.285l3.907,0.217l4.563,5.03l3.043-1.312l1.954,0.216l0.873,2.412l1.521,0.216l2.169-3.06l8.688-3.285l7.823-9.413l2.61-8.974l-0.217-5.912l-3.259-0.656l1.953-2.188l-0.434-3.501l-8.255-8.314v-4.157l2.386-3.062l2.388-1.098l0.216-2.412h-6.085l-1.089,3.285l-2.828-0.656l-3.475-3.718l2.17-5.688l3.043-3.285l2.827,0.217l-0.434,5.031l1.521,1.313l3.691-3.717l1.306-0.216l-0.433-2.844l3.476-4.158l2.61,0.216l1.521-4.813l1.781-0.942l0.182-3l-1.729-1.815l-0.147-4.736l3.329-0.217l-0.216-12.214l-2.334,1.4L694.267,377l-3.897-0.009l-11.298-6.354l-8.16-9.837l-8.281-0.086l-2.107,1.833l2.68,6.137l-0.935,5.758l-3.335,1.383l-1.876-0.147l-0.139,5.696l1.954,0.441l3.476-1.53l4.563,2.187v2.188l-3.26,0.216l-2.611,5.688l-2.386,0.215l-8.472,11.16l-8.902,3.941l-6.086,0.441l-4.124-2.844l-5.869,3.068l-6.302-1.971l-1.521-4.158l-10.642-0.657l-5.646-9.188h-2.386l-1.92-4.262L594.498,386.128z" />
               <path class="country"
                 d="M671.802,472.655l-2.064,0.579l-1.487,1.833l1.236,2.411l1.814,0.163l2.066-1.832l0.492-2.411L671.802,472.655L671.802,472.655z" />
@@ -2920,7 +2922,7 @@
                 d="M203.216,491.62l1.893,0.381l0.061,3.881l-2.204,6.293l-5.938-0.588l-1.323-3.034l1.764-3.682l3.345-3.112L203.216,491.62L203.216,491.62z" />
               <path class="country" id="nl"
                 d="M421.349,384.572l-3.915,1.928l0.829,0.752l0.088,1.928l-0.829-0.164l-0.917-1.426l-2.188,3.467l3.363,0.699l1.253,1.323l0.666,0.017l0.44-2.99l2.117-0.891L421.349,384.572L421.349,384.572z" />
-              <path class="country" class="mainland"
+              <path class="country mainland" id="no"
                 d="M460.567,327.409l1.747-1.279l-0.157-1.435l-1.106-0.641l0.157-1.754h0.95v-0.96l-4.123-1.114l-6.181,0.64l-0.631,2.714l-1.428-0.477l-0.951-1.599l-3.017,0.155l-0.32,3.033l-1.426,0.641l-0.795-1.6l-6.345,5.109l1.271,1.436l-2.378,1.115l-5.393,10.701l-1.901,1.279l0.155,0.959l1.9,0.959l-0.475,2.074l-3.173-0.164l-0.952-1.115l-2.057,2.395l-1.271,0.959l-0.32,2.24l-1.105,0.64l-2.854,0.64l-1.426,4.479l0.951,7.348l1.106,3.354l1.271,1.279l2.853-0.156l4.124-3.994l1.581-2.713l0.478,3.992l2.697-4.789l0.154-13.424l2.195-1.383l0.657-7.408l6.655-9.586l3.173-1.115l1.427-1.755l4.754,1.115l2.377,1.435l0.796-3.992l3.968-2.396L460.567,327.409L460.567,327.409z" />
               <path class="country"
                 d="M437.056,285.762l-1.426-1.435l-3.164,1.539h-5.809l-0.917,3.389l3.26,2.878l1.425-0.208l2.04-3.491l1.729,1.235l-1.229,2.464l-0.614,3.596l1.427,2.256l3.06-5.135l3.979-4.832l-1.531-1.33L437.056,285.762L437.056,285.762z" />
@@ -3154,238 +3156,550 @@
                 d="M468.52,578.226l7.755,8.757l5.946,1.513l3.984-6.248l-0.312-8.281l-6.465-3.337l-2.431,1.098l-3.62,5.524l-5.014-0.053L468.52,578.226L468.52,578.226z" />
             </g>
             <g id="routes">
-              <!-- Colombia connections -->
-              <path class="route-line" d="M226.0,520.0 Q229.15,543.5 232.3,567.0"></path>
-              <path class="route-line" d="M226.0,520.0 Q197.05,499.55 168.1,479.1"></path>
-              <!-- Mexico connections -->
-              <path class="route-line" d="M168.1,479.1 Q184.05,475.55 200.0,472.0"></path>
-              <!-- Cuba connections -->
-              <path class="route-line" d="M200.0,472.0 Q211.0,473.5 222.0,475.0"></path>
-              <!-- Dominican Republic connections -->
-              <path class="route-line" d="M222.0,475.0 Q225.4,448.4 228.8,421.8"></path>
-              <!-- USA connections -->
-              <path class="route-line" d="M228.8,421.8 Q311.9,418.4 395.0,415.0"></path>
-              <!-- Spain connections -->
-              <path class="route-line" d="M395.0,415.0 Q404.15,407.4 413.3,399.8"></path>
-              <path class="route-line" d="M395.0,415.0 Q391.65,430.65 388.3,446.3"></path>
-              <!-- France connections -->
-              <path class="route-line" d="M413.3,399.8 Q415.15,391.4 417.0,383.0"></path>
-              <path class="route-line" d="M413.3,399.8 Q425.55,404.59 437.8,418.6"></path>
-              <!-- Italy connections -->
-              <path class="route-line" d="M437.8,418.6 Q453.45,426.0 469.1,433.4"></path>
-              <!-- Greece connections -->
-              <path class="route-line" d="M469.1,433.4 Q480.4,430.4 491.7,427.4"></path>
-              <!-- Turkey connections -->
-              <path class="route-line" d="M491.7,427.4 Q568.5,468.85 645.3,510.3"></path>
-              <!-- Thailand connections -->
-              <path class="route-line" d="M645.3,510.3 Q690.45,473.75 735.6,437.2"></path>
-              <!-- South America connections -->
-              <path class="route-line" d="M232.3,567.0 Q251.15,593.5 270.0,620.0"></path>
-              <path class="route-line" d="M232.3,567.0 Q235.15,591.0 238.0,615.0"></path>
-              <!-- Japan to Australia connections -->
-              <path class="route-line" d="M735.6,437.2 Q717.8,526.1 700.0,615.0"></path>
+              <!-- Connecting routes between major flight hubs -->
+              <path class="route-line" d="M226.0,515.0 Q224.0,536.5 222.0,558.0"></path> <!-- Colombia to Peru -->
+              <path class="route-line" d="M222.0,558.0 Q230.0,586.5 238.0,615.0"></path> <!-- Peru to Chile -->
+              <path class="route-line" d="M264.0,630.0 Q279.5,605.0 295.0,580.0"></path> <!-- Argentina to Brazil -->
+              <path class="route-line" d="M226.0,515.0 Q218.0,510.0 210.0,505.0"></path> <!-- Colombia to Panama -->
+              <path class="route-line" d="M210.0,505.0 Q189.05,492.05 168.1,479.1"></path> <!-- Panama to Mexico -->
+              <path class="route-line" d="M185.0,485.0 Q192.5,478.5 200.0,472.0"></path> <!-- Mexico to Cuba -->
+              <path class="route-line" d="M200.0,472.0 Q211.0,473.5 222.0,475.0"></path> <!-- Cuba to Dom. Rep -->
+              <path class="route-line" d="M222.0,475.0 Q225.4,448.4 228.8,421.8"></path> <!-- Dom. Rep to US -->
+              <path class="route-line" d="M228.8,421.8 Q311.9,418.4 395.0,415.0"></path> <!-- US to Spain -->
+              <path class="route-line" d="M395.0,415.0 Q391.65,430.65 388.3,446.3"></path> <!-- Spain to Morocco -->
+              <path class="route-line" d="M388.3,446.3 Q435.55,448.5 482.8,450.7"></path> <!-- Morocco to Egypt -->
+              <path class="route-line" d="M395.0,415.0 Q404.15,407.4 413.3,399.8"></path> <!-- Spain to France -->
+              <path class="route-line" d="M413.3,399.8 Q414.15,395.4 415.0,391.0"></path> <!-- France to Belgium -->
+              <path class="route-line" d="M415.0,391.0 Q416.0,387.0 417.0,383.0"></path> <!-- Belgium to Netherlands -->
+              <path class="route-line" d="M417.0,383.0 Q422.5,356.5 428.0,330.0"></path> <!-- Netherlands to Norway -->
+              <path class="route-line" d="M413.3,399.8 Q425.55,409.2 437.8,418.6"></path> <!-- France to Italy -->
+              <path class="route-line" d="M437.8,418.6 Q451.4,423.8 465.0,429.0"></path> <!-- Italy to Greece -->
+              <path class="route-line" d="M465.0,429.0 Q475.0,424.5 485.0,420.0"></path> <!-- Greece to Turkey -->
+              <path class="route-line" d="M485.0,420.0 Q565.15,465.15 645.3,510.3"></path> <!-- Turkey to Thailand -->
+              <path class="route-line" d="M645.3,510.3 Q662.65,487.65 680.0,465.0"></path> <!-- Thailand to Hong Kong -->
+              <path class="route-line" d="M680.0,465.0 Q711.0,448.5 742.0,432.0"></path> <!-- Hong Kong to Japan -->
+              <path class="route-line" d="M742.0,432.0 Q721.0,523.5 700.0,615.0"></path> <!-- Japan to Australia -->
             </g>
             <g id="pins">
-              <!-- Perú: Machu Picchu -->
+              <!-- 49 Pins mapped geographically -->
+              <!-- Perú -->
               <g class="pin" data-id="p0" data-x="232.3" data-y="567.0" tabindex="0" role="button" aria-label="Perú: Machu Picchu">
                 <circle class="pin-pulse" cx="232.3" cy="567.0" r="3.5"></circle>
                 <circle class="pin-dot" cx="232.3" cy="567.0" r="3.6"></circle>
               </g>
-              <!-- México: Cancún -->
-              <g class="pin" data-id="p1" data-x="168.1" data-y="479.1" tabindex="0" role="button" aria-label="México: Cancún">
-                <circle class="pin-pulse" cx="168.1" cy="479.1" r="3.5"></circle>
-                <circle class="pin-dot" cx="168.1" cy="479.1" r="3.6"></circle>
+              <g class="pin" data-id="p_pe_humantay" data-x="234.3" data-y="569.0" tabindex="0" role="button" aria-label="Perú: Humantay">
+                <circle class="pin-pulse" cx="234.3" cy="569.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="234.3" cy="569.0" r="3.6"></circle>
               </g>
-              <!-- Estados Unidos: Nueva York -->
-              <g class="pin" data-id="p2" data-x="228.8" data-y="421.8" tabindex="0" role="button" aria-label="Estados Unidos: Nueva York">
-                <circle class="pin-pulse" cx="228.8" cy="421.8" r="3.5"></circle>
-                <circle class="pin-dot" cx="228.8" cy="421.8" r="3.6"></circle>
+              <g class="pin" data-id="p_pe_7colores" data-x="236.3" data-y="571.0" tabindex="0" role="button" aria-label="Perú: Montaña de 7 Colores">
+                <circle class="pin-pulse" cx="236.3" cy="571.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="236.3" cy="571.0" r="3.6"></circle>
               </g>
-              <!-- Colombia: Cartagena -->
-              <g class="pin" data-id="p_co" data-x="226.0" data-y="520.0" tabindex="0" role="button" aria-label="Colombia: Cartagena">
-                <circle class="pin-pulse" cx="226.0" cy="520.0" r="3.5"></circle>
-                <circle class="pin-dot" cx="226.0" cy="520.0" r="3.6"></circle>
+              <g class="pin" data-id="p_pe_lima" data-x="222.0" data-y="558.0" tabindex="0" role="button" aria-label="Perú: Lima">
+                <circle class="pin-pulse" cx="222.0" cy="558.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="222.0" cy="558.0" r="3.6"></circle>
               </g>
-              <!-- Cuba: La Habana -->
-              <g class="pin" data-id="p_cu" data-x="200.0" data-y="472.0" tabindex="0" role="button" aria-label="Cuba: La Habana">
-                <circle class="pin-pulse" cx="200.0" cy="472.0" r="3.5"></circle>
-                <circle class="pin-dot" cx="200.0" cy="472.0" r="3.6"></circle>
+              <!-- Colombia -->
+              <g class="pin" data-id="p_co_cartagena" data-x="226.0" data-y="515.0" tabindex="0" role="button" aria-label="Colombia: Cartagena">
+                <circle class="pin-pulse" cx="226.0" cy="515.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="226.0" cy="515.0" r="3.6"></circle>
               </g>
-              <!-- República Dominicana: Punta Cana -->
-              <g class="pin" data-id="p_do" data-x="222.0" data-y="475.0" tabindex="0" role="button" aria-label="República Dominicana: Punta Cana">
-                <circle class="pin-pulse" cx="222.0" cy="475.0" r="3.5"></circle>
-                <circle class="pin-dot" cx="222.0" cy="475.0" r="3.6"></circle>
+              <g class="pin" data-id="p_co_armenia" data-x="225.0" data-y="530.0" tabindex="0" role="button" aria-label="Colombia: Armenia">
+                <circle class="pin-pulse" cx="225.0" cy="530.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="225.0" cy="530.0" r="3.6"></circle>
               </g>
-              <!-- Argentina: Bariloche -->
-              <g class="pin" data-id="p_ar" data-x="270.0" data-y="620.0" tabindex="0" role="button" aria-label="Argentina: Bariloche">
-                <circle class="pin-pulse" cx="270.0" cy="620.0" r="3.5"></circle>
-                <circle class="pin-dot" cx="270.0" cy="620.0" r="3.6"></circle>
+              <g class="pin" data-id="p_co_ejecafetero" data-x="224.0" data-y="528.0" tabindex="0" role="button" aria-label="Colombia: Eje Cafetero">
+                <circle class="pin-pulse" cx="224.0" cy="528.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="224.0" cy="528.0" r="3.6"></circle>
               </g>
-              <!-- Chile: Santiago -->
-              <g class="pin" data-id="p_cl" data-x="238.0" data-y="615.0" tabindex="0" role="button" aria-label="Chile: Santiago">
-                <circle class="pin-pulse" cx="238.0" cy="615.0" r="3.5"></circle>
-                <circle class="pin-dot" cx="238.0" cy="615.0" r="3.6"></circle>
+              <g class="pin" data-id="p_co_sanandres" data-x="218.0" data-y="500.0" tabindex="0" role="button" aria-label="Colombia: San Andrés">
+                <circle class="pin-pulse" cx="218.0" cy="500.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="218.0" cy="500.0" r="3.6"></circle>
               </g>
-              <!-- Francia: París -->
-              <g class="pin" data-id="p4" data-x="413.3" data-y="399.8" tabindex="0" role="button" aria-label="Francia: París">
-                <circle class="pin-pulse" cx="413.3" cy="399.8" r="3.5"></circle>
-                <circle class="pin-dot" cx="413.3" cy="399.8" r="3.6"></circle>
+              <!-- Panamá -->
+              <g class="pin" data-id="p_pa" data-x="210.0" data-y="505.0" tabindex="0" role="button" aria-label="Panamá: Canal de Panamá">
+                <circle class="pin-pulse" cx="210.0" cy="505.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="210.0" cy="505.0" r="3.6"></circle>
               </g>
-              <!-- España: Barcelona -->
-              <g class="pin" data-id="p_es" data-x="395.0" data-y="415.0" tabindex="0" role="button" aria-label="España: Barcelona">
-                <circle class="pin-pulse" cx="395.0" cy="415.0" r="3.5"></circle>
-                <circle class="pin-dot" cx="395.0" cy="415.0" r="3.6"></circle>
-              </g>
-              <!-- Países Bajos: Ámsterdam -->
+              <!-- Países Bajos -->
               <g class="pin" data-id="p_nl" data-x="417.0" data-y="383.0" tabindex="0" role="button" aria-label="Países Bajos: Ámsterdam">
                 <circle class="pin-pulse" cx="417.0" cy="383.0" r="3.5"></circle>
                 <circle class="pin-dot" cx="417.0" cy="383.0" r="3.6"></circle>
               </g>
-              <!-- Italia: Venecia -->
-              <g class="pin" data-id="p6" data-x="437.8" data-y="418.6" tabindex="0" role="button" aria-label="Italia: Venecia">
-                <circle class="pin-pulse" cx="437.8" cy="418.6" r="3.5"></circle>
-                <circle class="pin-dot" cx="437.8" cy="418.6" r="3.6"></circle>
+              <!-- Andorra -->
+              <g class="pin" data-id="p_ad" data-x="404.0" data-y="407.0" tabindex="0" role="button" aria-label="Andorra">
+                <circle class="pin-pulse" cx="404.0" cy="407.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="404.0" cy="407.0" r="3.6"></circle>
               </g>
-              <!-- Marruecos: Marrakech -->
-              <g class="pin" data-id="p7" data-x="388.3" data-y="446.3" tabindex="0" role="button" aria-label="Marruecos: Marrakech">
-                <circle class="pin-pulse" cx="388.3" cy="446.3" r="3.5"></circle>
-                <circle class="pin-dot" cx="388.3" cy="446.3" r="3.6"></circle>
+              <!-- Grecia -->
+              <g class="pin" data-id="p_gr_atenas" data-x="465.0" data-y="429.0" tabindex="0" role="button" aria-label="Grecia: Atenas">
+                <circle class="pin-pulse" cx="465.0" cy="429.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="465.0" cy="429.0" r="3.6"></circle>
               </g>
-              <!-- Grecia: Santorini -->
               <g class="pin" data-id="p8" data-x="469.1" data-y="433.4" tabindex="0" role="button" aria-label="Grecia: Santorini">
                 <circle class="pin-pulse" cx="469.1" cy="433.4" r="3.5"></circle>
                 <circle class="pin-dot" cx="469.1" cy="433.4" r="3.6"></circle>
               </g>
-              <!-- Turquía: Estambul -->
-              <g class="pin" data-id="p10" data-x="491.7" data-y="427.4" tabindex="0" role="button" aria-label="Turquía: Estambul">
-                <circle class="pin-pulse" cx="491.7" cy="427.4" r="3.5"></circle>
-                <circle class="pin-dot" cx="491.7" cy="427.4" r="3.6"></circle>
+              <!-- España -->
+              <g class="pin" data-id="p_es_barcelona" data-x="403.0" data-y="412.0" tabindex="0" role="button" aria-label="España: Barcelona - Sagrada Familia">
+                <circle class="pin-pulse" cx="403.0" cy="412.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="403.0" cy="412.0" r="3.6"></circle>
               </g>
-              <!-- Tailandia: Phuket -->
-              <g class="pin" data-id="p15" data-x="645.3" data-y="510.3" tabindex="0" role="button" aria-label="Tailandia: Phuket">
-                <circle class="pin-pulse" cx="645.3" cy="510.3" r="3.5"></circle>
-                <circle class="pin-dot" cx="645.3" cy="510.3" r="3.6"></circle>
+              <g class="pin" data-id="p_es_barcelona_2" data-x="401.0" data-y="414.0" tabindex="0" role="button" aria-label="España: Barcelona - Park Güell">
+                <circle class="pin-pulse" cx="401.0" cy="414.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="401.0" cy="414.0" r="3.6"></circle>
               </g>
-              <!-- Japón: Kioto -->
+              <g class="pin" data-id="p_es_madrid" data-x="395.0" data-y="415.0" tabindex="0" role="button" aria-label="España: Madrid">
+                <circle class="pin-pulse" cx="395.0" cy="415.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="395.0" cy="415.0" r="3.6"></circle>
+              </g>
+              <!-- Argentina -->
+              <g class="pin" data-id="p_ar" data-x="264.0" data-y="630.0" tabindex="0" role="button" aria-label="Argentina: Bariloche">
+                <circle class="pin-pulse" cx="264.0" cy="630.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="264.0" cy="630.0" r="3.6"></circle>
+              </g>
+              <!-- Bélgica -->
+              <g class="pin" data-id="p_be" data-x="415.0" data-y="391.0" tabindex="0" role="button" aria-label="Bélgica: Bruselas">
+                <circle class="pin-pulse" cx="415.0" cy="391.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="415.0" cy="391.0" r="3.6"></circle>
+              </g>
+              <!-- Portugal -->
+              <g class="pin" data-id="p_pt" data-x="384.0" data-y="420.0" tabindex="0" role="button" aria-label="Portugal: Cascais">
+                <circle class="pin-pulse" cx="384.0" cy="420.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="384.0" cy="420.0" r="3.6"></circle>
+              </g>
+              <!-- Estados Unidos -->
+              <g class="pin" data-id="p_us_timessquare" data-x="230.8" data-y="423.8" tabindex="0" role="button" aria-label="Estados Unidos: Nueva York - Times Square">
+                <circle class="pin-pulse" cx="230.8" cy="423.8" r="3.5"></circle>
+                <circle class="pin-dot" cx="230.8" cy="423.8" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p2" data-x="228.8" data-y="421.8" tabindex="0" role="button" aria-label="Estados Unidos: Nueva York - Estatua de la Libertad">
+                <circle class="pin-pulse" cx="228.8" cy="421.8" r="3.5"></circle>
+                <circle class="pin-dot" cx="228.8" cy="421.8" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p_us_chicago" data-x="210.0" data-y="410.0" tabindex="0" role="button" aria-label="Estados Unidos: Chicago">
+                <circle class="pin-pulse" cx="210.0" cy="410.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="210.0" cy="410.0" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p_us_orlando" data-x="218.0" data-y="450.0" tabindex="0" role="button" aria-label="Estados Unidos: Orlando - Disney">
+                <circle class="pin-pulse" cx="218.0" cy="450.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="218.0" cy="450.0" r="3.6"></circle>
+              </g>
+              <!-- Francia -->
+              <g class="pin" data-id="p4" data-x="413.3" data-y="399.8" tabindex="0" role="button" aria-label="Francia: París">
+                <circle class="pin-pulse" cx="413.3" cy="399.8" r="3.5"></circle>
+                <circle class="pin-dot" cx="413.3" cy="399.8" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p_fr_arco" data-x="411.3" data-y="401.8" tabindex="0" role="button" aria-label="Francia: París - Arco de Triunfo">
+                <circle class="pin-pulse" cx="411.3" cy="401.8" r="3.5"></circle>
+                <circle class="pin-dot" cx="411.3" cy="401.8" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p_fr_disney" data-x="415.3" data-y="397.8" tabindex="0" role="button" aria-label="Francia: París - Disneyland">
+                <circle class="pin-pulse" cx="415.3" cy="397.8" r="3.5"></circle>
+                <circle class="pin-dot" cx="415.3" cy="397.8" r="3.6"></circle>
+              </g>
+              <!-- Turquía -->
+              <g class="pin" data-id="p10" data-x="485.0" data-y="420.0" tabindex="0" role="button" aria-label="Turquía: Estambul">
+                <circle class="pin-pulse" cx="485.0" cy="420.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="485.0" cy="420.0" r="3.6"></circle>
+              </g>
+              <!-- Chile -->
+              <g class="pin" data-id="p_cl" data-x="238.0" data-y="615.0" tabindex="0" role="button" aria-label="Chile: Farellones">
+                <circle class="pin-pulse" cx="238.0" cy="615.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="238.0" cy="615.0" r="3.6"></circle>
+              </g>
+              <!-- Italia -->
+              <g class="pin" data-id="p_it_florencia" data-x="434.0" data-y="416.0" tabindex="0" role="button" aria-label="Italia: Florencia">
+                <circle class="pin-pulse" cx="434.0" cy="416.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="434.0" cy="416.0" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p_it_pisa" data-x="432.0" data-y="414.0" tabindex="0" role="button" aria-label="Italia: Pisa">
+                <circle class="pin-pulse" cx="432.0" cy="414.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="432.0" cy="414.0" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p_it_coliseo" data-x="439.8" data-y="420.6" tabindex="0" role="button" aria-label="Italia: Roma - Coliseo">
+                <circle class="pin-pulse" cx="439.8" cy="420.6" r="3.5"></circle>
+                <circle class="pin-dot" cx="439.8" cy="420.6" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p6" data-x="437.8" data-y="418.6" tabindex="0" role="button" aria-label="Italia: Roma - Fontana di Trevi">
+                <circle class="pin-pulse" cx="437.8" cy="418.6" r="3.5"></circle>
+                <circle class="pin-dot" cx="437.8" cy="418.6" r="3.6"></circle>
+              </g>
+              <!-- Hong Kong -->
+              <g class="pin" data-id="p_cn" data-x="680.0" data-y="465.0" tabindex="0" role="button" aria-label="Hong Kong: Victoria Peak">
+                <circle class="pin-pulse" cx="680.0" cy="465.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="680.0" cy="465.0" r="3.6"></circle>
+              </g>
+              <!-- Japón -->
               <g class="pin" data-id="p18" data-x="735.6" data-y="437.2" tabindex="0" role="button" aria-label="Japón: Kioto">
                 <circle class="pin-pulse" cx="735.6" cy="437.2" r="3.5"></circle>
                 <circle class="pin-dot" cx="735.6" cy="437.2" r="3.6"></circle>
               </g>
-              <!-- Australia: Sídney -->
-              <g class="pin" data-id="p_au" data-x="700.0" data-y="615.0" tabindex="0" role="button" aria-label="Australia: Sídney">
+              <g class="pin" data-id="p_jp_tokio" data-x="742.0" data-y="432.0" tabindex="0" role="button" aria-label="Japón: Tokio">
+                <circle class="pin-pulse" cx="742.0" cy="432.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="742.0" cy="432.0" r="3.6"></circle>
+              </g>
+              <!-- Cuba -->
+              <g class="pin" data-id="p_cu_havana" data-x="200.0" data-y="472.0" tabindex="0" role="button" aria-label="Cuba: La Habana">
+                <circle class="pin-pulse" cx="200.0" cy="472.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="200.0" cy="472.0" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p_cu_varadero" data-x="205.0" data-y="470.0" tabindex="0" role="button" aria-label="Cuba: Varadero">
+                <circle class="pin-pulse" cx="205.0" cy="470.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="205.0" cy="470.0" r="3.6"></circle>
+              </g>
+              <!-- Marruecos -->
+              <g class="pin" data-id="p7" data-x="388.3" data-y="446.3" tabindex="0" role="button" aria-label="Marruecos: Marrakech">
+                <circle class="pin-pulse" cx="388.3" cy="446.3" r="3.5"></circle>
+                <circle class="pin-dot" cx="388.3" cy="446.3" r="3.6"></circle>
+              </g>
+              <!-- Australia -->
+              <g class="pin" data-id="p_au_melbourne" data-x="705.0" data-y="635.0" tabindex="0" role="button" aria-label="Australia: Melbourne">
+                <circle class="pin-pulse" cx="705.0" cy="635.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="705.0" cy="635.0" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p_au_sidney_opera" data-x="700.0" data-y="615.0" tabindex="0" role="button" aria-label="Australia: Sídney - Ópera">
                 <circle class="pin-pulse" cx="700.0" cy="615.0" r="3.5"></circle>
                 <circle class="pin-dot" cx="700.0" cy="615.0" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p_au_sidney_bridge" data-x="698.0" data-y="617.0" tabindex="0" role="button" aria-label="Australia: Sídney - Puente">
+                <circle class="pin-pulse" cx="698.0" cy="617.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="698.0" cy="617.0" r="3.6"></circle>
+              </g>
+              <!-- Noruega -->
+              <g class="pin" data-id="p_no" data-x="428.0" data-y="330.0" tabindex="0" role="button" aria-label="Noruega: Oslo">
+                <circle class="pin-pulse" cx="428.0" cy="330.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="428.0" cy="330.0" r="3.6"></circle>
+              </g>
+              <!-- República Dominicana -->
+              <g class="pin" data-id="p_do" data-x="222.0" data-y="475.0" tabindex="0" role="button" aria-label="República Dominicana: Punta Cana">
+                <circle class="pin-pulse" cx="222.0" cy="475.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="222.0" cy="475.0" r="3.6"></circle>
+              </g>
+              <!-- Brasil -->
+              <g class="pin" data-id="p_br" data-x="295.0" data-y="580.0" tabindex="0" role="button" aria-label="Brasil: Río de Janeiro">
+                <circle class="pin-pulse" cx="295.0" cy="580.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="295.0" cy="580.0" r="3.6"></circle>
+              </g>
+              <!-- Egipto -->
+              <g class="pin" data-id="p_eg" data-x="482.8" data-y="450.7" tabindex="0" role="button" aria-label="Egipto: Sáhara">
+                <circle class="pin-pulse" cx="482.8" cy="450.7" r="3.5"></circle>
+                <circle class="pin-dot" cx="482.8" cy="450.7" r="3.6"></circle>
+              </g>
+              <!-- Tailandia -->
+              <g class="pin" data-id="p15" data-x="645.3" data-y="510.3" tabindex="0" role="button" aria-label="Tailandia: Phi Phi Islands">
+                <circle class="pin-pulse" cx="645.3" cy="510.3" r="3.5"></circle>
+                <circle class="pin-dot" cx="645.3" cy="510.3" r="3.6"></circle>
+              </g>
+              <!-- México adicionales -->
+              <g class="pin" data-id="p1" data-x="168.1" data-y="479.1" tabindex="0" role="button" aria-label="México: Ciudad de México">
+                <circle class="pin-pulse" cx="168.1" cy="479.1" r="3.5"></circle>
+                <circle class="pin-dot" cx="168.1" cy="479.1" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p_mx_cancun" data-x="185.0" data-y="485.0" tabindex="0" role="button" aria-label="México: Cancún">
+                <circle class="pin-pulse" cx="185.0" cy="485.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="185.0" cy="485.0" r="3.6"></circle>
+              </g>
+              <g class="pin" data-id="p_mx_playadelcarmen" data-x="188.0" data-y="487.0" tabindex="0" role="button" aria-label="México: Playa del Carmen">
+                <circle class="pin-pulse" cx="188.0" cy="487.0" r="3.5"></circle>
+                <circle class="pin-dot" cx="188.0" cy="487.0" r="3.6"></circle>
               </g>
             </g>
           </svg>
         </div>
         <div class="map-card" id="card-p0">
-          <div class="mc-photo" style="background: url('Viajeros/machupicchu.jpeg') center/cover no-repeat;"><span
+          <div class="mc-photo" style="background: url('Viajeros/machu pichu peru.png') center/cover no-repeat;"><span
               class="mc-country">Perú</span></div>
           <div class="mc-place">Machu Picchu</div>
-          <div class="mc-cap">"Caminando el Camino Inca"</div>
+          <div class="mc-cap">13.1631° S, 72.5450° O</div>
         </div>
-        <div class="map-card" id="card-p1">
-          <div class="mc-photo" style="background: url('Viajeros/cancun.jpg') center/cover no-repeat;"><span
-              class="mc-country">México</span></div>
-          <div class="mc-place">Cancún</div>
-          <div class="mc-cap">"Playas turquesas del Caribe"</div>
+        <div class="map-card" id="card-p_pe_humantay">
+          <div class="mc-photo" style="background: url('Viajeros/humantay peru.png') center/cover no-repeat;"><span
+              class="mc-country">Perú</span></div>
+          <div class="mc-place">Laguna Humantay</div>
+          <div class="mc-cap">13.4140° S, 72.5701° O</div>
         </div>
-        <div class="map-card" id="card-p2">
-          <div class="mc-photo" style="background: url('Viajeros/new york.jpg') center/cover no-repeat;"><span
-              class="mc-country">Estados Unidos</span></div>
-          <div class="mc-place">Nueva York</div>
-          <div class="mc-cap">"Luces en la Gran Manzana"</div>
+        <div class="map-card" id="card-p_pe_7colores">
+          <div class="mc-photo" style="background: url('Viajeros/7 colores peru.png') center/cover no-repeat;"><span
+              class="mc-country">Perú</span></div>
+          <div class="mc-place">Montaña 7 Colores</div>
+          <div class="mc-cap">13.8689° S, 71.3031° O</div>
         </div>
-        <div class="map-card" id="card-p_co">
-          <div class="mc-photo" style="background: url('Viajeros/colombia.jpg') center/cover no-repeat;"><span
+        <div class="map-card" id="card-p_pe_lima">
+          <div class="mc-photo" style="background: url('Viajeros/lima peru.png') center/cover no-repeat;"><span
+              class="mc-country">Perú</span></div>
+          <div class="mc-place">Miraflores Lima</div>
+          <div class="mc-cap">12.0464° S, 77.0428° O</div>
+        </div>
+        <div class="map-card" id="card-p_co_cartagena">
+          <div class="mc-photo" style="background: url('Viajeros/Cartagena.png') center/cover no-repeat;"><span
               class="mc-country">Colombia</span></div>
           <div class="mc-place">Cartagena</div>
-          <div class="mc-cap">"Murallas y sabor caribeño"</div>
+          <div class="mc-cap">10.3910° N, 75.4794° O</div>
         </div>
-        <div class="map-card" id="card-p_cu">
-          <div class="mc-photo" style="background: url('Viajeros/la ahabana.jpeg') center/cover no-repeat;"><span
-              class="mc-country">Cuba</span></div>
-          <div class="mc-place">La Habana</div>
-          <div class="mc-cap">"Historia y autos clásicos"</div>
+        <div class="map-card" id="card-p_co_armenia">
+          <div class="mc-photo" style="background: url('Viajeros/colombia armenia.png') center/cover no-repeat;"><span
+              class="mc-country">Colombia</span></div>
+          <div class="mc-place">Armenia</div>
+          <div class="mc-cap">4.5350° N, 75.6757° O</div>
         </div>
-        <div class="map-card" id="card-p_do">
-          <div class="mc-photo" style="background: url('Viajeros/punta cana.png') center/cover no-repeat;"><span
-              class="mc-country">República Dominicana</span></div>
-          <div class="mc-place">Punta Cana</div>
-          <div class="mc-cap">"Paraíso bajo las palmeras"</div>
+        <div class="map-card" id="card-p_co_ejecafetero">
+          <div class="mc-photo" style="background: url('Viajeros/eje cafetero colombia.png') center/cover no-repeat;"><span
+              class="mc-country">Colombia</span></div>
+          <div class="mc-place">Valle de Cocora</div>
+          <div class="mc-cap">4.6380° N, 75.4870° O</div>
         </div>
-        <div class="map-card" id="card-p_ar">
-          <div class="mc-photo" style="background: url('Viajeros/baroloche.png') center/cover no-repeat;"><span
-              class="mc-country">Argentina</span></div>
-          <div class="mc-place">Bariloche</div>
-          <div class="mc-cap">"Nieve y lagos de la Patagonia"</div>
+        <div class="map-card" id="card-p_co_sanandres">
+          <div class="mc-photo" style="background: url('Viajeros/san andres colomboa.png') center/cover no-repeat;"><span
+              class="mc-country">Colombia</span></div>
+          <div class="mc-place">San Andrés</div>
+          <div class="mc-cap">12.5769° N, 81.7006° O</div>
         </div>
-        <div class="map-card" id="card-p_cl">
-          <div class="mc-photo" style="background: url('Viajeros/chile.png') center/cover no-repeat;"><span
-              class="mc-country">Chile</span></div>
-          <div class="mc-place">Santiago</div>
-          <div class="mc-cap">"Entre la cordillera y el Pacífico"</div>
-        </div>
-        <div class="map-card" id="card-p4">
-          <div class="mc-photo" style="background: url('Viajeros/paris.jpg') center/cover no-repeat;"><span
-              class="mc-country">Francia</span></div>
-          <div class="mc-place">París</div>
-          <div class="mc-cap">"Café bajo la Torre Eiffel"</div>
-        </div>
-        <div class="map-card" id="card-p_es">
-          <div class="mc-photo" style="background: url('Viajeros/barcelona.jpg') center/cover no-repeat;"><span
-              class="mc-country">España</span></div>
-          <div class="mc-place">Barcelona</div>
-          <div class="mc-cap">"Arquitectura de Gaudí y tapas"</div>
+        <div class="map-card" id="card-p_pa">
+          <div class="mc-photo" style="background: url('Viajeros/Panama.png') center/cover no-repeat;"><span
+              class="mc-country">Panamá</span></div>
+          <div class="mc-place">Canal de Panamá</div>
+          <div class="mc-cap">8.9824° N, 79.5199° O</div>
         </div>
         <div class="map-card" id="card-p_nl">
           <div class="mc-photo" style="background: url('Viajeros/amsterdam.png') center/cover no-repeat;"><span
               class="mc-country">Países Bajos</span></div>
           <div class="mc-place">Ámsterdam</div>
-          <div class="mc-cap">"Canales, tulipanes y bicicletas"</div>
+          <div class="mc-cap">52.3676° N, 4.9041° E</div>
         </div>
-        <div class="map-card" id="card-p6">
-          <div class="mc-photo" style="background: url('Viajeros/italia.png') center/cover no-repeat;"><span
-              class="mc-country">Italia</span></div>
-          <div class="mc-place">Venecia</div>
-          <div class="mc-cap">"Paseando en góndola"</div>
+        <div class="map-card" id="card-p_ad">
+          <div class="mc-photo" style="background: url('Viajeros/andorra.png') center/cover no-repeat;"><span
+              class="mc-country">Andorra</span></div>
+          <div class="mc-place">Andorra la Vella</div>
+          <div class="mc-cap">42.5063° N, 1.5218° E</div>
         </div>
-        <div class="map-card" id="card-p7">
-          <div class="mc-photo" style="background: url('Viajeros/marruecos.jpg') center/cover no-repeat;"><span
-              class="mc-country">Marruecos</span></div>
-          <div class="mc-place">Marrakech</div>
-          <div class="mc-cap">"Perdidos en los zocos"</div>
+        <div class="map-card" id="card-p_gr_atenas">
+          <div class="mc-photo" style="background: url('Viajeros/atenas grecia.png') center/cover no-repeat;"><span
+              class="mc-country">Grecia</span></div>
+          <div class="mc-place">Atenas</div>
+          <div class="mc-cap">37.9838° N, 23.7275° E</div>
         </div>
         <div class="map-card" id="card-p8">
-          <div class="mc-photo" style="background: url('Viajeros/grecia.jpg') center/cover no-repeat;"><span
+          <div class="mc-photo" style="background: url('Viajeros/santorini grecia.png') center/cover no-repeat;"><span
               class="mc-country">Grecia</span></div>
-          <div class="mc-place">Santorini</div>
-          <div class="mc-cap">"Atardecer en las Cícladas"</div>
+          <div class="mc-place">Oia Santorini</div>
+          <div class="mc-cap">36.4618° N, 25.3753° E</div>
+        </div>
+        <div class="map-card" id="card-p_es_barcelona">
+          <div class="mc-photo" style="background: url('Viajeros/barcelona españa.png') center/cover no-repeat;"><span
+              class="mc-country">España</span></div>
+          <div class="mc-place">Sagrada Familia</div>
+          <div class="mc-cap">41.4036° N, 2.1744° E</div>
+        </div>
+        <div class="map-card" id="card-p_es_barcelona_2">
+          <div class="mc-photo" style="background: url('Viajeros/barcelona españa (2).png') center/cover no-repeat;"><span
+              class="mc-country">España</span></div>
+          <div class="mc-place">Park Güell</div>
+          <div class="mc-cap">41.4145° N, 2.1527° E</div>
+        </div>
+        <div class="map-card" id="card-p_es_madrid">
+          <div class="mc-photo" style="background: url('Viajeros/madrid españa.png') center/cover no-repeat;"><span
+              class="mc-country">España</span></div>
+          <div class="mc-place">Plaza Mayor Madrid</div>
+          <div class="mc-cap">40.4168° N, 3.7038° O</div>
+        </div>
+        <div class="map-card" id="card-p_ar">
+          <div class="mc-photo" style="background: url('Viajeros/bariloche argentina.png') center/cover no-repeat;"><span
+              class="mc-country">Argentina</span></div>
+          <div class="mc-place">Bariloche</div>
+          <div class="mc-cap">41.1343° S, 71.3085° O</div>
+        </div>
+        <div class="map-card" id="card-p_be">
+          <div class="mc-photo" style="background: url('Viajeros/bruselas belgica.png') center/cover no-repeat;"><span
+              class="mc-country">Bélgica</span></div>
+          <div class="mc-place">Grand Place</div>
+          <div class="mc-cap">50.8467° N, 4.3524° E</div>
+        </div>
+        <div class="map-card" id="card-p_pt">
+          <div class="mc-photo" style="background: url('Viajeros/cascais portugal.png') center/cover no-repeat;"><span
+              class="mc-country">Portugal</span></div>
+          <div class="mc-place">Cascais</div>
+          <div class="mc-cap">38.6979° N, 9.4219° O</div>
+        </div>
+        <div class="map-card" id="card-p_us_timessquare">
+          <div class="mc-photo" style="background: url('Viajeros/new york wwuu.png') center/cover no-repeat;"><span
+              class="mc-country">Estados Unidos</span></div>
+          <div class="mc-place">Times Square</div>
+          <div class="mc-cap">40.7580° N, 73.9855° O</div>
+        </div>
+        <div class="map-card" id="card-p2">
+          <div class="mc-photo" style="background: url('Viajeros/new york.png') center/cover no-repeat;"><span
+              class="mc-country">Estados Unidos</span></div>
+          <div class="mc-place">Nueva York</div>
+          <div class="mc-cap">40.6892° N, 74.0445° O</div>
+        </div>
+        <div class="map-card" id="card-p_us_chicago">
+          <div class="mc-photo" style="background: url('Viajeros/chicago eeuu.png') center/cover no-repeat;"><span
+              class="mc-country">Estados Unidos</span></div>
+          <div class="mc-place">Chicago</div>
+          <div class="mc-cap">41.8781° N, 87.6298° O</div>
+        </div>
+        <div class="map-card" id="card-p_us_orlando">
+          <div class="mc-photo" style="background: url('Viajeros/diseny orlando eeuu.png') center/cover no-repeat;"><span
+              class="mc-country">Estados Unidos</span></div>
+          <div class="mc-place">Orlando - Disney</div>
+          <div class="mc-cap">28.3852° N, 81.5639° O</div>
+        </div>
+        <div class="map-card" id="card-p4">
+          <div class="mc-photo" style="background: url('Viajeros/paris francia.png') center/cover no-repeat;"><span
+              class="mc-country">Francia</span></div>
+          <div class="mc-place">Torre Eiffel</div>
+          <div class="mc-cap">48.8584° N, 2.2945° E</div>
+        </div>
+        <div class="map-card" id="card-p_fr_arco">
+          <div class="mc-photo" style="background: url('Viajeros/paris grancia.png') center/cover no-repeat;"><span
+              class="mc-country">Francia</span></div>
+          <div class="mc-place">Arco de Triunfo</div>
+          <div class="mc-cap">48.8738° N, 2.2950° E</div>
+        </div>
+        <div class="map-card" id="card-p_fr_disney">
+          <div class="mc-photo" style="background: url('Viajeros/diseny paris.png') center/cover no-repeat;"><span
+              class="mc-country">Francia</span></div>
+          <div class="mc-place">Disneyland París</div>
+          <div class="mc-cap">48.8722° N, 2.7758° E</div>
         </div>
         <div class="map-card" id="card-p10">
           <div class="mc-photo" style="background: url('Viajeros/estambul.png') center/cover no-repeat;"><span
               class="mc-country">Turquía</span></div>
           <div class="mc-place">Estambul</div>
-          <div class="mc-cap">"Mezquitas sobre el Bósforo"</div>
+          <div class="mc-cap">41.0086° N, 28.9798° E</div>
+        </div>
+        <div class="map-card" id="card-p_cl">
+          <div class="mc-photo" style="background: url('Viajeros/farellones chile.png') center/cover no-repeat;"><span
+              class="mc-country">Chile</span></div>
+          <div class="mc-place">Farellones</div>
+          <div class="mc-cap">33.3486° S, 70.3117° O</div>
+        </div>
+        <div class="map-card" id="card-p_it_florencia">
+          <div class="mc-photo" style="background: url('Viajeros/florencia italia.png') center/cover no-repeat;"><span
+              class="mc-country">Italia</span></div>
+          <div class="mc-place">Florencia</div>
+          <div class="mc-cap">43.7696° N, 11.2558° E</div>
+        </div>
+        <div class="map-card" id="card-p_it_pisa">
+          <div class="mc-photo" style="background: url('Viajeros/pisa italia.png') center/cover no-repeat;"><span
+              class="mc-country">Italia</span></div>
+          <div class="mc-place">Pisa</div>
+          <div class="mc-cap">43.7228° N, 10.3966° E</div>
+        </div>
+        <div class="map-card" id="card-p_it_coliseo">
+          <div class="mc-photo" style="background: url('Viajeros/roma italia (2).png') center/cover no-repeat;"><span
+              class="mc-country">Italia</span></div>
+          <div class="mc-place">Roma - Coliseo</div>
+          <div class="mc-cap">41.8902° N, 12.4922° E</div>
+        </div>
+        <div class="map-card" id="card-p6">
+          <div class="mc-photo" style="background: url('Viajeros/roma italia.png') center/cover no-repeat;"><span
+              class="mc-country">Italia</span></div>
+          <div class="mc-place">Roma - Trevi</div>
+          <div class="mc-cap">41.9009° N, 12.4833° E</div>
+        </div>
+        <div class="map-card" id="card-p_cn">
+          <div class="mc-photo" style="background: url('Viajeros/hong kong.png') center/cover no-repeat;"><span
+              class="mc-country">Hong Kong</span></div>
+          <div class="mc-place">Victoria Peak</div>
+          <div class="mc-cap">22.3193° N, 114.1694° E</div>
+        </div>
+        <div class="map-card" id="card-p18">
+          <div class="mc-photo" style="background: url('Viajeros/kioto japon.png') center/cover no-repeat;"><span
+              class="mc-country">Japón</span></div>
+          <div class="mc-place">Kioto</div>
+          <div class="mc-cap">34.9671° N, 135.7727° E</div>
+        </div>
+        <div class="map-card" id="card-p_jp_tokio">
+          <div class="mc-photo" style="background: url('Viajeros/tokio japon.png') center/cover no-repeat;"><span
+              class="mc-country">Japón</span></div>
+          <div class="mc-place">Tokio</div>
+          <div class="mc-cap">35.6580° N, 139.7016° E</div>
+        </div>
+        <div class="map-card" id="card-p_cu_havana">
+          <div class="mc-photo" style="background: url('Viajeros/la habana.png') center/cover no-repeat;"><span
+              class="mc-country">Cuba</span></div>
+          <div class="mc-place">La Habana</div>
+          <div class="mc-cap">23.1356° N, 82.3589° O</div>
+        </div>
+        <div class="map-card" id="card-p_cu_varadero">
+          <div class="mc-photo" style="background: url('Viajeros/varadero cuba.png') center/cover no-repeat;"><span
+              class="mc-country">Cuba</span></div>
+          <div class="mc-place">Varadero</div>
+          <div class="mc-cap">23.1367° N, 81.2849° O</div>
+        </div>
+        <div class="map-card" id="card-p7">
+          <div class="mc-photo" style="background: url('Viajeros/marrakech.png') center/cover no-repeat;"><span
+              class="mc-country">Marruecos</span></div>
+          <div class="mc-place">Marrakech</div>
+          <div class="mc-cap">31.6295° N, 7.9811° O</div>
+        </div>
+        <div class="map-card" id="card-p_au_melbourne">
+          <div class="mc-photo" style="background: url('Viajeros/melbourne austraila.png') center/cover no-repeat;"><span
+              class="mc-country">Australia</span></div>
+          <div class="mc-place">Melbourne</div>
+          <div class="mc-cap">37.8136° S, 144.9631° E</div>
+        </div>
+        <div class="map-card" id="card-p_au_sidney_opera">
+          <div class="mc-photo" style="background: url('Viajeros/sidney australia.png') center/cover no-repeat;"><span
+              class="mc-country">Australia</span></div>
+          <div class="mc-place">Sídney - Ópera</div>
+          <div class="mc-cap">33.8568° S, 151.2153° E</div>
+        </div>
+        <div class="map-card" id="card-p_au_sidney_bridge">
+          <div class="mc-photo" style="background: url('Viajeros/sidney.png') center/cover no-repeat;"><span
+              class="mc-country">Australia</span></div>
+          <div class="mc-place">Sídney - Puente</div>
+          <div class="mc-cap">33.8523° S, 151.2108° E</div>
+        </div>
+        <div class="map-card" id="card-p_no">
+          <div class="mc-photo" style="background: url('Viajeros/oslo.png') center/cover no-repeat;"><span
+              class="mc-country">Noruega</span></div>
+          <div class="mc-place">Oslo</div>
+          <div class="mc-cap">59.9139° N, 10.7522° E</div>
+        </div>
+        <div class="map-card" id="card-p_do">
+          <div class="mc-photo" style="background: url('Viajeros/punta cana.png') center/cover no-repeat;"><span
+              class="mc-country">Rep. Dominicana</span></div>
+          <div class="mc-place">Punta Cana</div>
+          <div class="mc-cap">18.5601° N, 68.3725° O</div>
+        </div>
+        <div class="map-card" id="card-p_br">
+          <div class="mc-photo" style="background: url('Viajeros/rio de janeiro brasi.png') center/cover no-repeat;"><span
+              class="mc-country">Brasil</span></div>
+          <div class="mc-place">Río de Janeiro</div>
+          <div class="mc-cap">22.9519° S, 43.2105° O</div>
+        </div>
+        <div class="map-card" id="card-p_eg">
+          <div class="mc-photo" style="background: url('Viajeros/sahara egitpo.png') center/cover no-repeat;"><span
+              class="mc-country">Egipto</span></div>
+          <div class="mc-place">Sáhara</div>
+          <div class="mc-cap">26.8206° N, 30.8025° E</div>
         </div>
         <div class="map-card" id="card-p15">
           <div class="mc-photo" style="background: url('Viajeros/tailandia.png') center/cover no-repeat;"><span
               class="mc-country">Tailandia</span></div>
-          <div class="mc-place">Phuket</div>
-          <div class="mc-cap">"Templos y playas exóticas"</div>
+          <div class="mc-place">Phi Phi Islands</div>
+          <div class="mc-cap">7.7407° N, 98.7784° E</div>
         </div>
-        <div class="map-card" id="card-p18">
-          <div class="mc-photo" style="background: url('Viajeros/japon.png') center/cover no-repeat;"><span
-              class="mc-country">Japón</span></div>
-          <div class="mc-place">Kioto</div>
-          <div class="mc-cap">"Tradición entre cerezos"</div>
+        <div class="map-card" id="card-p_mx_cancun">
+          <div class="mc-photo" style="background: url('Viajeros/cancun mexico.png') center/cover no-repeat;"><span
+              class="mc-country">México</span></div>
+          <div class="mc-place">Cancún</div>
+          <div class="mc-cap">21.1619° N, 86.8515° O</div>
         </div>
-        <div class="map-card" id="card-p_au">
-          <div class="mc-photo" style="background: url('Viajeros/australia.png') center/cover no-repeat;"><span
-              class="mc-country">Australia</span></div>
-          <div class="mc-place">Sídney</div>
-          <div class="mc-cap">"Aventuras en el OutBack"</div>
+        <div class="map-card" id="card-p_mx_playadelcarmen">
+          <div class="mc-photo" style="background: url('Viajeros/playa del carmen mexico.png') center/cover no-repeat;"><span
+              class="mc-country">México</span></div>
+          <div class="mc-place">Playa del Carmen</div>
+          <div class="mc-cap">20.6296° N, 87.0739° O</div>
+        </div>
+        <div class="map-card" id="card-p1">
+          <div class="mc-photo" style="background: url('Viajeros/ciudad de mexico.png') center/cover no-repeat;"><span
+              class="mc-country">México</span></div>
+          <div class="mc-place">Zócalo CDMX</div>
+          <div class="mc-cap">19.4326° N, 99.1332° O</div>
         </div>
       </div>
       <div class="map-legend"><span class="dot"></span> Toca o pasa el cursor sobre un punto para ver la historia del
@@ -3657,24 +3971,29 @@
     }
 
     const countryToPinMap = {
-      "pe": "p0",   // Perú
-      "mx": "p1",   // México
-      "us": "p2",   // EEUU
-      "co": "p_co", // Colombia
-      "cu": "p_cu", // Cuba
-      "do": "p_do", // República Dominicana
-      "ar": "p_ar", // Argentina
-      "cl": "p_cl", // Chile
-      "fr": "p4",   // Francia
-      "es": "p_es", // España
-      "nl": "p_nl", // Países Bajos
-      "it": "p6",   // Italia
-      "ma": "p7",   // Marruecos
-      "gr": "p8",   // Grecia
-      "tr": "p10",  // Turquía
-      "th": "p15",  // Tailandia
-      "jp": "p18",  // Japón
-      "au": "p_au"  // Australia
+      "pe": "p0",                  // Perú (Machu Picchu)
+      "mx": "p1",                  // México (Ciudad de México)
+      "us": "p2",                  // EEUU (Estatua de la Libertad)
+      "co": "p_co_cartagena",      // Colombia (Cartagena)
+      "cu": "p_cu_havana",         // Cuba (La Habana)
+      "do": "p_do",                // República Dominicana
+      "ar": "p_ar",                // Argentina (Bariloche)
+      "cl": "p_cl",                // Chile (Farellones)
+      "fr": "p4",                  // Francia (Torre Eiffel)
+      "es": "p_es_barcelona",      // España (Barcelona)
+      "nl": "p_nl",                // Países Bajos (Ámsterdam)
+      "it": "p6",                  // Italia (Roma)
+      "ma": "p7",                  // Marruecos (Marrakech)
+      "gr": "p8",                  // Grecia (Santorini)
+      "tr": "p10",                 // Turquía (Estambul)
+      "th": "p15",                 // Tailandia
+      "jp": "p18",                 // Japón (Kioto)
+      "au": "p_au_sidney_opera",   // Australia (Sídney Ópera)
+      "pa": "p_pa",                // Panamá (Canal de Panamá)
+      "be": "p_be",                // Bélgica (Bruselas)
+      "no": "p_no",                // Noruega (Oslo)
+      "cn": "p_cn",                // China/Hong Kong (Victoria Peak)
+      "br": "p_br"                 // Brasil (Río de Janeiro)
     };
 
     document.querySelectorAll('.pin').forEach(pin => {
