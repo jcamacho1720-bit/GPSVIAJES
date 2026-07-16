@@ -160,7 +160,7 @@ p{margin:0;}
   max-height: 840px;
   overflow: hidden;
   color: var(--white);
-  background: linear-gradient(180deg, rgba(36,48,77,0.4) 0%, rgba(36,48,77,0.85) 100%), url('images/travel-twilight-hd.png') center/cover no-repeat;
+  background: linear-gradient(180deg, rgba(36,48,77,0.3) 0%, rgba(36,48,77,0.75) 100%), url('images/traveler-airport-window.png') center/cover no-repeat;
   display: flex;
   align-items: center;
   z-index: 10;
@@ -320,6 +320,32 @@ p{margin:0;}
   height: 4px;
   background: var(--brand-sky);
   border-radius: 2px; /* Pequeño tirador de la persiana */
+}
+
+/* Window Icon at the top of content */
+.window-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--brand-sky);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+.airplane-window:hover .window-icon {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+.window-icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 /* Window Content Glassmorphism overlay */
@@ -613,13 +639,61 @@ p{margin:0;}
 .map-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 52px;
-  border-top: 1px solid rgba(0, 78, 115, 0.15);
-  padding-top: 36px;
+  gap: 24px;
+  margin-top: 60px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(186, 222, 247, 0.6); /* Ice blue borders */
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow: 
+    0 10px 30px rgba(0, 78, 115, 0.03),
+    0 30px 70px rgba(0, 78, 115, 0.05);
+  text-align: center;
 }
-.map-stat b { display: block; font-family: var(--font-display); font-size: 32px; color: var(--brand-navy-primary); }
-.map-stat span{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;color:rgba(36,48,77,0.6);text-transform:uppercase;margin-top:4px;}
+.map-stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.map-stat:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: rgba(0, 78, 115, 0.1);
+}
+.map-stat b { 
+  display: block; 
+  font-family: var(--font-display); 
+  font-size: clamp(34px, 5vw, 46px); 
+  color: var(--brand-navy-primary); 
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+.map-stat span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: rgba(36, 48, 77, 0.6);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .map-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 16px;
+    padding: 32px 24px;
+  }
+  .map-stat:not(:last-child)::after {
+    display: none;
+  }
+}
 
 /* ============================================
    HOW IT WORKS
@@ -1044,6 +1118,9 @@ p{margin:0;}
       <div class="airplane-window window-view-1 reveal">
         <div class="window-blind"></div>
         <div class="window-content">
+          <div class="window-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
           <h3>Ahorra tiempo real</h3>
           <p>Olvídate de 40 pestañas comparando vuelos y hoteles. Nuestro equipo arma tu ruta completa mientras tú solo empacas la maleta.</p>
           <div class="window-stat-badge">
@@ -1057,6 +1134,9 @@ p{margin:0;}
       <div class="airplane-window window-view-2 reveal">
         <div class="window-blind"></div>
         <div class="window-content">
+          <div class="window-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
           <h3>Un consultor experto</h3>
           <p>Te asignamos un asesor que conoce el destino, la temporada y los atajos que ningún blog cuenta. Cero adivinar, todo calculado.</p>
           <div class="window-stat-badge">
@@ -1070,6 +1150,9 @@ p{margin:0;}
       <div class="airplane-window window-view-3 reveal">
         <div class="window-blind"></div>
         <div class="window-content">
+          <div class="window-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </div>
           <h3>Tu viaje en un link</h3>
           <p>Itinerario, documentos, reservas y actividades en un solo lugar — disponible en tu teléfono o laptop, incluso sin señal.</p>
           <div class="window-stat-badge">
@@ -1584,10 +1667,10 @@ p{margin:0;}
     <div class="map-legend"><span class="dot"></span> Toca o pasa el cursor sobre un punto para ver la historia del viaje</div>
 
     <div class="map-stats">
-      <div class="map-stat reveal"><b data-count="80">0</b><span>Países recorridos</span></div>
-      <div class="map-stat reveal"><b data-count="500">0</b><span>Planes creados</span></div>
+      <div class="map-stat reveal"><b data-count="80" data-prefix="+">0</b><span>Países recorridos</span></div>
+      <div class="map-stat reveal"><b data-count="500" data-prefix="+">0</b><span>Planes planeados</span></div>
       <div class="map-stat reveal"><b data-count="48" data-suffix="h">0</b><span>Tiempo de entrega</span></div>
-      <div class="map-stat reveal"><b data-count="98" data-suffix="%">0</b><span>Viajeros satisfechos</span></div>
+      <div class="map-stat reveal"><b data-count="3000" data-prefix="+">0</b><span>Viajeros felices</span></div>
     </div>
   </div>
 </section>
@@ -1835,13 +1918,14 @@ const statObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const el = entry.target;
       const target = parseInt(el.getAttribute('data-count'), 10);
+      const prefix = el.getAttribute('data-prefix') || '';
       const suffix = el.getAttribute('data-suffix') || '';
       const duration = 1400;
       const start = performance.now();
       function tick(now) {
         const progress = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(eased * target) + suffix;
+        el.textContent = prefix + Math.round(eased * target) + suffix;
         if (progress < 1) requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
