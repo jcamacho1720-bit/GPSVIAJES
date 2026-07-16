@@ -991,7 +991,10 @@ p{margin:0;}
 @media (max-width:720px){
   .main-nav{
     position:fixed;top:0;right:0;bottom:0;width:78%;max-width:320px;
-    background:var(--navy-950);
+    background:rgba(36, 48, 77, 0.98) !important;
+    backdrop-filter:blur(12px) !important;
+    border-left:1px solid rgba(186, 222, 247, 0.15) !important;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3) !important;
     flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:6px;
     padding:100px 28px 28px;
     transform:translateX(100%);transition:transform .35s ease;
@@ -1001,23 +1004,44 @@ p{margin:0;}
   .main-nav a {
     font-family: var(--font-display) !important;
     font-size: 11px !important; /* Small text for mobile menu */
-    letter-spacing: 0.08em !important;
+    letter-spacing: 0.1em !important;
     text-transform: uppercase !important;
-    padding: 14px 0 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 16px 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
     width: 100% !important;
     display: block !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: color 0.3s ease, padding-left 0.3s ease !important;
+  }
+  .main-nav a:hover {
+    color: var(--brand-sky) !important;
+    padding-left: 8px !important;
   }
   .main-nav .btn {
-    margin-top: 14px;
+    margin-top: 20px;
     width: 100% !important;
     font-size: 11px !important;
     padding: 12px 20px !important;
     margin-left: 0 !important;
   }
-  .nav-toggle{display:block;}
+  .nav-toggle {
+    display: block;
+    z-index: 201; /* Layer toggle on top of open mobile menu */
+    position: relative;
+  }
   
-  /* Boarding Pass Mobile responsiveness */
+  /* Benefits Windows Mobile adjustments */
+  .airplane-window {
+    height: 190px !important;
+  }
+  .airplane-window .window-blind {
+    height: 0% !important; /* Landscapes always fixed and visible */
+  }
+  .airplane-window .window-content {
+    background: rgba(36, 48, 77, 0.55) !important; /* Dark overlay for text readability */
+  }
+
+  /* Boarding Pass Mobile responsiveness (Smaller ticket) */
   .contact-section-split {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1026,15 +1050,36 @@ p{margin:0;}
     grid-template-columns: 1fr;
     transform: none !important;
     animation: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+  .contact-bp-main {
+    padding: 20px 16px !important;
   }
   .contact-bp-fields {
     grid-template-columns: 1fr;
+    gap: 12px 10px !important;
+  }
+  .contact-bp-field label {
+    font-size: 10px !important;
+  }
+  .contact-bp-field input, .contact-bp-field select {
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+    height: auto !important;
+  }
+  .contact-bp-submit {
+    padding: 12px 20px !important;
+    font-size: 13px !important;
+    margin-top: 12px !important;
   }
   .contact-bp-stub {
     flex-direction: row;
     border-radius: 0 0 20px 20px;
     width: auto;
-    padding: 20px 24px;
+    padding: 16px 20px;
     gap: 16px;
   }
   .contact-bp-stub::before {
