@@ -109,9 +109,18 @@ p{margin:0;}
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(7,27,48,0.92);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
   z-index: -1;
+}
+.site-header.is-scrolled .main-nav a {
+  color: var(--brand-navy-dark) !important;
+}
+.site-header.is-scrolled .main-nav a:hover {
+  color: var(--brand-sky) !important;
+}
+.site-header.is-scrolled .nav-toggle {
+  color: var(--brand-navy-dark) !important;
 }
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;}
 .brand{display:flex;align-items:center;gap:11px;}
@@ -1426,7 +1435,7 @@ p{margin:0;}
 <header class="site-header" id="siteHeader">
   <div class="wrap">
     <a href="#top" class="brand">
-      <img src="images/logo-horizontal.png" alt="GPS Planeación de Viajes" style="height: 48px; width: auto; display: block;">
+      <img src="images/logo-horizontal-white.png" alt="GPS Planeación de Viajes" style="height: 48px; width: auto; display: block;">
     </a>
     <nav class="main-nav" id="mainNav">
       <a href="#beneficios">Beneficios</a>
@@ -2184,10 +2193,15 @@ p{margin:0;}
 </footer>
 
 <script>
-// Header scroll state
+// Header scroll state & logo image swapping
 const header = document.getElementById('siteHeader');
+const brandImg = document.querySelector('.brand img');
 window.addEventListener('scroll', () => {
-  header.classList.toggle('is-scrolled', window.scrollY > 40);
+  const scrolled = window.scrollY > 40;
+  header.classList.toggle('is-scrolled', scrolled);
+  if (brandImg) {
+    brandImg.src = scrolled ? 'images/logo-horizontal.png' : 'images/logo-horizontal-white.png';
+  }
 }, { passive: true });
 
 // Mobile nav
