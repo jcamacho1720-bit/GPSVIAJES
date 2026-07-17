@@ -708,7 +708,7 @@
       color: #ffffff;
       line-height: 1.6;
       max-width: 600px;
-      margin: 0 auto 40px;
+      margin: 0 auto 65px; /* Increased from 40px to 65px to give more spacing to ctas */
       /* Centered */
       text-align: center;
       /* Centered */
@@ -1022,7 +1022,7 @@
     @media (max-width: 720px) {
       .hero {
         height: 70vh;
-        padding-top: 80px;
+        padding-top: 60px;
         align-items: center;
         text-align: center;
       }
@@ -1031,6 +1031,11 @@
         text-align: center;
         margin: 0 auto;
         max-width: 100%;
+      }
+
+      .hero-eyebrow-badge {
+        margin-top: -24px !important;
+        margin-bottom: 16px !important;
       }
     }
 
@@ -2600,7 +2605,8 @@
       font-family: var(--font-mono);
       font-size: .72rem;
       letter-spacing: .12em;
-      color: #FFFFFF text-transform: uppercase;
+      color: #FFFFFF;
+      text-transform: uppercase;
       display: block;
       margin-bottom: .4rem;
       z-index: 2;
