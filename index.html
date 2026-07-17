@@ -5029,9 +5029,12 @@ refTicketHost.innerHTML = `
     }
 
     if (refTrack) {
+      // Detectar interacción física del usuario con el carrusel (no scroll programático)
+      ["wheel", "touchstart", "mousedown"].forEach(evt => {
+        refTrack.addEventListener(evt, () => { refInteracted = true; }, { passive: true, once: true });
+      });
+
       refTrack.addEventListener("scroll", () => {
-        // Primera vez que el usuario desliza → activar interacción
-        if (!refInteracted) refInteracted = true;
         if(!refTicking) {
           window.requestAnimationFrame(() => { updateRefActiveFromScroll(); refTicking = false; });
           refTicking = true;
