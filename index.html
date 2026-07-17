@@ -3070,6 +3070,96 @@
         background-position: center !important;
         border-radius: 12px !important;
       }
+
+      /* Reduce font sizes and paddings inside ref-info-card on mobile */
+      .ref-info-card {
+        border-radius: 16px !important;
+      }
+      .ref-info-header {
+        padding: 1.25rem 1.15rem 1.15rem !important;
+      }
+      .ref-info-title {
+        font-size: 1.35rem !important;
+      }
+      .ref-info-subtitle {
+        font-size: 0.85rem !important;
+      }
+      .ref-info-body {
+        padding: 1.15rem !important;
+      }
+      .ref-info-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.7rem 0.9rem !important;
+        padding: 0.7rem 0 !important;
+        margin-bottom: 0.6rem !important;
+      }
+      .ref-info-item .lbl {
+        font-size: 0.58rem !important;
+      }
+      .ref-info-item .val {
+        font-size: 0.72rem !important;
+      }
+      .ref-info-item .val.price {
+        font-size: 1.1rem !important;
+      }
+      .ref-cities-title {
+        font-size: 0.65rem !important;
+      }
+      .ref-cities-chips span {
+        font-size: 0.65rem !important;
+        padding: 4px 8px !important;
+      }
+      .ref-cta-btn {
+        font-size: 11px !important;
+        padding: 9px 16px !important;
+      }
+
+      /* Miniature Cards Carousel below details */
+      .ref-carousel-column {
+        width: 100% !important;
+      }
+      .ref-carousel-wrap {
+        padding: 0 !important;
+      }
+      .ref-arrow {
+        display: none !important;
+      }
+      .ref-track {
+        gap: 12px !important;
+        padding: 10px 0 !important;
+      }
+      .ref-card {
+        width: 115px !important;
+        height: 135px !important;
+        border-radius: 12px !important;
+        transform: scale(0.92) !important;
+        opacity: 0.6 !important;
+      }
+      .ref-card.is-active {
+        transform: scale(1) !important;
+        opacity: 1 !important;
+        box-shadow: 0 6px 18px rgba(0, 78, 115, 0.25) !important;
+        border-color: rgba(255, 255, 255, 0.25) !important;
+      }
+      .ref-card-eyebrow,
+      .ref-card-tags {
+        display: none !important;
+      }
+      .ref-card-title {
+        font-size: 10px !important;
+        line-height: 1.25 !important;
+        margin: 0 !important;
+        font-weight: 700 !important;
+      }
+      .ref-card-body {
+        padding: 8px !important;
+      }
+      .ref-badge {
+        font-size: 8px !important;
+        padding: 2px 4px !important;
+        top: 4px !important;
+        left: 4px !important;
+      }
     }
   </style>
 </head>
@@ -5163,16 +5253,32 @@
 
     /* ---------- Ticket panel ---------- */
     const refTicketHost = document.getElementById("refTicketHost");
+
+    function renderRefPlaceholder() {
+      if (!refTicketHost) return;
+      const isMobile = window.innerWidth <= 768;
+      const text = isMobile 
+        ? "Desliza a la derecha para ver detalles de los diferentes viajes" 
+        : "Toca una tarjeta o desliza el carrusel de la derecha para ver los detalles aquí.";
+      
+      refTicketHost.innerHTML = `
+        <div class="ref-info-empty" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: ${isMobile ? '180px' : '480px'}; padding: 2rem; text-align: center; color: rgba(255,255,255,0.4); font-family: var(--font-display);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 56px; height: 56px; margin-bottom: 1.2rem; stroke: var(--blue); opacity: 0.85; animation: bounceRef 2s infinite;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286.728ZM3 12a9 9 0 1 1 18 0 9 9 0 0 1-18 0Z"/>
+          </svg>
+          <style>
+            @keyframes bounceRef {
+              0%, 100% { transform: translateY(0); }
+              50% { transform: translateY(-8px); }
+            }
+          </style>
+          <h3 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem; font-weight: 700;">Explora las Rutas</h3>
+          <p style="font-size: 0.85rem; line-height: 1.4; color: #a3b8c9; max-width: 280px;">${text}</p>
+        </div>
+      `;
+    }
     // Placeholder when no travel selected
-    refTicketHost.innerHTML = `
-  <div class="ref-info-empty" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: 480px; padding: 2rem; text-align: center; color: rgba(255,255,255,0.4); font-family: var(--font-display);">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 56px; height: 56px; margin-bottom: 1.2rem; stroke: var(--blue); opacity: 0.85; animation: bounceRef 2s infinite;">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286.728ZM3 12a9 9 0 1 1 18 0 9 9 0 0 1-18 0Z"/>
-    </svg>
-    <h3 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem; font-weight: 700;">Explora las Rutas</h3>
-    <p style="font-size: 0.85rem; line-height: 1.4; color: #a3b8c9; max-width: 280px;">Toca una tarjeta o desliza el carrusel de la derecha para ver los detalles aquí.</p>
-  </div>
-`;
+    renderRefPlaceholder();
 
 
     function renderRefTicket(t) {
@@ -5182,19 +5288,7 @@
         return;
       }
       if (!refInteracted) {
-        refTicketHost.innerHTML = `
-          <div class="ref-info-empty" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: 480px; padding: 2rem; text-align: center; color: rgba(255,255,255,0.4); font-family: var(--font-display);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 56px; height: 56px; margin-bottom: 1.2rem; stroke: var(--blue); opacity: 0.85; animation: bounceRef 2s infinite;"><path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286.728ZM3 12a9 9 0 1 1 18 0 9 9 0 0 1-18 0Z"/></svg>
-            <style>
-              @keyframes bounceRef {
-                0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-8px); }
-              }
-            </style>
-            <h3 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem; font-weight: 700;">Explora las Rutas</h3>
-            <p style="font-size: 0.85rem; line-height: 1.4; color: #a3b8c9; max-width: 280px;">Toca una tarjeta o desliza el carrusel de la derecha para ver los detalles aquí.</p>
-          </div>
-        `;
+        renderRefPlaceholder();
         return;
       }
 
