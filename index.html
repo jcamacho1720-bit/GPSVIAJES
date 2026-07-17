@@ -1028,11 +1028,14 @@
     @media (max-width: 720px) {
       .hero {
         height: auto !important;
-        min-height: 85vh !important;
-        padding-top: 110px !important;
-        padding-bottom: 60px !important;
-        align-items: center;
-        text-align: center;
+        min-height: 100vh !important;
+        padding-top: 90px !important;
+        padding-bottom: 40px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
       }
 
       .hero-content-left {
@@ -1059,7 +1062,11 @@
       }
 
       .hero-scroll-indicator {
-        margin: 80px auto 0 !important;
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 40px auto 0 !important;
         display: flex !important;
       }
     }
