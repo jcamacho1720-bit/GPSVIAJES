@@ -2973,6 +2973,7 @@
     }
 
     @media (max-width: 768px) {
+
       .map-section .section-head p,
       #viajes-referentes .section-head p,
       #viajes-referentes .section-head em,
@@ -3971,7 +3972,7 @@
                 <circle class="pin-dot" cx="413.3" cy="399.8" r="3.6"></circle>
               </g>
               <g class="pin" data-id="p_fr_arco" data-x="411.3" data-y="401.8" tabindex="0" role="button"
-                aria-label="Francia: París - Arco de Triunfo">
+                aria-label="Francia: París - Museo Louvre">
                 <circle class="pin-pulse" cx="411.3" cy="401.8" r="3.5"></circle>
                 <circle class="pin-dot" cx="411.3" cy="401.8" r="3.6"></circle>
               </g>
@@ -4253,13 +4254,13 @@
         <div class="map-card" id="card-p4">
           <div class="mc-photo" style="background-image: url('Viajeros/paris francia.png');"><span
               class="mc-country">Francia</span></div>
-          <div class="mc-place">Torre Eiffel</div>
+          <div class="mc-place">Museo Louvre</div>
           <div class="mc-cap">48.8584° N, 2.2945° E</div>
         </div>
         <div class="map-card" id="card-p_fr_arco">
           <div class="mc-photo" style="background-image: url('Viajeros/paris grancia.png');"><span
               class="mc-country">Francia</span></div>
-          <div class="mc-place">Arco de Triunfo</div>
+          <div class="mc-place">Torre Eiffel</div>
           <div class="mc-cap">48.8738° N, 2.2950° E</div>
         </div>
         <div class="map-card" id="card-p_fr_disney">
@@ -4403,7 +4404,7 @@
         <div class="map-card" id="card-p1">
           <div class="mc-photo" style="background-image: url('Viajeros/ciudad de mexico.png');"><span
               class="mc-country">México</span></div>
-          <div class="mc-place">Zócalo CDMX</div>
+          <div class="mc-place">Ciudad de México</div>
           <div class="mc-cap">19.4326° N, 99.1332° O</div>
         </div>
       </div>
@@ -4814,7 +4815,7 @@
         }
         // Move to document.body to break stacking context (resolves z-index blur/gray overlay bug)
         document.body.appendChild(card);
-        
+
         card.classList.add('is-open');
         const backdrop = document.getElementById('map-gallery-backdrop');
         const prevBtn = document.getElementById('map-gallery-prev');
@@ -5336,19 +5337,19 @@
     if (refTrack) {
       // Detectar interacción física del usuario con el carrusel
       ["wheel", "touchstart", "mousedown"].forEach(evt => {
-        refTrack.addEventListener(evt, () => { 
-          refInteracted = true; 
-          refUserScrolling = true; 
+        refTrack.addEventListener(evt, () => {
+          refInteracted = true;
+          refUserScrolling = true;
         }, { passive: true });
       });
 
       refTrack.addEventListener("scroll", () => {
         if (!refTicking) {
-          window.requestAnimationFrame(() => { 
+          window.requestAnimationFrame(() => {
             if (refUserScrolling) {
-              updateRefActiveFromScroll(); 
+              updateRefActiveFromScroll();
             }
-            refTicking = false; 
+            refTicking = false;
           });
           refTicking = true;
         }
