@@ -4743,9 +4743,16 @@
       nextBtn.innerHTML = '›';
       nextBtn.setAttribute('aria-label', 'Siguiente');
 
-      document.body.appendChild(backdrop);
-      document.body.appendChild(prevBtn);
-      document.body.appendChild(nextBtn);
+      const mapStage = document.querySelector('.map-stage');
+      if (mapStage) {
+        mapStage.appendChild(backdrop);
+        mapStage.appendChild(prevBtn);
+        mapStage.appendChild(nextBtn);
+      } else {
+        document.body.appendChild(backdrop);
+        document.body.appendChild(prevBtn);
+        document.body.appendChild(nextBtn);
+      }
 
       backdrop.addEventListener('click', closeAllCards);
       prevBtn.addEventListener('click', (e) => {
