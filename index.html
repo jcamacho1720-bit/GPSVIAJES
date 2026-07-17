@@ -4719,6 +4719,7 @@
     const svgEl = document.getElementById('world-map');
     let activePin = null;
     let sortedPins = [];
+    let originalCardParents = {};
 
     function initMapGallery() {
       const pins = Array.from(document.querySelectorAll('.pin'));
@@ -4743,16 +4744,9 @@
       nextBtn.innerHTML = '›';
       nextBtn.setAttribute('aria-label', 'Siguiente');
 
-      const mapStage = document.querySelector('.map-stage');
-      if (mapStage) {
-        mapStage.appendChild(backdrop);
-        mapStage.appendChild(prevBtn);
-        mapStage.appendChild(nextBtn);
-      } else {
-        document.body.appendChild(backdrop);
-        document.body.appendChild(prevBtn);
-        document.body.appendChild(nextBtn);
-      }
+      document.body.appendChild(backdrop);
+      document.body.appendChild(prevBtn);
+      document.body.appendChild(nextBtn);
 
       backdrop.addEventListener('click', closeAllCards);
       prevBtn.addEventListener('click', (e) => {
@@ -4776,7 +4770,15 @@
     }
 
     function closeAllCards() {
-      document.querySelectorAll('.map-card.is-open').forEach(c => c.classList.remove('is-open'));
+      // Find open cards, close them, and restore them back to their original parent in the map stage
+      document.querySelectorAll('.map-card.is-open').forEach(c => {
+        c.classList.remove('is-open');
+        const id = c.id.replace('card-', '');
+        const origParent = originalCardParents[id];
+        if (origParent) {
+          origParent.appendChild(c);
+        }
+      });
       document.querySelectorAll('.pin.is-active').forEach(p => p.classList.remove('is-active'));
       activePin = null;
 
@@ -4799,6 +4801,13 @@
       activePin = id;
 
       if (window.innerWidth <= 768) {
+        // Store original parent before moving to document.body
+        if (!originalCardParents[id]) {
+          originalCardParents[id] = card.parentNode;
+        }
+        // Move to document.body to break stacking context (resolves z-index blur/gray overlay bug)
+        document.body.appendChild(card);
+        
         card.classList.add('is-open');
         const backdrop = document.getElementById('map-gallery-backdrop');
         const prevBtn = document.getElementById('map-gallery-prev');
