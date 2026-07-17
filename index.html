@@ -2633,6 +2633,45 @@
       .ref-carousel-column {
         order: 1;
       }
+
+      .ref-info-card {
+        position: relative;
+      }
+
+      .ref-info-nav-arrow {
+        display: flex;
+        position: absolute;
+        top: 80px;
+        transform: translateY(-50%);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(8, 21, 33, 0.85);
+        border: 1.5px solid rgba(255, 255, 255, 0.25);
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: bold;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .ref-info-nav-arrow:active {
+        background: var(--brand-sky);
+        border-color: var(--brand-sky);
+        transform: translateY(-50%) scale(0.92);
+      }
+
+      .ref-info-nav-arrow.left-arrow {
+        left: 8px;
+      }
+
+      .ref-info-nav-arrow.right-arrow {
+        right: 8px;
+      }
     }
 
     /* ---------- INFO COLUMN (LEFT) ---------- */
@@ -2826,6 +2865,10 @@
 
     .ref-cta-confirm.show {
       opacity: 1;
+    }
+
+    .ref-info-nav-arrow {
+      display: none;
     }
 
     /* ---------- CAROUSEL COLUMN (RIGHT) ---------- */
@@ -5421,6 +5464,10 @@
 
       refTicketHost.innerHTML = `
         <div class="ref-info-card">
+          <!-- Mobile Navigation Arrows -->
+          <button class="ref-info-nav-arrow left-arrow" id="refInfoPrev" aria-label="Anterior">‹</button>
+          <button class="ref-info-nav-arrow right-arrow" id="refInfoNext" aria-label="Siguiente">›</button>
+
           <!-- Top Header Part: Photo Background -->
           <div class="ref-info-header" style="background-image: linear-gradient(180deg, rgba(8, 21, 33, 0.7) 0%, rgba(13, 34, 51, 0.92) 100%), url('${t.foto}');">
             <span class="ref-info-eyebrow">✈ Viaje desde Bogotá, Colombia</span>
@@ -5474,6 +5521,21 @@
           </div>
         </div>
       `;
+
+      const infoPrev = document.getElementById("refInfoPrev");
+      const infoNext = document.getElementById("refInfoNext");
+      if (infoPrev) {
+        infoPrev.addEventListener("click", (e) => {
+          e.stopPropagation();
+          stepRefCard(-1);
+        });
+      }
+      if (infoNext) {
+        infoNext.addEventListener("click", (e) => {
+          e.stopPropagation();
+          stepRefCard(1);
+        });
+      }
 
       const ctaBtn = document.getElementById("ref-cta-personalize");
       if (ctaBtn) {
@@ -5573,6 +5635,28 @@
           refTicking = true;
         }
       });
+    }
+
+    // Swipe gestures for refTicketHost on mobile
+    let refTouchStartX = 0;
+    let refTouchStartY = 0;
+    if (refTicketHost) {
+      refTicketHost.addEventListener('touchstart', (e) => {
+        refTouchStartX = e.changedTouches[0].screenX;
+        refTouchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      refTicketHost.addEventListener('touchend', (e) => {
+        const diffX = e.changedTouches[0].screenX - refTouchStartX;
+        const diffY = e.changedTouches[0].screenY - refTouchStartY;
+        if (Math.abs(diffX) > 50 && Math.abs(diffY) < 40) {
+          if (diffX > 0) {
+            stepRefCard(-1);
+          } else {
+            stepRefCard(1);
+          }
+        }
+      }, { passive: true });
     }
 
 
