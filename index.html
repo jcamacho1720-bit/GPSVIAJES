@@ -2426,22 +2426,15 @@
     ============================================ */
     #viajes-referentes {
       --navy-950: #081521;
-      --panel: #0d2233;
-      --gold: var(--brand-coral); /* Mapped to brand manual coral #F46C37 */
-      --gold-soft: rgba(244, 108, 55, 0.15);
-      --blue: var(--brand-sky); /* Mapped to brand manual sky #61B9D1 */
-      --sakura: #F2789F;
-      --ink: var(--brand-navy-dark);
-      --muted: #52677a;
-      --line: #cbd5e0;
+      --panel: rgba(13, 34, 51, 0.7);
+      --gold: var(--brand-coral);
+      --blue: var(--brand-sky);
+      --ink: #ffffff;
+      --muted: #a0aec0;
+      --line: rgba(255, 255, 255, 0.12);
 
-      --america: linear-gradient(160deg, #0B3B54, #06202E);
-      --europa: linear-gradient(160deg, #2B2153, #140F2E);
-      --asia: linear-gradient(160deg, #5C1A2B, #240A12);
-      --multi: linear-gradient(160deg, #1E3A5F, #2B2153);
-
-      background: var(--brand-gray);
-      color: var(--brand-navy-dark);
+      background: linear-gradient(180deg, rgba(8, 21, 33, 0.88) 0%, rgba(8, 21, 33, 0.96) 100%), url('images/flight-view-maldives.png') center / cover no-repeat;
+      color: #ffffff;
       padding: 104px 0;
       position: relative;
       overflow: hidden;
@@ -2449,16 +2442,6 @@
 
     #viajes-referentes .section-head {
       margin-bottom: 2.5rem;
-    }
-    
-    #viajes-referentes .section-head h2 {
-      color: var(--brand-navy-dark);
-    }
-    
-    #viajes-referentes .section-head p {
-      color: var(--brand-navy-primary);
-      opacity: 0.85;
-      max-width: 720px;
     }
 
     /* ---------- CONTROLS ---------- */
@@ -2478,17 +2461,17 @@
     }
     .ref-search-box input {
       width: 100%;
-      background: #ffffff;
-      border: 1px solid rgba(0, 78, 115, 0.25);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 10px;
       padding: .7rem 1rem .7rem 2.5rem;
-      color: var(--brand-navy-dark);
+      color: #ffffff;
       font-family: var(--font-display);
       font-size: .92rem;
       outline: none;
       transition: border-color .2s;
     }
-    .ref-search-box input:focus { border-color: var(--brand-navy-primary); }
+    .ref-search-box input:focus { border-color: var(--blue); }
     .ref-search-box input::placeholder { color: #8ea3b5; }
     .ref-search-box svg {
       position: absolute;
@@ -2511,25 +2494,25 @@
       letter-spacing: .03em;
       padding: .55rem .95rem;
       border-radius: 100px;
-      border: 1px solid rgba(0, 78, 115, 0.2);
-      background: transparent;
-      color: var(--brand-navy-primary);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.03);
+      color: #e2e8f0;
       cursor: pointer;
       transition: all .18s;
       white-space: nowrap;
     }
-    .ref-chip:hover { border-color: var(--brand-navy-primary); color: var(--brand-navy-dark); }
+    .ref-chip:hover { border-color: var(--blue); color: #ffffff; }
     .ref-chip.active {
-      background: var(--brand-navy-primary);
-      border-color: var(--brand-navy-primary);
+      background: var(--blue);
+      border-color: var(--blue);
       color: var(--white);
       font-weight: 600;
     }
 
     .ref-sort-select {
-      background: #ffffff;
-      border: 1px solid rgba(0, 78, 115, 0.25);
-      color: var(--brand-navy-dark);
+      background: rgba(8, 21, 33, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
       border-radius: 10px;
       padding: .65rem .9rem;
       font-family: var(--font-display);
@@ -2540,282 +2523,129 @@
     .ref-count-line {
       font-family: var(--font-mono);
       font-size: .75rem;
-      color: var(--brand-navy-primary);
+      color: var(--blue);
       margin: -1.2rem 0 1.5rem;
-      opacity: 0.8;
+      opacity: 0.9;
     }
 
-    /* ---------- CAROUSEL ---------- */
-    .ref-carousel-wrap {
-      position: relative;
-      margin-bottom: 2.4rem;
-    }
-    .ref-track {
-      display: flex;
-      gap: 1.4rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding: 1.5rem 1.5rem;
-      scrollbar-width: none;
-    }
-    .ref-track::-webkit-scrollbar { display: none; }
-
-    .ref-card {
-      scroll-snap-align: start;
-      flex: 0 0 auto;
-      width: 260px;
-      border-radius: 20px;
-      overflow: hidden;
-      cursor: pointer;
-      border: 1.5px solid transparent;
-      transform: scale(.93);
-      opacity: .75;
-      transition: box-shadow .25s, transform .3s ease, opacity .3s ease, border-color .3s;
-      outline: none;
-    }
-    .ref-card:focus-visible { box-shadow: 0 0 0 2.5px var(--brand-navy-primary); }
-    .ref-card.is-active {
-      box-shadow: 0 12px 34px -8px rgba(0,78,115,.25);
-      transform: scale(1);
-      opacity: 1;
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .ref-scene {
-      height: 148px;
-      position: relative;
-    }
-    .ref-badge {
-      position: absolute;
-      top: .7rem;
-      left: .8rem;
-      font-family: var(--font-mono);
-      font-size: .65rem;
-      letter-spacing: .05em;
-      color: var(--white);
-      background: rgba(8,21,33,.65);
-      padding: .2rem .5rem;
-      border-radius: 5px;
-      z-index: 2;
-    }
-
-    .ref-card-body { padding: 1.2rem 1.15rem; }
-    .ref-card-eyebrow {
-      font-family: var(--font-mono);
-      font-size: .66rem;
-      letter-spacing: .08em;
-      color: #92b0c4;
-      text-transform: uppercase;
-      margin-bottom: .35rem;
-    }
-    .ref-card-title {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.18rem;
-      line-height: 1.1;
-      margin: 0 0 .2rem;
-      color: var(--white);
-    }
-    .ref-card-destino {
-      color: #b5c7d3;
-      font-size: .75rem;
-      margin-bottom: .9rem;
-    }
-    .ref-card-tags {
-      display: flex;
-      gap: .5rem;
-      flex-wrap: wrap;
-    }
-    .ref-tag {
-      font-family: var(--font-mono);
-      font-size: .72rem;
-      font-weight: 600;
-      padding: .32rem .6rem;
-      border-radius: 7px;
-    }
-    .ref-tag.price { background: var(--brand-sky); color: #fff; }
-    .ref-tag.days { background: var(--brand-navy-primary); color: #fff; }
-
-    .ref-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #ffffff;
-      border: 1px solid rgba(0, 78, 115, 0.15);
-      color: var(--brand-navy-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 5;
-      font-size: 1.25rem;
-      transition: border-color .2s, background .2s, color .2s;
-    }
-    .ref-arrow:hover { border-color: var(--brand-navy-primary); background: #f4f6f8; color: var(--brand-navy-primary); }
-    .ref-arrow.left { left: -6px; }
-    .ref-arrow.right { right: -6px; }
-    @media (max-width: 640px) { .ref-arrow { display: none; } }
-
-    /* ---------- TICKET ---------- */
-    .ref-ticket {
+    /* ---------- SPLIT GRID LAYOUT ---------- */
+    .ref-split-container {
       display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      background: var(--panel);
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      overflow: hidden;
-      position: relative;
+      grid-template-columns: 430px 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 2rem;
     }
-    @media (max-width: 760px) {
-      .ref-ticket { grid-template-columns: 1fr; }
+    @media (max-width: 960px) {
+      .ref-split-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
     }
 
-    .ref-stub-left {
-      padding: 1.8rem 1.6rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      color: #EAF1F6;
+    /* ---------- INFO COLUMN (LEFT) ---------- */
+    .ref-info-column {
+      background: var(--panel);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 2.2rem 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      color: #ffffff;
     }
-    .ref-stub-left .ref-brand {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
+    .ref-info-eyebrow {
       font-family: var(--font-mono);
       font-size: .72rem;
-      letter-spacing: .1em;
-      color: #a3b8c9;
-    }
-    .ref-stub-left .ref-brand svg { width: 16px; height: 16px; stroke: var(--brand-sky); }
-
-    .ref-ticket-continent {
-      font-family: var(--font-mono);
-      font-size: .68rem;
-      letter-spacing: .1em;
-      color: var(--brand-sky);
+      letter-spacing: .12em;
+      color: var(--blue);
       text-transform: uppercase;
-      margin: 1.1rem 0 .3rem;
+      display: block;
+      margin-bottom: .4rem;
     }
-    .ref-ticket-title {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.6rem;
-      line-height: 1.05;
-      margin: 0 0 .2rem;
-      color: var(--white);
-    }
-    .ref-ticket-destino {
-      color: #a3b8c9;
-      font-size: .88rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .ref-route {
-      position: relative;
-      padding: 1rem 0 .4rem;
-    }
-    .ref-route-cities {
-      font-family: var(--font-mono);
-      font-size: .78rem;
-      color: #ffffff;
-      opacity: .9;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: .5rem;
-    }
-    .ref-route-line {
-      position: relative;
-      height: 2px;
-      background: repeating-linear-gradient(90deg, rgba(255,255,255,0.25) 0 6px, transparent 6px 11px);
-    }
-    .ref-route-line .ref-plane {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translate(-50%,-50%);
-      font-size: .95rem;
-      color: var(--brand-sky);
-      animation: glide 5s linear infinite;
-    }
-    @keyframes glide { 0% { left: 0%; } 100% { left: 100%; } }
-    @media (prefers-reduced-motion: reduce) {
-      .ref-route-line .ref-plane { animation: none; left: 50%; }
-    }
-
-    .ref-price-block { margin-top: 1.3rem; }
-    .ref-price-value {
+    .ref-info-title {
       font-family: var(--font-display);
       font-weight: 800;
       font-size: 2.1rem;
-      color: var(--white);
-      line-height: 1;
+      line-height: 1.1;
+      margin: 0 0 .3rem;
+      color: #ffffff;
     }
-    .ref-price-note {
-      font-size: .68rem;
-      color: #a3b8c9;
-      margin-top: .4rem;
-      line-height: 1.4;
-      font-style: italic;
+    .ref-info-subtitle {
+      font-size: 1.05rem;
+      color: #cbd5e0;
+      margin-bottom: 1.4rem;
+      font-weight: 500;
+    }
+    .ref-info-desc {
+      font-size: .82rem;
+      line-height: 1.6;
+      color: #cbd5e0;
+      margin-bottom: 1.8rem;
+    }
+    .ref-info-desc strong {
+      color: #ffffff;
+      font-weight: 600;
     }
 
-    .ref-perforation {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      border-left: 2px dashed rgba(255, 255, 255, 0.2);
-    }
-    .ref-perforation::before, .ref-perforation::after {
-      content: "";
-      position: absolute;
-      left: -8px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--brand-gray);
-    }
-    .ref-perforation::before { top: -8px; }
-    .ref-perforation::after { bottom: -8px; }
-
-    .ref-stub-right {
-      padding: 1.8rem 1.9rem;
-      position: relative;
-      background: var(--navy-950);
-    }
-    .ref-detail-grid {
+    .ref-info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.1rem 1.6rem;
-      margin-bottom: 1.3rem;
+      gap: 1.1rem 1.4rem;
+      padding: 1.3rem 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 1.8rem;
     }
-    @media (max-width: 520px) {
-      .ref-detail-grid { grid-template-columns: 1fr; }
+    @media (max-width: 480px) {
+      .ref-info-grid { grid-template-columns: 1fr; }
     }
-    .ref-detail-item .k {
+    .ref-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: .2rem;
+    }
+    .ref-info-item .lbl {
       font-family: var(--font-mono);
       font-size: .65rem;
-      letter-spacing: .08em;
+      letter-spacing: .06em;
       color: #8ea3b5;
       text-transform: uppercase;
-      margin-bottom: .35rem;
     }
-    .ref-detail-item .v { font-size: .8rem; line-height: 1.4; color: #EAF1F6; }
-    .ref-flights-si { color: #7FD69B; font-weight: 700; }
-    .ref-flights-parcial { color: var(--brand-sky); font-weight: 700; }
+    .ref-info-item .val {
+      font-size: .84rem;
+      color: #ffffff;
+      font-weight: 500;
+    }
+    .ref-info-item .val.price {
+      font-size: 1.4rem;
+      color: var(--blue);
+      font-weight: 800;
+    }
+    .ref-flights-si { color: #7FD69B !important; font-weight: 700; }
+    .ref-flights-parcial { color: var(--blue) !important; font-weight: 700; }
 
-    .ref-cities-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .ref-cities-title {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      letter-spacing: .06em;
+      color: #8ea3b5;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+    .ref-cities-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-bottom: 1.8rem;
+    }
     .ref-cities-chips span {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 6px;
       padding: .2rem .5rem;
       font-size: .72rem;
-      color: #EAF1F6;
+      color: #e2e8f0;
     }
 
     .ref-cta-row {
@@ -2823,41 +2653,153 @@
       align-items: center;
       gap: 1rem;
       flex-wrap: wrap;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
     }
     .ref-cta-btn {
       font-family: var(--font-display);
       font-weight: 700;
       font-size: .88rem;
-      background: var(--brand-navy-primary);
+      background: var(--blue);
       color: var(--white);
       border: none;
       border-radius: 100px;
-      padding: .75rem 1.3rem;
+      padding: .85rem 1.6rem;
       cursor: pointer;
       transition: transform .15s, box-shadow .15s, background .15s;
     }
     .ref-cta-btn:hover {
       transform: translateY(-1px);
-      background: var(--brand-navy-dark);
-      box-shadow: 0 6px 16px -4px rgba(0,78,115,.4);
+      background: #3faad9;
+      box-shadow: 0 6px 16px -4px rgba(97, 185, 209, 0.4);
     }
-    .ref-cta-confirm { font-size: .82rem; color: var(--brand-sky); opacity: 0; transition: opacity .2s; }
+    .ref-cta-confirm { font-size: .8rem; color: #7FD69B; opacity: 0; transition: opacity .2s; }
     .ref-cta-confirm.show { opacity: 1; }
 
+    /* ---------- CAROUSEL COLUMN (RIGHT) ---------- */
+    .ref-carousel-column {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .ref-carousel-wrap {
+      position: relative;
+      width: 100%;
+    }
+    .ref-track {
+      display: flex;
+      gap: 1.6rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 1.5rem 0.5rem;
+      scrollbar-width: none;
+    }
+    .ref-track::-webkit-scrollbar { display: none; }
+
+    .ref-card {
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+      width: 220px;
+      height: 280px;
+      border-radius: 24px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transform: scale(0.9);
+      opacity: 0.7;
+      transition: box-shadow .3s, transform .3s ease, opacity .3s ease, border-color .3s;
+      outline: none;
+    }
+    .ref-card:focus-visible { box-shadow: 0 0 0 2.5px var(--blue); }
+    .ref-card.is-active {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+      transform: scale(1);
+      opacity: 1;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .ref-card-img {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform .5s ease;
+      z-index: 1;
+    }
+    .ref-card:hover .ref-card-img {
+      transform: scale(1.06);
+    }
+    .ref-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(8, 21, 33, 0.9) 100%);
+      z-index: 2;
+    }
+    .ref-card-content {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      right: 1.25rem;
+      z-index: 3;
+      color: #ffffff;
+    }
+    .ref-card-tag {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: block;
+      margin-bottom: .2rem;
+    }
+    .ref-card-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      line-height: 1.15;
+      margin: 0 0 .15rem 0;
+    }
+    .ref-card-price {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      opacity: 0.95;
+      display: block;
+    }
+
+    /* Arrows on top of cards */
+    .ref-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(8, 21, 33, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      font-size: 1.25rem;
+      transition: border-color .2s, background .2s, color .2s;
+    }
+    .ref-arrow:hover { border-color: var(--blue); background: rgba(8, 21, 33, 0.95); color: var(--blue); }
+    .ref-arrow.left { left: 6px; }
+    .ref-arrow.right { right: 6px; }
+    @media (max-width: 640px) { .ref-arrow { display: none; } }
+
     .ref-footnote {
-      margin-top: 1.6rem;
+      margin-top: 1.8rem;
       font-size: .72rem;
-      color: var(--brand-navy-primary);
-      opacity: 0.8;
+      color: rgba(255, 255, 255, 0.6);
       text-align: center;
     }
 
     .ref-empty-state {
       text-align: center;
       padding: 3rem 1rem;
-      color: var(--brand-navy-primary);
+      color: #cbd5e0;
       font-family: var(--font-mono);
       font-size: .9rem;
     }
@@ -4281,9 +4223,9 @@
   <section class="section" id="viajes-referentes">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Colección GPS</span>
-        <h2>Top Viajes Referentes</h2>
-        <p>17 rutas que ya hemos armado y perfeccionado para nuestros viajeros. Explóralas, compáralas y toma cualquiera como punto de partida — el itinerario final siempre se ajusta a tu fecha, presupuesto y estilo.</p>
+        <span class="eyebrow" style="color: var(--brand-sky);">Colección GPS</span>
+        <h2 style="color: #ffffff;">Top Viajes Referentes</h2>
+        <p style="color: rgba(255,255,255,0.75);">17 rutas que ya hemos armado y perfeccionado para nuestros viajeros. Explóralas, compáralas y toma cualquiera como punto de partida — el itinerario final siempre se ajusta a tu fecha, presupuesto y estilo.</p>
       </div>
 
       <div class="ref-controls reveal">
@@ -4302,13 +4244,19 @@
 
       <div class="ref-count-line reveal" id="refCountLine"></div>
 
-      <div class="ref-carousel-wrap reveal">
-        <button class="ref-arrow left" id="refArrowLeft" aria-label="Anterior">‹</button>
-        <div class="ref-track" id="refTrack"></div>
-        <button class="ref-arrow right" id="refArrowRight" aria-label="Siguiente">›</button>
+      <div class="ref-split-container reveal">
+        <!-- Left Column: Detailed Trip Info -->
+        <div class="ref-info-column" id="refTicketHost"></div>
+        
+        <!-- Right Column: Carousel of Destination Cards -->
+        <div class="ref-carousel-column">
+          <div class="ref-carousel-wrap">
+            <button class="ref-arrow left" id="refArrowLeft" aria-label="Anterior">‹</button>
+            <div class="ref-track" id="refTrack"></div>
+            <button class="ref-arrow right" id="refArrowRight" aria-label="Siguiente">›</button>
+          </div>
+        </div>
       </div>
-
-      <div id="refTicketHost" class="reveal"></div>
 
       <div class="ref-footnote reveal">* Los precios son de referencia por persona. El valor y disponibilidad final se confirman al personalizar tu viaje con un asesor GPS.</div>
     </div>
@@ -4853,50 +4801,44 @@
       }
       const vuelosClass = t.vuelos==="Sí" ? "ref-flights-si" : "ref-flights-parcial";
       refTicketHost.innerHTML = `
-        <div class="ref-ticket">
-          <div class="ref-stub-left" style="background-image: linear-gradient(180deg, rgba(13, 34, 51, 0.85) 0%, rgba(8, 21, 33, 0.95) 100%), url('${t.foto}'); background-size: cover; background-position: center;">
-            <div class="ref-brand">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
-              GPS · REF-${t.id}
+        <div class="ref-info-content">
+          <span class="ref-info-eyebrow">COLECCIÓN GPS · REF-${t.id}</span>
+          <h2 class="ref-info-title">${t.nombre}</h2>
+          <div class="ref-info-subtitle">${t.destino}</div>
+          
+          <p class="ref-info-desc">
+            Diseño de ruta ideal para <strong>${t.estilo}</strong> durante <strong>${t.dias} días</strong> en temporada <strong>${t.temporada}</strong>. 
+            Incluye visitas a <strong>${t.ciudades.join(", ")}</strong> con experiencias como <strong>${t.experiencias}</strong>. 
+            Hospedaje sugerido en <strong>${t.alojamiento}</strong> con conexiones vía <strong>${t.conexiones}</strong>.
+          </p>
+
+          <div class="ref-info-grid">
+            <div class="ref-info-item">
+              <span class="lbl">Precio ref por persona:</span>
+              <span class="val price font-display">${refFmtPrice(t.precio)}</span>
             </div>
-            <div>
-              <div class="ref-ticket-continent">${t.continente}</div>
-              <h2 class="ref-ticket-title">${t.nombre}</h2>
-              <div class="ref-ticket-destino">${t.destino}</div>
-              <div class="ref-route">
-                <div class="ref-route-cities"><span>${t.origen}</span><span>${t.ciudades[0]}</span></div>
-                <div class="ref-route-line"><span class="ref-plane">✈</span></div>
-              </div>
-              <div class="ref-price-block">
-                <div class="ref-price-value">${refFmtPrice(t.precio)}</div>
-                <div class="ref-price-note">*Precio de referencia por persona. Varía según fechas, disponibilidad y personalización.</div>
-              </div>
+            <div class="ref-info-item">
+              <span class="lbl">Vuelos incluidos:</span>
+              <span class="val ${vuelosClass}">${t.vuelos}</span>
+            </div>
+            <div class="ref-info-item">
+              <span class="lbl">Anticipación:</span>
+              <span class="val">${t.anticipacion}</span>
+            </div>
+            <div class="ref-info-item">
+              <span class="lbl">Origen de referencia:</span>
+              <span class="val">${t.origen}</span>
             </div>
           </div>
-          <div class="ref-perforation"></div>
-          <div class="ref-stub-right">
-            <div class="ref-detail-grid">
-              <div class="ref-detail-item"><div class="ref-k">Duración</div><div class="ref-v">${t.dias} días</div></div>
-              <div class="ref-detail-item"><div class="ref-k">Temporada ideal</div><div class="ref-v">${t.temporada}</div></div>
-              <div class="ref-detail-item"><div class="ref-k">Estilo de viaje</div><div class="ref-v">${t.estilo}</div></div>
-              <div class="ref-detail-item"><div class="ref-k">Alojamiento</div><div class="ref-v">${t.alojamiento}</div></div>
-              <div class="ref-detail-item"><div class="ref-k">Conexiones internas</div><div class="ref-v">${t.conexiones}</div></div>
-              <div class="ref-detail-item"><div class="ref-k">Vuelos incluidos</div><div class="ref-v ${vuelosClass}">${t.vuelos}</div></div>
-              <div class="ref-detail-item"><div class="ref-k">Anticipación requerida</div><div class="ref-v">${t.anticipacion}</div></div>
-              <div class="ref-detail-item"><div class="ref-k">Origen de referencia</div><div class="ref-v">${t.origen}</div></div>
-            </div>
-            <div class="ref-detail-item" style="margin-bottom:1.2rem;">
-              <div class="ref-k">Experiencias incluidas</div>
-              <div class="ref-v">${t.experiencias}</div>
-            </div>
-            <div class="ref-detail-item" style="margin-bottom:1.2rem;">
-              <div class="ref-k">Ciudades sugeridas en ruta</div>
-              <div class="ref-cities-chips">${t.ciudades.map(c=>`<span>${c}</span>`).join("")}</div>
-            </div>
-            <div class="ref-cta-row">
-              <button class="ref-cta-btn" id="ref-cta-personalize">Quiero personalizar esta ruta</button>
-              <span class="ref-cta-confirm" id="ref-cta-confirm">¡Listo! Te estamos llevando al formulario...</span>
-            </div>
+
+          <div class="ref-cities-title">Ciudades en ruta sugerida:</div>
+          <div class="ref-cities-chips">
+            ${t.ciudades.map(c=>`<span>${c}</span>`).join("")}
+          </div>
+
+          <div class="ref-cta-row">
+            <button class="ref-cta-btn" id="ref-cta-personalize">Quiero personalizar esta ruta →</button>
+            <span class="ref-cta-confirm" id="ref-cta-confirm">¡Listo! Te estamos llevando al formulario...</span>
           </div>
         </div>
       `;
@@ -4905,27 +4847,19 @@
       const ctaConfirm = document.getElementById("ref-cta-confirm");
       if (ctaBtn) {
         ctaBtn.addEventListener("click", () => {
-          // Pre-fill boarding pass fields
           const bpDestino = document.getElementById('bpDestino');
           const bpFechas = document.getElementById('bpFechas');
-          if (bpDestino) {
-            bpDestino.value = `${t.nombre} (${t.destino})`;
-          }
-          if (bpFechas) {
-            bpFechas.value = `${t.temporada} (${t.dias} días)`;
-          }
+          if (bpDestino) bpDestino.value = `${t.nombre} (${t.destino})`;
+          if (bpFechas) bpFechas.value = `${t.temporada} (${t.dias} días)`;
 
-          // Show confirmation span briefly
           if (ctaConfirm) {
             ctaConfirm.classList.add("show");
             setTimeout(() => { ctaConfirm.classList.remove("show"); }, 3000);
           }
 
-          // Smooth scroll to contact form
           const contactSec = document.getElementById('contacto');
           if (contactSec) {
             contactSec.scrollIntoView({ behavior: 'smooth' });
-            // Focus on travelers input to guide user
             setTimeout(() => {
               const bpViajeros = document.getElementById('bpViajeros');
               if (bpViajeros) bpViajeros.focus();
@@ -4942,18 +4876,13 @@
     function updateRefActiveFromScroll() {
       if(refCurrentList.length===0) return;
       const trackRect = refTrack.getBoundingClientRect();
-      const targetX = trackRect.left + 24; // Left align center line
+      const targetX = trackRect.left + (trackRect.width / 2);
       let closest = null, closestDist = Infinity;
 
       refTrack.querySelectorAll(".ref-card").forEach(card => {
         const r = card.getBoundingClientRect();
-        const dist = Math.abs(r.left - targetX);
-        const maxDist = trackRect.width;
-        const tVal = Math.min(dist/maxDist, 1);
-        const scale = 1 - tVal*0.06; // Muted transition
-        const opacity = 1 - tVal*0.4;
-        card.style.transform = `scale(${scale})`;
-        card.style.opacity = opacity.toFixed(2);
+        const center = r.left + (r.width / 2);
+        const dist = Math.abs(center - targetX);
         card.classList.remove("is-active");
         if(dist < closestDist) { closestDist = dist; closest = card; }
       });
@@ -4982,22 +4911,10 @@
       if (!refTrack) return;
       const card = refTrack.querySelector(`.ref-card[data-id="${id}"]`);
       if(!card) return;
-      const target = card.offsetLeft - 24; // Align to left margin padding
-      refTrack.scrollTo({ left: target, behavior: smooth ? "smooth" : "auto" });
-    }
-
-    /* ---------- Arrows ---------- */
-    const refArrowLeft = document.getElementById("refArrowLeft");
-    const refArrowRight = document.getElementById("refArrowRight");
-
-    if (refArrowLeft) refArrowLeft.addEventListener("click", () => stepRefCard(-1));
-    if (refArrowRight) refArrowRight.addEventListener("click", () => stepRefCard(1));
-
-    function stepRefCard(dir) {
-      if(refCurrentList.length===0) return;
-      const idx = refCurrentList.findIndex(t=>t.id===refState.activeId);
-      const newIdx = (idx + dir + refCurrentList.length) % refCurrentList.length;
-      centerRefCard(refCurrentList[newIdx].id, true);
+      const trackRect = refTrack.getBoundingClientRect();
+      const cardRect = card.getBoundingClientRect();
+      const scrollLeft = refTrack.scrollLeft + cardRect.left - trackRect.left - (trackRect.width/2) + (cardRect.width/2);
+      refTrack.scrollTo({ left: scrollLeft, behavior: smooth ? "smooth" : "auto" });
     }
 
     /* ---------- Search & sort listeners ---------- */
