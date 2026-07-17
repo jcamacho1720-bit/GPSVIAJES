@@ -2638,6 +2638,14 @@
       flex-direction: column;
       gap: .2rem;
     }
+    .ref-info-item.full-width {
+      grid-column: span 2;
+    }
+    @media (max-width: 480px) {
+      .ref-info-item.full-width {
+        grid-column: span 1;
+      }
+    }
     .ref-info-item .lbl {
       font-family: var(--font-mono);
       font-size: .65rem;
@@ -4274,9 +4282,9 @@
   <section class="section" id="viajes-referentes">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow" style="color: var(--brand-sky);">Colección GPS</span>
-        <h2 style="color: #ffffff;">Top Viajes Referentes</h2>
-        <p style="color: rgba(255,255,255,0.75);">17 rutas que ya hemos armado y perfeccionado para nuestros viajeros. Explóralas, compáralas y toma cualquiera como punto de partida — el itinerario final siempre se ajusta a tu fecha, presupuesto y estilo.</p>
+        <span class="eyebrow">Colección GPS</span>
+        <h2>Top Viajes Referentes</h2>
+        <p>17 rutas que ya hemos armado y perfeccionado para nuestros viajeros. Explóralas, compáralas y toma cualquiera como punto de partida — el itinerario final siempre se ajusta a tu fecha, presupuesto y estilo.</p>
       </div>
 
       <div class="ref-controls reveal">
@@ -4744,23 +4752,23 @@
     // VIAJES REFERENTES SECTION LOGIC
     // ============================================
     const refTrips = [
-      {id:"001",continente:"América",nombre:"Cruce Andino Especial",destino:"Chile & Argentina",precio:2178,dias:12,temporada:"Media (Primavera)",estilo:"Paisaje & Naturaleza",origen:"Bogotá (BOG)",ciudades:["Santiago","Puerto Varas","Bariloche","Buenos Aires"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Catamarán Puerto Varas a Bariloche",experiencias:"Navegación por lagos andinos y paisajes patagónicos",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"mountains",variant:"snow",foto:"Viajeros/farellones chile.png"},
-      {id:"002",continente:"América",nombre:"Río de Janeiro & Búzios",destino:"Brasil",precio:1025,dias:7,temporada:"Media (Primavera)",estilo:"Playa & Ciudad",origen:"Bogotá (BOG)",ciudades:["Río de Janeiro","Búzios"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Traslado terrestre Río de Janeiro a Búzios",experiencias:"Estadía y descanso en las playas de Búzios",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"beach",foto:"Viajeros/rio de janeiro brasi.png"},
-      {id:"003",continente:"América",nombre:"Descubre Guatemala",destino:"Guatemala",precio:752,dias:5,temporada:"Media-Baja (Otoño)",estilo:"Aventura & Cultura",origen:"Bogotá (BOG)",ciudades:["Ciudad de Guatemala","Antigua"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Traslado Ciudad de Guatemala a Antigua",experiencias:"Excursión de día completo al Volcán Pacaya",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"mountains",variant:"volcano",foto:"images/yosemite.png"},
-      {id:"004",continente:"Asia",nombre:"Descubre Japón Completo",destino:"Japón",precio:3419,dias:11,temporada:"Alta (Primavera - Sakura)",estilo:"Cultura & Modernidad",origen:"Bogotá (BOG)",ciudades:["Tokio","Kioto","Hakone","Osaka"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Trenes Shinkansen Tokio ↔ Kyoto ↔ Hakone ↔ Osaka",experiencias:"Entrada al Parque Disneyland Japón",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"temple",variant:"sakura",foto:"Viajeros/tokio japon.png"},
-      {id:"005",continente:"América",nombre:"Florida Mágica",destino:"Estados Unidos",precio:2031,dias:8,temporada:"Alta (Verano)",estilo:"Familiar",origen:"Bogotá (BOG)",ciudades:["Miami","Orlando"],alojamiento:"Hoteles 4★ (Miami Beach & Orlando)",conexiones:"Auto de alquiler (Camioneta SUV)",experiencias:"Entrada de 1 día a Disney's Magic Kingdom y entrada a Universal",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"castle",foto:"Viajeros/diseny orlando eeuu.png"},
-      {id:"006",continente:"América",nombre:"Aventura Imperial Perú",destino:"Perú",precio:1408,dias:10,temporada:"Media (Invierno / Seca)",estilo:"Aventura / Cultura",origen:"Bogotá (BOG)",ciudades:["Lima","Cusco","Aguas Calientes"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Tren PeruRail y traslados turísticos",experiencias:"Laguna Humantay, Montaña 7 Colores y guía en Machu Picchu",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"mountains",variant:"terraces",foto:"Viajeros/machu pichu peru.png"},
-      {id:"007",continente:"Europa",nombre:"Joyas de Europa",destino:"Multi-destino (Europa)",precio:3682,dias:19,temporada:"Media (Otoño)",estilo:"Pareja / Luna de Miel",origen:"Bogotá (BOG)",ciudades:["Madrid","Ámsterdam","Brujas","París","Roma","Barcelona"],alojamiento:"Hoteles y hostales boutique 3★ y 4★",conexiones:"Tren (Ámsterdam-Brujas), bus (Brujas-París), vuelos internos",experiencias:"Itinerario multiciudad con traslados y vuelos de conexión incluidos",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"city",foto:"Viajeros/paris francia.png"},
-      {id:"008",continente:"América",nombre:"México Lindo y Playa",destino:"México",precio:1023,dias:7,temporada:"Media (Otoño)",estilo:"Familiar / Pareja",origen:"Bogotá (BOG)",ciudades:["Ciudad de México","Cancún"],alojamiento:"Hoteles 4★ (CDMX & Cancún)",conexiones:"Vuelo interno (CDMX a Cancún)",experiencias:"Excursión de día completo con guía a Chichén Itzá",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"pyramid",foto:"Viajeros/cancun mexico.png"},
-      {id:"009",continente:"Europa",nombre:"Eurotour Esencial",destino:"Multi-destino (Europa)",precio:3099,dias:13,temporada:"Media (Primavera)",estilo:"Pareja / Exploración",origen:"Bogotá (BOG)",ciudades:["Madrid","Ámsterdam","Brujas","París","Roma","Barcelona"],alojamiento:"Hoteles y hostales 3★ y 4★",conexiones:"Autobuses FlixBus (Ámsterdam-Brujas-París), vuelos internos",experiencias:"Exploración libre con vuelos transatlánticos, regionales e internos incluidos",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"city",foto:"Viajeros/amsterdam.png"},
-      {id:"010",continente:"Asia",nombre:"Contrastes de Asia",destino:"Corea del Sur & Japón",precio:4020,dias:16,temporada:"Media (Otoño)",estilo:"Pareja / Aventura",origen:"Bogotá (BOG)",ciudades:["Seúl","Osaka","Kioto","Tokio"],alojamiento:"Hoteles 4★ (Seúl, Osaka, Kioto, Tokio)",conexiones:"Trenes Shinkansen (Osaka-Kioto-Tokio) y vuelo Seúl-Osaka",experiencias:"Itinerario multiciudad asiática: templos y distritos tecnológicos",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"temple",variant:"modern",foto:"Viajeros/hong kong.png"},
-      {id:"011",continente:"América",nombre:"Escapada al Caribe",destino:"República Dominicana",precio:1212,dias:6,temporada:"Alta (Verano)",estilo:"Playa / Descanso",origen:"Bogotá (BOG)",ciudades:["Santo Domingo","Punta Cana"],alojamiento:"Hotel 4★ (S. Domingo) & All-Inclusive (P. Cana)",conexiones:"Traslado terrestre Santo Domingo a Punta Cana",experiencias:"Ciudad histórica colonial y playas del Caribe todo incluido",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"beach",foto:"Viajeros/punta cana.png"},
-      {id:"012",continente:"América",nombre:"Encantos de Puerto Rico",destino:"Puerto Rico",precio:700,dias:6,temporada:"Media (Otoño)",estilo:"Eventos / Playa",origen:"San Juan (SJU)",ciudades:["San Juan"],alojamiento:"Apartamentos & Hotel Caribe Hilton",conexiones:"Traslados locales",experiencias:"Entrada sugerida a evento de Halloween (Hiltonween)",anticipacion:"4 - 5 meses",vuelos:"Parcial",scene:"beach",foto:"images/hero-beach.png"},
-      {id:"013",continente:"América",nombre:"Cuba Histórica y Playa",destino:"Cuba",precio:981,dias:7,temporada:"Media (Todo el año)",estilo:"Cultura & Playa",origen:"Bogotá (BOG)",ciudades:["La Habana","Varadero","Viñales"],alojamiento:"Hotel 4★ (La Habana) & All-Inclusive (Varadero)",conexiones:"Auto privado La Habana a Varadero",experiencias:"Recogida en aeropuerto y tour con guía personalizado a Viñales",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"colonial",foto:"Viajeros/la habana.png"},
-      {id:"014",continente:"América",nombre:"Descubre Panamá",destino:"Panamá",precio:278,dias:4,temporada:"Media (Todo el año)",estilo:"Exprés / Compras",origen:"Bogotá (BOG)",ciudades:["Ciudad de Panamá","Isla Taboga"],alojamiento:"Hotel 4★ con desayuno incluido",conexiones:"Traslados locales",experiencias:"Entrada al Canal de Panamá y visita a Taboga",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"canal",foto:"Viajeros/panama.png"},
-      {id:"015",continente:"Multi-Continente",nombre:"Turquía & Capitales Europeas",destino:"Multi-destino (Europa/Asia)",precio:3200,dias:18,temporada:"Media (Otoño)",estilo:"Cultura & Aventura",origen:"Bogotá (BOG)",ciudades:["Madrid","París","Estambul","Capadocia","Barcelona"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Vuelo doméstico en Turquía, vuelos regionales en Europa",experiencias:"Vuelo en Globo Aerostático en Capadocia y visitas culturales",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"balloon",foto:"images/cappadocia.png"},
-      {id:"016",continente:"Europa",nombre:"Caza de Auroras Boreales",destino:"Escandinavia & Europa",precio:3089,dias:14,temporada:"Alta (Invierno)",estilo:"Aventura & Nieve",origen:"Bogotá (BOG)",ciudades:["Madrid","Oslo","Tromsø","Bergen","Ámsterdam","París"],alojamiento:"Hoteles cómodos y céntricos",conexiones:"Tren (Ámsterdam a París), bus, vuelos internos",experiencias:"Tour guiado de Auroras Boreales en Tromsø y entrada a Disneyland París",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"aurora",foto:"Viajeros/oslo.png"},
-      {id:"017",continente:"Asia",nombre:"Esencia de Japón Express",destino:"Japón",precio:3100,dias:13,temporada:"Media (Otoño)",estilo:"Cultura & Tradición",origen:"Bogotá (BOG)",ciudades:["Tokio","Kioto","Osaka"],alojamiento:"Hoteles 3★ y experiencia Cápsula",conexiones:"Tren bala de Tokio a Kioto, traslados locales",experiencias:"Hospedaje en hotel cápsula tradicional y templos de Kioto",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"temple",variant:"capsule",foto:"Viajeros/kioto japon.png"}
+      {id:"001",continente:"América",nombre:"Cruce Andino Especial",destino:"Chile & Argentina",precio:2178,dias:12,temporada:"Media (Primavera)",estilo:"Paisaje & Naturaleza",origen:"Bogotá (BOG)",ciudades:["Santiago","Puerto Varas","Bariloche","Buenos Aires"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Catamarán Puerto Varas a Bariloche",experiencias:"Navegación por lagos andinos y paisajes patagónicos",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"mountains",variant:"snow",foto:"https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=600&q=80"},
+      {id:"002",continente:"América",nombre:"Río de Janeiro & Búzios",destino:"Brasil",precio:1025,dias:7,temporada:"Media (Primavera)",estilo:"Playa & Ciudad",origen:"Bogotá (BOG)",ciudades:["Río de Janeiro","Búzios"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Traslado terrestre Río de Janeiro a Búzios",experiencias:"Estadía y descanso en las playas de Búzios",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"beach",foto:"https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=600&q=80"},
+      {id:"003",continente:"América",nombre:"Descubre Guatemala",destino:"Guatemala",precio:752,dias:5,temporada:"Media-Baja (Otoño)",estilo:"Aventura & Cultura",origen:"Bogotá (BOG)",ciudades:["Ciudad de Guatemala","Antigua"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Traslado Ciudad de Guatemala a Antigua",experiencias:"Excursión de día completo al Volcán Pacaya",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"mountains",variant:"volcano",foto:"https://images.unsplash.com/photo-1561722798-9eb1770be0b5?auto=format&fit=crop&w=600&q=80"},
+      {id:"004",continente:"Asia",nombre:"Descubre Japón Completo",destino:"Japón",precio:3419,dias:11,temporada:"Alta (Primavera - Sakura)",estilo:"Cultura & Modernidad",origen:"Bogotá (BOG)",ciudades:["Tokio","Kioto","Hakone","Osaka"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Trenes Shinkansen Tokio ↔ Kyoto ↔ Hakone ↔ Osaka",experiencias:"Entrada al Parque Disneyland Japón",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"temple",variant:"sakura",foto:"https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80"},
+      {id:"005",continente:"América",nombre:"Florida Mágica",destino:"Estados Unidos",precio:2031,dias:8,temporada:"Alta (Verano)",estilo:"Familiar",origen:"Bogotá (BOG)",ciudades:["Miami","Orlando"],alojamiento:"Hoteles 4★ (Miami Beach & Orlando)",conexiones:"Auto de alquiler (Camioneta SUV)",experiencias:"Entrada de 1 día a Disney's Magic Kingdom y entrada a Universal",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"castle",foto:"https://images.unsplash.com/photo-1506422748879-887454f9dbf4?auto=format&fit=crop&w=600&q=80"},
+      {id:"006",continente:"América",nombre:"Aventura Imperial Perú",destino:"Perú",precio:1408,dias:10,temporada:"Media (Invierno / Seca)",estilo:"Aventura / Cultura",origen:"Bogotá (BOG)",ciudades:["Lima","Cusco","Aguas Calientes"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Tren PeruRail y traslados turísticos",experiencias:"Laguna Humantay, Montaña 7 Colores y guía en Machu Picchu",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"mountains",variant:"terraces",foto:"https://images.unsplash.com/photo-1587547178001-8c9ebe3e80c6?auto=format&fit=crop&w=600&q=80"},
+      {id:"007",continente:"Europa",nombre:"Joyas de Europa",destino:"Multi-destino (Europa)",precio:3682,dias:19,temporada:"Media (Otoño)",estilo:"Pareja / Luna de Miel",origen:"Bogotá (BOG)",ciudades:["Madrid","Ámsterdam","Brujas","París","Roma","Barcelona"],alojamiento:"Hoteles y hostales boutique 3★ y 4★",conexiones:"Tren (Ámsterdam-Brujas), bus (Brujas-París), vuelos internos",experiencias:"Itinerario multiciudad con traslados y vuelos de conexión incluidos",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"city",foto:"https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80"},
+      {id:"008",continente:"América",nombre:"México Lindo y Playa",destino:"México",precio:1023,dias:7,temporada:"Media (Otoño)",estilo:"Familiar / Pareja",origen:"Bogotá (BOG)",ciudades:["Ciudad de México","Cancún"],alojamiento:"Hoteles 4★ (CDMX & Cancún)",conexiones:"Vuelo interno (CDMX a Cancún)",experiencias:"Excursión de día completo con guía a Chichén Itzá",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"pyramid",foto:"https://images.unsplash.com/photo-1518638150341-db700a4305c4?auto=format&fit=crop&w=600&q=80"},
+      {id:"009",continente:"Europa",nombre:"Eurotour Esencial",destino:"Multi-destino (Europa)",precio:3099,dias:13,temporada:"Media (Primavera)",estilo:"Pareja / Exploración",origen:"Bogotá (BOG)",ciudades:["Madrid","Ámsterdam","Brujas","París","Roma","Barcelona"],alojamiento:"Hoteles y hostales 3★ y 4★",conexiones:"Autobuses FlixBus (Ámsterdam-Brujas-París), vuelos internos",experiencias:"Exploración libre con vuelos transatlánticos, regionales e internos incluidos",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"city",foto:"https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80"},
+      {id:"010",continente:"Asia",nombre:"Contrastes de Asia",destino:"Corea del Sur & Japón",precio:4020,dias:16,temporada:"Media (Otoño)",estilo:"Pareja / Aventura",origen:"Bogotá (BOG)",ciudades:["Seúl","Osaka","Kioto","Tokio"],alojamiento:"Hoteles 4★ (Seúl, Osaka, Kioto, Tokio)",conexiones:"Trenes Shinkansen (Osaka-Kioto-Tokio) y vuelo Seúl-Osaka",experiencias:"Itinerario multiciudad asiática: templos y distritos tecnológicos",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"temple",variant:"modern",foto:"https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80"},
+      {id:"011",continente:"América",nombre:"Escapada al Caribe",destino:"República Dominicana",precio:1212,dias:6,temporada:"Alta (Verano)",estilo:"Playa / Descanso",origen:"Bogotá (BOG)",ciudades:["Santo Domingo","Punta Cana"],alojamiento:"Hotel 4★ (S. Domingo) & All-Inclusive (P. Cana)",conexiones:"Traslado terrestre Santo Domingo a Punta Cana",experiencias:"Ciudad histórica colonial y playas del Caribe todo incluido",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"beach",foto:"https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80"},
+      {id:"012",continente:"América",nombre:"Encantos de Puerto Rico",destino:"Puerto Rico",precio:700,dias:6,temporada:"Media (Otoño)",estilo:"Eventos / Playa",origen:"San Juan (SJU)",ciudades:["San Juan"],alojamiento:"Apartamentos & Hotel Caribe Hilton",conexiones:"Traslados locales",experiencias:"Entrada sugerida a evento de Halloween (Hiltonween)",anticipacion:"4 - 5 meses",vuelos:"Parcial",scene:"beach",foto:"https://images.unsplash.com/photo-1504109586057-7a2ae86d1218?auto=format&fit=crop&w=600&q=80"},
+      {id:"013",continente:"América",nombre:"Cuba Histórica y Playa",destino:"Cuba",precio:981,dias:7,temporada:"Media (Todo el año)",estilo:"Cultura & Playa",origen:"Bogotá (BOG)",ciudades:["La Habana","Varadero","Viñales"],alojamiento:"Hotel 4★ (La Habana) & All-Inclusive (Varadero)",conexiones:"Auto privado La Habana a Varadero",experiencias:"Recogida en aeropuerto y tour con guía personalizado a Viñales",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"colonial",foto:"https://images.unsplash.com/photo-1500043204644-791776557d35?auto=format&fit=crop&w=600&q=80"},
+      {id:"014",continente:"América",nombre:"Descubre Panamá",destino:"Panamá",precio:278,dias:4,temporada:"Media (Todo el año)",estilo:"Exprés / Compras",origen:"Bogotá (BOG)",ciudades:["Ciudad de Panamá","Isla Taboga"],alojamiento:"Hotel 4★ con desayuno incluido",conexiones:"Traslados locales",experiencias:"Entrada al Canal de Panamá y visita a Taboga",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"canal",foto:"https://images.unsplash.com/photo-1533588742-99f658066c07?auto=format&fit=crop&w=600&q=80"},
+      {id:"015",continente:"Multi-Continente",nombre:"Turquía & Capitales Europeas",destino:"Multi-destino (Europa/Asia)",precio:3200,dias:18,temporada:"Media (Otoño)",estilo:"Cultura & Aventura",origen:"Bogotá (BOG)",ciudades:["Madrid","París","Estambul","Capadocia","Barcelona"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Vuelo doméstico en Turquía, vuelos regionales en Europa",experiencias:"Vuelo en Globo Aerostático en Capadocia y visitas culturales",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"balloon",foto:"https://images.unsplash.com/photo-1527838832700-50592524df7e?auto=format&fit=crop&w=600&q=80"},
+      {id:"016",continente:"Europa",nombre:"Caza de Auroras Boreales",destino:"Escandinavia & Europa",precio:3089,dias:14,temporada:"Alta (Invierno)",estilo:"Aventura & Nieve",origen:"Bogotá (BOG)",ciudades:["Madrid","Oslo","Tromsø","Bergen","Ámsterdam","París"],alojamiento:"Hoteles cómodos y céntricos",conexiones:"Tren (Ámsterdam a París), bus, vuelos internos",experiencias:"Tour guiado de Auroras Boreales en Tromsø y entrada a Disneyland París",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"aurora",foto:"https://images.unsplash.com/photo-1483168527879-c66136b56105?auto=format&fit=crop&w=600&q=80"},
+      {id:"017",continente:"Asia",nombre:"Esencia de Japón Express",destino:"Japón",precio:3100,dias:13,temporada:"Media (Otoño)",estilo:"Cultura & Tradición",origen:"Bogotá (BOG)",ciudades:["Tokio","Kioto","Osaka"],alojamiento:"Hoteles 3★ y experiencia Cápsula",conexiones:"Tren bala de Tokio a Kioto, traslados locales",experiencias:"Hospedaje en hotel cápsula tradicional y templos de Kioto",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"temple",variant:"capsule",foto:"https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80"}
     ];
 
     const refContGradientVar = {
@@ -4859,10 +4867,6 @@
             <span class="ref-info-eyebrow">COLECCIÓN GPS · REF-${t.id}</span>
             <h2 class="ref-info-title">${t.nombre}</h2>
             <div class="ref-info-subtitle">${t.destino}</div>
-            <p class="ref-info-desc">
-              Diseño de ruta ideal para <strong>${t.estilo}</strong> durante <strong>${t.dias} días</strong> en temporada <strong>${t.temporada}</strong>. 
-              Incluye visitas a <strong>${t.ciudades.join(", ")}</strong> con experiencias como <strong>${t.experiencias}</strong>.
-            </p>
           </div>
           
           <!-- Bottom Body Part: Navy Background -->
@@ -4877,12 +4881,36 @@
                 <span class="val ${vuelosClass}">${t.vuelos}</span>
               </div>
               <div class="ref-info-item">
+                <span class="lbl">Duración:</span>
+                <span class="val">${t.dias} días</span>
+              </div>
+              <div class="ref-info-item">
+                <span class="lbl">Temporada ideal:</span>
+                <span class="val">${t.temporada}</span>
+              </div>
+              <div class="ref-info-item">
+                <span class="lbl">Estilo de viaje:</span>
+                <span class="val">${t.estilo}</span>
+              </div>
+              <div class="ref-info-item">
                 <span class="lbl">Anticipación:</span>
                 <span class="val">${t.anticipacion}</span>
               </div>
               <div class="ref-info-item">
                 <span class="lbl">Origen de referencia:</span>
                 <span class="val">${t.origen}</span>
+              </div>
+              <div class="ref-info-item full-width">
+                <span class="lbl">Alojamiento sugerido:</span>
+                <span class="val">${t.alojamiento}</span>
+              </div>
+              <div class="ref-info-item full-width">
+                <span class="lbl">Conexiones internas / Traslados:</span>
+                <span class="val">${t.conexiones}</span>
+              </div>
+              <div class="ref-info-item full-width">
+                <span class="lbl">Experiencias incluidas:</span>
+                <span class="val">${t.experiencias}</span>
               </div>
             </div>
 
