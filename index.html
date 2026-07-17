@@ -4892,6 +4892,7 @@
 
     /* ---------- State ---------- */
     let refState = { search: "", continent: "Todos", sort: "default", activeId: refTrips[0].id };
+    let refUserScrolling = false;
 
     const refContinents = ["Todos", ...Array.from(new Set(refTrips.map(t => t.continente)))];
 
@@ -4955,12 +4956,16 @@
       refTrack.querySelectorAll(".ref-card").forEach(card => {
         card.addEventListener("click", () => {
           refInteracted = true;
+          refUserScrolling = false;
+          setActiveRefCard(card.dataset.id);
           centerRefCard(card.dataset.id, true);
         });
         card.addEventListener("keydown", (e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
             refInteracted = true;
+            refUserScrolling = false;
+            setActiveRefCard(card.dataset.id);
             centerRefCard(card.dataset.id, true);
           }
         });
@@ -5125,15 +5130,38 @@
       }
     }
 
+    // Helper to set active card explicitly (for click, arrow nav, and filters)
+    function setActiveRefCard(id) {
+      refState.activeId = id;
+      const cards = refTrack.querySelectorAll(".ref-card");
+      cards.forEach(c => {
+        if (c.dataset.id === id) {
+          c.classList.add("is-active");
+        } else {
+          c.classList.remove("is-active");
+        }
+      });
+      const t = refCurrentList.find(x => x.id === id);
+      renderRefTicket(t);
+    }
+
     if (refTrack) {
-      // Detectar interacción física del usuario con el carrusel (no scroll programático)
+      // Detectar interacción física del usuario con el carrusel
       ["wheel", "touchstart", "mousedown"].forEach(evt => {
-        refTrack.addEventListener(evt, () => { refInteracted = true; }, { passive: true, once: true });
+        refTrack.addEventListener(evt, () => { 
+          refInteracted = true; 
+          refUserScrolling = true; 
+        }, { passive: true });
       });
 
       refTrack.addEventListener("scroll", () => {
         if (!refTicking) {
-          window.requestAnimationFrame(() => { updateRefActiveFromScroll(); refTicking = false; });
+          window.requestAnimationFrame(() => { 
+            if (refUserScrolling) {
+              updateRefActiveFromScroll(); 
+            }
+            refTicking = false; 
+          });
           refTicking = true;
         }
       });
@@ -5158,9 +5186,12 @@
     function stepRefCard(dir) {
       if (refCurrentList.length === 0) return;
       refInteracted = true;
+      refUserScrolling = false;
       const idx = refCurrentList.findIndex(t => t.id === refState.activeId);
       const newIdx = (idx + dir + refCurrentList.length) % refCurrentList.length;
-      centerRefCard(refCurrentList[newIdx].id, true);
+      const targetId = refCurrentList[newIdx].id;
+      setActiveRefCard(targetId);
+      centerRefCard(targetId, true);
     }
 
     /* ---------- Search & sort listeners ---------- */
@@ -5194,8 +5225,9 @@
       if (!stillExists) refState.activeId = refCurrentList[0].id;
 
       requestAnimationFrame(() => {
+        refUserScrolling = false;
+        setActiveRefCard(refState.activeId);
         centerRefCard(refState.activeId, !resetPosition ? true : false);
-        updateRefActiveFromScroll();
       });
     }
 
