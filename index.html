@@ -4831,11 +4831,11 @@
                 </div>
                 <div class="contact-bp-field contact-bp-field-full">
                   <label for="bpFechas">Fechas de viaje</label>
-                  <input id="bpFechas" type="text" placeholder="Ej: Flexible, dd/mm — dd/mm">
+                  <input id="bpFechas" type="text" placeholder="Ej: Flexible, dd/mm — dd/mm" required>
                 </div>
                 <div class="contact-bp-field">
                   <label for="bpViajeros">Viajeros</label>
-                  <input id="bpViajeros" type="number" min="1" placeholder="2" value="2">
+                  <input id="bpViajeros" type="number" min="1" placeholder="2" value="2" required>
                 </div>
                 <div class="contact-bp-field">
                   <label for="bpPresupuesto">Presupuesto por viajero</label>
@@ -4975,7 +4975,7 @@
         const viajeros = document.getElementById('bpViajeros').value || '2';
         const presupuesto = document.getElementById('bpPresupuesto').value;
 
-        const baseMessage = `¡Hola GPS! ✈️\n\nQuiero solicitar la planeación de mi próximo viaje:\n\n📍 *Destino:* ${destino}\n📅 *Fechas:* ${fechas}\n👥 *Viajeros:* ${viajeros}\n💰 *Presupuesto por viajero:* ${presupuesto}\n\n¡Quedo atento a su respuesta!`;
+        const baseMessage = `¡Hola GPS! ✈️\n\nQuiero solicitar la planeación de mi próximo viaje:\n\n✈️ *Destino:* ${destino}\n📅 *Fechas:* ${fechas}\n👥 *Viajeros:* ${viajeros}\n💰 *Presupuesto por viajero:* ${presupuesto}\n\n¡Quedo atento a su respuesta!`;
         const whatsappUrl = `https://wa.me/34623054045?text=${encodeURIComponent(baseMessage)}`;
         
         window.open(whatsappUrl, '_blank');
@@ -5570,7 +5570,7 @@
           const bpDestino = document.getElementById('bpDestino');
           const bpFechas = document.getElementById('bpFechas');
           if (bpDestino) bpDestino.value = `${t.nombre} (${t.destino})`;
-          if (bpFechas) bpFechas.value = `${t.temporada} (${t.dias} días)`;
+          if (bpFechas) bpFechas.value = '';
 
           const contactSec = document.getElementById('contacto');
           if (contactSec) {
