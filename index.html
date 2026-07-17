@@ -4862,6 +4862,17 @@
 
     /* ---------- Ticket panel ---------- */
     const refTicketHost = document.getElementById("refTicketHost");
+// Placeholder when no travel selected
+refTicketHost.innerHTML = `
+  <div class="ref-info-empty" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: 480px; padding: 2rem; text-align: center; color: rgba(255,255,255,0.4); font-family: var(--font-display);">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 56px; height: 56px; margin-bottom: 1.2rem; stroke: var(--blue); opacity: 0.85; animation: bounceRef 2s infinite;">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286.728ZM3 12a9 9 0 1 1 18 0 9 9 0 0 1-18 0Z"/>
+    </svg>
+    <h3 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem; font-weight: 700;">Explora las Rutas</h3>
+    <p style="font-size: 0.85rem; line-height: 1.4; color: #a3b8c9; max-width: 280px;">Toca una tarjeta o desliza el carrusel de la derecha para ver los detalles aquí.</p>
+  </div>
+`;
+
 
     function renderRefTicket(t) {
       if (!refTicketHost) return;
