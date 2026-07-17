@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Top Viajes Referentes — GPS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#081521;
+    --panel:#0d2233;
+    --gold:#F2A63D;
+    --gold-soft:#F2A63D33;
+    --blue:#2E82B5;
+    --sakura:#F2789F;
+    --ink:#EAF1F6;
+    --muted:#8FAAC0;
+    --line:#1E3A4F;
+
+    --america:linear-gradient(160deg,#0B3B54,#06202E);
+    --europa:linear-gradient(160deg,#2B2153,#140F2E);
+    --asia:linear-gradient(160deg,#5C1A2B,#240A12);
+    --multi:linear-gradient(160deg,#1E3A5F,#2B2153);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy-950);color:var(--ink);font-family:'Manrope',sans-serif;}
+
+  .wrap{max-width:1160px;margin:0 auto;padding:3rem 1.5rem 5rem;}
+
+  /* ---------- HEADER ---------- */
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:.72rem;
+    color:var(--gold);
+    display:flex;align-items:center;gap:.6rem;
+    margin-bottom:.8rem;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--gold);}
+  h1.title{
+    font-family:'Archivo',sans-serif;
+    font-weight:900;
+    font-size:clamp(2.1rem,5vw,3.4rem);
+    line-height:1.02;
+    margin:0 0 .9rem;
+    letter-spacing:-.01em;
+  }
+  h1.title span{color:var(--gold);}
+  .subtitle{
+    color:var(--muted);
+    max-width:640px;
+    font-size:1rem;
+    line-height:1.55;
+    margin:0 0 2.4rem;
+  }
+
+  /* ---------- CONTROLS ---------- */
+  .controls{
+    display:flex;flex-wrap:wrap;gap:.9rem;
+    align-items:center;
+    margin-bottom:2.2rem;
+    padding-bottom:1.6rem;
+    border-bottom:1px solid var(--line);
+  }
+  .search-box{
+    position:relative;flex:1 1 220px;min-width:200px;
+  }
+  .search-box input{
+    width:100%;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:.7rem 1rem .7rem 2.3rem;
+    color:var(--ink);
+    font-family:'Manrope',sans-serif;
+    font-size:.92rem;
+    outline:none;
+    transition:border-color .2s;
+  }
+  .search-box input:focus{border-color:var(--gold);}
+  .search-box input::placeholder{color:var(--muted);}
+  .search-box svg{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--muted);}
+
+  .chips{display:flex;gap:.5rem;flex-wrap:wrap;}
+  .chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.74rem;
+    letter-spacing:.03em;
+    padding:.55rem .95rem;
+    border-radius:100px;
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--muted);
+    cursor:pointer;
+    transition:all .18s;
+    white-space:nowrap;
+  }
+  .chip:hover{border-color:var(--gold);color:var(--ink);}
+  .chip.active{background:var(--gold);border-color:var(--gold);color:#241505;font-weight:600;}
+
+  .sort-select{
+    background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    border-radius:10px;padding:.65rem .9rem;font-family:'Manrope',sans-serif;font-size:.85rem;
+    cursor:pointer;
+  }
+
+  .count-line{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--muted);margin:-1.2rem 0 1.5rem;}
+
+  /* ---------- CAROUSEL ---------- */
+  .carousel-wrap{position:relative;margin-bottom:2.4rem;}
+  .track{
+    display:flex;gap:1.4rem;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding:1.5rem calc(50% - 130px);
+    scrollbar-width:none;
+  }
+  .track::-webkit-scrollbar{display:none;}
+
+  .card{
+    scroll-snap-align:center;
+    flex:0 0 auto;
+    width:260px;
+    border-radius:20px;
+    overflow:hidden;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,.06);
+    transform:scale(.86);
+    opacity:.4;
+    transition:box-shadow .25s;
+    will-change:transform,opacity;
+    outline:none;
+  }
+  .card:focus-visible{box-shadow:0 0 0 2px var(--gold);}
+  .card.is-active{box-shadow:0 12px 34px -8px rgba(0,0,0,.55);}
+
+  .scene{height:148px;position:relative;}
+  .scene-svg{width:100%;height:100%;display:block;}
+  .ref-badge{
+    position:absolute;top:.7rem;left:.8rem;
+    font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.05em;
+    color:var(--gold);background:rgba(8,21,33,.55);
+    padding:.2rem .5rem;border-radius:5px;
+  }
+
+  .card-body{padding:1rem 1.15rem 1.2rem;}
+  .card-eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.08em;
+    color:var(--gold);text-transform:uppercase;margin-bottom:.35rem;
+  }
+  .card-title{
+    font-family:'Archivo',sans-serif;font-weight:900;font-size:1.18rem;
+    line-height:1.1;margin:0 0 .2rem;
+  }
+  .card-destino{color:var(--muted);font-size:.82rem;margin-bottom:.9rem;}
+  .card-tags{display:flex;gap:.5rem;flex-wrap:wrap;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:600;
+    padding:.32rem .6rem;border-radius:7px;
+  }
+  .tag.price{background:var(--blue);color:#fff;}
+  .tag.days{background:var(--gold);color:#241505;}
+
+  .arrow{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:42px;height:42px;border-radius:50%;
+    background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;z-index:5;font-size:1.1rem;
+    transition:border-color .2s,background .2s;
+  }
+  .arrow:hover{border-color:var(--gold);background:#132c40;}
+  .arrow.left{left:-6px;}
+  .arrow.right{right:-6px;}
+  @media (max-width:640px){ .arrow{display:none;} }
+
+  /* ---------- TICKET ---------- */
+  .ticket{
+    display:grid;grid-template-columns:1fr 1.6fr;
+    background:var(--panel);
+    border-radius:20px;
+    border:1px solid var(--line);
+    overflow:hidden;
+    position:relative;
+  }
+  @media (max-width:760px){ .ticket{grid-template-columns:1fr;} }
+
+  .stub-left{
+    padding:1.8rem 1.6rem;
+    display:flex;flex-direction:column;justify-content:space-between;
+    position:relative;
+  }
+  .stub-left .brand{
+    display:flex;align-items:center;gap:.5rem;
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;color:var(--muted);
+  }
+  .stub-left .brand svg{width:16px;height:16px;stroke:var(--gold);}
+
+  .ticket-continent{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin:1.1rem 0 .3rem;}
+  .ticket-title{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.6rem;line-height:1.05;margin:0 0 .2rem;}
+  .ticket-destino{color:var(--muted);font-size:.95rem;margin-bottom:1.2rem;}
+
+  .route{position:relative;padding:1rem 0 .4rem;}
+  .route-cities{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink);opacity:.9;display:flex;justify-content:space-between;margin-bottom:.5rem;}
+  .route-line{position:relative;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 11px);}
+  .route-line .plane{
+    position:absolute;top:50%;left:0;transform:translate(-50%,-50%);
+    font-size:.95rem;
+    animation:glide 5s linear infinite;
+  }
+  @keyframes glide{ 0%{left:0%;} 100%{left:100%;} }
+  @media (prefers-reduced-motion:reduce){ .route-line .plane{animation:none;left:50%;} }
+
+  .price-block{margin-top:1.3rem;}
+  .price-value{font-family:'Archivo',sans-serif;font-weight:900;font-size:2.1rem;color:var(--gold);line-height:1;}
+  .price-note{font-size:.72rem;color:var(--muted);margin-top:.4rem;line-height:1.4;font-style:italic;}
+
+  .perforation{
+    position:absolute;top:0;bottom:0;left:0;
+    width:0;border-left:2px dashed var(--line);
+  }
+  .perforation::before,.perforation::after{
+    content:"";position:absolute;left:-8px;width:16px;height:16px;border-radius:50%;background:var(--navy-950);
+  }
+  .perforation::before{top:-8px;}
+  .perforation::after{bottom:-8px;}
+
+  .stub-right{padding:1.8rem 1.9rem;position:relative;}
+  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.6rem;margin-bottom:1.3rem;}
+  @media (max-width:520px){ .detail-grid{grid-template-columns:1fr;} }
+  .detail-item .k{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:.3rem;}
+  .detail-item .v{font-size:.9rem;line-height:1.4;color:var(--ink);}
+  .flights-si{color:#7FD69B;font-weight:700;}
+  .flights-parcial{color:var(--gold);font-weight:700;}
+
+  .cities-chips{display:flex;flex-wrap:wrap;gap:.4rem;}
+  .cities-chips span{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:6px;padding:.2rem .5rem;font-size:.78rem;}
+
+  .cta-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:1rem;border-top:1px solid var(--line);}
+  .cta-btn{
+    font-family:'Manrope',sans-serif;font-weight:700;font-size:.88rem;
+    background:var(--gold);color:#241505;border:none;border-radius:10px;
+    padding:.75rem 1.3rem;cursor:pointer;transition:transform .15s,box-shadow .15s;
+  }
+  .cta-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(242,166,61,.5);}
+  .cta-confirm{font-size:.82rem;color:var(--muted);opacity:0;transition:opacity .2s;}
+  .cta-confirm.show{opacity:1;}
+
+  .footnote{
+    margin-top:1.6rem;font-size:.78rem;color:var(--muted);text-align:center;
+  }
+
+  .empty-state{
+    text-align:center;padding:3rem 1rem;color:var(--muted);
+    font-family:'IBM Plex Mono',monospace;font-size:.9rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="eyebrow">Colección GPS · Diseñados y probados en ruta</div>
+  <h1 class="title">Top Viajes <span>Referentes</span></h1>
+  <p class="subtitle">17 rutas que ya hemos armado y perfeccionado para nuestros viajeros. Explóralas, compáralas y toma cualquiera como punto de partida — el itinerario final siempre se ajusta a tu fecha, presupuesto y estilo.</p>
+
+  <div class="controls">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="search" type="text" placeholder="Buscar por destino o nombre del viaje…">
+    </div>
+    <div class="chips" id="chips"></div>
+    <select class="sort-select" id="sort">
+      <option value="default">Orden: destacados</option>
+      <option value="price-asc">Precio: menor a mayor</option>
+      <option value="price-desc">Precio: mayor a menor</option>
+      <option value="days-asc">Duración: más corto primero</option>
+    </select>
+  </div>
+
+  <div class="count-line" id="count-line"></div>
+
+  <div class="carousel-wrap">
+    <button class="arrow left" id="arrow-left" aria-label="Anterior">‹</button>
+    <div class="track" id="track"></div>
+    <button class="arrow right" id="arrow-right" aria-label="Siguiente">›</button>
+  </div>
+
+  <div id="ticket-host"></div>
+
+  <div class="footnote">* Los precios son de referencia por persona. El valor y disponibilidad final se confirman al personalizar tu viaje con un asesor GPS.</div>
+
+</div>
+
+<script>
+const trips = [
+  {id:"001",continente:"América",nombre:"Cruce Andino Especial",destino:"Chile & Argentina",precio:2178,dias:12,temporada:"Media (Primavera)",estilo:"Paisaje & Naturaleza",origen:"Bogotá (BOG)",ciudades:["Santiago","Puerto Varas","Bariloche","Buenos Aires"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Catamarán Puerto Varas a Bariloche",experiencias:"Navegación por lagos andinos y paisajes patagónicos",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"mountains",variant:"snow"},
+  {id:"002",continente:"América",nombre:"Río de Janeiro & Búzios",destino:"Brasil",precio:1025,dias:7,temporada:"Media (Primavera)",estilo:"Playa & Ciudad",origen:"Bogotá (BOG)",ciudades:["Río de Janeiro","Búzios"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Traslado terrestre Río de Janeiro a Búzios",experiencias:"Estadía y descanso en las playas de Búzios",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"beach"},
+  {id:"003",continente:"América",nombre:"Descubre Guatemala",destino:"Guatemala",precio:752,dias:5,temporada:"Media-Baja (Otoño)",estilo:"Aventura & Cultura",origen:"Bogotá (BOG)",ciudades:["Ciudad de Guatemala","Antigua"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Traslado Ciudad de Guatemala a Antigua",experiencias:"Excursión de día completo al Volcán Pacaya",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"mountains",variant:"volcano"},
+  {id:"004",continente:"Asia",nombre:"Descubre Japón Completo",destino:"Japón",precio:3419,dias:11,temporada:"Alta (Primavera - Sakura)",estilo:"Cultura & Modernidad",origen:"Bogotá (BOG)",ciudades:["Tokio","Kioto","Hakone","Osaka"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Trenes Shinkansen Tokio ↔ Kyoto ↔ Hakone ↔ Osaka",experiencias:"Entrada al Parque Disneyland Japón",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"temple",variant:"sakura"},
+  {id:"005",continente:"América",nombre:"Florida Mágica",destino:"Estados Unidos",precio:2031,dias:8,temporada:"Alta (Verano)",estilo:"Familiar",origen:"Bogotá (BOG)",ciudades:["Miami","Orlando"],alojamiento:"Hoteles 4★ (Miami Beach & Orlando)",conexiones:"Auto de alquiler (Camioneta SUV)",experiencias:"Entrada de 1 día a Disney's Magic Kingdom y entrada a Universal",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"castle"},
+  {id:"006",continente:"América",nombre:"Aventura Imperial Perú",destino:"Perú",precio:1408,dias:10,temporada:"Media (Invierno / Seca)",estilo:"Aventura / Cultura",origen:"Bogotá (BOG)",ciudades:["Lima","Cusco","Aguas Calientes"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Tren PeruRail y traslados turísticos",experiencias:"Laguna Humantay, Montaña 7 Colores y guía en Machu Picchu",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"mountains",variant:"terraces"},
+  {id:"007",continente:"Europa",nombre:"Joyas de Europa",destino:"Multi-destino (Europa)",precio:3682,dias:19,temporada:"Media (Otoño)",estilo:"Pareja / Luna de Miel",origen:"Bogotá (BOG)",ciudades:["Madrid","Ámsterdam","Brujas","París","Roma","Barcelona"],alojamiento:"Hoteles y hostales boutique 3★ y 4★",conexiones:"Tren (Ámsterdam-Brujas), bus (Brujas-París), vuelos internos",experiencias:"Itinerario multiciudad con traslados y vuelos de conexión incluidos",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"city"},
+  {id:"008",continente:"América",nombre:"México Lindo y Playa",destino:"México",precio:1023,dias:7,temporada:"Media (Otoño)",estilo:"Familiar / Pareja",origen:"Bogotá (BOG)",ciudades:["Ciudad de México","Cancún"],alojamiento:"Hoteles 4★ (CDMX & Cancún)",conexiones:"Vuelo interno (CDMX a Cancún)",experiencias:"Excursión de día completo con guía a Chichén Itzá",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"pyramid"},
+  {id:"009",continente:"Europa",nombre:"Eurotour Esencial",destino:"Multi-destino (Europa)",precio:3099,dias:13,temporada:"Media (Primavera)",estilo:"Pareja / Exploración",origen:"Bogotá (BOG)",ciudades:["Madrid","Ámsterdam","Brujas","París","Roma","Barcelona"],alojamiento:"Hoteles y hostales 3★ y 4★",conexiones:"Autobuses FlixBus (Ámsterdam-Brujas-París), vuelos internos",experiencias:"Exploración libre con vuelos transatlánticos, regionales e internos incluidos",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"city"},
+  {id:"010",continente:"Asia",nombre:"Contrastes de Asia",destino:"Corea del Sur & Japón",precio:4020,dias:16,temporada:"Media (Otoño)",estilo:"Pareja / Aventura",origen:"Bogotá (BOG)",ciudades:["Seúl","Osaka","Kioto","Tokio"],alojamiento:"Hoteles 4★ (Seúl, Osaka, Kioto, Tokio)",conexiones:"Trenes Shinkansen (Osaka-Kioto-Tokio) y vuelo Seúl-Osaka",experiencias:"Itinerario multiciudad asiática: templos y distritos tecnológicos",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"temple",variant:"modern"},
+  {id:"011",continente:"América",nombre:"Escapada al Caribe",destino:"República Dominicana",precio:1212,dias:6,temporada:"Alta (Verano)",estilo:"Playa / Descanso",origen:"Bogotá (BOG)",ciudades:["Santo Domingo","Punta Cana"],alojamiento:"Hotel 4★ (S. Domingo) & All-Inclusive (P. Cana)",conexiones:"Traslado terrestre Santo Domingo a Punta Cana",experiencias:"Ciudad histórica colonial y playas del Caribe todo incluido",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"beach"},
+  {id:"012",continente:"América",nombre:"Encantos de Puerto Rico",destino:"Puerto Rico",precio:700,dias:6,temporada:"Media (Otoño)",estilo:"Eventos / Playa",origen:"San Juan (SJU)",ciudades:["San Juan"],alojamiento:"Apartamentos & Hotel Caribe Hilton",conexiones:"Traslados locales",experiencias:"Entrada sugerida a evento de Halloween (Hiltonween)",anticipacion:"4 - 5 meses",vuelos:"Parcial",scene:"beach"},
+  {id:"013",continente:"América",nombre:"Cuba Histórica y Playa",destino:"Cuba",precio:981,dias:7,temporada:"Media (Todo el año)",estilo:"Cultura & Playa",origen:"Bogotá (BOG)",ciudades:["La Habana","Varadero","Viñales"],alojamiento:"Hotel 4★ (La Habana) & All-Inclusive (Varadero)",conexiones:"Auto privado La Habana a Varadero",experiencias:"Recogida en aeropuerto y tour con guía personalizado a Viñales",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"colonial"},
+  {id:"014",continente:"América",nombre:"Descubre Panamá",destino:"Panamá",precio:278,dias:4,temporada:"Media (Todo el año)",estilo:"Exprés / Compras",origen:"Bogotá (BOG)",ciudades:["Ciudad de Panamá","Isla Taboga"],alojamiento:"Hotel 4★ con desayuno incluido",conexiones:"Traslados locales",experiencias:"Entrada al Canal de Panamá y visita a Taboga",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"canal"},
+  {id:"015",continente:"Multi-Continente",nombre:"Turquía & Capitales Europeas",destino:"Multi-destino (Europa/Asia)",precio:3200,dias:18,temporada:"Media (Otoño)",estilo:"Cultura & Aventura",origen:"Bogotá (BOG)",ciudades:["Madrid","París","Estambul","Capadocia","Barcelona"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Vuelo doméstico en Turquía, vuelos regionales en Europa",experiencias:"Vuelo en Globo Aerostático en Capadocia y visitas culturales",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"balloon"},
+  {id:"016",continente:"Europa",nombre:"Caza de Auroras Boreales",destino:"Escandinavia & Europa",precio:3089,dias:14,temporada:"Alta (Invierno)",estilo:"Aventura & Nieve",origen:"Bogotá (BOG)",ciudades:["Madrid","Oslo","Tromsø","Bergen","Ámsterdam","París"],alojamiento:"Hoteles cómodos y céntricos",conexiones:"Tren (Ámsterdam a París), bus, vuelos internos",experiencias:"Tour guiado de Auroras Boreales en Tromsø y entrada a Disneyland París",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"aurora"},
+  {id:"017",continente:"Asia",nombre:"Esencia de Japón Express",destino:"Japón",precio:3100,dias:13,temporada:"Media (Otoño)",estilo:"Cultura & Tradición",origen:"Bogotá (BOG)",ciudades:["Tokio","Kioto","Osaka"],alojamiento:"Hoteles 3★ y experiencia Cápsula",conexiones:"Tren bala de Tokio a Kioto, traslados locales",experiencias:"Hospedaje en hotel cápsula tradicional y templos de Kioto",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"temple",variant:"capsule"},
+];
+
+const contGradientVar = {"América":"var(--america)","Europa":"var(--europa)","Asia":"var(--asia)","Multi-Continente":"var(--multi)"};
+
+/* ---------- SVG scene illustrations ---------- */
+function sceneSVG(t){
+  const A = "#F2A63D";
+  let inner = "";
+  switch(t.scene){
+    case "mountains": {
+      const peaks = t.variant==="volcano"
+        ? "0,150 60,60 100,110 150,40 190,100 240,70 300,150"
+        : "0,150 50,70 100,120 160,50 220,100 300,150";
+      inner += `<path d="M${peaks} Z" fill="${A}" fill-opacity="0.16" stroke="${A}" stroke-width="2"/>`;
+      if(t.variant==="volcano"){
+        inner += `<path d="M100,110 q6,-18 -4,-30 q10,6 8,-16" stroke="${A}" stroke-width="2" fill="none" opacity="0.55"/>`;
+      }
+      if(t.variant==="snow"){
+        inner += `<path d="M150,40 l14,16 -8,4 -6,-6 -6,6 -8,-4 Z" fill="${A}" opacity="0.5"/>`;
+      }
+      if(t.variant==="terraces"){
+        for(let i=0;i<4;i++){ inner+=`<rect x="${168+i*11}" y="${94+i*9}" width="${64-i*11}" height="4" fill="${A}" opacity="0.35"/>`; }
+      }
+      break;
+    }
+    case "beach": {
+      inner += `<circle cx="240" cy="42" r="20" fill="${A}" opacity="0.45"/>`;
+      for(let i=0;i<3;i++){
+        const y = 108 + i*14;
+        inner += `<path d="M0,${y} Q75,${y-16} 150,${y} T300,${y}" stroke="${A}" stroke-width="2" fill="none" opacity="${0.5-i*0.12}"/>`;
+      }
+      inner += `<path d="M40,150 Q40,102 30,90 Q52,96 56,122 Q60,96 76,84 Q66,110 60,150 Z" fill="${A}" opacity="0.35"/>`;
+      break;
+    }
+    case "temple": {
+      for(let i=0;i<3;i++){
+        const y = 150-i*28, w = 140-i*32;
+        inner += `<path d="M${150-w/2},${y} L150,${y-24} L${150+w/2},${y} Z" fill="none" stroke="${A}" stroke-width="2"/>`;
+      }
+      inner += `<line x1="150" y1="150" x2="150" y2="98" stroke="${A}" stroke-width="2"/>`;
+      if(t.variant==="modern"){
+        inner += `<rect x="222" y="42" width="16" height="108" fill="${A}" opacity="0.2"/><rect x="246" y="64" width="14" height="86" fill="${A}" opacity="0.16"/>`;
+      }
+      if(t.variant==="sakura"){
+        for(let i=0;i<6;i++){ inner+=`<circle cx="${18+i*46}" cy="${18+(i%2)*10}" r="3" fill="#F2789F" opacity="0.75"/>`; }
+      }
+      if(t.variant==="capsule"){
+        for(let i=0;i<3;i++){ inner += `<rect x="28" y="${58+i*20}" width="42" height="14" rx="4" fill="none" stroke="${A}" stroke-width="1.5" opacity="0.6"/>`; }
+      }
+      break;
+    }
+    case "city": {
+      const bw=[18,26,20,32,16,24]; let x=18;
+      bw.forEach((w,i)=>{ const h=48+(i%3)*30; inner+=`<rect x="${x}" y="${150-h}" width="${w}" height="${h}" fill="${A}" opacity="0.16" stroke="${A}" stroke-width="1.5"/>`; x+=w+9; });
+      inner += `<line x1="${x+8}" y1="150" x2="${x+8}" y2="34" stroke="${A}" stroke-width="2"/><circle cx="${x+8}" cy="30" r="4" fill="${A}"/>`;
+      break;
+    }
+    case "castle": {
+      inner += `<rect x="120" y="90" width="60" height="60" fill="${A}" opacity="0.18" stroke="${A}" stroke-width="2"/>`;
+      [110,175].forEach(x=>{ inner+=`<rect x="${x}" y="70" width="16" height="80" fill="${A}" opacity="0.2" stroke="${A}" stroke-width="2"/><path d="M${x},70 L${x+8},55 L${x+16},70 Z" fill="${A}" opacity="0.3"/>`; });
+      inner += `<line x1="150" y1="90" x2="150" y2="60" stroke="${A}" stroke-width="2"/><path d="M150,60 L165,66 L150,70 Z" fill="${A}"/>`;
+      inner += `<path d="M30,150 Q30,112 20,102 Q40,108 44,132 Q48,108 62,98 Q52,122 48,150 Z" fill="${A}" opacity="0.28"/>`;
+      break;
+    }
+    case "pyramid": {
+      inner += `<path d="M150,40 L220,150 L80,150 Z" fill="${A}" opacity="0.18" stroke="${A}" stroke-width="2"/>`;
+      for(let i=1;i<5;i++){ inner += `<line x1="${150-i*14}" y1="${40+i*22}" x2="${150+i*14}" y2="${40+i*22}" stroke="${A}" stroke-width="1" opacity="0.3"/>`; }
+      inner += `<path d="M0,150 Q75,138 150,150 T300,150" stroke="${A}" stroke-width="2" fill="none" opacity="0.35"/>`;
+      break;
+    }
+    case "colonial": {
+      inner += `<rect x="90" y="80" width="120" height="70" fill="${A}" opacity="0.16" stroke="${A}" stroke-width="2"/>`;
+      for(let i=0;i<4;i++){ inner+=`<rect x="${102+i*28}" y="95" width="14" height="20" fill="none" stroke="${A}" stroke-width="1.5"/>`; }
+      inner += `<rect x="58" y="120" width="34" height="14" rx="3" fill="none" stroke="${A}" stroke-width="1.5"/><circle cx="66" cy="138" r="4" fill="${A}"/><circle cx="84" cy="138" r="4" fill="${A}"/>`;
+      inner += `<path d="M0,150 Q75,140 150,150 T300,150" stroke="${A}" stroke-width="2" fill="none" opacity="0.3"/>`;
+      break;
+    }
+    case "canal": {
+      inner += `<rect x="40" y="70" width="90" height="30" rx="2" fill="${A}" opacity="0.2" stroke="${A}" stroke-width="2"/><rect x="60" y="55" width="16" height="18" fill="${A}" opacity="0.28"/>`;
+      inner += `<line x1="0" y1="110" x2="300" y2="110" stroke="${A}" stroke-width="2" opacity="0.4"/>`;
+      inner += `<path d="M170,90 L230,90 L230,110 L170,110 Z" fill="none" stroke="${A}" stroke-width="2"/><line x1="200" y1="70" x2="200" y2="90" stroke="${A}" stroke-width="2"/>`;
+      for(let i=0;i<3;i++){ inner+= `<path d="M0,${120+i*10} Q75,${112+i*10} 150,${120+i*10} T300,${120+i*10}" stroke="${A}" stroke-width="1.5" fill="none" opacity="${0.4-i*0.1}"/>`; }
+      break;
+    }
+    case "balloon": {
+      inner += `<ellipse cx="90" cy="58" rx="30" ry="38" fill="none" stroke="${A}" stroke-width="2"/><rect x="82" y="96" width="16" height="12" fill="none" stroke="${A}" stroke-width="1.5"/>`;
+      inner += `<ellipse cx="205" cy="88" rx="22" ry="28" fill="none" stroke="${A}" stroke-width="2" opacity="0.6"/><rect x="199" y="116" width="12" height="9" fill="none" stroke="${A}" stroke-width="1.5" opacity="0.6"/>`;
+      [[30,150,14,50],[252,150,10,40],[272,150,8,30]].forEach(([x,y,w,h])=>{ inner+=`<path d="M${x-w/2},${y} L${x-w/4},${y-h} Q${x},${y-h-8} ${x+w/4},${y-h} L${x+w/2},${y} Z" fill="${A}" opacity="0.2"/>`; });
+      break;
+    }
+    case "aurora": {
+      for(let i=0;i<3;i++){ inner += `<path d="M0,${40+i*16} Q75,${10+i*16} 150,${40+i*16} T300,${40+i*16}" stroke="${A}" stroke-width="3" fill="none" opacity="${0.5-i*0.12}"/>`; }
+      inner += `<path d="M0,150 L60,90 L100,130 L160,70 L220,140 L260,100 L300,150 Z" fill="${A}" opacity="0.18" stroke="${A}" stroke-width="1.5"/>`;
+      for(let i=0;i<8;i++){ inner += `<circle cx="${(i*37)%300}" cy="${18+(i*13)%30}" r="1.3" fill="#fff" opacity="0.55"/>`; }
+      break;
+    }
+  }
+  return `<svg viewBox="0 0 300 150" class="scene-svg" preserveAspectRatio="xMidYMid slice">${inner}</svg>`;
+}
+
+/* ---------- Helpers ---------- */
+function fmtPrice(n){ return "$ " + n.toLocaleString("de-DE") + " USD"; }
+function normalize(s){ return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
+
+/* ---------- State ---------- */
+let state = { search:"", continent:"Todos", sort:"default", activeId: trips[0].id };
+
+const continents = ["Todos", ...Array.from(new Set(trips.map(t=>t.continente)))];
+
+function getFiltered(){
+  let list = trips.filter(t=>{
+    const matchesContinent = state.continent==="Todos" || t.continente===state.continent;
+    const q = normalize(state.search);
+    const matchesSearch = !q || normalize(t.nombre).includes(q) || normalize(t.destino).includes(q) || normalize(t.estilo).includes(q);
+    return matchesContinent && matchesSearch;
+  });
+  if(state.sort==="price-asc") list.sort((a,b)=>a.precio-b.precio);
+  if(state.sort==="price-desc") list.sort((a,b)=>b.precio-a.precio);
+  if(state.sort==="days-asc") list.sort((a,b)=>a.dias-b.dias);
+  return list;
+}
+
+/* ---------- Render chips ---------- */
+const chipsEl = document.getElementById("chips");
+function renderChips(){
+  chipsEl.innerHTML = continents.map(c=>{
+    const count = c==="Todos" ? trips.length : trips.filter(t=>t.continente===c).length;
+    return `<button class="chip ${state.continent===c?'active':''}" data-c="${c}">${c} (${count})</button>`;
+  }).join("");
+  chipsEl.querySelectorAll(".chip").forEach(btn=>{
+    btn.addEventListener("click", ()=>{ state.continent = btn.dataset.c; renderAll(true); });
+  });
+}
+
+/* ---------- Render track ---------- */
+const track = document.getElementById("track");
+const countLine = document.getElementById("count-line");
+
+function renderTrack(list){
+  countLine.textContent = list.length + (list.length===1 ? " viaje encontrado" : " viajes encontrados");
+  if(list.length===0){
+    track.innerHTML = "";
+    return;
+  }
+  track.innerHTML = list.map(t=>`
+    <div class="card" data-id="${t.id}" tabindex="0" role="button" aria-label="${t.nombre}" style="background:${contGradientVar[t.continente]}">
+      <div class="scene">
+        <div class="ref-badge">REF. GPS-${t.id}</div>
+        ${sceneSVG(t)}
+      </div>
+      <div class="card-body">
+        <div class="card-eyebrow">${t.continente} · ${t.estilo}</div>
+        <h3 class="card-title">${t.nombre}</h3>
+        <div class="card-destino">${t.destino}</div>
+        <div class="card-tags">
+          <span class="tag price">${fmtPrice(t.precio)}</span>
+          <span class="tag days">${t.dias} días</span>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  track.querySelectorAll(".card").forEach(card=>{
+    card.addEventListener("click", ()=> centerCard(card.dataset.id, true));
+    card.addEventListener("keydown", (e)=>{
+      if(e.key==="Enter" || e.key===" "){ e.preventDefault(); centerCard(card.dataset.id, true); }
+    });
+  });
+}
+
+/* ---------- Ticket panel ---------- */
+const ticketHost = document.getElementById("ticket-host");
+
+function renderTicket(t){
+  if(!t){ ticketHost.innerHTML = `<div class="empty-state">No encontramos viajes con esos filtros. Prueba con otro destino o quita el filtro de continente.</div>`; return; }
+  const vuelosClass = t.vuelos==="Sí" ? "flights-si" : "flights-parcial";
+  ticketHost.innerHTML = `
+    <div class="ticket">
+      <div class="stub-left" style="background:${contGradientVar[t.continente]}">
+        <div class="brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+          GPS · REF-${t.id}
+        </div>
+        <div>
+          <div class="ticket-continent">${t.continente}</div>
+          <h2 class="ticket-title">${t.nombre}</h2>
+          <div class="ticket-destino">${t.destino}</div>
+          <div class="route">
+            <div class="route-cities"><span>${t.origen}</span><span>${t.ciudades[0]}</span></div>
+            <div class="route-line"><span class="plane">✈</span></div>
+          </div>
+          <div class="price-block">
+            <div class="price-value">${fmtPrice(t.precio)}</div>
+            <div class="price-note">*Precio de referencia por persona. Varía según fechas, disponibilidad y personalización.</div>
+          </div>
+        </div>
+      </div>
+      <div class="perforation"></div>
+      <div class="stub-right">
+        <div class="detail-grid">
+          <div class="detail-item"><div class="k">Duración</div><div class="v">${t.dias} días</div></div>
+          <div class="detail-item"><div class="k">Temporada ideal</div><div class="v">${t.temporada}</div></div>
+          <div class="detail-item"><div class="k">Estilo de viaje</div><div class="v">${t.estilo}</div></div>
+          <div class="detail-item"><div class="k">Alojamiento</div><div class="v">${t.alojamiento}</div></div>
+          <div class="detail-item"><div class="k">Conexiones internas</div><div class="v">${t.conexiones}</div></div>
+          <div class="detail-item"><div class="k">Vuelos incluidos</div><div class="v ${vuelosClass}">${t.vuelos}</div></div>
+          <div class="detail-item"><div class="k">Anticipación requerida</div><div class="v">${t.anticipacion}</div></div>
+          <div class="detail-item"><div class="k">Origen</div><div class="v">${t.origen}</div></div>
+        </div>
+        <div class="detail-item" style="margin-bottom:1.2rem;">
+          <div class="k">Experiencias incluidas</div>
+          <div class="v">${t.experiencias}</div>
+        </div>
+        <div class="detail-item" style="margin-bottom:1.2rem;">
+          <div class="k">Ciudades que se visitan</div>
+          <div class="cities-chips">${t.ciudades.map(c=>`<span>${c}</span>`).join("")}</div>
+        </div>
+        <div class="cta-row">
+          <button class="cta-btn" id="cta-personalize">Quiero personalizar esta ruta</button>
+          <span class="cta-confirm" id="cta-confirm">¡Listo! Un asesor GPS te escribirá para ajustar fechas y detalles.</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const ctaBtn = document.getElementById("cta-personalize");
+  const ctaConfirm = document.getElementById("cta-confirm");
+  ctaBtn.addEventListener("click", ()=>{ ctaConfirm.classList.add("show"); });
+}
+
+/* ---------- Carousel active detection ---------- */
+let currentList = [];
+let ticking = false;
+
+function updateActiveFromScroll(){
+  if(currentList.length===0) return;
+  const trackRect = track.getBoundingClientRect();
+  const centerX = trackRect.left + trackRect.width/2;
+  let closest = null, closestDist = Infinity;
+
+  track.querySelectorAll(".card").forEach(card=>{
+    const r = card.getBoundingClientRect();
+    const cardCenter = r.left + r.width/2;
+    const dist = Math.abs(cardCenter - centerX);
+    const maxDist = trackRect.width/2 + r.width/2;
+    const t = Math.min(dist/maxDist, 1);
+    const scale = 1 - t*0.32;
+    const opacity = 1 - t*0.75;
+    card.style.transform = `scale(${scale})`;
+    card.style.opacity = opacity.toFixed(2);
+    card.classList.remove("is-active");
+    if(dist < closestDist){ closestDist = dist; closest = card; }
+  });
+
+  if(closest){
+    closest.classList.add("is-active");
+    const id = closest.dataset.id;
+    if(id !== state.activeId){
+      state.activeId = id;
+      const t = currentList.find(x=>x.id===id);
+      renderTicket(t);
+    }
+  }
+}
+
+track.addEventListener("scroll", ()=>{
+  if(!ticking){
+    window.requestAnimationFrame(()=>{ updateActiveFromScroll(); ticking = false; });
+    ticking = true;
+  }
+});
+
+function centerCard(id, smooth){
+  const card = track.querySelector(`.card[data-id="${id}"]`);
+  if(!card) return;
+  const target = card.offsetLeft - (track.clientWidth/2 - card.clientWidth/2);
+  track.scrollTo({ left: target, behavior: smooth ? "smooth" : "auto" });
+}
+
+/* ---------- Arrows ---------- */
+document.getElementById("arrow-left").addEventListener("click", ()=> stepCard(-1));
+document.getElementById("arrow-right").addEventListener("click", ()=> stepCard(1));
+
+function stepCard(dir){
+  if(currentList.length===0) return;
+  const idx = currentList.findIndex(t=>t.id===state.activeId);
+  const newIdx = (idx + dir + currentList.length) % currentList.length;
+  centerCard(currentList[newIdx].id, true);
+}
+
+/* ---------- Search & sort listeners ---------- */
+document.getElementById("search").addEventListener("input", (e)=>{ state.search = e.target.value; renderAll(true); });
+document.getElementById("sort").addEventListener("change", (e)=>{ state.sort = e.target.value; renderAll(true); });
+
+/* ---------- Master render ---------- */
+function renderAll(resetPosition){
+  renderChips();
+  currentList = getFiltered();
+  renderTrack(currentList);
+
+  if(currentList.length===0){ renderTicket(null); return; }
+
+  const stillExists = currentList.some(t=>t.id===state.activeId);
+  if(!stillExists) state.activeId = currentList[0].id;
+
+  requestAnimationFrame(()=>{
+    centerCard(state.activeId, !resetPosition ? true : false);
+    updateActiveFromScroll();
+  });
+}
+
+renderAll(false);
+window.addEventListener("resize", ()=> updateActiveFromScroll());
+</script>
+</body>
+</html>
