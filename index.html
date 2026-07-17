@@ -4752,23 +4752,23 @@
     // VIAJES REFERENTES SECTION LOGIC
     // ============================================
     const refTrips = [
-      {id:"001",continente:"América",nombre:"Cruce Andino Especial",destino:"Chile & Argentina",precio:2178,dias:12,temporada:"Media (Primavera)",estilo:"Paisaje & Naturaleza",origen:"Bogotá (BOG)",ciudades:["Santiago","Puerto Varas","Bariloche","Buenos Aires"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Catamarán Puerto Varas a Bariloche",experiencias:"Navegación por lagos andinos y paisajes patagónicos",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"mountains",variant:"snow",foto:"https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=600&q=80"},
-      {id:"002",continente:"América",nombre:"Río de Janeiro & Búzios",destino:"Brasil",precio:1025,dias:7,temporada:"Media (Primavera)",estilo:"Playa & Ciudad",origen:"Bogotá (BOG)",ciudades:["Río de Janeiro","Búzios"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Traslado terrestre Río de Janeiro a Búzios",experiencias:"Estadía y descanso en las playas de Búzios",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"beach",foto:"https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=600&q=80"},
-      {id:"003",continente:"América",nombre:"Descubre Guatemala",destino:"Guatemala",precio:752,dias:5,temporada:"Media-Baja (Otoño)",estilo:"Aventura & Cultura",origen:"Bogotá (BOG)",ciudades:["Ciudad de Guatemala","Antigua"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Traslado Ciudad de Guatemala a Antigua",experiencias:"Excursión de día completo al Volcán Pacaya",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"mountains",variant:"volcano",foto:"https://images.unsplash.com/photo-1561722798-9eb1770be0b5?auto=format&fit=crop&w=600&q=80"},
-      {id:"004",continente:"Asia",nombre:"Descubre Japón Completo",destino:"Japón",precio:3419,dias:11,temporada:"Alta (Primavera - Sakura)",estilo:"Cultura & Modernidad",origen:"Bogotá (BOG)",ciudades:["Tokio","Kioto","Hakone","Osaka"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Trenes Shinkansen Tokio ↔ Kyoto ↔ Hakone ↔ Osaka",experiencias:"Entrada al Parque Disneyland Japón",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"temple",variant:"sakura",foto:"https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80"},
-      {id:"005",continente:"América",nombre:"Florida Mágica",destino:"Estados Unidos",precio:2031,dias:8,temporada:"Alta (Verano)",estilo:"Familiar",origen:"Bogotá (BOG)",ciudades:["Miami","Orlando"],alojamiento:"Hoteles 4★ (Miami Beach & Orlando)",conexiones:"Auto de alquiler (Camioneta SUV)",experiencias:"Entrada de 1 día a Disney's Magic Kingdom y entrada a Universal",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"castle",foto:"https://images.unsplash.com/photo-1506422748879-887454f9dbf4?auto=format&fit=crop&w=600&q=80"},
-      {id:"006",continente:"América",nombre:"Aventura Imperial Perú",destino:"Perú",precio:1408,dias:10,temporada:"Media (Invierno / Seca)",estilo:"Aventura / Cultura",origen:"Bogotá (BOG)",ciudades:["Lima","Cusco","Aguas Calientes"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Tren PeruRail y traslados turísticos",experiencias:"Laguna Humantay, Montaña 7 Colores y guía en Machu Picchu",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"mountains",variant:"terraces",foto:"https://images.unsplash.com/photo-1587547178001-8c9ebe3e80c6?auto=format&fit=crop&w=600&q=80"},
-      {id:"007",continente:"Europa",nombre:"Joyas de Europa",destino:"Multi-destino (Europa)",precio:3682,dias:19,temporada:"Media (Otoño)",estilo:"Pareja / Luna de Miel",origen:"Bogotá (BOG)",ciudades:["Madrid","Ámsterdam","Brujas","París","Roma","Barcelona"],alojamiento:"Hoteles y hostales boutique 3★ y 4★",conexiones:"Tren (Ámsterdam-Brujas), bus (Brujas-París), vuelos internos",experiencias:"Itinerario multiciudad con traslados y vuelos de conexión incluidos",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"city",foto:"https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80"},
-      {id:"008",continente:"América",nombre:"México Lindo y Playa",destino:"México",precio:1023,dias:7,temporada:"Media (Otoño)",estilo:"Familiar / Pareja",origen:"Bogotá (BOG)",ciudades:["Ciudad de México","Cancún"],alojamiento:"Hoteles 4★ (CDMX & Cancún)",conexiones:"Vuelo interno (CDMX a Cancún)",experiencias:"Excursión de día completo con guía a Chichén Itzá",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"pyramid",foto:"https://images.unsplash.com/photo-1518638150341-db700a4305c4?auto=format&fit=crop&w=600&q=80"},
-      {id:"009",continente:"Europa",nombre:"Eurotour Esencial",destino:"Multi-destino (Europa)",precio:3099,dias:13,temporada:"Media (Primavera)",estilo:"Pareja / Exploración",origen:"Bogotá (BOG)",ciudades:["Madrid","Ámsterdam","Brujas","París","Roma","Barcelona"],alojamiento:"Hoteles y hostales 3★ y 4★",conexiones:"Autobuses FlixBus (Ámsterdam-Brujas-París), vuelos internos",experiencias:"Exploración libre con vuelos transatlánticos, regionales e internos incluidos",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"city",foto:"https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80"},
-      {id:"010",continente:"Asia",nombre:"Contrastes de Asia",destino:"Corea del Sur & Japón",precio:4020,dias:16,temporada:"Media (Otoño)",estilo:"Pareja / Aventura",origen:"Bogotá (BOG)",ciudades:["Seúl","Osaka","Kioto","Tokio"],alojamiento:"Hoteles 4★ (Seúl, Osaka, Kioto, Tokio)",conexiones:"Trenes Shinkansen (Osaka-Kioto-Tokio) y vuelo Seúl-Osaka",experiencias:"Itinerario multiciudad asiática: templos y distritos tecnológicos",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"temple",variant:"modern",foto:"https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80"},
-      {id:"011",continente:"América",nombre:"Escapada al Caribe",destino:"República Dominicana",precio:1212,dias:6,temporada:"Alta (Verano)",estilo:"Playa / Descanso",origen:"Bogotá (BOG)",ciudades:["Santo Domingo","Punta Cana"],alojamiento:"Hotel 4★ (S. Domingo) & All-Inclusive (P. Cana)",conexiones:"Traslado terrestre Santo Domingo a Punta Cana",experiencias:"Ciudad histórica colonial y playas del Caribe todo incluido",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"beach",foto:"https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80"},
-      {id:"012",continente:"América",nombre:"Encantos de Puerto Rico",destino:"Puerto Rico",precio:700,dias:6,temporada:"Media (Otoño)",estilo:"Eventos / Playa",origen:"San Juan (SJU)",ciudades:["San Juan"],alojamiento:"Apartamentos & Hotel Caribe Hilton",conexiones:"Traslados locales",experiencias:"Entrada sugerida a evento de Halloween (Hiltonween)",anticipacion:"4 - 5 meses",vuelos:"Parcial",scene:"beach",foto:"https://images.unsplash.com/photo-1504109586057-7a2ae86d1218?auto=format&fit=crop&w=600&q=80"},
-      {id:"013",continente:"América",nombre:"Cuba Histórica y Playa",destino:"Cuba",precio:981,dias:7,temporada:"Media (Todo el año)",estilo:"Cultura & Playa",origen:"Bogotá (BOG)",ciudades:["La Habana","Varadero","Viñales"],alojamiento:"Hotel 4★ (La Habana) & All-Inclusive (Varadero)",conexiones:"Auto privado La Habana a Varadero",experiencias:"Recogida en aeropuerto y tour con guía personalizado a Viñales",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"colonial",foto:"https://images.unsplash.com/photo-1500043204644-791776557d35?auto=format&fit=crop&w=600&q=80"},
-      {id:"014",continente:"América",nombre:"Descubre Panamá",destino:"Panamá",precio:278,dias:4,temporada:"Media (Todo el año)",estilo:"Exprés / Compras",origen:"Bogotá (BOG)",ciudades:["Ciudad de Panamá","Isla Taboga"],alojamiento:"Hotel 4★ con desayuno incluido",conexiones:"Traslados locales",experiencias:"Entrada al Canal de Panamá y visita a Taboga",anticipacion:"4 - 5 meses",vuelos:"Sí",scene:"canal",foto:"https://images.unsplash.com/photo-1533588742-99f658066c07?auto=format&fit=crop&w=600&q=80"},
-      {id:"015",continente:"Multi-Continente",nombre:"Turquía & Capitales Europeas",destino:"Multi-destino (Europa/Asia)",precio:3200,dias:18,temporada:"Media (Otoño)",estilo:"Cultura & Aventura",origen:"Bogotá (BOG)",ciudades:["Madrid","París","Estambul","Capadocia","Barcelona"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Vuelo doméstico en Turquía, vuelos regionales en Europa",experiencias:"Vuelo en Globo Aerostático en Capadocia y visitas culturales",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"balloon",foto:"https://images.unsplash.com/photo-1527838832700-50592524df7e?auto=format&fit=crop&w=600&q=80"},
-      {id:"016",continente:"Europa",nombre:"Caza de Auroras Boreales",destino:"Escandinavia & Europa",precio:3089,dias:14,temporada:"Alta (Invierno)",estilo:"Aventura & Nieve",origen:"Bogotá (BOG)",ciudades:["Madrid","Oslo","Tromsø","Bergen","Ámsterdam","París"],alojamiento:"Hoteles cómodos y céntricos",conexiones:"Tren (Ámsterdam a París), bus, vuelos internos",experiencias:"Tour guiado de Auroras Boreales en Tromsø y entrada a Disneyland París",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"aurora",foto:"https://images.unsplash.com/photo-1483168527879-c66136b56105?auto=format&fit=crop&w=600&q=80"},
-      {id:"017",continente:"Asia",nombre:"Esencia de Japón Express",destino:"Japón",precio:3100,dias:13,temporada:"Media (Otoño)",estilo:"Cultura & Tradición",origen:"Bogotá (BOG)",ciudades:["Tokio","Kioto","Osaka"],alojamiento:"Hoteles 3★ y experiencia Cápsula",conexiones:"Tren bala de Tokio a Kioto, traslados locales",experiencias:"Hospedaje en hotel cápsula tradicional y templos de Kioto",anticipacion:"6 - 8 meses",vuelos:"Sí",scene:"temple",variant:"capsule",foto:"https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80"}
+      {id:"001",continente:"América",nombre:"Cruce Andino Especial",destino:"Chile & Argentina",precio:2178,dias:12,temporada:"Media (Primavera)",estilo:"Paisaje & Naturaleza",origen:"Bogotá (BOG)",ciudades:["Santiago","Puerto Varas","Bariloche","Buenos Aires"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Catamarán Puerto Varas a Bariloche",experiencias:"Navegación por lagos andinos y paisajes patagónicos",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Santiago y Buenos Aires ➔ Bogotá",foto:"https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=600&q=80"},
+      {id:"002",continente:"América",nombre:"Río de Janeiro & Búzios",destino:"Brasil",precio:1025,dias:7,temporada:"Media (Primavera)",estilo:"Playa & Ciudad",origen:"Bogotá (BOG)",ciudades:["Río de Janeiro","Búzios"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Traslado terrestre Río de Janeiro a Búzios",experiencias:"Estadía y descanso en las playas de Búzios",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Río de Janeiro ➔ Bogotá",foto:"https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=600&q=80"},
+      {id:"003",continente:"América",nombre:"Descubre Guatemala",destino:"Guatemala",precio:752,dias:5,temporada:"Media-Baja (Otoño)",estilo:"Aventura & Cultura",origen:"Bogotá (BOG)",ciudades:["Ciudad de Guatemala","Antigua"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Traslado Ciudad de Guatemala a Antigua",experiencias:"Excursión de día completo al Volcán Pacaya",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Ciudad de Guatemala ➔ Bogotá",foto:"https://images.unsplash.com/photo-1561722798-9eb1770be0b5?auto=format&fit=crop&w=600&q=80"},
+      {id:"004",continente:"Asia",nombre:"Descubre Japón Completo",destino:"Japón",precio:3419,dias:11,temporada:"Alta (Primavera - Sakura)",estilo:"Cultura & Modernidad",origen:"Bogotá (BOG)",ciudades:["Tokio","Kioto","Hakone","Osaka"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Trenes Shinkansen Tokio ↔ Kyoto ↔ Hakone ↔ Osaka",experiencias:"Entrada al Parque Disneyland Japón",anticipacion:"6 - 8 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Tokio y Osaka ➔ Bogotá",foto:"https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80"},
+      {id:"005",continente:"América",nombre:"Florida Mágica",destino:"Estados Unidos",precio:2031,dias:8,temporada:"Alta (Verano)",estilo:"Familiar",origen:"Bogotá (BOG)",ciudades:["Miami","Orlando"],alojamiento:"Hoteles 4★ (Miami Beach & Orlando)",conexiones:"Auto de alquiler (Camioneta SUV)",experiencias:"Entrada de 1 día a Disney's Magic Kingdom y entrada a Universal",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Miami ➔ Bogotá",foto:"https://images.unsplash.com/photo-1506422748879-887454f9dbf4?auto=format&fit=crop&w=600&q=80"},
+      {id:"006",continente:"América",nombre:"Aventura Imperial Perú",destino:"Perú",precio:1408,dias:10,temporada:"Media (Invierno / Seca)",estilo:"Aventura / Cultura",origen:"Bogotá (BOG)",ciudades:["Lima","Cusco","Aguas Calientes"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Tren PeruRail y traslados turísticos",experiencias:"Laguna Humantay, Montaña 7 Colores y guía en Machu Picchu",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Lima y Cusco ➔ Bogotá",foto:"https://images.unsplash.com/photo-1587547178001-8c9ebe3e80c6?auto=format&fit=crop&w=600&q=80"},
+      {id:"007",continente:"Europa",nombre:"Joyas de Europa",destino:"Multi-destino (Europa)",precio:3682,dias:19,temporada:"Media (Otoño)",estilo:"Pareja / Luna de Miel",origen:"Bogotá (BOG)",ciudades:["Madrid","Ámsterdam","Brujas","París","Roma","Barcelona"],alojamiento:"Hoteles y hostales boutique 3★ y 4★",conexiones:"Tren (Ámsterdam-Brujas), bus (Brujas-París), vuelos internos",experiencias:"Itinerario multiciudad con traslados y vuelos de conexión incluidos",anticipacion:"6 - 8 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Madrid y Roma ➔ Bogotá",foto:"https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80"},
+      {id:"008",continente:"América",nombre:"México Lindo y Playa",destino:"México",precio:1023,dias:7,temporada:"Media (Otoño)",estilo:"Familiar / Pareja",origen:"Bogotá (BOG)",ciudades:["Ciudad de México","Cancún"],alojamiento:"Hoteles 4★ (CDMX & Cancún)",conexiones:"Vuelo interno (CDMX a Cancún)",experiencias:"Excursión de día completo con guía a Chichén Itzá",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Ciudad de México y Cancún ➔ Bogotá",foto:"https://images.unsplash.com/photo-1518638150341-db700a4305c4?auto=format&fit=crop&w=600&q=80"},
+      {id:"009",continente:"Europa",nombre:"Eurotour Esencial",destino:"Multi-destino (Europa)",precio:3099,dias:13,temporada:"Media (Primavera)",estilo:"Pareja / Exploración",origen:"Bogotá (BOG)",ciudades:["Madrid","Ámsterdam","Brujas","París","Roma","Barcelona"],alojamiento:"Hoteles y hostales 3★ y 4★",conexiones:"Autobuses FlixBus (Ámsterdam-Brujas-París), vuelos internos",experiencias:"Exploración libre con vuelos transatlánticos, regionales e internos incluidos",anticipacion:"6 - 8 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Madrid y Barcelona ➔ Bogotá",foto:"https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80"},
+      {id:"010",continente:"Asia",nombre:"Contrastes de Asia",destino:"Corea del Sur & Japón",precio:4020,dias:16,temporada:"Media (Otoño)",estilo:"Pareja / Aventura",origen:"Bogotá (BOG)",ciudades:["Seúl","Osaka","Kioto","Tokio"],alojamiento:"Hoteles 4★ (Seúl, Osaka, Kioto, Tokio)",conexiones:"Trenes Shinkansen (Osaka-Kioto-Tokio) y vuelo Seúl-Osaka",experiencias:"Itinerario multiciudad asiática: templos y distritos tecnológicos",anticipacion:"6 - 8 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Seúl y Tokio ➔ Bogotá",foto:"https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80"},
+      {id:"011",continente:"América",nombre:"Escapada al Caribe",destino:"República Dominicana",precio:1212,dias:6,temporada:"Alta (Verano)",estilo:"Playa / Descanso",origen:"Bogotá (BOG)",ciudades:["Santo Domingo","Punta Cana"],alojamiento:"Hotel 4★ (S. Domingo) & All-Inclusive (P. Cana)",conexiones:"Traslado terrestre Santo Domingo a Punta Cana",experiencias:"Ciudad histórica colonial y playas del Caribe todo incluido",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Santo Domingo ➔ Bogotá",foto:"https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80"},
+      {id:"012",continente:"América",nombre:"Encantos de Puerto Rico",destino:"Puerto Rico",precio:700,dias:6,temporada:"Media (Otoño)",estilo:"Eventos / Playa",origen:"San Juan (SJU)",ciudades:["San Juan"],alojamiento:"Apartamentos & Hotel Caribe Hilton",conexiones:"Traslados locales",experiencias:"Entrada sugerida a evento de Halloween (Hiltonween)",anticipacion:"4 - 5 meses",vuelos:"Parcial",rutaVuelo:"Vuelos no incluidos (Sugerido: Bogotá ➔ San Juan ➔ Bogotá)",foto:"https://images.unsplash.com/photo-1504109586057-7a2ae86d1218?auto=format&fit=crop&w=600&q=80"},
+      {id:"013",continente:"América",nombre:"Cuba Histórica y Playa",destino:"Cuba",precio:981,dias:7,temporada:"Media (Todo el año)",estilo:"Cultura & Playa",origen:"Bogotá (BOG)",ciudades:["La Habana","Varadero","Viñales"],alojamiento:"Hotel 4★ (La Habana) & All-Inclusive (Varadero)",conexiones:"Auto privado La Habana a Varadero",experiencias:"Recogida en aeropuerto y tour con guía personalizado a Viñales",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ La Habana ➔ Bogotá",foto:"https://images.unsplash.com/photo-1500043204644-791776557d35?auto=format&fit=crop&w=600&q=80"},
+      {id:"014",continente:"América",nombre:"Descubre Panamá",destino:"Panamá",precio:278,dias:4,temporada:"Media (Todo el año)",estilo:"Exprés / Compras",origen:"Bogotá (BOG)",ciudades:["Ciudad de Panamá","Isla Taboga"],alojamiento:"Hotel 4★ con desayuno incluido",conexiones:"Traslados locales",experiencias:"Entrada al Canal de Panamá y visita a Taboga",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Ciudad de Panamá ➔ Bogotá",foto:"https://images.unsplash.com/photo-1533588742-99f658066c07?auto=format&fit=crop&w=600&q=80"},
+      {id:"015",continente:"Multi-Continente",nombre:"Turquía & Capitales Europeas",destino:"Multi-destino (Europa/Asia)",precio:3200,dias:18,temporada:"Media (Otoño)",estilo:"Cultura & Aventura",origen:"Bogotá (BOG)",ciudades:["Madrid","París","Estambul","Capadocia","Barcelona"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Vuelo doméstico en Turquía, vuelos regionales en Europa",experiencias:"Vuelo en Globo Aerostático en Capadocia y visitas culturales",anticipacion:"6 - 8 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ París y Estambul ➔ Bogotá",foto:"https://images.unsplash.com/photo-1527838832700-50592524df7e?auto=format&fit=crop&w=600&q=80"},
+      {id:"016",continente:"Europa",nombre:"Caza de Auroras Boreales",destino:"Escandinavia & Europa",precio:3089,dias:14,temporada:"Alta (Invierno)",estilo:"Aventura & Nieve",origen:"Bogotá (BOG)",ciudades:["Madrid","Oslo","Tromsø","Bergen","Ámsterdam","París"],alojamiento:"Hoteles cómodos y céntricos",conexiones:"Tren (Ámsterdam a París), bus, vuelos internos",experiencias:"Tour guiado de Auroras Boreales en Tromsø y entrada a Disneyland París",anticipacion:"6 - 8 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Oslo y Tromsø ➔ Bogotá",foto:"https://images.unsplash.com/photo-1483168527879-c66136b56105?auto=format&fit=crop&w=600&q=80"},
+      {id:"017",continente:"Asia",nombre:"Esencia de Japón Express",destino:"Japón",precio:3100,dias:13,temporada:"Media (Otoño)",estilo:"Cultura & Tradición",origen:"Bogotá (BOG)",ciudades:["Tokio","Kioto","Osaka"],alojamiento:"Hoteles 3★ y experiencia Cápsula",conexiones:"Tren bala de Tokio a Kioto, traslados locales",experiencias:"Hospedaje en hotel cápsula tradicional y templos de Kioto",anticipacion:"6 - 8 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Tokio ➔ Bogotá",foto:"https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80"}
     ];
 
     const refContGradientVar = {
@@ -4799,7 +4799,6 @@
       if(refState.sort==="days-asc") list.sort((a,b)=>a.dias-b.dias);
       return list;
     }
-
     /* ---------- Render chips ---------- */
     const refChipsEl = document.getElementById("refChips");
     function renderRefChips() {
@@ -4809,7 +4808,11 @@
         return `<button class="ref-chip ${refState.continent===c?'active':''}" data-c="${c}">${c} (${count})</button>`;
       }).join("");
       refChipsEl.querySelectorAll(".ref-chip").forEach(btn => {
-        btn.addEventListener("click", () => { refState.continent = btn.dataset.c; renderRefAll(true); });
+        btn.addEventListener("click", () => { 
+          refInteracted = true;
+          refState.continent = btn.dataset.c; 
+          renderRefAll(true); 
+        });
       });
     }
 
@@ -4843,9 +4846,16 @@
       `).join("");
 
       refTrack.querySelectorAll(".ref-card").forEach(card => {
-        card.addEventListener("click", () => centerRefCard(card.dataset.id, true));
+        card.addEventListener("click", () => {
+          refInteracted = true;
+          centerRefCard(card.dataset.id, true);
+        });
         card.addEventListener("keydown", (e) => {
-          if(e.key==="Enter" || e.key===" ") { e.preventDefault(); centerRefCard(card.dataset.id, true); }
+          if(e.key==="Enter" || e.key===" ") {
+            e.preventDefault();
+            refInteracted = true;
+            centerRefCard(card.dataset.id, true);
+          }
         });
       });
     }
@@ -4859,7 +4869,28 @@
         refTicketHost.innerHTML = `<div class="ref-empty-state">No encontramos viajes referentes con esos filtros. Prueba con otro destino o quita el filtro de continente.</div>`;
         return;
       }
+      if (!refInteracted) {
+        refTicketHost.innerHTML = `
+          <div class="ref-info-empty" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: 480px; padding: 2rem; text-align: center; color: rgba(255,255,255,0.4); font-family: var(--font-display);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 56px; height: 56px; margin-bottom: 1.2rem; stroke: var(--blue); opacity: 0.85; animation: bounceRef 2s infinite;"><path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286.728ZM3 12a9 9 0 1 1 18 0 9 9 0 0 1-18 0Z"/></svg>
+            <style>
+              @keyframes bounceRef {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-8px); }
+              }
+            </style>
+            <h3 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem; font-weight: 700;">Explora las Rutas</h3>
+            <p style="font-size: 0.85rem; line-height: 1.4; color: #a3b8c9; max-width: 280px;">Toca una tarjeta o desliza el carrusel de la derecha para ver los detalles aquí.</p>
+          </div>
+        `;
+        return;
+      }
+
       const vuelosClass = t.vuelos==="Sí" ? "ref-flights-si" : "ref-flights-parcial";
+      const vuelosInfo = t.vuelos === "Sí"
+        ? `Incluidos (Ruta de referencia: ${t.rutaVuelo})`
+        : `No incluidos (Sugerida: ${t.rutaVuelo})`;
+
       refTicketHost.innerHTML = `
         <div class="ref-info-card">
           <!-- Top Header Part: Photo Background -->
@@ -4877,8 +4908,8 @@
                 <span class="val price font-display">${refFmtPrice(t.precio)}</span>
               </div>
               <div class="ref-info-item">
-                <span class="lbl">Vuelos incluidos:</span>
-                <span class="val ${vuelosClass}">${t.vuelos}</span>
+                <span class="lbl">Origen de referencia:</span>
+                <span class="val">${t.origen}</span>
               </div>
               <div class="ref-info-item">
                 <span class="lbl">Duración:</span>
@@ -4889,16 +4920,12 @@
                 <span class="val">${t.temporada}</span>
               </div>
               <div class="ref-info-item">
-                <span class="lbl">Estilo de viaje:</span>
-                <span class="val">${t.estilo}</span>
-              </div>
-              <div class="ref-info-item">
-                <span class="lbl">Anticipación:</span>
+                <span class="lbl">Anticipación de planeación:</span>
                 <span class="val">${t.anticipacion}</span>
               </div>
-              <div class="ref-info-item">
-                <span class="lbl">Origen de referencia:</span>
-                <span class="val">${t.origen}</span>
+              <div class="ref-info-item full-width">
+                <span class="lbl">Vuelos de referencia:</span>
+                <span class="val ${vuelosClass}">${vuelosInfo}</span>
               </div>
               <div class="ref-info-item full-width">
                 <span class="lbl">Alojamiento sugerido:</span>
@@ -4956,6 +4983,8 @@
     /* ---------- Carousel active detection ---------- */
     let refCurrentList = [];
     let refTicking = false;
+    let refInteracted = false;
+    let initialScrollDone = false;
 
     function updateRefActiveFromScroll() {
       if(refCurrentList.length===0) return;
@@ -4963,18 +4992,37 @@
       const targetX = trackRect.left + (trackRect.width / 2);
       let closest = null, closestDist = Infinity;
 
-      refTrack.querySelectorAll(".ref-card").forEach(card => {
-        const r = card.getBoundingClientRect();
-        const center = r.left + (r.width / 2);
-        const dist = Math.abs(center - targetX);
-        card.classList.remove("is-active");
-        if(dist < closestDist) { closestDist = dist; closest = card; }
-      });
+      const cards = refTrack.querySelectorAll(".ref-card");
+      const isAtStart = refTrack.scrollLeft <= 15;
+      const isAtEnd = refTrack.scrollLeft + refTrack.clientWidth >= refTrack.scrollWidth - 25;
+
+      if (isAtStart && cards.length > 0) {
+        closest = cards[0];
+      } else if (isAtEnd && cards.length > 0) {
+        closest = cards[cards.length - 1];
+      } else {
+        cards.forEach(card => {
+          const r = card.getBoundingClientRect();
+          const center = r.left + (r.width / 2);
+          const dist = Math.abs(center - targetX);
+          if(dist < closestDist) { closestDist = dist; closest = card; }
+        });
+      }
+
+      cards.forEach(c => c.classList.remove("is-active"));
 
       if(closest) {
         closest.classList.add("is-active");
         const id = closest.dataset.id;
-        if(id !== refState.activeId) {
+        
+        if (initialScrollDone && !refInteracted) {
+          refInteracted = true;
+          const t = refCurrentList.find(x=>x.id===id);
+          renderRefTicket(t);
+          return;
+        }
+
+        if(id !== refState.activeId || !initialScrollDone) {
           refState.activeId = id;
           const t = refCurrentList.find(x=>x.id===id);
           renderRefTicket(t);
@@ -5001,15 +5049,38 @@
       refTrack.scrollTo({ left: scrollLeft, behavior: smooth ? "smooth" : "auto" });
     }
 
+    /* ---------- Arrows ---------- */
+    const refArrowLeft = document.getElementById("refArrowLeft");
+    const refArrowRight = document.getElementById("refArrowRight");
+
+    if (refArrowLeft) refArrowLeft.addEventListener("click", () => stepRefCard(-1));
+    if (refArrowRight) refArrowRight.addEventListener("click", () => stepRefCard(1));
+
+    function stepRefCard(dir) {
+      if(refCurrentList.length===0) return;
+      refInteracted = true;
+      const idx = refCurrentList.findIndex(t=>t.id===refState.activeId);
+      const newIdx = (idx + dir + refCurrentList.length) % refCurrentList.length;
+      centerRefCard(refCurrentList[newIdx].id, true);
+    }
+
     /* ---------- Search & sort listeners ---------- */
     const refSearchInput = document.getElementById("refSearch");
     const refSortSelect = document.getElementById("refSort");
 
     if (refSearchInput) {
-      refSearchInput.addEventListener("input", (e) => { refState.search = e.target.value; renderRefAll(true); });
+      refSearchInput.addEventListener("input", (e) => {
+        refInteracted = true;
+        refState.search = e.target.value;
+        renderRefAll(true);
+      });
     }
     if (refSortSelect) {
-      refSortSelect.addEventListener("change", (e) => { refState.sort = e.target.value; renderRefAll(true); });
+      refSortSelect.addEventListener("change", (e) => {
+        refInteracted = true;
+        refState.sort = e.target.value;
+        renderRefAll(true);
+      });
     }
 
     /* ---------- Master render ---------- */
@@ -5035,6 +5106,9 @@
     // Trigger initial render of Ref All
     setTimeout(() => {
       renderRefAll(false);
+      setTimeout(() => {
+        initialScrollDone = true;
+      }, 400);
     }, 100);
   </script>
 </body>
