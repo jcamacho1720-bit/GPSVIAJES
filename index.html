@@ -5030,12 +5030,15 @@ refTicketHost.innerHTML = `
 
     if (refTrack) {
       refTrack.addEventListener("scroll", () => {
+        // Primera vez que el usuario desliza → activar interacción
+        if (!refInteracted) refInteracted = true;
         if(!refTicking) {
           window.requestAnimationFrame(() => { updateRefActiveFromScroll(); refTicking = false; });
           refTicking = true;
         }
       });
     }
+
 
     function centerRefCard(id, smooth) {
       if (!refTrack) return;
