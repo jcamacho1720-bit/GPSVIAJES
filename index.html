@@ -2432,9 +2432,9 @@
         <img src="images/logo-horizontal-white.png" alt="GPS Planeación de Viajes" class="brand-logo-img">
       </a>
       <nav class="main-nav" id="mainNav">
-        <a href="#beneficios">Beneficios</a>
-        <a href="#mapa">Viajeros GPS</a>
         <a href="#como-funciona">Cómo funciona</a>
+        <a href="#mapa">Viajeros GPS</a>
+        <a href="#beneficios">Beneficios</a>
         <a href="#contacto" class="btn btn-coral"
           style="font-family: var(--font-display); font-size: 11px; letter-spacing: 0.05em; padding: 10px 22px; margin-left: 12px;">Planea
           ahora</a>
@@ -2472,7 +2472,7 @@
       </div>
     </div>
     <div class="hero-scroll-indicator"
-      onclick="document.getElementById('beneficios').scrollIntoView({behavior: 'smooth'});">
+      onclick="document.getElementById('como-funciona').scrollIntoView({behavior: 'smooth'});">
       <span>Desliza abajo</span>
       <div class="scroll-mouse">
         <div class="scroll-wheel"></div>
@@ -2480,71 +2480,41 @@
     </div>
   </section>
 
-  <!-- ============================================ BENEFITS ============================================ -->
-  <section class="section" id="beneficios">
+  <!-- ============================================ HOW IT WORKS ============================================ -->
+  <section class="section" id="como-funciona">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Por qué GPS</span>
-        <h2>Planeación experta, sin el estrés de planear.</h2>
-        <p>No cobramos por vender un paquete armado. Cobramos un fee de planeación por diseñar el viaje correcto para ti
-          — y eso cambia todo.</p>
+      <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+        <span class="eyebrow">El proceso</span>
+        <h2>De la idea a la maleta, en cuatro pasos.</h2>
+        <p>Un proceso simple y directo, pensado para que solo te preocupes por disfrutar el viaje.</p>
       </div>
 
-      <div class="benefits-grid">
-        <!-- Ventanilla 1: Ahorra tiempo -->
-        <div class="airplane-window window-view-1 reveal">
-          <div class="window-blind"></div>
-          <div class="window-content">
-            <div class="window-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-            </div>
-            <h3>Ahorra tiempo real</h3>
-            <p>Olvídate de 40 pestañas comparando vuelos y hoteles. Nuestro equipo arma tu ruta completa mientras tú
-              solo empacas la maleta.</p>
+      <div class="steps reveal">
+        <div class="steps-track">
+          <div class="step">
+            <div class="step-num">01</div>
+            <h3>Cuéntanos tu viaje ideal</h3>
+            <p>Destino, fechas, presupuesto y estilo de viaje. Así de simple, directo desde el boarding pass de abajo.
+            </p>
           </div>
-        </div>
-
-        <!-- Ventanilla 2: Asesor experto -->
-        <div class="airplane-window window-view-2 reveal">
-          <div class="window-blind"></div>
-          <div class="window-content">
-            <div class="window-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-            </div>
-            <h3>Un consultor experto</h3>
-            <p>Te asignamos un asesor que conoce el destino, la temporada y los atajos que ningún blog cuenta. Cero
-              adivinar, todo calculado.</p>
+          <div class="step">
+            <div class="step-num">02</div>
+            <h3>Paga tu fee de planeación</h3>
+            <p>Un pago único para que nuestro equipo se ponga manos a la obra en tu ruta a la medida.</p>
           </div>
-        </div>
-
-        <!-- Ventanilla 3: Todo en un link -->
-        <div class="airplane-window window-view-3 reveal">
-          <div class="window-blind"></div>
-          <div class="window-content">
-            <div class="window-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-              </svg>
-            </div>
-            <h3>Tu viaje en un link</h3>
-            <p>Itinerario, documentos, reservas y actividades en un solo lugar — disponible en tu teléfono o laptop,
-              incluso sin señal.</p>
+          <div class="step">
+            <div class="step-num">03</div>
+            <h3>Recibe tu plan en 48h</h3>
+            <p>Ruta, vuelos, hospedaje y actividades — todo entregado en un solo link, en tu teléfono o laptop.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <h3>Reserva y despega</h3>
+            <p>Tú decides, reservas en minutos con nuestras recomendaciones y vives tu viaje sin sorpresas.</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
   </section>
 
   <!-- ============================================ MAP (signature) ============================================ -->
@@ -3798,37 +3768,65 @@
     </div>
   </section>
 
-  <!-- ============================================ HOW IT WORKS ============================================ -->
-  <section class="section" id="como-funciona">
+  <!-- ============================================ BENEFITS ============================================ -->
+  <section class="section" id="beneficios">
     <div class="wrap">
-      <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
-        <span class="eyebrow">El proceso</span>
-        <h2>De la idea a la maleta, en cuatro pasos.</h2>
-        <p>Un proceso simple y directo, pensado para que solo te preocupes por disfrutar el viaje.</p>
+      <div class="section-head reveal">
+        <span class="eyebrow">Por qué GPS</span>
+        <h2>Planeación experta, sin el estrés de planear.</h2>
+        <p>No cobramos por vender un paquete armado. Cobramos un fee de planeación por diseñar el viaje correcto para ti
+          — y eso cambia todo.</p>
       </div>
 
-      <div class="steps reveal">
-        <div class="steps-track">
-          <div class="step">
-            <div class="step-num">01</div>
-            <h3>Cuéntanos tu viaje ideal</h3>
-            <p>Destino, fechas, presupuesto y estilo de viaje. Así de simple, directo desde el boarding pass de abajo.
-            </p>
+      <div class="benefits-grid">
+        <!-- Ventanilla 1: Ahorro de tiempo -->
+        <div class="airplane-window window-view-1 reveal">
+          <div class="window-blind"></div>
+          <div class="window-content">
+            <div class="window-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <h3>+40 horas ahorradas</h3>
+            <p>Dejamos de lado las decenas de pestañas de navegación abiertas, las tarifas confusas y las reseñas falsas.
+              Nosotros lo resolvemos todo.</p>
           </div>
-          <div class="step">
-            <div class="step-num">02</div>
-            <h3>Paga tu fee de planeación</h3>
-            <p>Un pago único para que nuestro equipo se ponga manos a la obra en tu ruta a la medida.</p>
+        </div>
+
+        <!-- Ventanilla 2: Asesor experto -->
+        <div class="airplane-window window-view-2 reveal">
+          <div class="window-blind"></div>
+          <div class="window-content">
+            <div class="window-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            </div>
+            <h3>Un consultor experto</h3>
+            <p>Te asignamos un asesor que conoce el destino, la temporada y los atajos que ningún blog cuenta. Cero
+              adivinar, todo calculado.</p>
           </div>
-          <div class="step">
-            <div class="step-num">03</div>
-            <h3>Recibe tu plan en 48h</h3>
-            <p>Ruta, vuelos, hospedaje y actividades — todo entregado en un solo link, en tu teléfono o laptop.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">04</div>
-            <h3>Reserva y despega</h3>
-            <p>Tú decides, reservas en minutos con nuestras recomendaciones y vives tu viaje sin sorpresas.</p>
+        </div>
+
+        <!-- Ventanilla 3: Todo en un link -->
+        <div class="airplane-window window-view-3 reveal">
+          <div class="window-blind"></div>
+          <div class="window-content">
+            <div class="window-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              </svg>
+            </div>
+            <h3>Tu viaje en un link</h3>
+            <p>Itinerario, documentos, reservas y actividades en un solo lugar — disponible en tu teléfono o laptop,
+              incluso sin señal.</p>
           </div>
         </div>
       </div>
@@ -3952,9 +3950,9 @@
         </div>
         <div class="footer-col">
           <h4>Navegación</h4>
-          <a href="#beneficios">Beneficios</a>
-          <a href="#mapa">Viajeros GPS</a>
           <a href="#como-funciona">Cómo funciona</a>
+          <a href="#mapa">Viajeros GPS</a>
+          <a href="#beneficios">Beneficios</a>
           <a href="#contacto">Contacto</a>
         </div>
         <div class="footer-col">
