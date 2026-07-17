@@ -4304,6 +4304,53 @@
     </div>
   </section>
 
+  <!-- ============================================ VIAJES REFERENTES ============================================ -->
+  <section class="section" id="viajes-referentes">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Colección GPS</span>
+        <h2>Top 10 Viajes Referentes</h2>
+        <p>Dentro de los destinos más solicitados, estos son los <strong>10 viajes más recientes</strong> que hemos diseñado para nuestros viajeros GPS. Úsalos como inspiración para explorar opciones de destinos, presupuestos y estilos de viaje.<br><em style="display:block; margin-top:.6rem; color: var(--brand-navy-primary); font-style:italic; font-weight:600; font-size:.95rem; border-left: 3px solid var(--brand-sky); padding-left:.75rem;">Recuerda: tu itinerario será siempre personalizado y el precio variará según fecha, preferencias y disponibilidad.</em></p>
+      </div>
+
+      <div class="ref-controls reveal">
+        <div class="ref-search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" placeholder="Buscar por destino o nombre del viaje…">
+        </div>
+        <div class="ref-chips" id="refChips"></div>
+        <select class="ref-sort-select" id="refSort">
+          <option value="default">Orden: destacados</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="days-asc">Duración: más corto primero</option>
+        </select>
+      </div>
+
+      <div class="ref-count-line reveal" id="refCountLine"></div>
+
+      <div class="ref-split-container reveal">
+        <!-- Left Column: Detailed Trip Info -->
+        <div class="ref-info-column" id="refTicketHost"></div>
+
+        <!-- Right Column: Carousel of Destination Cards -->
+        <div class="ref-carousel-column">
+          <div class="ref-carousel-wrap">
+            <button class="ref-arrow left" id="refArrowLeft" aria-label="Anterior">‹</button>
+            <div class="ref-track" id="refTrack"></div>
+            <button class="ref-arrow right" id="refArrowRight" aria-label="Siguiente">›</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-footnote reveal">* Los precios son de referencia por persona. El valor y disponibilidad final se
+        confirman al personalizar tu viaje con un asesor GPS.</div>
+    </div>
+  </section>
+
   <!-- ============================================ BENEFITS ============================================ -->
   <section class="section" id="beneficios">
     <div class="wrap">
@@ -4367,53 +4414,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============================================ VIAJES REFERENTES ============================================ -->
-  <section class="section" id="viajes-referentes">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Colección GPS</span>
-        <h2>Top 10 Viajes Referentes</h2>
-        <p>Dentro de los destinos más solicitados, estos son los <strong>10 viajes más recientes</strong> que hemos diseñado para nuestros viajeros GPS. Úsalos como inspiración para explorar opciones de destinos, presupuestos y estilos de viaje.<br><em style="display:block; margin-top:.6rem; color: var(--brand-navy-primary); font-style:italic; font-weight:600; font-size:.95rem; border-left: 3px solid var(--brand-sky); padding-left:.75rem;">Recuerda: tu itinerario será siempre personalizado y el precio variará según fecha, preferencias y disponibilidad.</em></p>
-      </div>
-
-      <div class="ref-controls reveal">
-        <div class="ref-search-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <circle cx="11" cy="11" r="7" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-          <input id="refSearch" type="text" placeholder="Buscar por destino o nombre del viaje…">
-        </div>
-        <div class="ref-chips" id="refChips"></div>
-        <select class="ref-sort-select" id="refSort">
-          <option value="default">Orden: destacados</option>
-          <option value="price-asc">Precio: menor a mayor</option>
-          <option value="price-desc">Precio: mayor a menor</option>
-          <option value="days-asc">Duración: más corto primero</option>
-        </select>
-      </div>
-
-      <div class="ref-count-line reveal" id="refCountLine"></div>
-
-      <div class="ref-split-container reveal">
-        <!-- Left Column: Detailed Trip Info -->
-        <div class="ref-info-column" id="refTicketHost"></div>
-
-        <!-- Right Column: Carousel of Destination Cards -->
-        <div class="ref-carousel-column">
-          <div class="ref-carousel-wrap">
-            <button class="ref-arrow left" id="refArrowLeft" aria-label="Anterior">‹</button>
-            <div class="ref-track" id="refTrack"></div>
-            <button class="ref-arrow right" id="refArrowRight" aria-label="Siguiente">›</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="ref-footnote reveal">* Los precios son de referencia por persona. El valor y disponibilidad final se
-        confirman al personalizar tu viaje con un asesor GPS.</div>
     </div>
   </section>
 
@@ -4855,7 +4855,7 @@
       { id: "004", continente: "Asia", nombre: "Descubre Japón Completo", destino: "Japón", precio: 3419, dias: 11, temporada: "Alta", estilo: "Cultura & Modernidad", origen: "Bogotá (BOG)", ciudades: ["Tokio", "Kioto", "Hakone", "Osaka"], alojamiento: "Hoteles 3★ y 4★", conexiones: "Trenes Shinkansen Tokio ↔ Kyoto ↔ Hakone ↔ Osaka", experiencias: "Entrada al Parque Disneyland Japón", anticipacion: "6 - 8 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Tokio y Osaka ➔ Bogotá", foto: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80" },
       { id: "005", continente: "América", nombre: "Florida Mágica", destino: "Estados Unidos", precio: 2031, dias: 8, temporada: "Alta", estilo: "Familiar", origen: "Bogotá (BOG)", ciudades: ["Miami", "Orlando"], alojamiento: "Hoteles 4★ (Miami Beach & Orlando)", conexiones: "Auto de alquiler (Camioneta SUV)", experiencias: "Entrada de 1 día a Disney's Magic Kingdom y entrada a Universal", anticipacion: "4 - 5 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Miami ➔ Bogotá", foto: "https://images.unsplash.com/photo-1506422748879-887454f9dbf4?auto=format&fit=crop&w=600&q=80" },
       { id: "006", continente: "América", nombre: "Aventura Imperial Perú", destino: "Perú", precio: 1408, dias: 10, temporada: "Media", estilo: "Aventura / Cultura", origen: "Bogotá (BOG)", ciudades: ["Lima", "Cusco", "Aguas Calientes"], alojamiento: "Hoteles 3★ y 4★", conexiones: "Tren PeruRail y traslados turísticos", experiencias: "Laguna Humantay, Montaña 7 Colores y guía en Machu Picchu", anticipacion: "4 - 5 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Lima y Cusco ➔ Bogotá", foto: "https://images.unsplash.com/photo-1587547178001-8c9ebe3e80c6?auto=format&fit=crop&w=600&q=80" },
-      { id: "007", continente: "Europa", nombre: "Joyas de Europa", destino: "Multi-destino (Europa)", precio: 3682, dias: 19, temporada: "Media", estilo: "Pareja / Luna de Miel", origen: "Bogotá (BOG)", ciudades: ["Madrid", "Ámsterdam", "Brujas", "París", "Roma", "Barcelona"], alojamiento: "Hoteles y hostales boutique 3★ y 4★", conexiones: "Tren (Ámsterdam-Brujas), bus (Brujas-París), vuelos internos", experiencias: "Itinerario multiciudad con traslados y vuelos de conexión incluidos", anticipacion: "6 - 8 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Madrid y Roma ➔ Bogotá", foto: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" },
+      { id: "007", continente: "Europa", nombre: "Joyas de Europa", destino: "Multi-destino (Europa)", precio: 3682, dias: 18, temporada: "Media", estilo: "Pareja / Luna de Miel", origen: "Bogotá (BOG)", ciudades: ["Madrid", "Ámsterdam", "Bruselas", "Brujas", "París", "Roma", "Barcelona"], alojamiento: "Hoteles y hostales boutique 3★ y 4★", conexiones: "Tren (Ámsterdam-Brujas), bus (Brujas-París), vuelos internos", experiencias: "Itinerario multiciudad con traslados y vuelos de conexión incluidos", anticipacion: "6 - 8 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Madrid y Roma ➔ Bogotá", foto: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" },
       { id: "008", continente: "América", nombre: "México Lindo y Playa", destino: "México", precio: 1023, dias: 7, temporada: "Media", estilo: "Familiar / Pareja", origen: "Bogotá (BOG)", ciudades: ["Ciudad de México", "Cancún"], alojamiento: "Hoteles 4★ (CDMX & Cancún)", conexiones: "Vuelo interno (CDMX a Cancún)", experiencias: "Excursión de día completo con guía a Chichén Itzá", anticipacion: "4 - 5 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Ciudad de México y Cancún ➔ Bogotá", foto: "https://images.unsplash.com/photo-1518638150341-db700a4305c4?auto=format&fit=crop&w=600&q=80" },
 
       { id: "010", continente: "Asia", nombre: "Contrastes de Asia", destino: "Corea del Sur & Japón", precio: 4020, dias: 16, temporada: "Media", estilo: "Pareja / Aventura", origen: "Bogotá (BOG)", ciudades: ["Seúl", "Osaka", "Kioto", "Tokio"], alojamiento: "Hoteles 4★ (Seúl, Osaka, Kioto, Tokio)", conexiones: "Trenes Shinkansen (Osaka-Kioto-Tokio) y vuelo Seúl-Osaka", experiencias: "Itinerario multiciudad asiática: templos y distritos tecnológicos", anticipacion: "6 - 8 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Seúl y Tokio ➔ Bogotá", foto: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" },
