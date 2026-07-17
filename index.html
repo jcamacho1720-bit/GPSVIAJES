@@ -5278,6 +5278,29 @@
           <p style="font-size: 0.85rem; line-height: 1.4; color: #a3b8c9; max-width: 280px;">${text}</p>
         </div>
       `;
+
+      if (isMobile) {
+        const emptyEl = refTicketHost.querySelector('.ref-info-empty');
+        if (emptyEl) {
+          let touchStartX = 0;
+          let touchEndX = 0;
+          emptyEl.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+          }, { passive: true });
+          emptyEl.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (Math.abs(touchStartX - touchEndX) > 30) {
+              if (refCurrentList && refCurrentList.length > 0) {
+                refInteracted = true;
+                refUserScrolling = false;
+                const firstId = refCurrentList[0].id;
+                setActiveRefCard(firstId);
+                centerRefCard(firstId, true);
+              }
+            }
+          }, { passive: true });
+        }
+      }
     }
     // Placeholder when no travel selected
     renderRefPlaceholder();
