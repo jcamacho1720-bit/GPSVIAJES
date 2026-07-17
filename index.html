@@ -1542,7 +1542,7 @@
 
     .map-stats {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-top: 60px;
       background: rgba(255, 255, 255, 0.7);
@@ -1595,7 +1595,7 @@
 
     @media (max-width: 768px) {
       .map-stats {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 32px 16px;
         padding: 32px 24px;
       }
@@ -1890,7 +1890,7 @@
       }
 
       .map-stats {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       }
 
       .footer-grid {
@@ -2094,7 +2094,7 @@
       }
 
       .map-stats {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 24px 16px;
       }
 
@@ -4314,7 +4314,6 @@
       <div class="map-stats">
         <div class="map-stat reveal"><b data-count="80" data-prefix="+">0</b><span>Países recorridos</span></div>
         <div class="map-stat reveal"><b data-count="500" data-prefix="+">0</b><span>Viajes planeados</span></div>
-        <div class="map-stat reveal"><b data-count="48" data-suffix="h">0</b><span>Tiempo de entrega</span></div>
         <div class="map-stat reveal"><b data-count="4" data-prefix="+" data-suffix="K">0</b><span>Viajeros
             felices</span></div>
       </div>
