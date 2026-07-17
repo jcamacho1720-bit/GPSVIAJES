@@ -2448,11 +2448,11 @@
     #viajes-referentes .section-head {
       margin-bottom: 2.5rem;
     }
-    
+
     #viajes-referentes .section-head h2 {
       color: var(--brand-navy-dark);
     }
-    
+
     #viajes-referentes .section-head p {
       color: var(--brand-navy-primary);
       opacity: 0.85;
@@ -2469,11 +2469,13 @@
       padding-bottom: 1.6rem;
       border-bottom: 1px solid var(--line);
     }
+
     .ref-search-box {
       position: relative;
       flex: 1 1 220px;
       min-width: 200px;
     }
+
     .ref-search-box input {
       width: 100%;
       background: #ffffff;
@@ -2486,8 +2488,15 @@
       outline: none;
       transition: border-color .2s;
     }
-    .ref-search-box input:focus { border-color: var(--brand-navy-primary); }
-    .ref-search-box input::placeholder { color: #8ea3b5; }
+
+    .ref-search-box input:focus {
+      border-color: var(--brand-navy-primary);
+    }
+
+    .ref-search-box input::placeholder {
+      color: #8ea3b5;
+    }
+
     .ref-search-box svg {
       position: absolute;
       left: .9rem;
@@ -2503,6 +2512,7 @@
       gap: .5rem;
       flex-wrap: wrap;
     }
+
     .ref-chip {
       font-family: var(--font-mono);
       font-size: .74rem;
@@ -2516,7 +2526,12 @@
       transition: all .18s;
       white-space: nowrap;
     }
-    .ref-chip:hover { border-color: var(--brand-navy-primary); color: var(--brand-navy-dark); }
+
+    .ref-chip:hover {
+      border-color: var(--brand-navy-primary);
+      color: var(--brand-navy-dark);
+    }
+
     .ref-chip.active {
       background: var(--brand-navy-primary);
       border-color: var(--brand-navy-primary);
@@ -2551,6 +2566,7 @@
       align-items: center;
       margin-bottom: 2rem;
     }
+
     @media (max-width: 960px) {
       .ref-split-container {
         grid-template-columns: 1fr;
@@ -2568,49 +2584,47 @@
       color: #ffffff;
       padding: 0;
     }
+
     .ref-info-header {
-      padding: 1.4rem 1.6rem 1.2rem;
+      padding: 2.2rem 2rem 1.8rem;
       position: relative;
       background-size: cover;
       background-position: center;
       color: #ffffff;
     }
+
     .ref-info-eyebrow {
       font-family: var(--font-mono);
-      font-size: .63rem;
+      font-size: .72rem;
       letter-spacing: .12em;
       color: var(--blue);
       text-transform: uppercase;
       display: block;
-      margin-bottom: .3rem;
+      margin-bottom: .4rem;
       z-index: 2;
       position: relative;
     }
+
     .ref-info-title {
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: 1.55rem;
+      font-size: 2.1rem;
       line-height: 1.1;
-      margin: 0 0 .2rem;
+      margin: 0 0 .3rem;
       color: #ffffff;
       z-index: 2;
       position: relative;
     }
+
     .ref-info-subtitle {
-      font-size: .88rem;
+      font-size: 1.05rem;
       color: #cbd5e0;
-      margin-bottom: .3rem;
+      margin-bottom: 1.4rem;
       font-weight: 500;
       z-index: 2;
       position: relative;
     }
-    .ref-info-origin {
-      font-size: .78rem;
-      color: #8ea3b5;
-      font-weight: 400;
-      z-index: 2;
-      position: relative;
-    }
+
     .ref-info-desc {
       font-size: .82rem;
       line-height: 1.6;
@@ -2619,59 +2633,77 @@
       z-index: 2;
       position: relative;
     }
+
     .ref-info-desc strong {
       color: #ffffff;
       font-weight: 600;
     }
 
     .ref-info-body {
-      padding: 1.2rem 1.4rem;
+      padding: 2rem;
       background: var(--panel);
     }
 
     .ref-info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: .7rem 1rem;
-      padding: .8rem 0;
+      gap: 1.1rem 1.4rem;
+      padding: 1.3rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.8rem;
     }
+
     @media (max-width: 480px) {
-      .ref-info-grid { grid-template-columns: 1fr; }
+      .ref-info-grid {
+        grid-template-columns: 1fr;
+      }
     }
+
     .ref-info-item {
       display: flex;
       flex-direction: column;
-      gap: .15rem;
+      gap: .2rem;
     }
+
     .ref-info-item.full-width {
       grid-column: span 2;
     }
+
     @media (max-width: 480px) {
       .ref-info-item.full-width {
         grid-column: span 1;
       }
     }
+
     .ref-info-item .lbl {
       font-family: var(--font-mono);
-      font-size: .58rem;
+      font-size: .65rem;
       letter-spacing: .06em;
       color: #8ea3b5;
       text-transform: uppercase;
     }
+
     .ref-info-item .val {
-      font-size: .78rem;
+      font-size: .84rem;
       color: #ffffff;
       font-weight: 500;
     }
+
     .ref-info-item .val.price {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: var(--blue);
       font-weight: 800;
     }
-    .ref-flights-si { color: #7FD69B !important; font-weight: 700; }
-    .ref-flights-parcial { color: var(--blue) !important; font-weight: 700; }
+
+    .ref-flights-si {
+      color: #7FD69B !important;
+      font-weight: 700;
+    }
+
+    .ref-flights-parcial {
+      color: var(--blue) !important;
+      font-weight: 700;
+    }
 
     .ref-cities-title {
       font-family: var(--font-mono);
@@ -2681,12 +2713,14 @@
       text-transform: uppercase;
       margin-bottom: .5rem;
     }
+
     .ref-cities-chips {
       display: flex;
       flex-wrap: wrap;
       gap: .4rem;
       margin-bottom: 1.8rem;
     }
+
     .ref-cities-chips span {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -2702,6 +2736,7 @@
       gap: 1rem;
       flex-wrap: wrap;
     }
+
     .ref-cta-btn {
       font-family: var(--font-display);
       font-weight: 700;
@@ -2714,13 +2749,23 @@
       cursor: pointer;
       transition: transform .15s, box-shadow .15s, background .15s;
     }
+
     .ref-cta-btn:hover {
       transform: translateY(-1px);
       background: #3faad9;
       box-shadow: 0 6px 16px -4px rgba(97, 185, 209, 0.4);
     }
-    .ref-cta-confirm { font-size: .8rem; color: #7FD69B; opacity: 0; transition: opacity .2s; }
-    .ref-cta-confirm.show { opacity: 1; }
+
+    .ref-cta-confirm {
+      font-size: .8rem;
+      color: #7FD69B;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .ref-cta-confirm.show {
+      opacity: 1;
+    }
 
     /* ---------- CAROUSEL COLUMN (RIGHT) ---------- */
     .ref-carousel-column {
@@ -2728,10 +2773,12 @@
       width: 100%;
       overflow: hidden;
     }
+
     .ref-carousel-wrap {
       position: relative;
       width: 100%;
     }
+
     .ref-track {
       display: flex;
       gap: 1.6rem;
@@ -2740,7 +2787,10 @@
       padding: 1.5rem 0.5rem;
       scrollbar-width: none;
     }
-    .ref-track::-webkit-scrollbar { display: none; }
+
+    .ref-track::-webkit-scrollbar {
+      display: none;
+    }
 
     .ref-card {
       scroll-snap-align: start;
@@ -2756,7 +2806,11 @@
       transition: box-shadow .25s, transform .3s ease, opacity .3s ease, border-color .3s;
       outline: none;
     }
-    .ref-card:focus-visible { box-shadow: 0 0 0 2.5px var(--blue); }
+
+    .ref-card:focus-visible {
+      box-shadow: 0 0 0 2.5px var(--blue);
+    }
+
     .ref-card.is-active {
       box-shadow: 0 12px 34px -8px rgba(0, 78, 115, 0.35);
       transform: scale(1);
@@ -2769,6 +2823,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .ref-card-img {
       position: absolute;
       inset: 0;
@@ -2777,9 +2832,11 @@
       transition: transform .5s ease;
       z-index: 1;
     }
+
     .ref-card:hover .ref-card-img {
       transform: scale(1.06);
     }
+
     .ref-badge {
       position: absolute;
       top: .7rem;
@@ -2798,6 +2855,7 @@
       padding: 1.2rem 1.15rem;
       background: var(--panel);
     }
+
     .ref-card-eyebrow {
       font-family: var(--font-mono);
       font-size: .66rem;
@@ -2807,6 +2865,7 @@
       display: block;
       margin-bottom: .35rem;
     }
+
     .ref-card-title {
       font-family: var(--font-display);
       font-weight: 700;
@@ -2815,11 +2874,13 @@
       margin: 0 0 .8rem;
       color: var(--white);
     }
+
     .ref-card-tags {
       display: flex;
       gap: .5rem;
       flex-wrap: wrap;
     }
+
     .ref-tag {
       font-family: var(--font-mono);
       font-size: .72rem;
@@ -2827,8 +2888,16 @@
       padding: .32rem .6rem;
       border-radius: 7px;
     }
-    .ref-tag.price { background: var(--brand-sky); color: #fff; }
-    .ref-tag.days { background: var(--brand-navy-primary); color: #fff; }
+
+    .ref-tag.price {
+      background: var(--brand-sky);
+      color: #fff;
+    }
+
+    .ref-tag.days {
+      background: var(--brand-navy-primary);
+      color: #fff;
+    }
 
     /* Arrows on top of cards */
     .ref-arrow {
@@ -2849,10 +2918,26 @@
       font-size: 1.25rem;
       transition: border-color .2s, background .2s, color .2s;
     }
-    .ref-arrow:hover { border-color: var(--brand-navy-primary); background: #f4f6f8; color: var(--brand-navy-primary); }
-    .ref-arrow.left { left: 6px; }
-    .ref-arrow.right { right: 6px; }
-    @media (max-width: 640px) { .ref-arrow { display: none; } }
+
+    .ref-arrow:hover {
+      border-color: var(--brand-navy-primary);
+      background: #f4f6f8;
+      color: var(--brand-navy-primary);
+    }
+
+    .ref-arrow.left {
+      left: 6px;
+    }
+
+    .ref-arrow.right {
+      right: 6px;
+    }
+
+    @media (max-width: 640px) {
+      .ref-arrow {
+        display: none;
+      }
+    }
 
     .ref-footnote {
       margin-top: 1.8rem;
@@ -4291,12 +4376,15 @@
       <div class="section-head reveal">
         <span class="eyebrow">Colección GPS</span>
         <h2>Top 10 Viajes Referentes</h2>
-        <p>Estos son los <strong>10 viajes más recientes</strong> que hemos diseñado y ejecutado para nuestros viajeros GPS — seleccionados por ser los destinos más solicitados. Úsalos como referencia para explorar opciones de destinos, presupuestos y estilos de viaje. Recuerda que cuando lo planees con nosotros, el itinerario se construye completamente a tu medida y el precio puede variar según tu fecha, preferencias y disponibilidad.</p>
+        <p>Dentro de los destinos más solicitados, estos son los <strong>10 viajes más recientes</strong> que hemos diseñado para nuestros viajeros GPS. Úsalos como inspiración para explorar opciones de destinos, presupuestos y estilos de viaje.<br><em style="display:block; margin-top:.6rem; color: var(--brand-navy-primary); font-style:italic; font-weight:600; font-size:.95rem; border-left: 3px solid var(--brand-sky); padding-left:.75rem;">Recuerda: tu itinerario será siempre personalizado y el precio variará según fecha, preferencias y disponibilidad.</em></p>
       </div>
 
       <div class="ref-controls reveal">
         <div class="ref-search-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
           <input id="refSearch" type="text" placeholder="Buscar por destino o nombre del viaje…">
         </div>
         <div class="ref-chips" id="refChips"></div>
@@ -4313,7 +4401,7 @@
       <div class="ref-split-container reveal">
         <!-- Left Column: Detailed Trip Info -->
         <div class="ref-info-column" id="refTicketHost"></div>
-        
+
         <!-- Right Column: Carousel of Destination Cards -->
         <div class="ref-carousel-column">
           <div class="ref-carousel-wrap">
@@ -4324,7 +4412,8 @@
         </div>
       </div>
 
-      <div class="ref-footnote reveal">* Los precios son de referencia por persona. El valor y disponibilidad final se confirman al personalizar tu viaje con un asesor GPS.</div>
+      <div class="ref-footnote reveal">* Los precios son de referencia por persona. El valor y disponibilidad final se
+        confirman al personalizar tu viaje con un asesor GPS.</div>
     </div>
   </section>
 
@@ -4341,7 +4430,8 @@
             style="font-family: var(--font-display); letter-spacing: 0.1em; color: var(--brand-sky);">Check-in
             en tu aventura</span>
           <h2 style="color: var(--white);">¿Qué esperas para viajar sin ataduras?</h2>
-          <p style="color: rgba(255, 255, 255, 0.75);">Cuéntanos a dónde quieres ir y tu estilo de viaje. Nuestro equipo de consultores expertos diseñará el
+          <p style="color: rgba(255, 255, 255, 0.75);">Cuéntanos a dónde quieres ir y tu estilo de viaje. Nuestro equipo
+            de consultores expertos diseñará el
             itinerario ideal a la medida de tu presupuesto.</p>
           <div class="contact-cta-stats">
             <div class="contact-cta-stat">
@@ -4759,19 +4849,19 @@
     // VIAJES REFERENTES SECTION LOGIC
     // ============================================
     const refTrips = [
-      {id:"001",continente:"América",nombre:"Cruce Andino Especial",destino:"Chile & Argentina",precio:2178,dias:12,temporada:"Media",estilo:"Paisaje & Naturaleza",origen:"Bogotá (BOG)",ciudades:["Santiago","Puerto Varas","Bariloche","Buenos Aires"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Catamarán Puerto Varas a Bariloche",experiencias:"Navegación por lagos andinos y paisajes patagónicos",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Santiago y Buenos Aires ➔ Bogotá",foto:"https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=600&q=80"},
-      {id:"002",continente:"América",nombre:"Río de Janeiro & Búzios",destino:"Brasil",precio:1025,dias:7,temporada:"Media",estilo:"Playa & Ciudad",origen:"Bogotá (BOG)",ciudades:["Río de Janeiro","Búzios"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Traslado terrestre Río de Janeiro a Búzios",experiencias:"Estadía y descanso en las playas de Búzios",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Río de Janeiro ➔ Bogotá",foto:"https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=600&q=80"},
+      { id: "001", continente: "América", nombre: "Cruce Andino Especial", destino: "Chile & Argentina", precio: 2178, dias: 12, temporada: "Media", estilo: "Paisaje & Naturaleza", origen: "Bogotá (BOG)", ciudades: ["Santiago", "Puerto Varas", "Bariloche", "Buenos Aires"], alojamiento: "Hoteles 3★ y 4★", conexiones: "Catamarán Puerto Varas a Bariloche", experiencias: "Navegación por lagos andinos y paisajes patagónicos", anticipacion: "4 - 5 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Santiago y Buenos Aires ➔ Bogotá", foto: "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=600&q=80" },
+      { id: "002", continente: "América", nombre: "Río de Janeiro & Búzios", destino: "Brasil", precio: 1025, dias: 7, temporada: "Media", estilo: "Playa & Ciudad", origen: "Bogotá (BOG)", ciudades: ["Río de Janeiro", "Búzios"], alojamiento: "Hoteles 3★ y 4★", conexiones: "Traslado terrestre Río de Janeiro a Búzios", experiencias: "Estadía y descanso en las playas de Búzios", anticipacion: "4 - 5 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Río de Janeiro ➔ Bogotá", foto: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=600&q=80" },
 
-      {id:"004",continente:"Asia",nombre:"Descubre Japón Completo",destino:"Japón",precio:3419,dias:11,temporada:"Alta",estilo:"Cultura & Modernidad",origen:"Bogotá (BOG)",ciudades:["Tokio","Kioto","Hakone","Osaka"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Trenes Shinkansen Tokio ↔ Kyoto ↔ Hakone ↔ Osaka",experiencias:"Entrada al Parque Disneyland Japón",anticipacion:"6 - 8 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Tokio y Osaka ➔ Bogotá",foto:"https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80"},
-      {id:"005",continente:"América",nombre:"Florida Mágica",destino:"Estados Unidos",precio:2031,dias:8,temporada:"Alta",estilo:"Familiar",origen:"Bogotá (BOG)",ciudades:["Miami","Orlando"],alojamiento:"Hoteles 4★ (Miami Beach & Orlando)",conexiones:"Auto de alquiler (Camioneta SUV)",experiencias:"Entrada de 1 día a Disney's Magic Kingdom y entrada a Universal",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Miami ➔ Bogotá",foto:"https://images.unsplash.com/photo-1506422748879-887454f9dbf4?auto=format&fit=crop&w=600&q=80"},
-      {id:"006",continente:"América",nombre:"Aventura Imperial Perú",destino:"Perú",precio:1408,dias:10,temporada:"Media",estilo:"Aventura / Cultura",origen:"Bogotá (BOG)",ciudades:["Lima","Cusco","Aguas Calientes"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Tren PeruRail y traslados turísticos",experiencias:"Laguna Humantay, Montaña 7 Colores y guía en Machu Picchu",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Lima y Cusco ➔ Bogotá",foto:"https://images.unsplash.com/photo-1587547178001-8c9ebe3e80c6?auto=format&fit=crop&w=600&q=80"},
-      {id:"007",continente:"Europa",nombre:"Joyas de Europa",destino:"Multi-destino (Europa)",precio:3682,dias:19,temporada:"Media",estilo:"Pareja / Luna de Miel",origen:"Bogotá (BOG)",ciudades:["Madrid","Ámsterdam","Brujas","París","Roma","Barcelona"],alojamiento:"Hoteles y hostales boutique 3★ y 4★",conexiones:"Tren (Ámsterdam-Brujas), bus (Brujas-París), vuelos internos",experiencias:"Itinerario multiciudad con traslados y vuelos de conexión incluidos",anticipacion:"6 - 8 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Madrid y Roma ➔ Bogotá",foto:"https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80"},
-      {id:"008",continente:"América",nombre:"México Lindo y Playa",destino:"México",precio:1023,dias:7,temporada:"Media",estilo:"Familiar / Pareja",origen:"Bogotá (BOG)",ciudades:["Ciudad de México","Cancún"],alojamiento:"Hoteles 4★ (CDMX & Cancún)",conexiones:"Vuelo interno (CDMX a Cancún)",experiencias:"Excursión de día completo con guía a Chichén Itzá",anticipacion:"4 - 5 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Ciudad de México y Cancún ➔ Bogotá",foto:"https://images.unsplash.com/photo-1518638150341-db700a4305c4?auto=format&fit=crop&w=600&q=80"},
+      { id: "004", continente: "Asia", nombre: "Descubre Japón Completo", destino: "Japón", precio: 3419, dias: 11, temporada: "Alta", estilo: "Cultura & Modernidad", origen: "Bogotá (BOG)", ciudades: ["Tokio", "Kioto", "Hakone", "Osaka"], alojamiento: "Hoteles 3★ y 4★", conexiones: "Trenes Shinkansen Tokio ↔ Kyoto ↔ Hakone ↔ Osaka", experiencias: "Entrada al Parque Disneyland Japón", anticipacion: "6 - 8 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Tokio y Osaka ➔ Bogotá", foto: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80" },
+      { id: "005", continente: "América", nombre: "Florida Mágica", destino: "Estados Unidos", precio: 2031, dias: 8, temporada: "Alta", estilo: "Familiar", origen: "Bogotá (BOG)", ciudades: ["Miami", "Orlando"], alojamiento: "Hoteles 4★ (Miami Beach & Orlando)", conexiones: "Auto de alquiler (Camioneta SUV)", experiencias: "Entrada de 1 día a Disney's Magic Kingdom y entrada a Universal", anticipacion: "4 - 5 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Miami ➔ Bogotá", foto: "https://images.unsplash.com/photo-1506422748879-887454f9dbf4?auto=format&fit=crop&w=600&q=80" },
+      { id: "006", continente: "América", nombre: "Aventura Imperial Perú", destino: "Perú", precio: 1408, dias: 10, temporada: "Media", estilo: "Aventura / Cultura", origen: "Bogotá (BOG)", ciudades: ["Lima", "Cusco", "Aguas Calientes"], alojamiento: "Hoteles 3★ y 4★", conexiones: "Tren PeruRail y traslados turísticos", experiencias: "Laguna Humantay, Montaña 7 Colores y guía en Machu Picchu", anticipacion: "4 - 5 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Lima y Cusco ➔ Bogotá", foto: "https://images.unsplash.com/photo-1587547178001-8c9ebe3e80c6?auto=format&fit=crop&w=600&q=80" },
+      { id: "007", continente: "Europa", nombre: "Joyas de Europa", destino: "Multi-destino (Europa)", precio: 3682, dias: 19, temporada: "Media", estilo: "Pareja / Luna de Miel", origen: "Bogotá (BOG)", ciudades: ["Madrid", "Ámsterdam", "Brujas", "París", "Roma", "Barcelona"], alojamiento: "Hoteles y hostales boutique 3★ y 4★", conexiones: "Tren (Ámsterdam-Brujas), bus (Brujas-París), vuelos internos", experiencias: "Itinerario multiciudad con traslados y vuelos de conexión incluidos", anticipacion: "6 - 8 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Madrid y Roma ➔ Bogotá", foto: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" },
+      { id: "008", continente: "América", nombre: "México Lindo y Playa", destino: "México", precio: 1023, dias: 7, temporada: "Media", estilo: "Familiar / Pareja", origen: "Bogotá (BOG)", ciudades: ["Ciudad de México", "Cancún"], alojamiento: "Hoteles 4★ (CDMX & Cancún)", conexiones: "Vuelo interno (CDMX a Cancún)", experiencias: "Excursión de día completo con guía a Chichén Itzá", anticipacion: "4 - 5 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Ciudad de México y Cancún ➔ Bogotá", foto: "https://images.unsplash.com/photo-1518638150341-db700a4305c4?auto=format&fit=crop&w=600&q=80" },
 
-      {id:"010",continente:"Asia",nombre:"Contrastes de Asia",destino:"Corea del Sur & Japón",precio:4020,dias:16,temporada:"Media",estilo:"Pareja / Aventura",origen:"Bogotá (BOG)",ciudades:["Seúl","Osaka","Kioto","Tokio"],alojamiento:"Hoteles 4★ (Seúl, Osaka, Kioto, Tokio)",conexiones:"Trenes Shinkansen (Osaka-Kioto-Tokio) y vuelo Seúl-Osaka",experiencias:"Itinerario multiciudad asiática: templos y distritos tecnológicos",anticipacion:"6 - 8 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Seúl y Tokio ➔ Bogotá",foto:"https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80"},
+      { id: "010", continente: "Asia", nombre: "Contrastes de Asia", destino: "Corea del Sur & Japón", precio: 4020, dias: 16, temporada: "Media", estilo: "Pareja / Aventura", origen: "Bogotá (BOG)", ciudades: ["Seúl", "Osaka", "Kioto", "Tokio"], alojamiento: "Hoteles 4★ (Seúl, Osaka, Kioto, Tokio)", conexiones: "Trenes Shinkansen (Osaka-Kioto-Tokio) y vuelo Seúl-Osaka", experiencias: "Itinerario multiciudad asiática: templos y distritos tecnológicos", anticipacion: "6 - 8 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Seúl y Tokio ➔ Bogotá", foto: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" },
 
-      {id:"015",continente:"Multi-Continente",nombre:"Turquía & Capitales Europeas",destino:"Multi-destino (Europa/Asia)",precio:3200,dias:18,temporada:"Media",estilo:"Cultura & Aventura",origen:"Bogotá (BOG)",ciudades:["Madrid","París","Estambul","Capadocia","Barcelona"],alojamiento:"Hoteles 3★ y 4★",conexiones:"Vuelo doméstico en Turquía, vuelos regionales en Europa",experiencias:"Vuelo en Globo Aerostático en Capadocia y visitas culturales",anticipacion:"6 - 8 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ París y Estambul ➔ Bogotá",foto:"https://images.unsplash.com/photo-1527838832700-50592524df7e?auto=format&fit=crop&w=600&q=80"},
-      {id:"016",continente:"Europa",nombre:"Caza de Auroras Boreales",destino:"Escandinavia & Europa",precio:3089,dias:14,temporada:"Alta",estilo:"Aventura & Nieve",origen:"Bogotá (BOG)",ciudades:["Madrid","Oslo","Tromsø","Bergen","Ámsterdam","París"],alojamiento:"Hoteles cómodos y céntricos",conexiones:"Tren (Ámsterdam a París), bus, vuelos internos",experiencias:"Tour guiado de Auroras Boreales en Tromsø y entrada a Disneyland París",anticipacion:"6 - 8 meses",vuelos:"Sí",rutaVuelo:"Bogotá ➔ Oslo y Tromsø ➔ Bogotá",foto:"https://images.unsplash.com/photo-1483168527879-c66136b56105?auto=format&fit=crop&w=600&q=80"},
+      { id: "015", continente: "Multi-Continente", nombre: "Turquía & Capitales Europeas", destino: "Multi-destino (Europa/Asia)", precio: 3200, dias: 18, temporada: "Media", estilo: "Cultura & Aventura", origen: "Bogotá (BOG)", ciudades: ["Madrid", "París", "Estambul", "Capadocia", "Barcelona"], alojamiento: "Hoteles 3★ y 4★", conexiones: "Vuelo doméstico en Turquía, vuelos regionales en Europa", experiencias: "Vuelo en Globo Aerostático en Capadocia y visitas culturales", anticipacion: "6 - 8 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ París y Estambul ➔ Bogotá", foto: "https://images.unsplash.com/photo-1527838832700-50592524df7e?auto=format&fit=crop&w=600&q=80" },
+      { id: "016", continente: "Europa", nombre: "Caza de Auroras Boreales", destino: "Escandinavia & Europa", precio: 3089, dias: 14, temporada: "Alta", estilo: "Aventura & Nieve", origen: "Bogotá (BOG)", ciudades: ["Madrid", "Oslo", "Tromsø", "Bergen", "Ámsterdam", "París"], alojamiento: "Hoteles cómodos y céntricos", conexiones: "Tren (Ámsterdam a París), bus, vuelos internos", experiencias: "Tour guiado de Auroras Boreales en Tromsø y entrada a Disneyland París", anticipacion: "6 - 8 meses", vuelos: "Sí", rutaVuelo: "Bogotá ➔ Oslo y Tromsø ➔ Bogotá", foto: "https://images.unsplash.com/photo-1483168527879-c66136b56105?auto=format&fit=crop&w=600&q=80" },
 
     ];
 
@@ -4784,23 +4874,23 @@
 
     /* ---------- Helpers ---------- */
     function refFmtPrice(n) { return "$ " + n.toLocaleString("de-DE") + " USD"; }
-    function refNormalize(s) { return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
+    function refNormalize(s) { return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
 
     /* ---------- State ---------- */
-    let refState = { search:"", continent:"Todos", sort:"default", activeId: refTrips[0].id };
+    let refState = { search: "", continent: "Todos", sort: "default", activeId: refTrips[0].id };
 
-    const refContinents = ["Todos", ...Array.from(new Set(refTrips.map(t=>t.continente)))];
+    const refContinents = ["Todos", ...Array.from(new Set(refTrips.map(t => t.continente)))];
 
     function getRefFiltered() {
       let list = refTrips.filter(t => {
-        const matchesContinent = refState.continent==="Todos" || t.continente===refState.continent;
+        const matchesContinent = refState.continent === "Todos" || t.continente === refState.continent;
         const q = refNormalize(refState.search);
         const matchesSearch = !q || refNormalize(t.nombre).includes(q) || refNormalize(t.destino).includes(q) || refNormalize(t.estilo).includes(q);
         return matchesContinent && matchesSearch;
       });
-      if(refState.sort==="price-asc") list.sort((a,b)=>a.precio-b.precio);
-      if(refState.sort==="price-desc") list.sort((a,b)=>b.precio-a.precio);
-      if(refState.sort==="days-asc") list.sort((a,b)=>a.dias-b.dias);
+      if (refState.sort === "price-asc") list.sort((a, b) => a.precio - b.precio);
+      if (refState.sort === "price-desc") list.sort((a, b) => b.precio - a.precio);
+      if (refState.sort === "days-asc") list.sort((a, b) => a.dias - b.dias);
       return list;
     }
     /* ---------- Render chips ---------- */
@@ -4808,14 +4898,14 @@
     function renderRefChips() {
       if (!refChipsEl) return;
       refChipsEl.innerHTML = refContinents.map(c => {
-        const count = c==="Todos" ? refTrips.length : refTrips.filter(t=>t.continente===c).length;
-        return `<button class="ref-chip ${refState.continent===c?'active':''}" data-c="${c}">${c} (${count})</button>`;
+        const count = c === "Todos" ? refTrips.length : refTrips.filter(t => t.continente === c).length;
+        return `<button class="ref-chip ${refState.continent === c ? 'active' : ''}" data-c="${c}">${c} (${count})</button>`;
       }).join("");
       refChipsEl.querySelectorAll(".ref-chip").forEach(btn => {
-        btn.addEventListener("click", () => { 
+        btn.addEventListener("click", () => {
           refInteracted = true;
-          refState.continent = btn.dataset.c; 
-          renderRefAll(true); 
+          refState.continent = btn.dataset.c;
+          renderRefAll(true);
         });
       });
     }
@@ -4826,8 +4916,8 @@
 
     function renderRefTrack(list) {
       if (!refCountLine || !refTrack) return;
-      refCountLine.textContent = list.length + (list.length===1 ? " viaje referente encontrado" : " viajes referentes encontrados");
-      if(list.length===0) {
+      refCountLine.textContent = list.length + (list.length === 1 ? " viaje referente encontrado" : " viajes referentes encontrados");
+      if (list.length === 0) {
         refTrack.innerHTML = "";
         return;
       }
@@ -4855,7 +4945,7 @@
           centerRefCard(card.dataset.id, true);
         });
         card.addEventListener("keydown", (e) => {
-          if(e.key==="Enter" || e.key===" ") {
+          if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
             refInteracted = true;
             centerRefCard(card.dataset.id, true);
@@ -4866,8 +4956,8 @@
 
     /* ---------- Ticket panel ---------- */
     const refTicketHost = document.getElementById("refTicketHost");
-// Placeholder when no travel selected
-refTicketHost.innerHTML = `
+    // Placeholder when no travel selected
+    refTicketHost.innerHTML = `
   <div class="ref-info-empty" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: 480px; padding: 2rem; text-align: center; color: rgba(255,255,255,0.4); font-family: var(--font-display);">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 56px; height: 56px; margin-bottom: 1.2rem; stroke: var(--blue); opacity: 0.85; animation: bounceRef 2s infinite;">
       <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286.728ZM3 12a9 9 0 1 1 18 0 9 9 0 0 1-18 0Z"/>
@@ -4880,7 +4970,7 @@ refTicketHost.innerHTML = `
 
     function renderRefTicket(t) {
       if (!refTicketHost) return;
-      if(!t) {
+      if (!t) {
         refTicketHost.innerHTML = `<div class="ref-empty-state">No encontramos viajes referentes con esos filtros. Prueba con otro destino o quita el filtro de continente.</div>`;
         return;
       }
@@ -4901,16 +4991,15 @@ refTicketHost.innerHTML = `
         return;
       }
 
-      const vuelosClass = t.vuelos==="Sí" ? "ref-flights-si" : "ref-flights-parcial";
+      const vuelosClass = t.vuelos === "Sí" ? "ref-flights-si" : "ref-flights-parcial";
 
       refTicketHost.innerHTML = `
         <div class="ref-info-card">
           <!-- Top Header Part: Photo Background -->
           <div class="ref-info-header" style="background-image: linear-gradient(180deg, rgba(8, 21, 33, 0.7) 0%, rgba(13, 34, 51, 0.92) 100%), url('${t.foto}');">
-            <span class="ref-info-eyebrow">COLECCIÓN GPS · REF-${t.id}</span>
+            <span class="ref-info-eyebrow">✈ Viaje desde Bogotá, Colombia</span>
             <h2 class="ref-info-title">${t.nombre}</h2>
             <div class="ref-info-subtitle">${t.destino}</div>
-            <div class="ref-info-origin">✈ Viaje desde Bogotá, Colombia</div>
           </div>
           
           <!-- Bottom Body Part: Navy Background -->
@@ -4921,16 +5010,24 @@ refTicketHost.innerHTML = `
                 <span class="val price font-display">${refFmtPrice(t.precio)}</span>
               </div>
               <div class="ref-info-item">
+                <span class="lbl">Temporada del viaje:</span>
+                <span class="val">${t.temporada}</span>
+              </div>
+              <div class="ref-info-item">
                 <span class="lbl">Anticipación de planeación:</span>
                 <span class="val">${t.anticipacion}</span>
               </div>
               <div class="ref-info-item">
-                <span class="lbl">Duración:</span>
-                <span class="val">${t.dias} días</span>
-              </div>
-              <div class="ref-info-item">
                 <span class="lbl">Vuelos incluidos:</span>
                 <span class="val ${vuelosClass}">${t.vuelos}</span>
+              </div>
+              <div class="ref-info-item">
+                <span class="lbl">Origen de referencia:</span>
+                <span class="val">${t.origen}</span>
+              </div>
+              <div class="ref-info-item">
+                <span class="lbl">Duración:</span>
+                <span class="val">${t.dias} días</span>
               </div>
               <div class="ref-info-item full-width">
                 <span class="lbl">Alojamiento sugerido:</span>
@@ -4948,7 +5045,7 @@ refTicketHost.innerHTML = `
 
             <div class="ref-cities-title">Ciudades en ruta sugerida:</div>
             <div class="ref-cities-chips">
-              ${t.ciudades.map(c=>`<span>${c}</span>`).join("")}
+              ${t.ciudades.map(c => `<span>${c}</span>`).join("")}
             </div>
 
             <div class="ref-cta-row">
@@ -4992,9 +5089,9 @@ refTicketHost.innerHTML = `
     let initialScrollDone = false;
 
     function updateRefActiveFromScroll() {
-      if(refCurrentList.length===0) return;
+      if (refCurrentList.length === 0) return;
       const trackRect = refTrack.getBoundingClientRect();
-      
+
       const targetX = trackRect.left + 32;
       let closest = null, closestDist = Infinity;
       const cards = refTrack.querySelectorAll(".ref-card");
@@ -5006,23 +5103,23 @@ refTicketHost.innerHTML = `
         cards.forEach(card => {
           const r = card.getBoundingClientRect();
           const dist = Math.abs(r.left - targetX);
-          if(dist < closestDist) { closestDist = dist; closest = card; }
+          if (dist < closestDist) { closestDist = dist; closest = card; }
         });
       }
 
       cards.forEach(c => c.classList.remove("is-active"));
 
-      if(closest) {
+      if (closest) {
         closest.classList.add("is-active");
         const id = closest.dataset.id;
-        
+
         // Initial auto-render removed: column remains empty until user interacts with carousel.
 
 
         // Render ticket only after user has interacted with carousel.
         if (refInteracted) {
           refState.activeId = id;
-          const t = refCurrentList.find(x=>x.id===id);
+          const t = refCurrentList.find(x => x.id === id);
           renderRefTicket(t);
         }
       }
@@ -5035,7 +5132,7 @@ refTicketHost.innerHTML = `
       });
 
       refTrack.addEventListener("scroll", () => {
-        if(!refTicking) {
+        if (!refTicking) {
           window.requestAnimationFrame(() => { updateRefActiveFromScroll(); refTicking = false; });
           refTicking = true;
         }
@@ -5046,7 +5143,7 @@ refTicketHost.innerHTML = `
     function centerRefCard(id, smooth) {
       if (!refTrack) return;
       const card = refTrack.querySelector(`.ref-card[data-id="${id}"]`);
-      if(!card) return;
+      if (!card) return;
       const target = card.offsetLeft - 8;
       refTrack.scrollTo({ left: target, behavior: smooth ? "smooth" : "auto" });
     }
@@ -5059,9 +5156,9 @@ refTicketHost.innerHTML = `
     if (refArrowRight) refArrowRight.addEventListener("click", () => stepRefCard(1));
 
     function stepRefCard(dir) {
-      if(refCurrentList.length===0) return;
+      if (refCurrentList.length === 0) return;
       refInteracted = true;
-      const idx = refCurrentList.findIndex(t=>t.id===refState.activeId);
+      const idx = refCurrentList.findIndex(t => t.id === refState.activeId);
       const newIdx = (idx + dir + refCurrentList.length) % refCurrentList.length;
       centerRefCard(refCurrentList[newIdx].id, true);
     }
@@ -5091,10 +5188,10 @@ refTicketHost.innerHTML = `
       refCurrentList = getRefFiltered();
       renderRefTrack(refCurrentList);
 
-      if(refCurrentList.length===0) { renderRefTicket(null); return; }
+      if (refCurrentList.length === 0) { renderRefTicket(null); return; }
 
-      const stillExists = refCurrentList.some(t=>t.id===refState.activeId);
-      if(!stillExists) refState.activeId = refCurrentList[0].id;
+      const stillExists = refCurrentList.some(t => t.id === refState.activeId);
+      if (!stillExists) refState.activeId = refCurrentList[0].id;
 
       requestAnimationFrame(() => {
         centerRefCard(refState.activeId, !resetPosition ? true : false);
@@ -5103,8 +5200,8 @@ refTicketHost.innerHTML = `
     }
 
     // Initialize carousel on resize and load
-    window.addEventListener("resize", () => { if(refTrack) updateRefActiveFromScroll(); });
-    
+    window.addEventListener("resize", () => { if (refTrack) updateRefActiveFromScroll(); });
+
     // Trigger initial render of Ref All
     setTimeout(() => {
       renderRefAll(false);
