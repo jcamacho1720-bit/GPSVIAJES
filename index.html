@@ -3244,6 +3244,12 @@
         left: 4px !important;
       }
     }
+    .hide-mobile { display: inline-flex; }
+    .hide-desktop { display: none; }
+    @media (max-width: 768px) {
+      .hide-mobile { display: none !important; }
+      .hide-desktop { display: inline-flex !important; }
+    }
   </style>
 </head>
 
@@ -3291,8 +3297,9 @@
         <p class="hero-bottom-caption">Diseñamos tu ruta de viaje ideal con vuelos a la medida, hospedajes selectos y
           experiencias únicas, todo listo en menos de 48 horas.</p>
         <div class="slide-ctas">
-          <a href="#contacto" class="btn btn-white-solid">Hablemos de tu viaje</a>
-          <a href="#viajes-referentes" class="btn btn-ghost-light">Nuestros viajes</a>
+          <a href="#mapa" class="btn btn-white-solid">Conócenos</a>
+          <a href="#contacto" class="btn btn-ghost-light hide-mobile">Planea tu viaje</a>
+          <a href="https://buy.stripe.com/dR62b18z062f9mUeUX" target="_blank" rel="noopener" class="btn btn-ghost-light hide-desktop">Planea tu viaje</a>
         </div>
       </div>
     </div>
