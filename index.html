@@ -2330,6 +2330,11 @@
       background: var(--white);
     }
 
+    .contact-bp-field input::placeholder {
+      color: #8ea3b5;
+      opacity: 1;
+    }
+
     .contact-bp-submit {
       margin-top: 20px;
       background: var(--brand-navy-primary);
@@ -2371,13 +2376,16 @@
       border-left: 2px dashed rgba(255, 255, 255, 0.25);
     }
 
-    .contact-bp-code {
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      letter-spacing: 0.16em;
-      color: rgba(255, 255, 255, 0.6);
+    .contact-bp-logo {
+      width: 44px;
+      height: auto;
+      opacity: 0.5;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-bp-logo:hover {
+      opacity: 0.85;
     }
 
     .contact-bp-plane {
@@ -2474,9 +2482,8 @@
         border-top: 2px dashed rgba(255, 255, 255, 0.25);
       }
 
-      .contact-bp-code {
-        writing-mode: horizontal-tb;
-        transform: none;
+      .contact-bp-logo {
+        width: 32px;
       }
     }
 
@@ -4831,18 +4838,18 @@
                   <input id="bpViajeros" type="number" min="1" placeholder="2" value="2">
                 </div>
                 <div class="contact-bp-field">
-                  <label for="bpPresupuesto">Presupuesto</label>
+                  <label for="bpPresupuesto">Presupuesto por viajero</label>
                   <select id="bpPresupuesto">
-                    <option>$ (Económico)</option>
-                    <option selected>$$ (Moderado)</option>
-                    <option>$$$ (Premium)</option>
+                    <option>Menos de $1.500 USD</option>
+                    <option selected>Entre $1.500 a $3.000 USD</option>
+                    <option>Más de $3.000 USD</option>
                   </select>
                 </div>
               </div>
               <button type="submit" class="btn btn-navy btn-block contact-bp-submit">SOLICITAR MI PLAN →</button>
             </div>
             <div class="contact-bp-stub">
-              <span class="contact-bp-code">GPS VIAJES</span>
+              <img src="images/logo-gris-sin-nombre.png" alt="GPS" class="contact-bp-logo">
               <svg class="contact-bp-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                 <path d="M12 2L2 22l10-6 10 6L12 2z" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
