@@ -2569,7 +2569,7 @@
       padding: 0;
     }
     .ref-info-header {
-      padding: 2.2rem 2rem 1.8rem;
+      padding: 1.4rem 1.6rem 1.2rem;
       position: relative;
       background-size: cover;
       background-position: center;
@@ -2577,30 +2577,37 @@
     }
     .ref-info-eyebrow {
       font-family: var(--font-mono);
-      font-size: .72rem;
+      font-size: .63rem;
       letter-spacing: .12em;
       color: var(--blue);
       text-transform: uppercase;
       display: block;
-      margin-bottom: .4rem;
+      margin-bottom: .3rem;
       z-index: 2;
       position: relative;
     }
     .ref-info-title {
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: 2.1rem;
+      font-size: 1.55rem;
       line-height: 1.1;
-      margin: 0 0 .3rem;
+      margin: 0 0 .2rem;
       color: #ffffff;
       z-index: 2;
       position: relative;
     }
     .ref-info-subtitle {
-      font-size: 1.05rem;
+      font-size: .88rem;
       color: #cbd5e0;
-      margin-bottom: 1.4rem;
+      margin-bottom: .3rem;
       font-weight: 500;
+      z-index: 2;
+      position: relative;
+    }
+    .ref-info-origin {
+      font-size: .78rem;
+      color: #8ea3b5;
+      font-weight: 400;
       z-index: 2;
       position: relative;
     }
@@ -2618,17 +2625,17 @@
     }
 
     .ref-info-body {
-      padding: 2rem;
+      padding: 1.2rem 1.4rem;
       background: var(--panel);
     }
 
     .ref-info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.1rem 1.4rem;
-      padding: 1.3rem 0;
+      gap: .7rem 1rem;
+      padding: .8rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.2rem;
     }
     @media (max-width: 480px) {
       .ref-info-grid { grid-template-columns: 1fr; }
@@ -2636,7 +2643,7 @@
     .ref-info-item {
       display: flex;
       flex-direction: column;
-      gap: .2rem;
+      gap: .15rem;
     }
     .ref-info-item.full-width {
       grid-column: span 2;
@@ -2648,18 +2655,18 @@
     }
     .ref-info-item .lbl {
       font-family: var(--font-mono);
-      font-size: .65rem;
+      font-size: .58rem;
       letter-spacing: .06em;
       color: #8ea3b5;
       text-transform: uppercase;
     }
     .ref-info-item .val {
-      font-size: .84rem;
+      font-size: .78rem;
       color: #ffffff;
       font-weight: 500;
     }
     .ref-info-item .val.price {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: var(--blue);
       font-weight: 800;
     }
@@ -4903,6 +4910,7 @@ refTicketHost.innerHTML = `
             <span class="ref-info-eyebrow">COLECCIÓN GPS · REF-${t.id}</span>
             <h2 class="ref-info-title">${t.nombre}</h2>
             <div class="ref-info-subtitle">${t.destino}</div>
+            <div class="ref-info-origin">✈ Viaje desde Bogotá, Colombia</div>
           </div>
           
           <!-- Bottom Body Part: Navy Background -->
@@ -4913,24 +4921,16 @@ refTicketHost.innerHTML = `
                 <span class="val price font-display">${refFmtPrice(t.precio)}</span>
               </div>
               <div class="ref-info-item">
-                <span class="lbl">Temporada del viaje:</span>
-                <span class="val">${t.temporada}</span>
-              </div>
-              <div class="ref-info-item">
                 <span class="lbl">Anticipación de planeación:</span>
                 <span class="val">${t.anticipacion}</span>
               </div>
               <div class="ref-info-item">
-                <span class="lbl">Vuelos incluidos:</span>
-                <span class="val ${vuelosClass}">${t.vuelos}</span>
-              </div>
-              <div class="ref-info-item">
-                <span class="lbl">Origen de referencia:</span>
-                <span class="val">${t.origen}</span>
-              </div>
-              <div class="ref-info-item">
                 <span class="lbl">Duración:</span>
                 <span class="val">${t.dias} días</span>
+              </div>
+              <div class="ref-info-item">
+                <span class="lbl">Vuelos incluidos:</span>
+                <span class="val ${vuelosClass}">${t.vuelos}</span>
               </div>
               <div class="ref-info-item full-width">
                 <span class="lbl">Alojamiento sugerido:</span>
