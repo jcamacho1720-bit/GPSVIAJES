@@ -2830,7 +2830,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(8, 21, 33, 0.95) 0%, rgba(8, 21, 33, 0.55) 50%, rgba(8, 21, 33, 0.15) 100%);
+      background: linear-gradient(to top, rgba(8, 21, 33, 0.95) 0%, rgba(8, 21, 33, 0.8) 35%, rgba(8, 21, 33, 0) 50%);
       z-index: 2;
     }
 
@@ -4955,11 +4955,11 @@
           <div class="ref-scene">
             <div class="ref-card-img" style="background-image: url('${t.foto}');"></div>
             <div class="ref-badge">REF. GPS-${t.id}</div>
+            <div class="ref-card-season-badge">${t.temporadaMeses}</div>
           </div>
-          <div class="ref-card-body" style="background: ${refContGradientVar[t.continente] || 'var(--panel)'};">
+          <div class="ref-card-body">
             <div class="ref-card-eyebrow">${t.continente} · ${t.estilo}</div>
             <h3 class="ref-card-title">${t.nombre}</h3>
-            <div class="ref-card-destino">${t.destino}</div>
             <div class="ref-card-tags">
               <span class="ref-tag price">${refFmtPrice(t.precio)}</span>
               <span class="ref-tag days">${t.dias} días</span>
@@ -5058,10 +5058,12 @@
                 <span class="lbl">Conexiones internas / Traslados:</span>
                 <span class="val">${t.conexiones}</span>
               </div>
+              ${t.experiencias ? `
               <div class="ref-info-item full-width">
                 <span class="lbl">Experiencias incluidas:</span>
                 <span class="val">${t.experiencias}</span>
               </div>
+              ` : ''}
             </div>
 
             <div class="ref-cities-title">Ciudades visitadas en el viaje:</div>
