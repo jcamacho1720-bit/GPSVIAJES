@@ -4969,6 +4969,17 @@
     if (boardingPass && contactSuccess) {
       boardingPass.addEventListener('submit', (e) => {
         e.preventDefault();
+        
+        const destino = document.getElementById('bpDestino').value;
+        const fechas = document.getElementById('bpFechas').value || 'No especificadas';
+        const viajeros = document.getElementById('bpViajeros').value || '2';
+        const presupuesto = document.getElementById('bpPresupuesto').value;
+
+        const baseMessage = `¡Hola GPS! ✈️\n\nQuiero solicitar la planeación de mi próximo viaje:\n\n📍 *Destino:* ${destino}\n📅 *Fechas:* ${fechas}\n👥 *Viajeros:* ${viajeros}\n💰 *Presupuesto por viajero:* ${presupuesto}\n\n¡Quedo atento a su respuesta!`;
+        const whatsappUrl = `https://wa.me/34623054045?text=${encodeURIComponent(baseMessage)}`;
+        
+        window.open(whatsappUrl, '_blank');
+
         boardingPass.style.display = 'none';
         contactSuccess.style.display = 'flex';
       });
