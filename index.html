@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -2619,7 +2619,7 @@
     .ref-info-subtitle {
       font-size: 1.05rem;
       color: #cbd5e0;
-      margin-bottom: 1.4rem;
+      margin-bottom: 0;
       font-weight: 500;
       z-index: 2;
       position: relative;
@@ -2650,7 +2650,7 @@
       gap: 1.1rem 1.4rem;
       padding: 1.3rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 1.8rem;
+      margin-bottom: 0.8rem;
     }
 
     @media (max-width: 480px) {
@@ -5008,10 +5008,6 @@
                 <span class="val price font-display">${refFmtPrice(t.precio)}</span>
               </div>
               <div class="ref-info-item">
-                <span class="lbl">Temporada del viaje:</span>
-                <span class="val">${t.temporada}</span>
-              </div>
-              <div class="ref-info-item">
                 <span class="lbl">Anticipación de planeación:</span>
                 <span class="val">${t.anticipacion}</span>
               </div>
@@ -5020,15 +5016,11 @@
                 <span class="val ${vuelosClass}">${t.vuelos}</span>
               </div>
               <div class="ref-info-item">
-                <span class="lbl">Origen de referencia:</span>
-                <span class="val">${t.origen}</span>
-              </div>
-              <div class="ref-info-item">
                 <span class="lbl">Duración:</span>
                 <span class="val">${t.dias} días</span>
               </div>
               <div class="ref-info-item full-width">
-                <span class="lbl">Alojamiento sugerido:</span>
+                <span class="lbl">Tipo de alojamiento:</span>
                 <span class="val">${t.alojamiento}</span>
               </div>
               <div class="ref-info-item full-width">
@@ -5041,32 +5033,25 @@
               </div>
             </div>
 
-            <div class="ref-cities-title">Ciudades en ruta sugerida:</div>
+            <div class="ref-cities-title">Ciudades visitadas en el viaje:</div>
             <div class="ref-cities-chips">
               ${t.ciudades.map(c => `<span>${c}</span>`).join("")}
             </div>
 
             <div class="ref-cta-row">
               <button class="ref-cta-btn" id="ref-cta-personalize">Quiero personalizar esta ruta →</button>
-              <span class="ref-cta-confirm" id="ref-cta-confirm">¡Listo! Te estamos llevando al formulario...</span>
             </div>
           </div>
         </div>
       `;
 
       const ctaBtn = document.getElementById("ref-cta-personalize");
-      const ctaConfirm = document.getElementById("ref-cta-confirm");
       if (ctaBtn) {
         ctaBtn.addEventListener("click", () => {
           const bpDestino = document.getElementById('bpDestino');
           const bpFechas = document.getElementById('bpFechas');
           if (bpDestino) bpDestino.value = `${t.nombre} (${t.destino})`;
           if (bpFechas) bpFechas.value = `${t.temporada} (${t.dias} días)`;
-
-          if (ctaConfirm) {
-            ctaConfirm.classList.add("show");
-            setTimeout(() => { ctaConfirm.classList.remove("show"); }, 3000);
-          }
 
           const contactSec = document.getElementById('contacto');
           if (contactSec) {
