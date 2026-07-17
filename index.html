@@ -545,14 +545,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 48px;
+      width: 37px;
+      height: 54px;
       /* GPS primary blue #0e4e73 gradient background */
       background: linear-gradient(to bottom, #125e8a 0%, #0e4e73 48%, #031c2b 49%, #031c2b 51%, #073652 52%, #094061 100%);
       color: #ffffff;
       /* Letras en blanco */
       font-family: var(--font-mono);
-      font-size: 28px;
+      font-size: 33px;
       font-weight: 700;
       border-radius: 4px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
@@ -724,6 +724,12 @@
       justify-content: center;
       gap: 16px;
       margin-bottom: 24px;
+    }
+
+    @media (max-width: 767px) {
+      .slide-ctas {
+        margin-bottom: 70px;
+      }
     }
 
     /* Scroll mouse indicator */
@@ -1025,8 +1031,10 @@
 
     @media (max-width: 720px) {
       .hero {
-        height: 70vh;
-        padding-top: 60px;
+        height: auto !important;
+        min-height: 80vh !important;
+        padding-top: 80px !important;
+        padding-bottom: 60px !important;
         align-items: center;
         text-align: center;
       }
@@ -1052,6 +1060,15 @@
         width: 100% !important;
         max-width: 280px !important;
         text-align: center !important;
+      }
+
+      .hero-scroll-indicator {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 48px auto 0 !important;
+        display: flex !important;
       }
     }
 
