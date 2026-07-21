@@ -3330,102 +3330,6 @@
         display: inline-flex !important;
       }
     }
-
-    /* ============================================
-       FAQ SECTION (PREGUNTAS FRECUENTES)
-       ============================================ */
-    .faq-section {
-      padding: 100px 0;
-      background-color: var(--white);
-      position: relative;
-    }
-    .faq-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .faq-section-head {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    .faq-section-head h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--brand-navy-dark);
-      margin-top: 10px;
-    }
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .faq-item {
-      background: var(--white);
-      border: 1px solid var(--line-soft);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .faq-item:hover {
-      border-color: var(--brand-sky);
-      box-shadow: 0 4px 20px rgba(0, 78, 115, 0.05);
-    }
-    .faq-item.is-open {
-      border-color: var(--brand-sky);
-      box-shadow: 0 4px 20px rgba(0, 78, 115, 0.08);
-    }
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      text-align: left;
-      padding: 22px 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: var(--font-display);
-      font-size: 14.5px;
-      font-weight: 700;
-      color: var(--brand-navy-dark);
-      cursor: pointer;
-      outline: none;
-      transition: color 0.3s ease;
-    }
-    .faq-item.is-open .faq-question {
-      color: var(--brand-navy-primary);
-    }
-    .faq-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: rgba(97, 185, 209, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--brand-sky);
-      font-size: 16px;
-      transition: all 0.3s ease;
-      flex-shrink: 0;
-    }
-    .faq-item.is-open .faq-icon {
-      background: var(--brand-sky);
-      color: var(--white);
-      transform: rotate(135deg);
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
-      font-family: var(--font-body);
-      font-size: 13px;
-      line-height: 1.6;
-      color: #4a5568;
-      padding: 0 28px;
-    }
-    .faq-item.is-open .faq-answer {
-      padding-bottom: 24px;
-    }
-    .faq-answer p {
-      margin: 0;
-    }
   </style>
 </head>
 
@@ -3442,7 +3346,7 @@
         <a href="#mapa">Viajeros GPS</a>
         <a href="#beneficios">Beneficios</a>
         <a href="#viajes-referentes">Viajes referentes</a>
-        <a href="#faq">Preguntas frecuentes</a>
+        <a href="legal.html#faq">FAQs</a>
         <a href="https://buy.stripe.com/dR62b18z062f9mUeUX" target="_blank" rel="noopener" class="btn btn-coral"
           style="font-family: var(--font-display); font-size: 11px; letter-spacing: 0.05em; padding: 10px 22px; margin-left: 12px;">Planea
           ahora</a>
@@ -4880,100 +4784,6 @@
     </div>
   </section>
 
-  <!-- ============================================ FAQ ============================================ -->
-  <section class="faq-section" id="faq">
-    <div class="wrap">
-      <div class="faq-container">
-        <div class="faq-section-head reveal">
-          <span class="eyebrow">Dudas frecuentes</span>
-          <h2>Preguntas frecuentes</h2>
-        </div>
-
-        <div class="faq-list reveal">
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              ¿Cuál es el valor del Fee de planeación?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>El fee de planeación tiene un costo de $35 USD y cubre la creación de tu plan de viaje personalizado. Su vigencia es de 30 días desde la entrega de tu plan. Si no reservas tu viaje en este período, será necesario un nuevo pago para continuar con la planificación.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              ¿El pago del Fee de planeación es por cada viajero?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>No, el pago del fee inicial se realiza por el total de viajeros que participarán en el viaje. Es un único pago que cubre la planificación completa para todos los integrantes.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              ¿Cómo puedo reservar mi plan de viaje?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>¡Es muy sencillo! Una vez que recibas el plan de viaje diseñado a tu medida y estés de acuerdo con él, debes informar a tu consultor asignado. Él te enviará un enlace de pre-reserva para realizar el pago correspondiente. Recuerda que los precios de los servicios turísticos pueden variar, así que cuanto antes confirmes, más posibilidades tendrás de mantener los valores inicialmente enviados.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              ¿Cuál es la validez de cada plan enviado?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Aunque el fee de planeación tiene una vigencia de 30 días, cada plan diseñado tiene una validez de 24 horas debido a las fluctuaciones en los precios de los proveedores turísticos. Cuando decidas reservar, el equipo actualizará los precios de tu plan y te enviará una versión revisada para que puedas confirmar y realizar tu reserva rápidamente.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              ¿Qué pasa si cambio de destino o condiciones después de haber pagado el Fee de planeación?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Si decides realizar cambios drásticos en el plan, como el destino, el número de viajeros o las condiciones inicialmente pactadas, que impliquen un nuevo proceso de planificación, se generará un cobro adicional de $20 USD. Este cobro se aplicará únicamente si los cambios se solicitan dentro del período de vigencia de 30 días del fee de planeación.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              ¿El Fee de planeación es reembolsable si no reservo el viaje?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>No, el fee inicial no es reembolsable, ya que cubre el tiempo y los recursos utilizados para diseñar tu plan de viaje personalizado. Sin embargo, puedes aprovechar los 30 días de vigencia para tomar una decisión o ajustar tu plan.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              ¿Cómo se realiza el pago de mi viaje y qué flexibilidad tengo?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>El pago de tu viaje se realiza a través de nosotros, actuando como facilitadores de tus reservas. Implementamos un esquema flexible 70/30: abonas un 70% inicial para reservar y bloquear todos tus servicios, y el 30% restante se paga hasta 45 días antes de iniciar el viaje. Todos los pagos se realizan de manera ágil y segura en dólares americanos (USD) mediante enlaces personalizados de Stripe.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              ¿Cómo y cuándo recibo los vouchers oficiales de mis reservas?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Una vez completado el pago de tu reserva, GPS procesa todos los bloqueos correspondientes con los proveedores. En un plazo máximo de 24 horas hábiles, subiremos al mismo link único de tu viaje todos tus vouchers oficiales con sus códigos de reserva para que verifiques y valides la información directamente con las aerolíneas, hoteles y operadores.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============================================ FINAL CTA ============================================ -->
   <!-- ============================================ FINAL CTA / CONTACTO ============================================ -->
   <section class="section" id="contacto"
@@ -5103,7 +4913,7 @@
           <a href="legal.html#terminos">Términos y condiciones</a>
           <a href="legal.html#privacidad">Política de privacidad</a>
           <a href="legal.html#servicios">Política de servicios</a>
-          <a href="#faq">Preguntas frecuentes</a>
+          <a href="legal.html#faq">Preguntas frecuentes (FAQs)</a>
         </div>
         <div class="footer-col">
           <h4>Contacto</h4>
@@ -5952,38 +5762,6 @@
         initialScrollDone = true;
       }, 400);
     }, 100);
-
-    // FAQ Accordion logic
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      const answer = item.querySelector('.faq-answer');
-      
-      question.addEventListener('click', () => {
-        const isOpen = item.classList.contains('is-open');
-        
-        // Close all open items
-        faqItems.forEach(otherItem => {
-          if (otherItem !== item && otherItem.classList.contains('is-open')) {
-            otherItem.classList.remove('is-open');
-            otherItem.querySelector('.faq-answer').style.maxHeight = null;
-            otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-          }
-        });
-        
-        // Toggle current item
-        if (isOpen) {
-          item.classList.remove('is-open');
-          answer.style.maxHeight = null;
-          question.setAttribute('aria-expanded', 'false');
-        } else {
-          item.classList.add('is-open');
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-          question.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
   </script>
 </body>
-
 </html>
