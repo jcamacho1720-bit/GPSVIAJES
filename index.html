@@ -1879,6 +1879,48 @@
       font-weight: 500;
     }
 
+    @media (min-width: 769px) {
+      .footer-col-links {
+        max-height: none !important;
+        display: block !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-col h4 {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0 !important;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .footer-col h4::after {
+        content: "+";
+        font-size: 14px;
+        color: var(--brand-sky);
+        transition: transform 0.3s ease;
+      }
+      .footer-col.is-open h4::after {
+        transform: rotate(45deg);
+      }
+      .footer-col-links {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, padding 0.35s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      .footer-col.is-open .footer-col-links {
+        padding-top: 12px;
+        padding-bottom: 16px;
+      }
+      .footer-col a {
+        margin-bottom: 10px !important;
+      }
+    }
+
     /* ============================================
    RESPONSIVE
    ============================================ */
@@ -4878,7 +4920,7 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <span class="brand-text" style="color:#fff;">GPS<span>Planeación de Viajes</span></span>
+          <img src="images/logo-horizontal-white.png" alt="GPS" style="width: 120px; height: auto; display: block; margin-bottom: 18px;">
           <p>Consultora de viajes que diseña rutas a la medida — más de 80 países recorridos junto a nuestros viajeros.
           </p>
           <div class="footer-social">
@@ -4901,24 +4943,30 @@
         </div>
         <div class="footer-col">
           <h4>Navegación</h4>
-          <a href="#como-funciona">Cómo funciona</a>
-          <a href="#mapa">Viajeros GPS</a>
-          <a href="#beneficios">Beneficios</a>
-          <a href="#viajes-referentes">Viajes referentes</a>
-          <a href="#contacto">Contacto</a>
+          <div class="footer-col-links">
+            <a href="#como-funciona">Cómo funciona</a>
+            <a href="#mapa">Viajeros GPS</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#viajes-referentes">Viajes referentes</a>
+            <a href="#contacto">Contacto</a>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
-          <a href="legal.html#terminos">Términos y condiciones</a>
-          <a href="legal.html#privacidad">Política de privacidad</a>
-          <a href="legal.html#servicios">Política de servicios</a>
-          <a href="legal.html#faq">Preguntas frecuentes (FAQs)</a>
+          <div class="footer-col-links">
+            <a href="legal.html#terminos">Términos y condiciones</a>
+            <a href="legal.html#privacidad">Política de privacidad</a>
+            <a href="legal.html#servicios">Política de servicios</a>
+            <a href="legal.html#faq">Preguntas frecuentes (FAQs)</a>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Contacto</h4>
-          <a href="mailto:hola@viajesgps.com">hola@viajesgps.com</a>
-          <a href="#">WhatsApp directo</a>
-          <a href="#">Habla con nosotros</a>
+          <div class="footer-col-links">
+            <a href="mailto:hola@viajesgps.com">hola@viajesgps.com</a>
+            <a href="#">WhatsApp directo</a>
+            <a href="#">Habla con nosotros</a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -5761,6 +5809,36 @@
         initialScrollDone = true;
       }, 400);
     }, 100);
+
+    // Footer collapsible columns on mobile
+    const footerHeaders = document.querySelectorAll('.footer-col h4');
+    footerHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          const col = header.parentElement;
+          const links = col.querySelector('.footer-col-links');
+          if (!links) return;
+          const isOpen = col.classList.contains('is-open');
+          
+          // Close all other columns
+          document.querySelectorAll('.footer-col').forEach(otherCol => {
+            if (otherCol !== col && otherCol.classList.contains('is-open')) {
+              otherCol.classList.remove('is-open');
+              const otherLinks = otherCol.querySelector('.footer-col-links');
+              if (otherLinks) otherLinks.style.maxHeight = null;
+            }
+          });
+          
+          if (isOpen) {
+            col.classList.remove('is-open');
+            links.style.maxHeight = null;
+          } else {
+            col.classList.add('is-open');
+            links.style.maxHeight = links.scrollHeight + 'px';
+          }
+        }
+      });
+    });
   </script>
 </body>
 </html>
