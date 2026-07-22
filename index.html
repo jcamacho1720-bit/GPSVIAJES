@@ -2347,7 +2347,7 @@
 
     .contact-bp-fields {
       display: grid;
-      grid-template-columns: 0.5fr 1.5fr;
+      grid-template-columns: 0.4fr 1.6fr;
       gap: 14px 16px;
     }
 
@@ -2434,12 +2434,9 @@
 
     .contact-bp-logo {
       width: 60px;
-      height: 60px;
+      height: auto;
       object-fit: contain;
-      border-radius: 50%;
-      border: 1.5px solid rgba(255, 255, 255, 0.15);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 8px;
+      padding: 0;
       opacity: 0.75;
       display: block;
       transition: all 0.3s ease;
@@ -2447,8 +2444,6 @@
 
     .contact-bp-logo:hover {
       opacity: 1;
-      border-color: var(--brand-sky);
-      background: rgba(255, 255, 255, 0.1);
       transform: scale(1.05);
     }
 
@@ -2548,6 +2543,10 @@
 
       .contact-bp-logo {
         width: 32px;
+      }
+
+      .contact-bp-fields {
+        grid-template-columns: 0.5fr 1.5fr;
       }
     }
 
